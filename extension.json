@@ -1,0 +1,23 @@
+{
+	"name": "QuickSurveys",
+	"version": "0.0.1",
+	"author": [
+		"Bahodir Mansurov",
+		"Joaquin Hernandez",
+		"Jon Robson",
+		"Rob Moen"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:QuickSurveys",
+	"descriptionmsg": "quicksurveys-desc",
+	"license-name": "MIT",
+	"type": "other",
+	"MessagesDirs": {
+		"QuickSurveys": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"QuickSurveysHooks": "QuickSurveys.hooks.php"
+	},
+	"manifest_version": 1
+}

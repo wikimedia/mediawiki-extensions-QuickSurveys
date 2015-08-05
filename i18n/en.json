@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bahodir Mansurov",
+			"Joaquin Hernandez",
+			"Jon Robson",
+			"Rob Moen"
+		]
+	},
+	"quicksurveys-desc": "Displays configured surveys on Mobile and Desktop."
+}
