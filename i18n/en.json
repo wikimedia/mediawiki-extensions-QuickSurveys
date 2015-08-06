@@ -7,5 +7,9 @@
 			"Rob Moen"
 		]
 	},
-	"quicksurveys-desc": "Displays configured surveys on Mobile and Desktop."
+	"quicksurveys-desc": "Displays configured surveys on Mobile and Desktop.",
+	"ext-quicksurveys-example-internal-survey-question": "Should the text be bigger?",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Yes",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Not sure",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "No"
 }

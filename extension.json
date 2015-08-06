@@ -16,8 +16,47 @@
 			"i18n"
 		]
 	},
-	"AutoloadClasses": {
-		"QuickSurveysHooks": "QuickSurveys.hooks.php"
+	"ConfigRegistry": {
+		"quicksurveys": "GlobalVarConfig::newInstance"
 	},
-	"manifest_version": 1
+	"AutoloadClasses": {
+		"QuickSurveys\\Hooks": "includes/QuickSurveys.hooks.php"
+	},
+	"manifest_version": 1,
+	"Hooks": {
+		"ResourceLoaderGetConfigVars": [
+			"QuickSurveys\\Hooks::onResourceLoaderGetConfigVars"
+		]
+	},
+	"config": {
+		"@QuickSurveysConfig": [
+			{
+				"@name": "survey name",
+				"name": "internal example survey",
+				"@type": "internal or external link survey",
+				"type": "internal",
+				"@question": "survey question message key",
+				"question": "ext-quicksurveys-example-internal-survey-question",
+				"@description": "The message key of the description of the survey. Displayed immediately below the survey question.",
+				"description": "",
+				"@answers": "possible answer message keys for positive, neutral, and negative",
+				"answers": {
+					"positive": "ext-quicksurveys-example-internal-survey-answer-positive",
+					"neutral": "ext-quicksurveys-example-internal-survey-answer-neutral",
+					"negative": "ext-quicksurveys-example-internal-survey-answer-negative"
+				},
+				"@schema": "Which schema to log to",
+				"schema": "QuickSurveysResponse",
+				"@enabled": "whether the survey is enabled",
+				"enabled": false,
+				"@coverage": "percentage of users that will see the survey",
+				"coverage": "50",
+				"@platform": "for each platform (desktop, mobile), which version of it is targeted (stable, beta, alpha)",
+				"platform": {
+					"desktop": ["stable"],
+					"mobile": ["stable", "beta", "alpha"]
+				}
+			}
+		]
+	}
 }
