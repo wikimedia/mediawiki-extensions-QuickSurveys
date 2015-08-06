@@ -19,6 +19,56 @@
 	"ConfigRegistry": {
 		"quicksurveys": "GlobalVarConfig::newInstance"
 	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "QuickSurveys"
+	},
+	"ResourceModules": {
+		"ext.quicksurveys.views": {
+			"dependencies": [
+				"oojs-ui",
+				"mediawiki.user"
+			],
+			"targets": [
+				"mobile",
+				"desktop"
+			],
+			"templates": {
+				"finalPanel.mustache": "resources/ext.quicksurveys.views/finalPanel.mustache",
+				"initialPanel.mustache": "resources/ext.quicksurveys.views/initialPanel.mustache"
+			},
+			"messages": [
+				"ext-quicksurveys-survey-privacy-policy-default-text",
+				"ext-quicksurveys-survey-confirm-msg",
+				"ext-quicksurveys-survey-positive",
+				"ext-quicksurveys-survey-negative",
+				"ext-quicksurveys-survey-neutral"
+			],
+			"styles": [
+				"resources/ext.quicksurveys.views/styles.less"
+			],
+			"scripts": [
+				"resources/ext.quicksurveys.views/QuickSurvey.js"
+			]
+		},
+		"ext.quicksurveys.init": {
+			"position": "top",
+			"dependencies": [
+				"mediawiki.user",
+				"mediawiki.storage"
+			],
+			"targets": [
+				"mobile",
+				"desktop"
+			],
+			"styles": [
+				"resources/ext.quicksurveys.init/styles.less"
+			],
+			"scripts": [
+				"resources/ext.quicksurveys.init/init.js"
+			]
+		}
+	},
 	"AutoloadClasses": {
 		"QuickSurveys\\Hooks": "includes/QuickSurveys.hooks.php"
 	},
@@ -26,6 +76,9 @@
 	"Hooks": {
 		"ResourceLoaderGetConfigVars": [
 			"QuickSurveys\\Hooks::onResourceLoaderGetConfigVars"
+		],
+		"BeforePageDisplay": [
+			"QuickSurveys\\Hooks::onBeforePageDisplay"
 		]
 	},
 	"config": {

@@ -1,0 +1,24 @@
+@import "mediawiki.ui/variables";
+@import "mediawiki.ui/mixins";
+@import "mediawiki.mixins";
+
+.panel .survey-footer {
+  font-size: .8em;
+  margin-top: .5em;
+}
+
+.panel {
+	background-color: @colorGrayLightest;
+
+	.image {
+		max-width: 500px;
+		background-repeat: no-repeat;
+		.background-size( auto, 5em );
+		background-position: center 80%;
+		&.completed {
+			height: 6em;
+			// FIXME: No png
+			.background-image-svg( 'heart.svg', 'heart.svg' );
+		}
+	}
+}
