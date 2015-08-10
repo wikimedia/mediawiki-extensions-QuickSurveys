@@ -6,17 +6,21 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 
 	grunt.initConfig( {
+		files: {
+			js: 'resources/**/*.js',
+			jsTests: 'tests/qunit/**/*.js'
+		},
 		jshint: {
 			options: {
 				jshintrc: true
 			},
 			all: [
-				'*.js',
-				'modules/**/*.js'
+				'<%= files.js %>',
+				'<%= files.jsTests %>'
 			]
 		},
 		jscs: {
-			src: '<%= jshint.all %>'
+			src: '<%= files.js %>'
 		},
 		banana: {
 			all: 'i18n/'
