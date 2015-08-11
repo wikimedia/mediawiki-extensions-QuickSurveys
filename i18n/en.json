@@ -11,5 +11,7 @@
 	"ext-quicksurveys-example-internal-survey-question": "Should the text be bigger?",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Yes",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Not sure",
-	"ext-quicksurveys-example-internal-survey-answer-negative": "No"
+	"ext-quicksurveys-example-internal-survey-answer-negative": "No",
+	"ext-quicksurveys-example-external-survey-description": "This is the description of the example external survey.",
+	"ext-quicksurveys-example-external-survey-privacy-policy-text": "Privacy Policy"
 }

@@ -56,6 +56,28 @@
 					"desktop": ["stable"],
 					"mobile": ["stable", "beta", "alpha"]
 				}
+			},
+			{
+				"name": "external example survey",
+				"@type": "internal or external link survey",
+				"type": "external",
+				"@description": "description of the survey",
+				"description": "ext-quicksurveys-example-external-survey-description",
+				"@link": "external link to the survey",
+				"link": "//example.org/survey",
+				"@privacy-policy-link": "link to the privacy policy",
+				"privacy-policy-link": "//example.org/privacy-policy",
+				"@privacy-policy-text": "text of the privacy policy",
+				"privacy-policy-text": "ext-quicksurveys-example-external-survey-privacy-policy-text",
+				"@enabled": "whether the survey is enabled",
+				"enabled": false,
+				"@coverage": "percentage of users that will see the survey",
+				"coverage": "50",
+				"@platform": "for each platform (desktop, mobile), which version of it is targeted (stable, beta, alpha)",
+				"platform": {
+					"desktop": ["stable"],
+					"mobile": ["stable", "beta", "alpha"]
+				}
 			}
 		]
 	}
