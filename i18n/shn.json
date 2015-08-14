@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saosukham"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-question": "တူဝ်လိၵ်ႈပေႃႉၼၼ်ႉ ၸွင်ႇလူဝ်ႇယႂ်ႇထႅင်ႈ?",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "ၸႂ်ႈယဝ်ႉ",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "ဢမ်ႇလပ်ႉလွင်း",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "ဢမ်ႇ",
+	"ext-quicksurveys-example-external-survey-privacy-policy-text": "လၵ်းၼမ်း လွင်ႈႁူမ်ႇလူမ်ႈ"
+}

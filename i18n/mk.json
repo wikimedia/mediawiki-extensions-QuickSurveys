@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"quicksurveys-desc": "Прикажува поставени анкети за мобилна и обична верзија.",
+	"ext-quicksurveys-example-internal-survey-question": "Дали текстот треба да биде поголем?",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Да",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Не знам",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Не",
+	"ext-quicksurveys-example-external-survey-description": "Ова е опис на примерот за надворешна анкета.",
+	"ext-quicksurveys-example-external-survey-privacy-policy-text": "Заштита на личните податоци"
+}

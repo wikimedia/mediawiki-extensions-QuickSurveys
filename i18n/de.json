@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Metalhead64"
+		]
+	},
+	"quicksurveys-desc": "Ermöglicht die Anzeige konfigurierter Umfragen auf mobilen und Desktopgeräten.",
+	"ext-quicksurveys-example-internal-survey-question": "Sollte der Text größer sein?",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Ja",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Nicht sicher",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Nein",
+	"ext-quicksurveys-example-external-survey-description": "Dies ist die Beschreibung der externen Beispielumfrage.",
+	"ext-quicksurveys-example-external-survey-privacy-policy-text": "Datenschutzrichtlinie"
+}

@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dars"
+		]
+	},
+	"quicksurveys-desc": "Відображає налаштовані опитування на мобільних пристоях та стаціонарних комп'ютерах.",
+	"ext-quicksurveys-example-internal-survey-question": "Чи має текст бути більшим шрифтом?",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Так",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Не впевнений",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Ні",
+	"ext-quicksurveys-example-external-survey-description": "Це опис прикладу за зовнішнім оглядом.",
+	"ext-quicksurveys-example-external-survey-privacy-policy-text": "Політика конфіденційності"
+}

@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Aftabuzzaman"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-question": "লেখা কি আরও বড় হওয়া উচিত?",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "হ্যাঁ",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "নিশ্চিত না",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "না",
+	"ext-quicksurveys-example-external-survey-description": "এটি উদাহরণ বাহ্যিক সমীক্ষার বিবরণ।",
+	"ext-quicksurveys-example-external-survey-privacy-policy-text": "গোপনীয়তার নীতি"
+}

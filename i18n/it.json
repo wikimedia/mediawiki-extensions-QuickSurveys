@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Statix64"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-question": "Il testo dovrebbe essere più grande?",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Sì",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Non sono sicuro",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "No",
+	"ext-quicksurveys-example-external-survey-description": "Questa è la descrizione del sondaggio esterno d'esempio.",
+	"ext-quicksurveys-example-external-survey-privacy-policy-text": "Politica sulla privacy"
+}
