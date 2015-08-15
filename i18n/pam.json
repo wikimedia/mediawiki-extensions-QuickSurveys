@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Leeheonjin"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-question": "Dagulan ya pa wari ing tekstu?",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Wa",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Ali"
+}

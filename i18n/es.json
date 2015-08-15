@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Macofe"
+		]
+	},
+	"quicksurveys-desc": "Muestra encuestas configuradas en dispositivos móviles y de escritorio.",
+	"ext-quicksurveys-example-internal-survey-question": "¿Debería ser más grande el texto?",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Sí",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "No lo sé",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "No",
+	"ext-quicksurveys-example-external-survey-description": "Esta es la descripción de un ejemplo de encuesta externa.",
+	"ext-quicksurveys-example-external-survey-privacy-policy-text": "Política de privacidad"
+}

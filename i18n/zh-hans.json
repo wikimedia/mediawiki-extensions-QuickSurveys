@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Liuxinyu970226"
+		]
+	},
+	"quicksurveys-desc": "显示在移动端和桌面端配置的调查。",
+	"ext-quicksurveys-example-internal-survey-question": "文字是否应更大一些？",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "是",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "不确定",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "否",
+	"ext-quicksurveys-example-external-survey-description": "这是示例外部调查的描述。",
+	"ext-quicksurveys-example-external-survey-privacy-policy-text": "隐私政策"
+}

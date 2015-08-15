@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Minisarm"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-question": "Ar trebui ca textul să fie mai mare?",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Da",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Nu sunt sigur",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Nu",
+	"ext-quicksurveys-example-external-survey-privacy-policy-text": "Politica de confidențialitate"
+}

@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"WikiPhoenix"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-question": "Bör texten vara större?",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Ja",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Osäker",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Nej",
+	"ext-quicksurveys-example-external-survey-privacy-policy-text": "Integritetspolicy"
+}

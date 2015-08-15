@@ -4,14 +4,15 @@
 			"Bahodir Mansurov",
 			"Joaquin Hernandez",
 			"Jon Robson",
-			"Rob Moen"
+			"Rob Moen",
+			"Liuxinyu970226"
 		]
 	},
 	"quicksurveys-desc": "{{desc|name=QuickSurveys|url=https://www.mediawiki.org/wiki/Extension:QuickSurveys}}",
 	"ext-quicksurveys-example-internal-survey-question": "The question for the example internal survey",
-	"ext-quicksurveys-example-internal-survey-answer-positive": "The positive answer for the example internal survey",
-	"ext-quicksurveys-example-internal-survey-answer-neutral": "The neutral answer for the example internal survey",
-	"ext-quicksurveys-example-internal-survey-answer-negative": "The negative answer for the example internal survey",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "The positive answer for the example internal survey\n{{Identical|Yes}}",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "The neutral answer for the example internal survey\n{{Identical|Not sure}}",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "The negative answer for the example internal survey\n{{Identical|No}}",
 	"ext-quicksurveys-example-external-survey-description": "description of the example survey",
-	"ext-quicksurveys-example-external-survey-privacy-policy-text": "text of the privacy policy link"
+	"ext-quicksurveys-example-external-survey-privacy-policy-text": "text of the privacy policy link\n{{Identical|Privacy policy}}"
 }
