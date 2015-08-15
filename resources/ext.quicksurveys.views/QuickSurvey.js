@@ -1,4 +1,6 @@
 ( function ( $ ) {
+	var utils = mw.extQuickSurveys.views.utils;
+
 	/**
 	 * Extends a class with new methods and member properties.
 	 *
@@ -44,19 +46,19 @@
 				{
 					label: mw.msg( 'ext-quicksurveys-survey-positive' ),
 					data: {
-						answer: 1
+						answer: 'ext-quicksurveys-survey-positive'
 					}
 				},
 				{
 					label: mw.msg( 'ext-quicksurveys-survey-neutral' ),
 					data: {
-						answer: 0
+						answer: 'ext-quicksurveys-survey-neutral'
 					}
 				},
 				{
 					label: mw.msg( 'ext-quicksurveys-survey-negative' ),
 					data: {
-						answer: -1
+						answer: 'ext-quicksurveys-survey-negative'
 					}
 				}
 			],
@@ -132,10 +134,27 @@
 			return new OO.ui[widgetName]( config );
 		},
 		/**
-		 * @param {Number} answer
+		 * Log the answer to Schema:QuickSurveysResponses
+		 * @see https://meta.wikimedia.org/wiki/Schema:QuickSurveysResponses
+		 * @param {String} answer
+		 * @return {jQuery.Deferred}
 		 */
-		log: function () {
-			// Todo: T109009
+		log: function ( answer ) {
+			var survey = this.config.survey;
+
+			if ( mw.eventLog ) {
+				return mw.eventLog.logEvent( 'QuickSurveysResponses', {
+					surveyCodeName: survey.name,
+					surveyResponseValue: answer,
+					platform: 'web',
+					presentation: mw.config.get( 'skin' ),
+					userLanguage: mw.config.get( 'wgContentLanguage' ),
+					isLoggedIn: !mw.user.isAnon(),
+					editCount: utils.getEditCountBucket( mw.config.get( 'wgUserEditCount' ) ),
+					countryCode: utils.getCountryCode()
+				} );
+			}
+			return $.Deferred().reject( 'EventLogging not installed.' );
 		},
 		/**
 		 * Fired when one of the options are clicked.
@@ -152,5 +171,7 @@
 	} );
 
 	// This always makes me sad... https://phabricator.wikimedia.org/T108655
+	mw.extQuickSurveys = mw.extQuickSurveys || {};
+	mw.extQuickSurveys.views = mw.extQuickSurveys.views || {};
 	mw.extQuickSurveys.views.QuickSurvey = QuickSurvey;
 }( jQuery ) );

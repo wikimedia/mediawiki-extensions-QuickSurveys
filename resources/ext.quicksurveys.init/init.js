@@ -7,9 +7,7 @@
 		isMainPage = mw.config.get( 'wgIsMainPage' ),
 		isArticle = mw.config.get( 'wgIsArticle' );
 
-	mw.extQuickSurveys = {
-		views: {}
-	};
+	mw.extQuickSurveys = mw.extQuickSurveys || {};
 
 	if ( availableSurveys.length ) {
 		survey = availableSurveys[ Math.floor( Math.random() * availableSurveys.length ) ];
@@ -37,12 +35,12 @@
 				mw.loader.using( 'ext.quicksurveys.views' ).done( function () {
 					var panel;
 					panel = new mw.extQuickSurveys.views.QuickSurvey( {
-							type: survey.type,
-							templateData: {
-								question: survey.question,
-								description: survey.description
-							}
-						} );
+						survey: survey,
+						templateData: {
+							question: survey.question,
+							description: survey.description
+						}
+					} );
 					$panel.replaceWith( panel.$element );
 					panel.on( 'dismiss', function () {
 						mw.storage.set( storageId, '~' );
