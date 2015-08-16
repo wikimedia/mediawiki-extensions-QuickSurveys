@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cwlin0416"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-answer-positive": "是",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "否",
+	"ext-quicksurveys-example-external-survey-privacy-policy-text": "隱私政策"
+}

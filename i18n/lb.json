@@ -4,8 +4,10 @@
 			"Robby"
 		]
 	},
+	"ext-quicksurveys-example-internal-survey-question": "Soll den Text méi grouss sinn?",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Jo",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Net sécher",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Neen",
+	"ext-quicksurveys-example-external-survey-description": "Dëst ass d'Beschreiwung vum Beispill vun der externer Ëmfro.",
 	"ext-quicksurveys-example-external-survey-privacy-policy-text": "Dateschutz"
 }
