@@ -79,10 +79,13 @@
 		],
 		"BeforePageDisplay": [
 			"QuickSurveys\\Hooks::onBeforePageDisplay"
+		],
+		"ResourceLoaderRegisterModules": [
+			"QuickSurveys\\Hooks::onResourceLoaderRegisterModules"
 		]
 	},
 	"config": {
-		"@QuickSurveysConfig": [
+		"QuickSurveysConfig": [
 			{
 				"@name": "survey name",
 				"name": "internal example survey",
@@ -117,9 +120,9 @@
 				"@description": "description of the survey",
 				"description": "ext-quicksurveys-example-external-survey-description",
 				"@link": "external link to the survey",
-				"link": "//example.org/survey",
+				"link": "ext-quicksurveys-example-external-survey-link",
 				"@privacy-policy-link": "link to the privacy policy",
-				"privacy-policy-link": "//example.org/privacy-policy",
+				"privacy-policy-link": "ext-quicksurveys-example-external-survey-privacy-policy-link",
 				"@privacy-policy-text": "text of the privacy policy",
 				"privacy-policy-text": "ext-quicksurveys-example-external-survey-privacy-policy-text",
 				"@enabled": "whether the survey is enabled",
