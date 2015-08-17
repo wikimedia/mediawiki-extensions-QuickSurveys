@@ -4,9 +4,29 @@
 .ext-qs-loader-bar {
 	display: block;
 	height: 100px;
+	max-width: 500px;
+	margin-left: 1.4em;
+	clear: right;
+	float: right;
 	background-color: @colorGrayLightest;
 	&.mw-ajax-loader {
 		// FIXME: Why is this not the default? Override it.
 		top: 0;
+	}
+}
+
+@media all and (min-width: 768px) {
+	.ext-qs-loader-bar,
+	.ext-quick-survey-panel {
+		margin-left: 1.4em;
+		min-width: 320px;
+		clear: right;
+		float: right;
+	}
+
+	// mobile skin beta (see Quick_survey_test_page_with_no_image_infobox test article)
+	.last-modified-bar,
+	h2 {
+		clear: both;
 	}
 }

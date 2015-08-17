@@ -55,7 +55,7 @@
 			},
 			scrollable: false,
 			expanded: false,
-			classes: [ 'panel panel-inline visible' ]
+			classes: [ 'panel panel-inline visible ext-quick-survey-panel' ]
 		},
 		/**
 		 * Initialise a widget.
