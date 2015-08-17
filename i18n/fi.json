@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nike"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Kyllä",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Ei"
+}

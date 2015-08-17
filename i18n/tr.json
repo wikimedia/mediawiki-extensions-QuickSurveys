@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mavrikant"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Evet",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Emin değilim",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Hayır"
+}
