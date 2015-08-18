@@ -14,5 +14,10 @@
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "The neutral answer for the example internal survey\n{{Identical|Not sure}}",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "The negative answer for the example internal survey\n{{Identical|No}}",
 	"ext-quicksurveys-example-external-survey-description": "description of the example survey",
-	"ext-quicksurveys-example-external-survey-privacy-policy-text": "text of the privacy policy link\n{{Identical|Privacy policy}}"
+	"ext-quicksurveys-example-external-survey-privacy-policy-text": "text of the privacy policy link\n{{Identical|Privacy policy}}",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Default disclaimer about submitting surveys.",
+	"ext-quicksurveys-survey-confirm-msg": "Confirmation message thanking user for their input.",
+	"ext-quicksurveys-survey-positive": "Default button label for user replying in affirmative.",
+	"ext-quicksurveys-survey-negative": "Default button label for user replying neutrally.",
+	"ext-quicksurveys-survey-neutral": "Default button label for user replying negatively."
 }

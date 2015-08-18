@@ -34,4 +34,17 @@ class Hooks {
 		$vars['wgEnabledQuickSurveys'] = $enabledQuickSurveys;
 		return true;
 	}
+
+	/**
+	 * BeforePageDisplay hook handler
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
+	 *
+	 * @param OutputPage $out
+	 * @param Skin $sk
+	 * @return bool
+	 */
+	public static function onBeforePageDisplay( &$out, &$sk ) {
+		$out->addModules( 'ext.quicksurveys.init' );
+		return true;
+	}
 }
