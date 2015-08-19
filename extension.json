@@ -42,14 +42,17 @@
 				"ext-quicksurveys-survey-confirm-msg",
 				"ext-quicksurveys-survey-positive",
 				"ext-quicksurveys-survey-negative",
-				"ext-quicksurveys-survey-neutral"
+				"ext-quicksurveys-survey-neutral",
+				"ext-quicksurveys-external-survey-yes-button",
+				"ext-quicksurveys-external-survey-no-button"
 			],
 			"styles": [
 				"resources/ext.quicksurveys.views/styles.less"
 			],
 			"scripts": [
 				"resources/ext.quicksurveys.views/utils.js",
-				"resources/ext.quicksurveys.views/QuickSurvey.js"
+				"resources/ext.quicksurveys.views/QuickSurvey.js",
+				"resources/ext.quicksurveys.views/ExternalSurvey.js"
 			]
 		},
 		"ext.quicksurveys.init": {
@@ -121,14 +124,14 @@
 				"name": "external example survey",
 				"@type": "internal or external link survey",
 				"type": "external",
-				"@description": "description of the survey",
+				"@question": "survey question message key",
+				"question": "ext-quicksurveys-example-external-survey-question",
+				"@description": "the i18n key of the description of the survey",
 				"description": "ext-quicksurveys-example-external-survey-description",
 				"@link": "external link to the survey",
 				"link": "ext-quicksurveys-example-external-survey-link",
-				"@privacy-policy-link": "link to the privacy policy",
-				"privacy-policy-link": "ext-quicksurveys-example-external-survey-privacy-policy-link",
-				"@privacy-policy-text": "text of the privacy policy",
-				"privacy-policy-text": "ext-quicksurveys-example-external-survey-privacy-policy-text",
+				"@privacyPolicy": "The i18n key of the privacy policy text.",
+				"privacyPolicy": "ext-quicksurveys-example-external-survey-privacy-policy",
 				"@enabled": "whether the survey is enabled",
 				"enabled": false,
 				"@coverage": "percentage of users that will see the survey",

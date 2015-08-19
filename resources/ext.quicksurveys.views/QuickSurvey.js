@@ -62,9 +62,6 @@
 		 * @param {Object} config
 		 */
 		initialize: function ( config ) {
-			var buttonSelect, $btnContainer,
-				btns = [];
-
 			this.config = config || {};
 			$.extend( true, this.config, this.defaults );
 
@@ -75,6 +72,20 @@
 			this.finalPanel = this.widget( 'PanelLayout', 'finalPanel' );
 
 			// Set the buttons
+			this.renderButtons();
+
+			// setup stack
+			QuickSurvey.super.call( this, $.extend( {}, config, {
+				items: [ this.initialPanel, this.finalPanel ]
+			} ) );
+		},
+		/**
+		 * Render and append buttons to the initial panel
+		 */
+		renderButtons: function () {
+			var buttonSelect, $btnContainer,
+				btns = [];
+
 			$btnContainer = this.initialPanel
 				.$element.find( '.survey-button-container' );
 
@@ -90,11 +101,6 @@
 				choose: 'onChoose'
 			} );
 			buttonSelect.$element.appendTo( $btnContainer );
-
-			// setup stack
-			QuickSurvey.super.call( this, $.extend( {}, config, {
-				items: [ this.initialPanel, this.finalPanel ]
-			} ) );
 		},
 		/**
 		 * Make a brand spanking new oojs ui widget from a template partial
