@@ -14,3 +14,10 @@ Feature: Internal surveys
     And the page has fully loaded
     And I'm not bucketed
     Then I should not see the survey
+
+  @integration @wip
+  Scenario: User can participate in internal survey
+    And I am on the "Quick survey test 1" page with the quick survey flag enabled
+    And I see the survey
+    When I answer the survey in the positive
+    Then I get thanks for my feedback
