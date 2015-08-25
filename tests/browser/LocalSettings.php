@@ -11,8 +11,8 @@ $wgQuickSurveysConfig = array(
 		),
 		"schema" => "QuickSurveysResponses",
 		"enabled" => true,
-		"coverage" => 1,
-		"description" => "yo",
+		"coverage" => .5,
+		"description" => "ext-quicksurveys-example-internal-survey-description",
 		"platform" => array(
 			"desktop" => array( "stable" ),
 			"mobile" => array( "stable", "beta", "alpha" ),

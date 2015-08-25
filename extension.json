@@ -59,7 +59,8 @@
 			"position": "top",
 			"dependencies": [
 				"mediawiki.user",
-				"mediawiki.storage"
+				"mediawiki.storage",
+				"mediawiki.experiments"
 			],
 			"targets": [
 				"mobile",

@@ -10,6 +10,7 @@
 	},
 	"quicksurveys-desc": "{{desc|name=QuickSurveys|url=https://www.mediawiki.org/wiki/Extension:QuickSurveys}}",
 	"ext-quicksurveys-example-internal-survey-question": "The question for the example internal survey",
+	"ext-quicksurveys-example-internal-survey-description": "Description of the example internal survey",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "The positive answer for the example internal survey\n{{Identical|Yes}}",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "The neutral answer for the example internal survey\n{{Identical|Not sure}}",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "The negative answer for the example internal survey\n{{Identical|No}}",

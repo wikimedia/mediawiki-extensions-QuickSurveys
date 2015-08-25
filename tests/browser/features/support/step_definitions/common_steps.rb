@@ -31,20 +31,41 @@ Then(/^I should see the survey$/) do
   expect(on(ArticlePage).survey_element.when_present).to be_visible
 end
 
-Then(/^I'm not bucketed$/) do
-  # @todo: when https://phabricator.wikimedia.org/T109518 resolved
-end
-
 Then(/^the page has fully loaded$/) do
   on(ArticlePage) do |page|
     page.wait_until do
-      # Wait for JS to hijack standard link
-      script = "return mw.loader.getState('ext.quicksurveys.init') === 'ready'"
-      browser.execute_script(script)
+      # Wait for async JS to hijack standard link
+      script = 'return mw && '\
+        'mw.loader.getState("ext.quicksurveys.init") === "ready";'
+      page.execute_script(script)
     end
   end
 end
 
 Then(/^I should not see the survey$/) do
   expect(on(ArticlePage).survey_element).to_not be_visible
+end
+
+Then(/^I'm bucketed with storage key "(.*?)"$/) do |arg1|
+  # localStorage is undefined without visiting a page
+  visit(ArticlePage,
+        using_params: { article_name: 'Quick survey test page stub' })
+  # token 2c0cdc37f48b1b0e is bucketed with 50% coverage
+  browser.execute_script("localStorage.setItem('#{arg1}','2c0cdc37f48b1b0e');")
+end
+
+Then(/^I'm not bucketed with storage key "(.*?)"$/) do |arg1|
+  # localStorage is undefined without visiting a page
+  visit(ArticlePage,
+        using_params: { article_name: 'Quick survey test page stub' })
+  # token 63e9d6d760750eaa is not bucketed with 50% coverage
+  browser.execute_script("localStorage.setItem('#{arg1}','63e9d6d760750eaa');")
+end
+
+Then(/^I've dismissed the storage key "(.*?)"$/) do |arg1|
+  # localStorage is undefined without visiting a page
+  visit(ArticlePage,
+        using_params: { article_name: 'Quick survey test page stub' })
+  # Setting value for the storage key to "~" marks the survey as dismissed
+  browser.execute_script("localStorage.setItem('#{arg1}','~');")
 end
