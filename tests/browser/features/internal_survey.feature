@@ -5,12 +5,12 @@ Feature: Internal surveys
 
   @integration
   Scenario: Internal survey is visible with flag
-    And I am on the "Quick survey test 1" page with the quick survey flag enabled
+    And I am on the "Quick survey test page stub" page with the quick survey flag enabled
     Then I should see the survey
 
   @integration
   Scenario: Internal survey is not present without flag
-    And I am on the "Quick survey test 1" page
+    And I am on the "Quick survey test page stub" page
     And the page has fully loaded
     And I'm not bucketed
     Then I should not see the survey

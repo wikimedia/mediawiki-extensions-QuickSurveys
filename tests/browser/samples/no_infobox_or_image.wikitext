@@ -1,0 +1,267 @@
+<!-- test a page with an infobox without an image -->
+<div class=\"hatnote\">Not to be confused with [[:Kenny Casey (disambiguation)]].</div>
+<table class=\"infobox vcard\" style=\"width:22em\"><tr><th colspan=\"2\" style=\"text-align:center;font-size:125%;font-weight:bold\"><span class=\"fn\">Ken Kesey</span></th></tr><tr><th scope=\"row\" style=\"padding-top:0.225em;line-height:1.1em;padding-right:0.65em;\">Born</th><td style=\"line-height:1.4em;\">
+Kenneth Elton Kesey<br /><span style=\"display:none\">(<span class=\"bday\">1935-09-17</span>)</span>September 17, 1935<br />[[La Junta, Colorado]], U.S.</td></tr><tr><th scope=\"row\" style=\"padding-top:0.225em;line-height:1.1em;padding-right:0.65em;\">Died</th><td style=\"line-height:1.4em;\">
+November 10, 2001<span style=\"display:none\">(<span class=\"dday deathdate\">2001-11-10</span>)</span> (aged&nbsp;66)<br />[[Eugene, Oregon]], U.S.<ref name=\"NYTobit\"/><ref name=\"oregonianobit\"/></td></tr><tr><th scope=\"row\" style=\"padding-top:0.225em;line-height:1.1em;padding-right:0.65em;\">Occupation</th><td class=\"role\" style=\"line-height:1.4em;\">
+Novelist, short story writer, essayist, poet</td></tr><tr><th scope=\"row\" style=\"padding-top:0.225em;line-height:1.1em;padding-right:0.65em;\">Nationality</th><td class=\"category\" style=\"line-height:1.4em;\">
+American</td></tr><tr><th scope=\"row\" style=\"padding-top:0.225em;line-height:1.1em;padding-right:0.65em;\">Genre</th><td class=\"category\" style=\"line-height:1.4em;\">
+[[Beat Generation|Beat]], [[postmodernism]]</td></tr><tr><th scope=\"row\" style=\"padding-top:0.225em;line-height:1.1em;padding-right:0.65em;\">Literary movement</th><td style=\"line-height:1.4em;\">
+[[Merry Pranksters]]</td></tr><tr><th scope=\"row\" style=\"padding-top:0.225em;line-height:1.1em;padding-right:0.65em;\">Notable works</th><td style=\"line-height:1.4em;\">
+''[[One Flew Over the Cuckoo's Nest (novel)|One Flew Over the Cuckoo's Nest]]'' (1962)<br/>''[[Sometimes a Great Notion]]'' (1964)</td></tr></table>
+
+'''Kenneth Elton \"Ken\" Kesey''' (<span class=\"nowrap\"><span class=\"IPA nopopups\">[[Help:IPA for English|/<span style=\"border-bottom:1px dotted\"><span title=\"/ˈ/ primary stress follows\">ˈ</span><span title=\"'k' in 'kind'\">k</span><span title=\"/iː/ long 'e' in 'bead'\">iː</span><span title=\"'z' in 'Zion'\">z</span><span title=\"/iː/ long 'e' in 'bead'\">iː</span></span>/]]</span></span>; September 17, 1935&nbsp;– November 10, 2001) was an American author, best known for his novel ''[[One Flew Over the Cuckoo's Nest (novel)|One Flew Over the Cuckoo's Nest]]'' (1962)<ref name=\"NYTobit\"/> and as a [[Counterculture of the 1960s|countercultural]] figure who considered himself a link between the [[Beat Generation]] of the 1950s and the [[hippie]]s of the 1960s. 
+
+==Biography==
+
+===Early life===
+
+Ken Kesey was born in [[La Junta, Colorado]], to dairy farmers Geneva (née Smith) and Frederick A. Kesey.<ref name=\"NYTobit\">[[Christopher Lehmann-Haupt|Lehmann-Haupt, Christopher]]. \"[http://query.nytimes.com/gst/fullpage.html?res=9D02EFDC1238F932A25752C1A9679C8B63&sec=&spon=&pagewanted=1 Ken Kesey, Author of 'Cuckoo's Nest,' Who Defined the Psychedelic Era, Dies at 66]\". ''[[The New York Times]]'' (November 11, 2001). Retrieved on February 21, 2008.</ref> In 1946, the family moved to [[Springfield, Oregon]].<ref name=\"oregonianobit\"/> Kesey was a champion [[collegiate wrestling|wrestler]] in both high school and college in the 174 pound weight division, and he almost qualified to be on the Olympic team until a serious shoulder injury stopped his wrestling career. He graduated from [[Springfield High School (Oregon)|Springfield High School]] in 1953.<ref name=\"oregonianobit\"/> An avid reader and filmgoer, the young Kesey took [[John Wayne]], [[Edgar Rice Burroughs]], and [[Zane Grey]] as his role models (later naming a son Zane) and toyed with [[magic (illusion)|magic]], [[ventriloquism]], and [[hypnotism]].<ref>Macdonald, Gina, and Andrew Macdonald. \"Ken Kesey.\" Magill’s Survey of American Literature, Revised Edition (2007): Literary Reference Center. EBSCO. Web. Nov 8. 2010.</ref>
+
+In 1956, while attending college at the [[University of Oregon]] in neighboring [[Eugene, Oregon]], Kesey eloped with his high-school sweetheart, Norma \"Faye\" Haxby, whom he had met in seventh grade.<ref name=\"oregonianobit\"/> “Without Faye, I would have been swept overboard by notoriety and weird, dope-fueled ideas and flower-child girls with beamy eyes and bulbous breasts”.<ref name=\"esquire\">{{cite web |url=http://www.chipbrown.net/articles/kesey.htm |title=Ken Kesey Kisses No Ass}} ''[[Esquire Magazine]]'' (September, 1992).</ref> Married until his death at age 66,<ref>\"Ken Kesey, Author of 'Cuckoo's Nest,' Who Defined the Psychedelic Era, Dies at 66\" ''[[The New York Times]]'' (November 11, 2001).</ref> they had three children: Jed, Zane, and Shannon; Kesey had another child, Sunshine, in 1966 with fellow [[Merry Pranksters|Merry Prankster]] [[Carolyn Garcia|Carolyn \"Mountain Girl\" Adams]].<ref name=\"intrepmemorial\">{{cite web |url=http://www.intrepidtrips.com/kesey/index.html |title=Kesey's friends gather in tribute |first=Cynthia |last=Robins |date=2001-12-07 }}</ref>
+
+Kesey had a football scholarship for his freshman year, but switched to University of Oregon wrestling team as a better fit to his build. After posting a .885 winning percentage in the 1956-57 season, he received the Fred Low Scholarship for outstanding Northwest wrestler. In 1957, Kesey was second in his weight class at the Pacific Coast intercollegiate competition.<ref name=\"NYTobit\"/><ref name=\"Christensen\">{{cite book |title=Acid Christ : Ken Kesey, LSD, and the politics of ecstasy |url=https://books.google.com/books?id=IEpIVbgz5JsC&pg=PA40&lpg=PA40&dq=%22Fred+Lowe+Scholarship%22&source=bl&ots=bWv4U-rUt9&sig=4QjoAdERSHH0ah_JwgeIBcHEhHw&hl=en&sa=X&ei=2vCNVKL2G8GvogSzyoJo&ved=0CD0Q6AEwBA#v=onepage&q=%22Fred%20Lowe%20Scholarship%22&f=false |first=Mark |last=Christensen |location=Tucson, AZ |publisher=Schaffner Press |oclc=701720769 |isbn=9781936182107 |page=40|date=2010 |accessdate=2014-12-14}}</ref><ref name=\"SpokesmanReviewobit\"/> He remains \"ranked in the top 10 of Oregon Wrestling’s all time winning percentage.\"<ref name=\"saveoregonwrestling\">{{cite web |title=Top Wrestlers |url=http://www.saveoregonwrestling.org/wrestlers.html |accessdate=2014-12-14 |publisher=Save Oregon Wrestling Foundation |location=Eugene, OR}}</ref><ref name=\"goducks\">{{cite web |url=http://www.goducks.com/pdf3/99425.pdf |date=2007-12-03 |title=2006-07 Stats, History, Opponent Info - University of Oregon Wrestling |publisher=[[Oregon Ducks|University of Oregon Athletic Department]] |accessdate=2014-12-14}}</ref>
+
+A brother of [[Beta Theta Pi]], Kesey graduated from the [[University of Oregon School of Journalism and Communication]] with a [[Bachelor of Arts]] degree in Speech and Communication in 1957. After a brief sojourn as a struggling actor in [[Los Angeles]], he was awarded the highly selective [[Woodrow Wilson National Fellowship Foundation|Woodrow Wilson National Fellowship]] in 1958. Maverick literary critic [[Leslie Fiedler]] successfully importuned the regional fellowship committee to select the \"rough-hewn\" Kesey alongside more traditional grantees from [[Reed College]] and other elite institutions.<ref>{{cite book|url=http://books.google.com/books?id=D4nHLcSbno8C&pg=PA186&dq=ken+kesey+woodrow+wilson&hl=en&sa=X&ei=GncKVMz1PIK1sQSdxoHICw&ved=0CEUQ6AEwBzgU#v=onepage&q=ken%20kesey%20woodrow%20wilson&f=false|title=Too Good to Be True|publisher=|accessdate=2014-12-14}}</ref> Because he lacked the prerequisites to work toward a master's degree in English, Kesey elected to enroll in the non-degree creative writing program at [[Stanford University]] that fall, where he would develop lifelong friendships with [[Ken Babbs]], [[Larry McMurtry]], [[Wendell Berry]], [[Ed McClanahan]], [[Gurney Norman]], and [[Robert Stone (novelist)|Robert Stone]].<ref name=\"oregonianobit\"/>
+
+While at Stanford, Kesey resided on Perry Lane (a historically [[bohemianism|bohemian]] enclave adjacent to the university golf course) and clashed with program director [[Wallace Stegner]]; according to Stone, Stegner \"saw Kesey... as a threat to civilization and intellectualism and sobriety\" and rejected Kesey's [[Stegner Fellowship]] applications for the 1959–60 and 1960–61 terms.<ref>{{cite book|url=http://books.google.com/books?id=jrebNwURn28C&pg=PA251&dq=kesey+stegner&hl=en&sa=X&ei=gD_nUNjHCoay0QH-24GYBw&ved=0CD0Q6AEwAQ#v=snippet&q=applied&f=false|title=Wallace Stegner|publisher=|accessdate=2014-12-14}}</ref> Nevertheless, Kesey received the $2,000 Harper-Saxton Prize for his first novel in progress (the oft-rejected ''Zoo'') and continued to audit the graduate writing seminar through 1960 (taught that year by [[Frank O'Connor]] and the more congenial [[Malcolm Cowley]]) as he began the manuscript that would become ''[[One Flew Over the Cuckoo's Nest (novel)|One Flew Over the Cuckoo's Nest]]''.
+
+\"I was too young to be a [[beatnik]], and too old to be a hippie,\" Kesey said in a 1999 interview with [[Robert K. Elder]].<ref name=\"salon2001\">{{cite web |title=Down on the peacock farm |url=http://archive.salon.com/people/feature/2001/11/16/kesey99/index1.html |year=2001 |publisher=[[Salon Magazine]] |accessdate=2009-06-12}}</ref>
+
+===Experimentation with psychoactive drugs===
+
+At the instigation of Perry Lane neighbor and Stanford psychology graduate student Vik Lovell, an acquaintance of [[Richard Alpert]] and [[Allen Ginsberg]], Kesey volunteered to take part in  what turned out to be a [[Central Intelligence Agency|CIA]]-financed study under the aegis of [[Project MKULTRA]], a highly secret military program, at the [[Menlo Park, California|Menlo Park]] Veterans Hospital<ref>{{cite web|url=http://www.paloalto.va.gov/locations/menlopark.asp|title=Menlo Park Division - VA Palo Alto Health Care System|author=VA Palo Alto Health Care System|work=va.gov|accessdate=2014-12-14}}</ref> where he worked as a night aide.<ref>Reilly, Edward C. \"Ken Kesey.\" Critical Survey of Long Fiction, Second Revised Edition (2000): EBSCO. Web. Nov 10. 2010.</ref> The project studied the effects of [[Psychedelics, dissociatives, and deliriants|psychoactive drugs]], particularly [[LSD]], [[psilocybin]], [[mescaline]], [[cocaine]], [[alpha-methyltryptamine|aMT]], and [[Dimethyltryptamine|DMT]] on people.<ref name=\"oregonianobit\">{{cite news|title=All times a great artist, Ken Kesey is dead at age 66|last=Baker|first=Jeff|date=November 11, 2001|work=The Oregonian|pages=A1}}</ref> Kesey wrote many detailed accounts of his experiences with these drugs, both during the study and in the years of private experimentation that followed. 
+
+Kesey's role as a medical guinea pig, as well as his stint working at the state veterans' hospital, inspired him to write ''One Flew Over the Cuckoo's Nest''. The success of this book, as well as the demolition of the Perry Lane cabins in August 1963, allowed him to move to a log house at 7940 La Honda Road in [[La Honda, California]], about forty-five minutes into the dark, forested hills that lie west of Perry Lane.<ref>{{cite web|url=https://maps.google.com/maps?f=d&source=s_d&saddr=Perry+Avenue,+West+Menlo+Park,+CA&daddr=7940+La+Honda+Rd,+La+Honda,+CA|title=Perry Ave, West Menlo Park, CA 94025 to 7940 La Honda Rd, La Honda, CA 94020 - Google Maps|work=google.com|accessdate=2014-12-14}}</ref> He frequently entertained friends and many others with parties he called \"[[Acid Tests]]\", involving music (such as Kesey's favorite band, The Warlocks, later known as the [[Grateful Dead]]), [[black light]]s, fluorescent paint, [[strobe light|strobes]], and other \"[[psychedelia|psychedelic]]\" effects, and, of course, LSD. These parties were noted in some of Ginsberg's poems and are also described in [[Tom Wolfe]]'s ''[[The Electric Kool-Aid Acid Test]]'', as well as ''[[Hell's Angels: The Strange and Terrible Saga of the Outlaw Motorcycle Gangs]]'' by [[Hunter S. Thompson]] and ''Freewheelin Frank, Secretary of the Hell's Angels'' by Frank Reynolds.
+
+===''One Flew Over the Cuckoo's Nest''===
+
+In 1959, Kesey wrote ''Zoo'', a novel about the [[beatnik]]s living in the [[North Beach, San Francisco, California|North Beach]] community of [[San Francisco]], but it was never published. In 1960, he wrote ''End of Autumn'', about a young man who leaves his [[working class|working-class]] family after he gets a scholarship to an [[Ivy League]] school, also unpublished.
+
+The inspiration for ''[[One Flew Over the Cuckoo's Nest (novel)|One Flew Over the Cuckoo's Nest]]'' came while working on the night shift (with [[Gordon Lish]]) at the [[Menlo Park, California|Menlo Park]] Veterans' Hospital. There, Kesey often spent time talking to the patients, sometimes under the influence of the hallucinogenic drugs with which he had volunteered to experiment. Kesey did not believe that these patients were [[insane]], but rather that society had pushed them out because they did not fit the conventional ideas of how people were supposed to act and behave. Published under the guidance of Cowley in 1962, the novel was an immediate success; in 1963, it was adapted into a successful [[One Flew Over the Cuckoo's Nest (play)|stage play]] by [[Dale Wasserman]], and in 1975, [[Miloš Forman]] directed a [[One Flew Over the Cuckoo's Nest (film)|screen adaptation]], which won the \"Big Five\" Academy Awards: [[Academy Award for Best Picture|Best Picture]], [[Academy Award for Best Actor|Best Actor]] ([[Jack Nicholson]]), [[Academy Award for Best Actress|Best Actress]] ([[Louise Fletcher]]), [[Academy Award for Best Director|Best Director]] (Forman) and [[Academy Award for Best Adapted Screenplay|Best Adapted Screenplay]] (Lawrence Hauben, [[Bo Goldman]]).
+
+Kesey originally was involved in creating the film, but left two weeks into production. He claimed never to have seen the movie because of a dispute over the $20,000 he was initially paid for the film rights. Kesey loathed the fact that, unlike the book, the film was not narrated by the Chief Bromden character, and he disagreed with Jack Nicholson's being cast as Randle McMurphy (he wanted [[Gene Hackman]]). Despite this, Faye Kesey has stated that Ken was generally supportive of the film and pleased that it was made.<ref>{{cite web|url=http://mentalfloss.com/article/31001/11-authors-who-hated-movie-versions-their-books|title=11 Authors Who Hated the Movie Versions of Their Books|work=Mental Floss|accessdate=2014-12-14}}</ref>
+
+===Merry Pranksters===
+
+When the publication of his second novel, ''[[Sometimes a Great Notion (novel)|Sometimes a Great Notion]]'' in 1964, required his presence in New York, Kesey, [[Neal Cassady]], and others in a group of friends they called the \"Merry Pranksters\" took a cross-country trip in a school bus nicknamed \"[[Further (bus)|Further]]\".<ref name=\"si\">{{cite web|url=http://americanhistory.si.edu/collections/search/object/nmah_1275835 |title=National Museum of American History Collections: Signboard, Pass the Acid Test |publisher=americanhistory.si.edu|accessdate=2015-04-08}}</ref> This trip, described in [[Tom Wolfe]]'s ''[[The Electric Kool-Aid Acid Test]]'' (and later in Kesey's own screenplay \"The Further Inquiry\") was the group's attempt to create art out of everyday life, and to experience roadway America while high on LSD. In an interview after arriving in New York, Kesey is quoted as saying, \"The sense of communication in this country has damn near atrophied. But we found as we went along it got easier to make contact with people. If people could just understand it is possible to be different without being a threat.\"<ref name=\"NYTobit\"/> A huge amount of footage was filmed on 16mm cameras during the trip which remained largely unseen until the release of the documentary film \"[[Magic Trip]]\" in 2011. 
+
+After the bus trip, the Pranksters threw parties they called Acid Tests around the San Francisco Bay Area from 1965 to 1966. Many of the Pranksters lived at Kesey's residence in La Honda. In New York, Cassady introduced Kesey to [[Jack Kerouac]] and [[Allen Ginsberg]], who then turned them on to [[Timothy Leary]]. ''[[Sometimes a Great Notion (film)|Sometimes a Great Notion]]'' inspired a 1970 film starring and directed by [[Paul Newman]]; it was nominated for two [[Academy Awards]], and in 1972 was the first film shown by the new television network [[Home Box Office|HBO]], in [[Wilkes-Barre, Pennsylvania]].
+
+Kesey was arrested for possession of [[cannabis (drug)|marijuana]] in 1965. In an attempt to mislead police, he faked suicide by having friends leave his truck on a cliffside road near [[Eureka, California|Eureka]], along with an elaborate suicide note, written by the Pranksters. Kesey fled to Mexico in the back of a friend's car. When he returned to the United States eight months later, Kesey was arrested and sent to the San Mateo County jail in [[Redwood City]], California, for five months where he was introduced to a highly recommended San Francisco lawyer, Richard Potack, who specialized in marijuana cultivation. On his release, he moved back to the family farm in [[Pleasant Hill, Oregon]], in the [[Willamette Valley]], where he spent the rest of his life.<ref>{{cite news| url=http://www.nytimes.com/2001/11/11/nyregion/ken-kesey-author-of-cuckoo-s-nest-who-defined-the-psychedelic-era-dies-at-66.html | work=The New York Times | title=Ken Kesey, Author of 'Cuckoo's Nest,' Who Defined the Psychedelic Era, Dies at 66 | first=Christopher | last=Lehmann-Haupt | date=November 11, 2001}}</ref> He wrote many articles, books (mostly collections of his articles), and short stories during that time.
+
+===Death of son===
+
+In 1984, Kesey's 20-year-old son Jed, a wrestler for the University of Oregon, suffered severe head injuries in a vehicle accident on the way to a tournament;<ref name=\"SpokesmanReviewobit\">{{cite news |newspaper=[[The Spokesman-Review]] |date=1984-01-29 |title=Crash takes second life |quote=Writer's son, Oregon wrestler Jed  Kesey, dies of injuries |url=http://news.google.com/newspapers?nid=1314&dat=19840124&id=pVdWAAAAIBAJ&sjid=7e4DAAAAIBAJ&pg=2572,4202199 |volume=101st Year |issue=251 |page=A6 |publisher=[[Cowles Publishing Company]] |location=Spokane, WA |accessdate=2014-12-14}}</ref> after he was declared brain-dead two days later his parents gave permission for his organs to be donated.<ref>{{cite web|url=http://www.lettersofnote.com/2012/09/what-world.html|title=Letters of Note: What a world|work=lettersofnote.com|accessdate=2014-12-14}}</ref>
+
+Jed's death deeply affected Kesey, who later called Jed a victim of conservative policies that had starved the team of funding.[[Category:All articles with unsourced statements]][[Category:Articles with unsourced statements from April 2007]]<sup class=\"noprint Inline-Template Template-Fact\" style=\"white-space:nowrap;\">&#91;<i>[[Wikipedia:Citation needed|<span title=\"This claim needs references to reliable sources.<nowiki/> (April 2007)\">citation needed</span>]]</i>&#93;</sup> At a Grateful Dead concert soon after the death of promoter [[Bill Graham (promoter)|Bill Graham]], Kesey delivered a eulogy, mentioning that Graham had donated $1,000 toward a memorial to Jed atop [[Mount Pisgah (Oregon)|Mount Pisgah]], near the Kesey home in Pleasant Hill.<ref name=\"Ken Kesey Rap\">\"http://archive.org/details/gd1991-10-31.mtx.haugh.gems.102251.flac24\". Track 18.</ref>
+
+===Final years===
+Kesey was diagnosed with [[diabetes]] in 1992. In 1994, he toured with members of the Merry Pranksters performing a musical play he wrote about the millennium called ''Twister: A Ritual Reality''. Many old and new friends and family showed up to support the Pranksters on this tour that took them from Seattle's [[Bumbershoot]], all along the West Coast including a sold out two-night run at [[The Fillmore]] in [[San Francisco, California|San Francisco]] to [[Boulder, Colorado]], where they coaxed (or pranked) the Beat Generation poet [[Allen Ginsberg]] into performing with them.[[Category:All articles with unsourced statements]][[Category:Articles with unsourced statements from June 2015]]<sup class=\"noprint Inline-Template Template-Fact\" style=\"white-space:nowrap;\">&#91;<i>[[Wikipedia:Citation needed|<span title=\"This claim needs references to reliable sources.<nowiki/> (June 2015)\">citation needed</span>]]</i>&#93;</sup>
+
+Kesey mainly kept to his home life in Pleasant Hill, preferring to make artistic contributions on the Internet or holding ritualistic revivals in the spirit of the Acid Test. In the official Grateful Dead DVD release ''The Closing of Winterland'' (2003) documenting the monumental New Year's 1978/1979 concert at the [[Winterland]] Arena in San Francisco, Kesey is featured in a between-set interview.[[Category:All articles with unsourced statements]][[Category:Articles with unsourced statements from February 2014]]<sup class=\"noprint Inline-Template Template-Fact\" style=\"white-space:nowrap;\">&#91;<i>[[Wikipedia:Citation needed|<span title=\"This claim needs references to reliable sources.<nowiki/> (February 2014)\">citation needed</span>]]</i>&#93;</sup>
+
+On August 14, 1997, Kesey and his Pranksters attended a [[Phish]] concert in Darien Lake, New York. Kesey and the Pranksters appeared onstage with the band and performed a dance-trance-jam session involving several characters from ''The Wizard of Oz'' and ''Frankenstein''.[[Category:All articles with unsourced statements]][[Category:Articles with unsourced statements from February 2013]]<sup class=\"noprint Inline-Template Template-Fact\" style=\"white-space:nowrap;\">&#91;<i>[[Wikipedia:Citation needed|<span title=\"This claim needs references to reliable sources.<nowiki/> (February 2013)\">citation needed</span>]]</i>&#93;</sup>
+
+In June 2001, Kesey was invited and accepted as the keynote speaker at the annual commencement of [[The Evergreen State College]].[[Category:All articles with unsourced statements]][[Category:Articles with unsourced statements from February 2013]]<sup class=\"noprint Inline-Template Template-Fact\" style=\"white-space:nowrap;\">&#91;<i>[[Wikipedia:Citation needed|<span title=\"This claim needs references to reliable sources.<nowiki/> (February 2013)\">citation needed</span>]]</i>&#93;</sup>  His last major work was an essay for ''[[Rolling Stone]]'' magazine calling for peace in the aftermath of the [[September 11 attacks]].[[Category:All articles with unsourced statements]][[Category:Articles with unsourced statements from February 2013]]<sup class=\"noprint Inline-Template Template-Fact\" style=\"white-space:nowrap;\">&#91;<i>[[Wikipedia:Citation needed|<span title=\"This claim needs references to reliable sources.<nowiki/> (February 2013)\">citation needed</span>]]</i>&#93;</sup>
+
+===Death ===
+In 1997, health problems began to weaken him, starting with a [[stroke]] that year.<ref name=\"oregonianobit\"/> On October 25, 2001 Kesey had surgery on his liver to remove a [[Hepatocellular carcinoma|tumor]].<ref name=\"oregonianobit\"/> He did not recover from that operation and died of complications on November 10, 2001, age 66.<ref name=\"oregonianobit\"/>
+
+===Legacy===
+The film ''[[Gerry (2002 film)|Gerry]]'' (2002) is dedicated to the memory of Ken Kesey.<ref>{{cite news |first=Sam |last=Adams |title=Try to Remember |url=http://citypaper.net/articles/2002-09-19/movies.shtml |work=[[Philadelphia City Paper]] |date=September 19–25, 2002 |accessdate=August 5, 2015}}</ref>
+
+==Works==
+Some of Kesey's better-known works include:<ref name=\"LitKicks1\">{{Cite web|last=Martin|first=Blank|url=http://www.litkicks.com/Biblio/KeseyBiblio.html |title=Selected Bibliography for Ken Kesey|work=[[Literary Kicks]]|date=2010-01-19|accessdate=2014-12-14}}</ref>
+<div class=\"div-col columns column-count column-count-2\" style=\"-moz-column-count: 2; -webkit-column-count: 2; column-count: 2;   \">
+*''[[One Flew Over the Cuckoo's Nest (novel)|One Flew Over the Cuckoo's Nest]]'' (1962, novel)
+*''Genesis West: Volume Five'' (1963, magazine article)
+*''[[Sometimes a Great Notion (novel)|Sometimes a Great Notion]]'' (1964, novel)
+*''[[Kesey's Garage Sale]]'' (1973, collection of essays)
+*''[[Demon Box (book)|Demon Box]]'' (1986, collection of essays and short stories)
+*''[[Caverns (novel)|Caverns]]'' (1989, novel)
+*''The Further Inquiry'' (1990, play)
+*''[[Sailor Song]]'' (1992, novel)
+*''[[Last Go Round]]'' (1994, novel, written with [[Ken Babbs]])
+*''Twister'' (1994, play)
+*''Kesey's Jail Journal'' (2003, collection of essays)
+</div>
+
+==Footnotes==
+<div class=\"reflist columns references-column-count references-column-count-2\" style=\"-moz-column-count: 2; -webkit-column-count: 2; column-count: 2; list-style-type: decimal;\">
+<references group=\"\"></references></div>
+
+==Further reading==
+* Ronald Gregg Billingsley, ''The Artistry of Ken Kesey.'' PhD dissertation. Eugene, OR: University of Oregon, 1971.
+*  Dedria Bryfonski, ''Mental illness in Ken Kesey's One Flew Over the Cuckoo's Nest.'' Detroit: Greenhaven Press, 2010.
+* Rick Dodgson, ''It's All Kind of Magic: The Young Ken Kesey.'' Madison, WI: University of Wisconsin Press, 2013.
+* Robert Faggen, [http://www.theparisreview.org/interviews/1830/the-art-of-fiction-no-136-ken-kesey \"Ken Kesey, The Art of Fiction No. 136,\"] ''The Paris Review,'' Spring 1994.
+* Barry H. Leeds, ''Ken Kesey.'' New York: F. Ungar Publishing Co., 1981.
+* Dennis McNally, ''A Long Strange Trip: the Inside History of the Grateful Dead.'' Broadway Books, 2002.
+* Tim Owen, [http://www.cosmik.com/aa-december01/ken_kesey.html \"Remembering Ken Kesey,\"] ''Cosmik Debris Magazine'', November 10, 2001.
+* M. Gilbert Porter, ''The Art of Grit: Ken Kesey's Fiction.'' Columbia, MO: University of Missouri Press, 1982.
+* Elaine B Safer, ''The contemporary American Comic Epic: The Novels of Barth, Pynchon, Gaddis, and Kesey.'' Detroit, MI: Wayne State University Press, 1988.
+* Peter Swirski, \"You're Not in Canada until You Can Hear the Loons Crying; or, Voting, People's Power and Ken Kesey's ''One Flew over the Cuckoo's Nest,\"'' in Swirski, ''American Utopia and Social Engineering in Literature, Social Thought, and Political History.'' New York: Routledge, 2011.
+* Stephen L. Tanner, ''Ken Kesey.'' Boston, MA: Twayne, 1983.
+
+==External links==
+<table class=\"mbox-small plainlinks sistersitebox\" style=\"border:1px solid #aaa;background-color:#f9f9f9\">
+<tr>
+<td class=\"mbox-image\">[[Image:Wikiquote-logo.svg|40x40px|link=|alt=
+    ]]</td>
+<td class=\"mbox-text plainlist\">Wikiquote has quotations related to: '''''[[q:Special:Search/Ken Kesey|Ken Kesey]]'''''</td></tr></table>
+*<span class=\"official website\"><span class=\"url\">[http://www.intrepidtrips.com/ Official website]</span></span>  
+*[//openlibrary.org/authors/OL449110A Works by Ken Kesey] at [[Open Library]]
+*Bruce Carnes, ''[http://digital.boisestate.edu/cdm/singleitem/collection/western/id/26/rec/1 Ken Kesey]'', Western Writers Series Digital Editions at Boise State University
+*[http://www.lib.virginia.edu/small/exhibits/sixties/kesey.html Ken Kesey and the Merry Pranksters]
+*[http://www.findagrave.com/cgi-bin/fg.cgi?page=gr&GRid=5965109 Ken Kesey] at ''[[Find a Grave]]''
+*[http://dig.library.vcu.edu/cdm/ref/collection/com/id/10646 Article on Ken Kesey lecture at Virginia Commonwealth University, Feb. 20, 1990]
+*[http://www.opb.org/television/programs/oregonexperience/segment/or-exp-ken-kesey/ Ken Kesey] Documentary produced by [[Oregon Public Broadcasting]]
+* Chip Brown, [http://www.chipbrown.net/articles/kesey.htm Ken Kesey Kisses No Ass] Esquire Magazine; September 1992
+
+<table class=\"navbox\" style=\"border-spacing:0\"><tr><td style=\"padding:2px\"><table class=\"nowraplinks collapsible expanded navbox-inner\" style=\"border-spacing:0;background:transparent;color:inherit\"><tr><th scope=\"col\" class=\"navbox-title\" colspan=\"3\"><div class=\"plainlinks hlist navbar mini\"><ul><li class=\"nv-view\">[[Template:Ken Kesey|<span title=\"View this template\" style=\";;background:none transparent;border:none;\">v</span>]]</li><li class=\"nv-talk\">[[Template talk:Ken Kesey|<span title=\"Discuss this template\" style=\";;background:none transparent;border:none;\">t</span>]]</li><li class=\"nv-edit\">[//en.wikipedia.org/w/index.php?title=Template:Ken_Kesey&action=edit <span title=\"Edit this template\" style=\";;background:none transparent;border:none;\">e</span>]</li></ul></div><div style=\"font-size:114%\">[[Ken Kesey]]</div></th></tr><tr style=\"height:2px\"><td colspan=\"2\"></td></tr><tr><th scope=\"row\" class=\"navbox-group\">Novels</th><td class=\"navbox-list navbox-odd hlist\" style=\"text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px\"><div style=\"padding:0em 0.25em\">
+* ''[[One Flew Over the Cuckoo's Nest (novel)|One Flew Over the Cuckoo's Nest]]'' (1962)
+* ''[[Sometimes a Great Notion]]'' (1964)
+* ''[[Caverns (novel)|Caverns]]'' (1989)
+* ''[[Sailor Song]]'' (1992)
+* ''[[Last Go Round]]'' with [[Ken Babbs]] (1994)
+</div></td><td class=\"navbox-image\" rowspan=\"9\" style=\"width:0%;padding:0px 0px 0px 2px\"><div>[[File:Further (original bus).jpg|159px]]</div></td></tr><tr style=\"height:2px\"><td colspan=\"2\"></td></tr><tr><th scope=\"row\" class=\"navbox-group\">Collections</th><td class=\"navbox-list navbox-even hlist\" style=\"text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px\"><div style=\"padding:0em 0.25em\">
+* ''[[Kesey's Garage Sale]]'' (1973)
+* ''[[Demon Box (book)|Demon Box]]'' (1986)
+* ''[[Kesey's Jail Journal]]'' (2003)
+</div></td></tr><tr style=\"height:2px\"><td colspan=\"2\"></td></tr><tr><th scope=\"row\" class=\"navbox-group\">Plays</th><td class=\"navbox-list navbox-odd hlist\" style=\"text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px\"><div style=\"padding:0em 0.25em\">
+* ''[[Over the Border (play)|Over the Border]]'' (1973)
+* ''[[The Furthur Enquiry]]'' (1990)
+* ''[[Twister (play)|Twister]]'' (1999)
+</div></td></tr><tr style=\"height:2px\"><td colspan=\"2\"></td></tr><tr><th scope=\"row\" class=\"navbox-group\">Adaptations</th><td class=\"navbox-list navbox-even hlist\" style=\"text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px\"><div style=\"padding:0em 0.25em\">
+* ''[[One Flew Over the Cuckoo's Nest (play)|One Flew Over the Cuckoo's Nest]]'' (1963 play)
+* ''[[Sometimes a Great Notion (film)|Sometimes a Great Notion]]'' (1971 film)
+* ''[[One Flew Over the Cuckoo's Nest (film)|One Flew Over the Cuckoo's Nest]]'' (1975 film)
+</div></td></tr><tr style=\"height:2px\"><td colspan=\"2\"></td></tr><tr><th scope=\"row\" class=\"navbox-group\">Related</th><td class=\"navbox-list navbox-odd hlist\" style=\"text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px\"><div style=\"padding:0em 0.25em\">
+* [[Merry Pranksters]]
+**[[Further (bus)|Further bus]]
+**[[Acid Tests]]
+**[[Neal Cassady]]
+**[[Carolyn Garcia|Carolyn Garcia]]
+**[[Lee Quarnstrom]]
+**[[Ken Babbs]]
+* ''[[The Electric Kool-Aid Acid Test]]''
+* ''[[Magic Trip]]''
+</div></td></tr></table></td></tr></table>
+<table class=\"navbox\" style=\"border-spacing:0\"><tr><td style=\"padding:2px\"><table class=\"nowraplinks collapsible autocollapse navbox-inner\" style=\"border-spacing:0;background:transparent;color:inherit\"><tr><th scope=\"col\" class=\"navbox-title\" colspan=\"2\"><div class=\"plainlinks hlist navbar mini\"><ul><li class=\"nv-view\">[[Template:One Flew Over the Cuckoo's Nest|<span title=\"View this template\" style=\";;background:none transparent;border:none;\">v</span>]]</li><li class=\"nv-talk\">[[Template talk:One Flew Over the Cuckoo's Nest|<span title=\"Discuss this template\" style=\";;background:none transparent;border:none;\">t</span>]]</li><li class=\"nv-edit\">[//en.wikipedia.org/w/index.php?title=Template:One_Flew_Over_the_Cuckoo%27s_Nest&action=edit <span title=\"Edit this template\" style=\";;background:none transparent;border:none;\">e</span>]</li></ul></div><div style=\"font-size:114%\">[[Ken Kesey|Ken Kesey's]] ''One Flew Over the Cuckoo's Nest''</div></th></tr><tr style=\"height:2px\"><td colspan=\"2\"></td></tr><tr><th scope=\"row\" class=\"navbox-group\">Novel</th><td class=\"navbox-list navbox-odd hlist\" style=\"text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px\"><div style=\"padding:0em 0.25em\">
+* ''[[One Flew Over the Cuckoo's Nest (novel)|One Flew Over the Cuckoo's Nest]]''
+</div></td></tr><tr style=\"height:2px\"><td colspan=\"2\"></td></tr><tr><th scope=\"row\" class=\"navbox-group\">Adaptations</th><td class=\"navbox-list navbox-even hlist\" style=\"text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px\"><div style=\"padding:0em 0.25em\">
+* [[One Flew Over the Cuckoo's Nest (play)|''One Flew Over the Cuckoo's Nest'' (1963 play)]]
+* [[One Flew Over the Cuckoo's Nest (film)|''One Flew Over the Cuckoo's Nest'' (1975 film)]]
+</div></td></tr><tr style=\"height:2px\"><td colspan=\"2\"></td></tr><tr><th scope=\"row\" class=\"navbox-group\">Characters</th><td class=\"navbox-list navbox-odd hlist\" style=\"text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px\"><div style=\"padding:0em 0.25em\">
+* [[Randle McMurphy]]
+* [[Nurse Ratched]]
+</div></td></tr><tr style=\"height:2px\"><td colspan=\"2\"></td></tr><tr><th scope=\"row\" class=\"navbox-group\">See also</th><td class=\"navbox-list navbox-even hlist\" style=\"text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px\"><div style=\"padding:0em 0.25em\">
+* [[Institutionalisation]]
+</div></td></tr></table></td></tr></table>
+<table class=\"navbox\" style=\"border-spacing:0\"><tr><td style=\"padding:2px\"><table class=\"nowraplinks hlist collapsible collapsed navbox-inner\" style=\"border-spacing:0;background:transparent;color:inherit\"><tr><th scope=\"col\" class=\"navbox-title\" colspan=\"3\"><div class=\"plainlinks hlist navbar mini\"><ul><li class=\"nv-view\">[[Template:Oregon Modern History|<span title=\"View this template\" style=\";;background:none transparent;border:none;\">v</span>]]</li><li class=\"nv-talk\">[[Template talk:Oregon Modern History|<span title=\"Discuss this template\" style=\";;background:none transparent;border:none;\">t</span>]]</li><li class=\"nv-edit\">[//en.wikipedia.org/w/index.php?title=Template:Oregon_Modern_History&action=edit <span title=\"Edit this template\" style=\";;background:none transparent;border:none;\">e</span>]</li></ul></div><div style=\"font-size:114%\">Modern [[history of Oregon]] (1890–present)</div></th></tr><tr style=\"height:2px\"><td colspan=\"2\"></td></tr><tr><th scope=\"row\" class=\"navbox-group\">Topics</th><td class=\"navbox-list navbox-odd\" style=\"text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px\"><div style=\"padding:0em 0.25em\">
+* [[Oregon tax revolt|Tax revolt]]
+* [[List of Governors of Oregon|Governors]]
+* [[Oregon Bottle Bill|Bottle Bill]]
+* [[Oregon Centennial Tokens|Centennial Tokens]]
+* \"[[Roll On, Columbia, Roll On]]\"
+* [[Meier & Frank]]
+* [[Willamette Industries]]
+* [[Direct Legislation League]]
+</div></td><td class=\"navbox-image\" rowspan=\"9\" style=\"width:0%;padding:0px 0px 0px 2px\"><div>[[File:Seal of Oregon.svg|75x50px|Oregon State Seal]]</div></td></tr><tr style=\"height:2px\"><td colspan=\"2\"></td></tr><tr><th scope=\"row\" class=\"navbox-group\">Events</th><td class=\"navbox-list navbox-even\" style=\"text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px\"><div style=\"padding:0em 0.25em\">
+* [[USS Oregon (BB-3)|USS ''Oregon'']]
+* [[Lewis and Clark Centennial Exposition|Lewis & Clark Expo]]
+* [[Oregon land fraud scandal]]
+* [[Lookout Air Raids]]
+* [[Columbus Day Storm of 1962|Columbus Day Storm]]
+* [[Exploding whale]]
+* [[1977 NBA Finals]]
+* [[1980 eruption of Mount St. Helens|1980 eruption of Mt. St. Helens]]
+* [[1984 Rajneeshee bioterror attack|Rajneeshee bioterror attack]]
+* [[1985 Rajneeshee assassination plot|Rajneeshee assassination plot]]
+* [[New Carissa]]
+* [[Willamette Valley Flood of 1996|Willamette Valley Flood]]
+</div></td></tr><tr style=\"height:2px\"><td colspan=\"2\"></td></tr><tr><th scope=\"row\" class=\"navbox-group\">Places</th><td class=\"navbox-list navbox-odd\" style=\"text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px\"><div style=\"padding:0em 0.25em\">
+* [[Bonneville Dam]]
+* [[Celilo Falls]]
+* [[Copperfield, Oregon|Copperfield]]
+* [[Fort Stevens (Oregon)|Fort Stevens]]
+* [[Harbor Drive]]
+* [[Kaiser Shipyards]]
+* [[Shanghai tunnels]]
+* [[Vanport, Oregon|Vanport]]
+</div></td></tr><tr style=\"height:2px\"><td colspan=\"2\"></td></tr><tr><th scope=\"row\" class=\"navbox-group\">Politicians</th><td class=\"navbox-list navbox-even\" style=\"text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px\"><div style=\"padding:0em 0.25em\">
+* [[Victor G. Atiyeh]]
+* [[George Earle Chamberlain|George Chamberlain]]
+* [[David B. Frohnmayer]]
+* [[Neil Goldschmidt]]
+* [[Mark Hatfield]]
+* [[Nan Wood Honeyman]]
+* [[Tom McCall]]
+* [[Douglas McKay]]
+* [[Charles L. McNary|Charles McNary]]
+* [[Wayne Morse]]
+* [[Maurine Neuberger]]
+* [[Norma Paulus]]
+* [[Barbara Roberts]]
+* [[Jim Weaver (Oregon politician)|James H. Weaver]]
+</div></td></tr><tr style=\"height:2px\"><td colspan=\"2\"></td></tr><tr><th scope=\"row\" class=\"navbox-group\">Other<br/>Oregonians</th><td class=\"navbox-list navbox-odd\" style=\"text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px\"><div style=\"padding:0em 0.25em\">
+* [[Terry Baker]]
+* [[Pietro Belluschi]]
+* [[Gert Boyle]]
+* [[Abigail Scott Duniway]]
+* [[James Alger Fee|James A. Fee]]
+* [[Matt Groening]]
+* [[Ken Kesey]]
+* [[Phil Knight]]
+* [[Ursula K. Le Guin]]
+* [[Hall S. Lusk]]
+* [[Brian McMenamin]]
+* [[Bill Naito]]
+* [[Steve Prefontaine]]
+* [[Jack Ramsay]]
+* [[Henry Weinhard]]
+</div></td></tr><tr style=\"height:2px\"><td colspan=\"2\"></td></tr><tr><td class=\"navbox-abovebelow\" colspan=\"3\"><div>
+* History [[Native American peoples of Oregon|of Oregon's native peoples]]
+* [[Oregon history to 1806|of Oregon to 1806]]
+* [[Oregon pioneer history|of pioneers in Oregon]]
+* [[Oregon modern history|of Oregon in modern times]]
+</div></td></tr></table></td></tr></table>
+
+<table class=\"navbox\" style=\"border-spacing:0\"><tr><td style=\"padding:2px\"><table class=\"nowraplinks hlist navbox-inner\" style=\"border-spacing:0;background:transparent;color:inherit\"><tr><th scope=\"row\" class=\"navbox-group\">[[Help:Authority control|Authority control]]</th><td class=\"navbox-list navbox-odd\" style=\"text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px\"><div style=\"padding:0em 0.25em\">
+*  [//www.worldcat.org/identities/lccn-n50-044585 WorldCat]
+* [[Virtual International Authority File|VIAF]]: <span class=\"uid\">[https://viaf.org/viaf/108853111 108853111][[Category:Wikipedia articles with VIAF identifiers]]</span>
+* [[Library of Congress Control Number|LCCN]]: <span class=\"uid\">[http://id.loc.gov/authorities/names/n50044585 n50044585][[Category:Wikipedia articles with LCCN identifiers]]</span>
+* [[International Standard Name Identifier|ISNI]]: <span class=\"uid\">[http://isni-url.oclc.nl/isni/0000000081738365 0000 0000 8173 8365][[Category:Wikipedia articles with ISNI identifiers]]</span>
+* [[Integrated Authority File|GND]]: <span class=\"uid\">[http://d-nb.info/gnd/118777092 118777092][[Category:Wikipedia articles with GND identifiers]]</span>
+* [[Bibliothèque nationale de France|BNF]]: <span class=\"uid\">[http://catalogue.bnf.fr/ark:/12148/cb11909664x cb11909664x] [http://data.bnf.fr/ark:/12148/cb11909664x (data)][[Category:Wikipedia articles with BNF identifiers]]</span>
+* [[MusicBrainz]]: <span class=\"uid\">[//musicbrainz.org/artist/7974c3f4-0605-4288-b6f7-1ccae5ec397b 7974c3f4-0605-4288-b6f7-1ccae5ec397b][[Category:Wikipedia articles with MusicBrainz identifiers]]</span>
+* [[National Diet Library|NDL]]: <span class=\"uid\">[http://id.ndl.go.jp/auth/ndlna/00445548 00445548]</span>
+* [[National Library of the Czech Republic|NKC]]: <span class=\"uid\">[http://aleph.nkp.cz/F/?func=find-c&local_base=aut&ccl_term=ica=jo20010087027&CON_LNG=ENG jo20010087027]</span>
+
+</div></td></tr></table></td></tr></table>
+
+
+[[Category:1935 births]]
+[[Category:2001 deaths]]
+[[Category:20th-century American novelists]]
+[[Category:American activists]]
+[[Category:American essayists]]
+[[Category:American male novelists]]
+[[Category:American short story writers]]
+[[Category:Beat Generation writers]]
+[[Category:Cancer deaths in Oregon]]
+[[Category:Counterculture festivals activists]]
+[[Category:Counterculture of the 1960s]]
+[[Category:Deaths from liver cancer]]
+[[Category:Drug policy reform activists]]
+[[Category:People from Otero County, Colorado]]
+[[Category:People from Springfield, Oregon]]
+[[Category:People who faked their own death]]
+[[Category:Writers from Oregon]]
+[[Category:Pranksters]]
+[[Category:Psychedelic drug advocates]]
+[[Category:University of Oregon alumni]]
+[[Category:Writers from California]]
+[[Category:Postmodern writers]]
+[[Category:American male short story writers]]
+[[Category:Male essayists]]
