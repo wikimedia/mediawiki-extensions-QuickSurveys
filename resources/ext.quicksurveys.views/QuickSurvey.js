@@ -3,7 +3,7 @@
 
 	/**
 	 * @class QuickSurvey
-	 * @inherit OO.ui.StackLayout
+	 * @extends OO.ui.StackLayout
 	 */
 	function QuickSurvey( config ) {
 		this.initialize( config );
@@ -59,6 +59,7 @@
 		},
 		/**
 		 * Initialise a widget.
+		 *
 		 * @param {Object} config
 		 */
 		initialize: function ( config ) {
@@ -104,19 +105,20 @@
 		 */
 		widget: function ( widgetName, templatePartialName, options ) {
 			var template,
-				config = $.extend( {}, this.config[widgetName], options );
+				config = $.extend( {}, this.config[ widgetName ], options );
 
 			if ( templatePartialName ) {
-				template = this.templatePartials[templatePartialName];
+				template = this.templatePartials[ templatePartialName ];
 				if ( template ) {
 					config.$content = template.render( this.config.templateData );
 				}
 			}
-			return new OO.ui[widgetName]( config );
+			return new OO.ui[ widgetName ]( config );
 		},
 		/**
 		 * Log the answer to Schema:QuickSurveysResponses
-		 * @see https://meta.wikimedia.org/wiki/Schema:QuickSurveysResponses
+		 * See {@link https://meta.wikimedia.org/wiki/Schema:QuickSurveysResponses}
+		 *
 		 * @param {String} answer
 		 * @return {jQuery.Deferred}
 		 */
@@ -139,6 +141,7 @@
 		},
 		/**
 		 * Fired when one of the options are clicked.
+		 *
 		 * @param {OO.ui.ButtonOptionWidget} btn
 		 */
 		onChoose: function ( btn ) {

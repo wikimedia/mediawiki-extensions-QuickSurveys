@@ -1,11 +1,12 @@
 ( function () {
 	/**
 	 * Extends a class with new methods and member properties.
+	 * FIXME: Talk about upstreaming this to oojs ui as a utility function.
 	 *
+	 * @param {Class} ChildClass to extend.
 	 * @param {OO.Class} ParentClass to extend.
 	 * @param {Object} prototype Prototype that should be incorporated into the new Class.
 	 * @ignore
-	 * FIXME: Talk about upstreaming this to oojs ui as a utility function.
 	 * @return {Class}
 	 */
 	function extend( ChildClass, ParentClass, prototype ) {
@@ -13,15 +14,16 @@
 
 		OO.inheritClass( ChildClass, ParentClass );
 		for ( key in prototype ) {
-			ChildClass.prototype[key] = prototype[key];
+			ChildClass.prototype[ key ] = prototype[ key ];
 		}
 		return ChildClass;
 	}
 
 	/**
 	 * Return edit count bucket based on the number of edits
+	 *
 	 * @param {Number} editCount
-	 * @returns {String}
+	 * @return {String}
 	 */
 	function getEditCountBucket( editCount ) {
 		var bucket;
@@ -44,7 +46,8 @@
 	/**
 	 * Return two letter country code from the GeoIP cookie.
 	 * Return 'Unknown' if the cookie is not set.
-	 * @returns {String}
+	 *
+	 * @return {String}
 	 */
 	function getCountryCode() {
 		var geoIP = mw.cookie.get( 'GeoIP', '' );
