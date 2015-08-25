@@ -32,19 +32,26 @@
 				} else {
 					$panel.appendTo( $bodyContent );
 				}
-				mw.loader.using( 'ext.quicksurveys.views' ).done( function () {
-					var panel;
-					panel = new mw.extQuickSurveys.views.QuickSurvey( {
-						survey: survey,
-						templateData: {
-							question: survey.question,
-							description: survey.description
-						}
-					} );
-					$panel.replaceWith( panel.$element );
+				// survey.module contains i18n messages
+				mw.loader.using( [ 'ext.quicksurveys.views', survey.module ] ).done( function () {
+					var panel,
+						options = {
+							survey: survey,
+							templateData: {
+								question: mw.msg( survey.question ),
+								description: mw.msg( survey.description )
+							}
+						};
+
+					if ( survey.type === 'internal' ) {
+						panel = new mw.extQuickSurveys.views.QuickSurvey( options );
+					} else {
+						panel = new mw.extQuickSurveys.views.ExternalSurvey( options );
+					}
 					panel.on( 'dismiss', function () {
 						mw.storage.set( storageId, '~' );
 					} );
+					$panel.replaceWith( panel.$element );
 				} );
 			}
 		}

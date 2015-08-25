@@ -13,13 +13,15 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "The positive answer for the example internal survey\n{{Identical|Yes}}",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "The neutral answer for the example internal survey\n{{Identical|Not sure}}",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "The negative answer for the example internal survey\n{{Identical|No}}",
-	"ext-quicksurveys-example-external-survey-link": "Web link to the external survey",
-	"ext-quicksurveys-example-external-survey-description": "description of the example survey",
-	"ext-quicksurveys-example-external-survey-privacy-policy-link": "Web link to the privacy policy",
-	"ext-quicksurveys-example-external-survey-privacy-policy-text": "text of the privacy policy link\n{{Identical|Privacy policy}}",
+	"ext-quicksurveys-example-external-survey-question": "The question for (title of) the example external survey",
+	"ext-quicksurveys-example-external-survey-description": "Description of the example external survey question",
+	"ext-quicksurveys-example-external-survey-link": "Link to the example external survey.",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "The privacy policy of the example external survey",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Default disclaimer about submitting surveys.",
 	"ext-quicksurveys-survey-confirm-msg": "Confirmation message thanking user for their input.",
 	"ext-quicksurveys-survey-positive": "Default button label for user replying in affirmative.",
 	"ext-quicksurveys-survey-negative": "Default button label for user replying neutrally.",
-	"ext-quicksurveys-survey-neutral": "Default button label for user replying negatively."
+	"ext-quicksurveys-survey-neutral": "Default button label for user replying negatively.",
+	"ext-quicksurveys-external-survey-yes-button": "label of the link to the survey",
+	"ext-quicksurveys-external-survey-no-button": "decline button label"
 }

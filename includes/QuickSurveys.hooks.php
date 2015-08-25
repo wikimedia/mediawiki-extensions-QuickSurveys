@@ -53,20 +53,22 @@ class Hooks {
 		foreach ( $enabledSurveys as $survey ) {
 			$messages = array();
 
-			// All surveys have a description
+			// All surveys have a question and description
+			$messages[] = $survey['question'];
 			$messages[] = $survey['description'];
 
 			// Add messages that are specific the survey type
 			if ( $survey['type'] === 'internal' ) {
-				$messages[] = $survey['question'];
 				$messages[] = $survey['answers']['positive'];
 				$messages[] = $survey['answers']['neutral'];
 				$messages[] = $survey['answers']['negative'];
 
 			} elseif ( $survey['type'] === 'external' ) {
 				$messages[] = $survey['link'];
-				$messages[] = $survey['privacy-policy-link'];
-				$messages[] = $survey['privacy-policy-text'];
+				// camelCase because the key will be a property of a JavaScript object.
+				// Also this is not the key of the i18n message, it's the key that denotes the key of
+				// the i18n message. Basically, key of a PHP array.
+				$messages[] = $survey['privacyPolicy'];
 			}
 
 			$surveyModule = array( $survey['module'] => array(
