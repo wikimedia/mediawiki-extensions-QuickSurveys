@@ -2,32 +2,13 @@
 	var utils = mw.extQuickSurveys.views.utils;
 
 	/**
-	 * Extends a class with new methods and member properties.
-	 *
-	 * @param {OO.Class} ParentClass to extend.
-	 * @param {Object} prototype Prototype that should be incorporated into the new Class.
-	 * @ignore
-	 * FIXME: Talk about upstreaming this to oojs ui as a utility function.
-	 * @return {Class}
-	 */
-	function extend( ChildClass, ParentClass, prototype ) {
-		var key;
-
-		OO.inheritClass( ChildClass, ParentClass );
-		for ( key in prototype ) {
-			ChildClass.prototype[key] = prototype[key];
-		}
-		return ChildClass;
-	}
-
-	/**
 	 * @class QuickSurvey
 	 * @inherit OO.ui.StackLayout
 	 */
 	function QuickSurvey( config ) {
 		this.initialize( config );
 	}
-	extend( QuickSurvey, OO.ui.StackLayout, {
+	utils.extend( QuickSurvey, OO.ui.StackLayout, {
 		/**
 		 * Specifies partials (sub-templates) for use by the widget
 		 * @property {Object}

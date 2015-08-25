@@ -1,5 +1,24 @@
 ( function () {
 	/**
+	 * Extends a class with new methods and member properties.
+	 *
+	 * @param {OO.Class} ParentClass to extend.
+	 * @param {Object} prototype Prototype that should be incorporated into the new Class.
+	 * @ignore
+	 * FIXME: Talk about upstreaming this to oojs ui as a utility function.
+	 * @return {Class}
+	 */
+	function extend( ChildClass, ParentClass, prototype ) {
+		var key;
+
+		OO.inheritClass( ChildClass, ParentClass );
+		for ( key in prototype ) {
+			ChildClass.prototype[key] = prototype[key];
+		}
+		return ChildClass;
+	}
+
+	/**
 	 * Return edit count bucket based on the number of edits
 	 * @param {Number} editCount
 	 * @returns {String}
@@ -39,6 +58,7 @@
 	mw.extQuickSurveys = mw.extQuickSurveys || {};
 	mw.extQuickSurveys.views = mw.extQuickSurveys.views || {};
 	mw.extQuickSurveys.views.utils = {
+		extend: extend,
 		getEditCountBucket: getEditCountBucket,
 		getCountryCode: getCountryCode
 	};
