@@ -74,7 +74,11 @@
 		}
 	},
 	"AutoloadClasses": {
-		"QuickSurveys\\Hooks": "includes/QuickSurveys.hooks.php"
+		"QuickSurveys\\Hooks": "includes/QuickSurveys.hooks.php",
+		"QuickSurveys\\SurveyFactory": "includes/SurveyFactory.php",
+		"QuickSurveys\\Survey": "includes/Survey.php",
+		"QuickSurveys\\InternalSurvey": "includes/InternalSurvey.php",
+		"QuickSurveys\\ExternalSurvey": "includes/ExternalSurvey.php"
 	},
 	"manifest_version": 1,
 	"Hooks": {
@@ -101,7 +105,7 @@
 				"@question": "survey question message key",
 				"question": "ext-quicksurveys-example-internal-survey-question",
 				"@description": "The message key of the description of the survey. Displayed immediately below the survey question.",
-				"description": "",
+				"description": "ext-quicksurveys-example-internal-survey-description",
 				"@answers": "possible answer message keys for positive, neutral, and negative",
 				"answers": {
 					"positive": "ext-quicksurveys-example-internal-survey-answer-positive",
@@ -113,7 +117,7 @@
 				"@enabled": "whether the survey is enabled",
 				"enabled": false,
 				"@coverage": "percentage of users that will see the survey",
-				"coverage": "50",
+				"coverage": 0.5,
 				"@platform": "for each platform (desktop, mobile), which version of it is targeted (stable, beta, alpha)",
 				"platform": {
 					"desktop": ["stable"],
@@ -135,7 +139,7 @@
 				"@enabled": "whether the survey is enabled",
 				"enabled": false,
 				"@coverage": "percentage of users that will see the survey",
-				"coverage": "50",
+				"coverage": 0.5,
 				"@platform": "for each platform (desktop, mobile), which version of it is targeted (stable, beta, alpha)",
 				"platform": {
 					"desktop": ["stable"],
