@@ -24,8 +24,8 @@
 			}
 
 			if ( inSample || mw.util.getParamValue( 'quicksurvey' ) ) {
-				$bodyContent = $( '#bodyContent' );
-				$place = $bodyContent.find( 'h1, h2, h3, h4, h5, h6' ).eq( 0 );
+				$bodyContent = $( '.mw-content-ltr, .mw-content-rtl' );
+				$place = $bodyContent.find( '> h1, > h2, > h3, > h4, > h5, > h6' ).eq( 0 );
 
 				if ( $place.length ) {
 					$panel.insertBefore( $place );
