@@ -75,6 +75,7 @@ abstract class Survey
 	 */
 	public function toArray() {
 		return array(
+			'name' => $this->name,
 			'question' => $this->question,
 			'description' => $this->description,
 			'module' => $this->getResourceLoaderModuleName(),
