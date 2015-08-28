@@ -5,6 +5,10 @@ namespace QuickSurveys;
 class InternalSurvey extends Survey
 {
 	/**
+	 * @var string The name of the internal survey.
+	 */
+	private $name;
+	/**
 	 * @var array A map of internal key, e.g. "positive", to a i18n message key
 	 */
 	private $answers;
@@ -19,6 +23,7 @@ class InternalSurvey extends Survey
 	) {
 		parent::__construct( $name, $question, $description, $isEnabled, $coverage );
 
+		$this->name = $name;
 		$this->answers = $answers;
 	}
 
@@ -28,6 +33,7 @@ class InternalSurvey extends Survey
 
 	public function toArray() {
 		return parent::toArray() + array(
+			'name' => $this->name,
 			'type' => 'internal',
 			'answers' => $this->answers,
 		);
