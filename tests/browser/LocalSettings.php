@@ -18,4 +18,18 @@ $wgQuickSurveysConfig = array(
 			"mobile" => array( "stable", "beta", "alpha" ),
 		),
 	),
+	array(
+		'name' => 'external example survey',
+		'type' => 'external',
+		"question" => "ext-quicksurveys-example-external-survey-question",
+		"description" => "ext-quicksurveys-example-external-survey-description",
+		"link" => "ext-quicksurveys-example-external-survey-link",
+		"privacyPolicy" => "ext-quicksurveys-example-external-survey-privacy-policy",
+		'coverage' => .5,
+		'enabled' => true,
+		'platform' => array(
+			'desktop' => array( 'stable' ),
+			'mobile' => array( 'stable', 'beta', 'alpha' ),
+		),
+	)
 );
