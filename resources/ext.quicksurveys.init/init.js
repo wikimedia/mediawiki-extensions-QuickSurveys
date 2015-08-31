@@ -4,7 +4,6 @@
 		enabledSurveys = mw.config.get( 'wgEnabledQuickSurveys' ),
 		isMainPage = mw.config.get( 'wgIsMainPage' ),
 		isArticle = mw.config.get( 'wgIsArticle' ),
-		sessionId = mw.user.generateRandomSessionId(),
 		availableSurveys = [];
 
 	mw.extQuickSurveys = mw.extQuickSurveys || {};
@@ -98,7 +97,8 @@
 			token = getSurveyToken( survey );
 
 		if ( !token ) {
-			token = sessionId;
+			// Generate a new token for each survey
+			token = mw.user.generateRandomSessionId();
 			mw.storage.set( storageId, token );
 		}
 		return mw.experiments.getBucket( {
