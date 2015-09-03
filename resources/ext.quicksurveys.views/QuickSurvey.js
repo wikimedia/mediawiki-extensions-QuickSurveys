@@ -14,8 +14,8 @@
 		 * @property {Object}
 		 */
 		templatePartials: {
-			initialPanel: mw.template.get( 'ext.quicksurveys.views', 'initialPanel.mustache' ),
-			finalPanel: mw.template.get( 'ext.quicksurveys.views', 'finalPanel.mustache' )
+			initialPanel: mw.template.get( 'ext.quicksurveys.views', 'initialPanel.muhogan' ),
+			finalPanel: mw.template.get( 'ext.quicksurveys.views', 'finalPanel.muhogan' )
 		},
 		/**
 		 * A set of default options that are merged with config passed into the initialize function.
