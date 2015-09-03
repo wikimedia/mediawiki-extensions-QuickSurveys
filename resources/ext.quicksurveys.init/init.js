@@ -14,59 +14,75 @@
 		return;
 	}
 
-	// Find which surveys are available to the user
-	$( enabledSurveys ).each( function ( i, enabledSurvey ) {
-		// Setting the quicksurvey param makes every enabled survey available
-		if ( mw.util.getParamValue( 'quicksurvey' ) ) {
-			// Setting the param quicksurvey bypasses the bucketing
-			enabledSurvey = getSurveyFromQueryString(
-				mw.util.getParamValue( 'quicksurvey' ) || '',
-				enabledSurveys
-			);
-			if ( enabledSurvey ) {
+	// make sure the beta opt-in panel is not shown in Minerva
+	if ( mw.config.get( 'skin' ) === 'minerva' ) {
+		mw.trackSubscribe( 'minerva.betaoptin', function ( topic, data ) {
+			if ( data.isPanelShown === false ) {
+				showSurvey();
+			}
+		} );
+	} else {
+		showSurvey();
+	}
+
+	/**
+	 * Show survey
+	 */
+	function showSurvey() {
+		// Find which surveys are available to the user
+		$( enabledSurveys ).each( function ( i, enabledSurvey ) {
+			// Setting the quicksurvey param makes every enabled survey available
+			if ( mw.util.getParamValue( 'quicksurvey' ) ) {
+				// Setting the param quicksurvey bypasses the bucketing
+				enabledSurvey = getSurveyFromQueryString(
+					mw.util.getParamValue( 'quicksurvey' ) || '',
+					enabledSurveys
+				);
+				if ( enabledSurvey ) {
+					availableSurveys.push( enabledSurvey );
+				}
+				return false;
+			} else if (
+				getSurveyToken( enabledSurvey ) !== '~' &&
+				getBucketForSurvey( enabledSurvey ) === 'A'
+			) {
 				availableSurveys.push( enabledSurvey );
 			}
-			return false;
-		} else if (
-			getSurveyToken( enabledSurvey ) !== '~' &&
-			getBucketForSurvey( enabledSurvey ) === 'A'
-		) {
-			availableSurveys.push( enabledSurvey );
-		}
-	} );
-
-	if ( availableSurveys.length ) {
-		// Get a random available survey
-		survey = availableSurveys[ Math.floor( Math.random() * availableSurveys.length ) ];
-		$bodyContent = $( '.mw-content-ltr, .mw-content-rtl' );
-		$place = $bodyContent.find( '> .thumb, > h1, > h2, > h3, > h4, > h5, > h6' ).eq( 0 );
-
-		if ( $place.length ) {
-			$panel.insertBefore( $place );
-		} else {
-			$panel.appendTo( $bodyContent );
-		}
-		// survey.module contains i18n messages
-		mw.loader.using( [ 'ext.quicksurveys.views', survey.module ] ).done( function () {
-			var panel,
-				options = {
-					survey: survey,
-					templateData: {
-						question: mw.msg( survey.question ),
-						description: mw.msg( survey.description )
-					}
-				};
-
-			if ( survey.type === 'internal' ) {
-				panel = new mw.extQuickSurveys.views.QuickSurvey( options );
-			} else {
-				panel = new mw.extQuickSurveys.views.ExternalSurvey( options );
-			}
-			panel.on( 'dismiss', function () {
-				mw.storage.set( getSurveyStorageKey( survey ), '~' );
-			} );
-			$panel.replaceWith( panel.$element );
 		} );
+
+		if ( availableSurveys.length ) {
+			// Get a random available survey
+			survey = availableSurveys[ Math.floor( Math.random() * availableSurveys.length ) ];
+			$bodyContent = $( '.mw-content-ltr, .mw-content-rtl' );
+			$place = $bodyContent.find( '> .thumb, > h1, > h2, > h3, > h4, > h5, > h6' ).eq( 0 );
+
+			if ( $place.length ) {
+				$panel.insertBefore( $place );
+			} else {
+				$panel.appendTo( $bodyContent );
+			}
+			// survey.module contains i18n messages
+			mw.loader.using( [ 'ext.quicksurveys.views', survey.module ] ).done( function () {
+				var panel,
+					options = {
+						survey: survey,
+						templateData: {
+							question: mw.msg( survey.question ),
+							description: mw.msg( survey.description )
+						}
+					};
+
+				if ( survey.type === 'internal' ) {
+					panel = new mw.extQuickSurveys.views.QuickSurvey( options );
+				} else {
+					panel = new mw.extQuickSurveys.views.ExternalSurvey( options );
+				}
+				panel.on( 'dismiss', function () {
+					mw.storage.set( getSurveyStorageKey( survey ), '~' );
+				} );
+				$panel.replaceWith( panel.$element );
+			} );
+		}
 	}
 
 	/**
