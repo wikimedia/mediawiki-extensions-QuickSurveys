@@ -1,0 +1,26 @@
+== QuickSurveys 0.1.0 ==
+b6d889b Push to dev branch by default
+f1abf24 Update gitignore
+30d58bf Load a quick survey on desktop and mobile
+1789de8 Register enabled surveys as RL modules via hook
+4a90c94 Add support for logging events to Schema:QuickSurveysResponses
+86b4645 Move the extend function to the utils module
+f5fb14a Show external surveys
+f3d061b Fix jscs and jsdoc warnings
+ff497e2 QA: My extensions first browser test
+6542d09 QA: Browser test for participant in survey
+b58bede Model internal and external surveys
+8e6ec7d QA: Add sample articles for testing purposes
+6827ade Don't inject survey into table of contents
+39bdf81 Include the name of the survey in the spec
+1703aa7 Setup survey bucketing and add browser tests
+c7068e1 Hygiene: Make survey selection easier to read
+49b6393 Styling tweaks for Vector
+1091272 Add an option to load a specific survey
+ff83ade Add browser tests for external surveys
+91b8c4f Don't show the survey panel when minerva beta opt-in panel is shown
+f5dbd89 Generate a new token for each survey
+72f7fa9 Do not load Mustache and Hogan on mobile
+7466976 Trim MediaWiki:Quicksurveys-desc for clarity
+a0959b1 Hygiene: Refactor insertion of survey panel
+

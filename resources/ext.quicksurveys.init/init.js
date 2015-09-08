@@ -1,5 +1,5 @@
 ( function ( $ ) {
-	var survey, $bodyContent, $place,
+	var survey,
 		$panel = $( '<div class="ext-qs-loader-bar mw-ajax-loader"></div>' ),
 		enabledSurveys = mw.config.get( 'wgEnabledQuickSurveys' ),
 		isMainPage = mw.config.get( 'wgIsMainPage' ),
@@ -22,6 +22,24 @@
 		} );
 	} else {
 		showSurvey();
+	}
+
+	/**
+	 * Insert the quick survey panel into the article either (in priority order)
+	 * before the first instance of a thumbnail,
+	 * before the first instance of a heading
+	 * or at the end of the article when no headings nor thumbnails exist
+	 * @param {jQuery.Object} $panel
+	 */
+	function insertPanel( $panel ) {
+		var $bodyContent = $( '.mw-content-ltr, .mw-content-rtl' ),
+			$place = $bodyContent.find( '> .thumb, > h1, > h2, > h3, > h4, > h5, > h6' ).eq( 0 );
+
+		if ( $place.length ) {
+			$panel.insertBefore( $place );
+		} else {
+			$panel.appendTo( $bodyContent );
+		}
 	}
 
 	/**
@@ -52,14 +70,7 @@
 		if ( availableSurveys.length ) {
 			// Get a random available survey
 			survey = availableSurveys[ Math.floor( Math.random() * availableSurveys.length ) ];
-			$bodyContent = $( '.mw-content-ltr, .mw-content-rtl' );
-			$place = $bodyContent.find( '> .thumb, > h1, > h2, > h3, > h4, > h5, > h6' ).eq( 0 );
-
-			if ( $place.length ) {
-				$panel.insertBefore( $place );
-			} else {
-				$panel.appendTo( $bodyContent );
-			}
+			insertPanel( $panel );
 			// survey.module contains i18n messages
 			mw.loader.using( [ 'ext.quicksurveys.views', survey.module ] ).done( function () {
 				var panel,
