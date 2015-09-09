@@ -6,5 +6,6 @@
 	},
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Bai",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Ez",
-	"ext-quicksurveys-example-external-survey-privacy-policy-text": "Pribatutasun-politika"
+	"ext-quicksurveys-survey-positive": "Bai",
+	"ext-quicksurveys-survey-negative": "Ez"
 }
