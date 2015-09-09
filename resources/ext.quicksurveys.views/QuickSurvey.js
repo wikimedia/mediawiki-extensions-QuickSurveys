@@ -139,7 +139,7 @@
 					presentation: mw.config.get( 'skin' ),
 					userLanguage: mw.config.get( 'wgContentLanguage' ),
 					isLoggedIn: !mw.user.isAnon(),
-					editCount: utils.getEditCountBucket( mw.config.get( 'wgUserEditCount' ) ),
+					editCountBucket: utils.getEditCountBucket( mw.config.get( 'wgUserEditCount' ) ),
 					countryCode: utils.getCountryCode()
 				} );
 			}

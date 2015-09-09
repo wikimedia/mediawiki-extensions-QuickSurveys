@@ -37,7 +37,8 @@
 		"ext.quicksurveys.views": {
 			"dependencies": [
 				"oojs-ui",
-				"mediawiki.user"
+				"mediawiki.user",
+				"schema.QuickSurveysResponses"
 			],
 			"targets": [
 				"mobile",
@@ -92,6 +93,9 @@
 		"QuickSurveys\\InternalSurvey": "includes/InternalSurvey.php",
 		"QuickSurveys\\ExternalSurvey": "includes/ExternalSurvey.php"
 	},
+	"ExtensionFunctions": [
+		"QuickSurveys\\Hooks::onExtensionSetup"
+	],
 	"manifest_version": 1,
 	"Hooks": {
 		"ResourceLoaderGetConfigVars": [
@@ -124,8 +128,6 @@
 					"neutral": "ext-quicksurveys-example-internal-survey-answer-neutral",
 					"negative": "ext-quicksurveys-example-internal-survey-answer-negative"
 				},
-				"@schema": "Which schema to log to",
-				"schema": "QuickSurveysResponse",
 				"@enabled": "whether the survey is enabled",
 				"enabled": false,
 				"@coverage": "percentage of users that will see the survey",

@@ -42,6 +42,16 @@ class Hooks {
 	}
 
 	/**
+	 * Extension function to report when EventLogging is not installed
+	 */
+	public static function onExtensionSetup() {
+		if ( !class_exists( 'EventLogging' ) ) {
+			echo "QuickSurveys extension requires EventLogging.\n";
+			die( -1 );
+		}
+	}
+
+	/**
 	 * ResourceLoaderRegisterModules hook handler
 	 *
 	 * Registers needed modules for enabled surveys
