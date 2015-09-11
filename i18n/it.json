@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Statix64"
+			"Statix64",
+			"Macofe"
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-question": "Il testo dovrebbe essere più grande?",
@@ -9,5 +10,8 @@
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Non sono sicuro",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "No",
 	"ext-quicksurveys-example-external-survey-description": "Questa è la descrizione del sondaggio esterno d'esempio.",
-	"ext-quicksurveys-example-external-survey-privacy-policy-text": "Politica sulla privacy"
+	"ext-quicksurveys-survey-positive": "Sì",
+	"ext-quicksurveys-survey-negative": "No",
+	"ext-quicksurveys-survey-neutral": "Non sono sicuro",
+	"ext-quicksurveys-external-survey-no-button": "No, grazie"
 }

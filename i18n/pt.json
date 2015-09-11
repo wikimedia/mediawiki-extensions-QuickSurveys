@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Macofe"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Sim",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Não",
+	"ext-quicksurveys-survey-positive": "Sim",
+	"ext-quicksurveys-survey-negative": "Não",
+	"ext-quicksurveys-external-survey-no-button": "Não, obrigado"
+}

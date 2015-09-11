@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Wladek92"
+			"Wladek92",
+			"Macofe"
 		]
 	},
 	"quicksurveys-desc": "Affiche les enquêtes mises en forme sur les mobiles et les desktops.",
@@ -10,5 +11,8 @@
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Pas certain",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Non",
 	"ext-quicksurveys-example-external-survey-description": "Ceci est la description de l'exemple d'étude externe.",
-	"ext-quicksurveys-example-external-survey-privacy-policy-text": "Politique de confidentialité"
+	"ext-quicksurveys-survey-positive": "Oui",
+	"ext-quicksurveys-survey-negative": "Non",
+	"ext-quicksurveys-survey-neutral": "Pas certain",
+	"ext-quicksurveys-external-survey-no-button": "Non merci"
 }
