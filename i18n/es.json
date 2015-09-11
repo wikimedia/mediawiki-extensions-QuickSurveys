@@ -6,9 +6,16 @@
 	},
 	"quicksurveys-desc": "Muestra encuestas configuradas en dispositivos móviles y de escritorio.",
 	"ext-quicksurveys-example-internal-survey-question": "¿Debería ser más grande el texto?",
+	"ext-quicksurveys-example-internal-survey-description": "Esta es la descripción de un ejemplo de encuesta interna",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Sí",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "No lo sé",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "No",
+	"ext-quicksurveys-example-external-survey-question": "Necesitamos tu ayuda para mejorar Wikipedia.",
 	"ext-quicksurveys-example-external-survey-description": "Esta es la descripción de un ejemplo de encuesta externa.",
-	"ext-quicksurveys-example-external-survey-privacy-policy-text": "Política de privacidad"
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Encuesta proporcionada por ExampleSurveyProvider. Consulta la <a href=\"//example.org/privacy-policy\" target=\"_blank\">política de privacidad</a>.",
+	"ext-quicksurveys-survey-positive": "Sí",
+	"ext-quicksurveys-survey-negative": "No",
+	"ext-quicksurveys-survey-neutral": "No lo sé",
+	"ext-quicksurveys-external-survey-yes-button": "Visita la encuesta",
+	"ext-quicksurveys-external-survey-no-button": "No, gracias"
 }
