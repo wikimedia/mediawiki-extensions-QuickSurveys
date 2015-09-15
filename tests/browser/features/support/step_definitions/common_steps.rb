@@ -1,4 +1,11 @@
 Given(/^the quick survey test pages are installed$/) do
+  api.create_page 'MediaWiki:anne-survey-question', 'What is the best drink?'
+  api.create_page 'MediaWiki:anne-survey-description', 'Help us nourish you!'
+  api.create_page 'MediaWiki:anne-survey-answer-one', 'Milk'
+  api.create_page 'MediaWiki:anne-survey-answer-two', 'Beer'
+  api.create_page 'MediaWiki:anne-survey-answer-three', 'Water'
+  api.create_page 'MediaWiki:anne-survey-answer-four', 'Ginger beer'
+
   api.create_page 'Quick survey test page without infobox nor image',
                   File.read('samples/no_infobox_or_image.wikitext')
 
@@ -21,6 +28,15 @@ end
 Given(/^I am on the "(.*?)" page with the quick survey flag enabled$/) do |arg1|
   visit(ArticlePage,
         using_params: { article_name: arg1, query_string: '?quicksurvey=true' })
+end
+
+Given(/^I am on the "(.*?)" page and I see the drinks survey$/) do |arg1|
+  visit(ArticlePage,
+        using_params: {
+          article_name: arg1,
+          query_string: '?quicksurvey=internal-survey-drink-survey'
+        }
+  )
 end
 
 Given(/^I am on the "(.*?)" page with the internal quick survey flag enabled$/)\
