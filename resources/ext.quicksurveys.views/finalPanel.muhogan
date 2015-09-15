@@ -1,4 +1,3 @@
 <strong>{{finalHeading}}</strong>
-<div class="completed image"></div>
 <div class="survey-footer">{{{footer}}}</div>
 

@@ -7,5 +7,5 @@ Given(/^I answer the internal survey in the positive$/) do
 end
 
 Then(/^I get thanks for my internal survey feedback$/) do
-  expect(on(ArticlePage).survey_complete_element.when_present).to be_visible
+  expect(on(ArticlePage).final_panel_element.when_present).to be_visible
 end

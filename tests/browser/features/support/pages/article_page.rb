@@ -12,5 +12,7 @@ class ArticlePage
   a(:external_survey_no,
     css: '.panel .oo-ui-buttonWidget .oo-ui-buttonElement-button',
     index: 1)
-  div(:survey_complete, css: '.panel .completed')
+  div(:final_panel,
+      css: '.ext-quick-survey-panel .oo-ui-panelLayout',
+      index: 1)
 end
