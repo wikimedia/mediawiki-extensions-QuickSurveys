@@ -5,9 +5,9 @@ $wgQuickSurveysConfig = array(
 		"type" => "internal",
 		"question" => "ext-quicksurveys-example-internal-survey-question",
 		"answers" => array(
-			"positive" => "ext-quicksurveys-example-internal-survey-answer-positive",
-			"neutral" => "ext-quicksurveys-example-internal-survey-answer-neutral",
-			"negative"=> "ext-quicksurveys-example-internal-survey-answer-negative"
+			"ext-quicksurveys-example-internal-survey-answer-positive",
+			"ext-quicksurveys-example-internal-survey-answer-neutral",
+			"ext-quicksurveys-example-internal-survey-answer-negative",
 		),
 		"schema" => "QuickSurveysResponses",
 		"enabled" => true,

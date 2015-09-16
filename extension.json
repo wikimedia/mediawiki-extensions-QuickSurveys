@@ -123,11 +123,11 @@
 				"@description": "The message key of the description of the survey. Displayed immediately below the survey question.",
 				"description": "ext-quicksurveys-example-internal-survey-description",
 				"@answers": "possible answer message keys for positive, neutral, and negative",
-				"answers": {
-					"positive": "ext-quicksurveys-example-internal-survey-answer-positive",
-					"neutral": "ext-quicksurveys-example-internal-survey-answer-neutral",
-					"negative": "ext-quicksurveys-example-internal-survey-answer-negative"
-				},
+				"answers": [
+					"ext-quicksurveys-example-internal-survey-answer-positive",
+					"ext-quicksurveys-example-internal-survey-answer-neutral",
+					"ext-quicksurveys-example-internal-survey-answer-negative"
+				],
 				"@enabled": "whether the survey is enabled",
 				"enabled": false,
 				"@coverage": "percentage of users that will see the survey",

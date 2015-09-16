@@ -22,9 +22,9 @@ $wgQuickSurveysConfig[] = array(
 	'question' => 'ext-quicksurveys-example-question',
 	// Possible answer message keys for positive, neutral, and negative
 	'answers' => array(
-		'positive' => 'ext-quicksurveys-example-answer-positive',
-		'neutral' =>  'ext-quicksurveys-example-answer-neutral',
-		'negative' => 'ext-quicksurveys-example-answer-negative',
+		'ext-quicksurveys-example-answer-positive',
+		'ext-quicksurveys-example-answer-neutral',
+		'ext-quicksurveys-example-answer-negative',
 	),
 	// Which schema to log to
 	'schema' => 'QuickSurveysResponses',

@@ -9,7 +9,8 @@ class InternalSurvey extends Survey
 	 */
 	private $name;
 	/**
-	 * @var array A map of internal key, e.g. "positive", to a i18n message key
+	 * @var array The set of i18n message keys of the internal survey
+	 *  answers.
 	 */
 	private $answers;
 
@@ -28,7 +29,7 @@ class InternalSurvey extends Survey
 	}
 
 	public function getMessages() {
-		return array_merge( parent::getMessages(), array_values( $this->answers ) );
+		return array_merge( parent::getMessages(), $this->answers );
 	}
 
 	public function toArray() {

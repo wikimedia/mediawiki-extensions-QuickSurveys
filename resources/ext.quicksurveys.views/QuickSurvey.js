@@ -68,9 +68,9 @@
 				buttonSelect,
 				buttons;
 
-			buttons = $.map( this.config.survey.answers, function ( label, answer ) {
+			buttons = $.map( this.config.survey.answers, function ( answer ) {
 				return new OO.ui.ButtonOptionWidget( {
-					label: mw.msg( label ),
+					label: mw.msg( answer ),
 					data: {
 						answer: answer
 					}
