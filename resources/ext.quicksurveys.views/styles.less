@@ -1,6 +1,7 @@
 @import "mediawiki.ui/variables";
 @import "mediawiki.ui/mixins";
 @import "mediawiki.mixins";
+@import "../variables";
 
 .panel .survey-footer {
   font-size: .8em;
@@ -9,7 +10,7 @@
 
 .ext-quick-survey-panel {
 	background-color: @colorGrayLightest;
-	max-width: 500px;
+	width: @panelWidth;
 
 	.image {
 		background-repeat: no-repeat;
