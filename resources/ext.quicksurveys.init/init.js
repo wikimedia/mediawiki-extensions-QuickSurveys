@@ -33,7 +33,9 @@
 	 */
 	function insertPanel( $panel ) {
 		var $bodyContent = $( '.mw-content-ltr, .mw-content-rtl' ),
-			$place = $bodyContent.find( '> .thumb, > h1, > h2, > h3, > h4, > h5, > h6' ).eq( 0 );
+			$place = $bodyContent
+				.find( '.infobox, > .thumb, > h1, > h2, > h3, > h4, > h5, > h6' )
+				.eq( 0 );
 
 		if ( $place.length ) {
 			$panel.insertBefore( $place );
