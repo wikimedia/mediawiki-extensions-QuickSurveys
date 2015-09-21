@@ -15,7 +15,7 @@
 		 * @inheritdoc
 		 */
 		initialize: function ( config ) {
-			this.defaults.templateData.footer = mw.msg( config.survey.privacyPolicy );
+			this.defaults.templateData.footer = mw.message( config.survey.privacyPolicy ).parse();
 			QuickSurvey.prototype.initialize.call( this, config );
 		},
 		/**
@@ -25,7 +25,7 @@
 			var $btnContainer = this.initialPanel.$element.find( '.survey-button-container' ),
 				buttons = [
 					{
-						href: mw.msg( this.config.survey.link ),
+						href: mw.message( this.config.survey.link ).parse(),
 						target: '_blank',
 						label: mw.msg( 'ext-quicksurveys-external-survey-yes-button' ),
 						flags: 'constructive'
