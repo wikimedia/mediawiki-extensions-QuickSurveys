@@ -4,6 +4,11 @@ Feature: Internal surveys
     Given the quick survey test pages are installed
       And I have dismissed survey "external-example-survey"
 
+  Scenario: Internal survey has multiple answers
+    Given I am on the "Quick survey test page with image no infobox" page and I see the drinks survey
+      Then I should see the survey
+      And the survey should have four buttons
+
   Scenario: Internal survey is visible with flag
     And I am on the "Quick survey test page stub" page with the internal quick survey flag enabled
     Then I should see the survey

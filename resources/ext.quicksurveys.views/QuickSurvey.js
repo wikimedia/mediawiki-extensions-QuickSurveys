@@ -23,26 +23,6 @@
 		 * @cfg {Object} defaults Default options hash.
 		 */
 		defaults: {
-			buttons: [
-				{
-					label: mw.msg( 'ext-quicksurveys-survey-positive' ),
-					data: {
-						answer: 'ext-quicksurveys-survey-positive'
-					}
-				},
-				{
-					label: mw.msg( 'ext-quicksurveys-survey-neutral' ),
-					data: {
-						answer: 'ext-quicksurveys-survey-neutral'
-					}
-				},
-				{
-					label: mw.msg( 'ext-quicksurveys-survey-negative' ),
-					data: {
-						answer: 'ext-quicksurveys-survey-negative'
-					}
-				}
-			],
 			templateData: {
 				finalHeading: mw.msg( 'ext-quicksurveys-survey-confirm-msg' ),
 				footer: mw.message( 'ext-quicksurveys-survey-privacy-policy-default-text' ).parse()
@@ -84,19 +64,21 @@
 		 * Render and append buttons to the initial panel
 		 */
 		renderButtons: function () {
-			var buttonSelect, $btnContainer,
-				btns = [];
+			var $btnContainer = this.initialPanel.$element.find( '.survey-button-container' ),
+				buttonSelect,
+				buttons;
 
-			$btnContainer = this.initialPanel
-				.$element.find( '.survey-button-container' );
-
-			$.each( this.config.buttons, function () {
-				var btn = new OO.ui.ButtonOptionWidget( this );
-				btns.push( btn );
+			buttons = $.map( this.config.survey.answers, function ( answer ) {
+				return new OO.ui.ButtonOptionWidget( {
+					label: mw.msg( answer ),
+					data: {
+						answer: answer
+					}
+				} );
 			} );
 
 			buttonSelect = new OO.ui.ButtonSelectWidget( {
-				items: btns
+				items: buttons
 			} );
 			buttonSelect.connect( this, {
 				choose: 'onChoose'
@@ -139,7 +121,7 @@
 					presentation: mw.config.get( 'skin' ),
 					userLanguage: mw.config.get( 'wgContentLanguage' ),
 					isLoggedIn: !mw.user.isAnon(),
-					editCount: utils.getEditCountBucket( mw.config.get( 'wgUserEditCount' ) ),
+					editCountBucket: utils.getEditCountBucket( mw.config.get( 'wgUserEditCount' ) ),
 					countryCode: utils.getCountryCode()
 				} );
 			}

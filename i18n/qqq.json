@@ -5,7 +5,8 @@
 			"Joaquin Hernandez",
 			"Jon Robson",
 			"Rob Moen",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Robby"
 		]
 	},
 	"quicksurveys-desc": "{{desc|name=QuickSurveys|url=https://www.mediawiki.org/wiki/Extension:QuickSurveys}}",
@@ -16,13 +17,13 @@
 	"ext-quicksurveys-example-internal-survey-answer-negative": "The negative answer for the example internal survey\n{{Identical|No}}",
 	"ext-quicksurveys-example-external-survey-question": "The question for (title of) the example external survey",
 	"ext-quicksurveys-example-external-survey-description": "Description of the example external survey question",
-	"ext-quicksurveys-example-external-survey-link": "Link to the example external survey.",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "The privacy policy of the example external survey",
+	"ext-quicksurveys-example-external-survey-link": "Link to the example external survey.",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Default disclaimer about submitting surveys.",
 	"ext-quicksurveys-survey-confirm-msg": "Confirmation message thanking user for their input.",
-	"ext-quicksurveys-survey-positive": "Default button label for user replying in affirmative.",
-	"ext-quicksurveys-survey-negative": "Default button label for user replying neutrally.",
+	"ext-quicksurveys-survey-positive": "Default button label for user replying in affirmative.\n{{Identical|Yes}}",
+	"ext-quicksurveys-survey-negative": "Default button label for user replying neutrally.\n{{Identical|No}}",
 	"ext-quicksurveys-survey-neutral": "Default button label for user replying negatively.",
 	"ext-quicksurveys-external-survey-yes-button": "label of the link to the survey",
-	"ext-quicksurveys-external-survey-no-button": "decline button label"
+	"ext-quicksurveys-external-survey-no-button": "decline button label\n{{Identical|No thanks}}"
 }

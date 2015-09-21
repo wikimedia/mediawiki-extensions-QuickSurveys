@@ -1,13 +1,32 @@
 <?php
 $wgQuickSurveysConfig = array(
 	array(
+		"name" => "drink-survey",
+		"type" => "internal",
+		"question" => "anne-survey-question",
+		"answers" => array(
+			"anne-survey-answer-one",
+			"anne-survey-answer-two",
+			"anne-survey-answer-three",
+			"anne-survey-answer-four"
+		),
+		"schema" => "QuickSurveysResponses",
+		"enabled" => true,
+		"coverage" => 0,
+		"description" => "anne-survey-description",
+		"platform" => array(
+			"desktop" => array( "stable" ),
+			"mobile" => array( "stable", "beta", "alpha" ),
+		),
+	),
+	array(
 		"name" => "internal example survey",
 		"type" => "internal",
 		"question" => "ext-quicksurveys-example-internal-survey-question",
 		"answers" => array(
-			"positive" => "ext-quicksurveys-example-internal-survey-answer-positive",
-			"neutral" => "ext-quicksurveys-example-internal-survey-answer-neutral",
-			"negative"=> "ext-quicksurveys-example-internal-survey-answer-negative"
+			"ext-quicksurveys-example-internal-survey-answer-positive",
+			"ext-quicksurveys-example-internal-survey-answer-neutral",
+			"ext-quicksurveys-example-internal-survey-answer-negative",
 		),
 		"schema" => "QuickSurveysResponses",
 		"enabled" => true,
@@ -33,3 +52,5 @@ $wgQuickSurveysConfig = array(
 		),
 	)
 );
+// Allow users to edit privacy link. Don't do this in production!
+$wgGroupPermissions['user']['editinterface'] = true;

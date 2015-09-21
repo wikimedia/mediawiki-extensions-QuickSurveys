@@ -15,17 +15,6 @@
 		 * @inheritdoc
 		 */
 		initialize: function ( config ) {
-			this.defaults.buttons = [
-				{
-					href: mw.msg( config.survey.link ),
-					target: '_blank',
-					label: mw.msg( 'ext-quicksurveys-external-survey-yes-button' ),
-					flags: 'constructive'
-				},
-				{
-					label: mw.msg( 'ext-quicksurveys-external-survey-no-button' )
-				}
-			];
 			this.defaults.templateData.footer = mw.msg( config.survey.privacyPolicy );
 			QuickSurvey.prototype.initialize.call( this, config );
 		},
@@ -33,10 +22,21 @@
 		 * @inheritdoc
 		 */
 		renderButtons: function () {
-			var self = this,
-				$btnContainer = this.initialPanel.$element.find( '.survey-button-container' );
+			var $btnContainer = this.initialPanel.$element.find( '.survey-button-container' ),
+				buttons = [
+					{
+						href: mw.msg( this.config.survey.link ),
+						target: '_blank',
+						label: mw.msg( 'ext-quicksurveys-external-survey-yes-button' ),
+						flags: 'constructive'
+					},
+					{
+						label: mw.msg( 'ext-quicksurveys-external-survey-no-button' )
+					}
+				],
+				self = this;
 
-			$.each( this.config.buttons, function () {
+			$.each( buttons, function () {
 				var button = new OO.ui.ButtonWidget( this );
 
 				button.$element.on( 'click', $.proxy( self.onChoose, self ) );

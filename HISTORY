@@ -1,3 +1,14 @@
+==QuickSurveys 0.2.0==
+8b923dd Return development to the `dev` branch
+4952c44 RuboCop setup
+f4e98b0 Fix schema dependency and resolve other logging errors
+8cfc8f9 Make internal surveys accept arbitrary answers
+dd31bd4 Remove the heart icon per design review
+f8a7e01 build: Updating development dependencies
+d324649 Don't configure answers with a map
+e9e2888 QA: Add browser tests for multiple answer surveys
+7c64620 Fix escaping issues in samples
+017810f QuickSurvey tweaks
 == QuickSurveys 0.1.0 ==
 b6d889b Push to dev branch by default
 f1abf24 Update gitignore

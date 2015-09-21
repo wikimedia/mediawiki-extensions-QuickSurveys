@@ -6,11 +6,22 @@ class ArticlePage
            '<%= URI.encode(params[:query_string]) if params[:query_string] %>'\
            '<%= params[:hash] %>'
   div(:survey, css: '.panel')
-  a(:survey_yes,
+  a(:survey_button_one,
     css: '.panel .oo-ui-buttonSelectWidget .oo-ui-buttonElement-button',
     index: 0)
+  a(:survey_button_two,
+    css: '.panel .oo-ui-buttonSelectWidget .oo-ui-buttonElement-button',
+    index: 1)
+  a(:survey_button_three,
+    css: '.panel .oo-ui-buttonSelectWidget .oo-ui-buttonElement-button',
+    index: 2)
+  a(:survey_button_four,
+    css: '.panel .oo-ui-buttonSelectWidget .oo-ui-buttonElement-button',
+    index: 3)
   a(:external_survey_no,
     css: '.panel .oo-ui-buttonWidget .oo-ui-buttonElement-button',
     index: 1)
-  div(:survey_complete, css: '.panel .completed')
+  div(:final_panel,
+      css: '.ext-quick-survey-panel .oo-ui-panelLayout',
+      index: 1)
 end

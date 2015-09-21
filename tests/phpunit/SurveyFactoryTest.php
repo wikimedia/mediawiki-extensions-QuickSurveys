@@ -119,7 +119,7 @@ class SurveyFactoryTest extends PHPUnit_Framework_TestCase
 			true,
 			1,
 			array(
-				'positive' => 'ext-quicksurveys-test-internal-survey-positive',
+				'ext-quicksurveys-test-internal-survey-positive',
 			)
 		);
 
@@ -131,7 +131,7 @@ class SurveyFactoryTest extends PHPUnit_Framework_TestCase
 			'enabled' => true,
 			'coverage' => 1,
 			'answers' => array(
-				'positive' => 'ext-quicksurveys-test-internal-survey-positive',
+				'ext-quicksurveys-test-internal-survey-positive',
 			),
 		) );
 
@@ -159,7 +159,7 @@ class SurveyFactoryTest extends PHPUnit_Framework_TestCase
 			'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 			'coverage' => 1,
 			'answers' => array(
-				'positive' => 'ext-quicksurveys-test-internal-survey-positive',
+				'ext-quicksurveys-test-internal-survey-positive',
 			),
 		) );
 

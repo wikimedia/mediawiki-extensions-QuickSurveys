@@ -1,6 +1,7 @@
 @import "mediawiki.ui/variables";
 @import "mediawiki.ui/mixins";
 @import "mediawiki.mixins";
+@import "../variables";
 
 .panel .survey-footer {
   font-size: .8em;
@@ -9,16 +10,11 @@
 
 .ext-quick-survey-panel {
 	background-color: @colorGrayLightest;
-	max-width: 500px;
+	width: @panelWidth;
 
 	.image {
 		background-repeat: no-repeat;
 		.background-size( auto, 5em );
 		background-position: center 80%;
-		&.completed {
-			height: 6em;
-			// FIXME: No png
-			.background-image-svg( 'heart.svg', 'heart.svg' );
-		}
 	}
 }

@@ -1,6 +1,6 @@
 {
 	"name": "QuickSurveys",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"author": [
 		"Bahodir Mansurov",
 		"Joaquin Hernandez",
@@ -37,7 +37,8 @@
 		"ext.quicksurveys.views": {
 			"dependencies": [
 				"oojs-ui",
-				"mediawiki.user"
+				"mediawiki.user",
+				"schema.QuickSurveysResponses"
 			],
 			"targets": [
 				"mobile",
@@ -56,6 +57,9 @@
 				"ext-quicksurveys-external-survey-yes-button",
 				"ext-quicksurveys-external-survey-no-button"
 			],
+			"skinStyles": {
+				"minerva": "resources/ext.quicksurveys.views/styles.minerva.less"
+			},
 			"styles": [
 				"resources/ext.quicksurveys.views/styles.less"
 			],
@@ -76,6 +80,9 @@
 				"mobile",
 				"desktop"
 			],
+			"skinStyles": {
+				"minerva": "resources/ext.quicksurveys.init/styles.minerva.less"
+			},
 			"styles": [
 				"resources/ext.quicksurveys.init/styles.less"
 			],
@@ -92,6 +99,9 @@
 		"QuickSurveys\\InternalSurvey": "includes/InternalSurvey.php",
 		"QuickSurveys\\ExternalSurvey": "includes/ExternalSurvey.php"
 	},
+	"ExtensionFunctions": [
+		"QuickSurveys\\Hooks::onExtensionSetup"
+	],
 	"manifest_version": 1,
 	"Hooks": {
 		"ResourceLoaderGetConfigVars": [
@@ -119,13 +129,11 @@
 				"@description": "The message key of the description of the survey. Displayed immediately below the survey question.",
 				"description": "ext-quicksurveys-example-internal-survey-description",
 				"@answers": "possible answer message keys for positive, neutral, and negative",
-				"answers": {
-					"positive": "ext-quicksurveys-example-internal-survey-answer-positive",
-					"neutral": "ext-quicksurveys-example-internal-survey-answer-neutral",
-					"negative": "ext-quicksurveys-example-internal-survey-answer-negative"
-				},
-				"@schema": "Which schema to log to",
-				"schema": "QuickSurveysResponse",
+				"answers": [
+					"ext-quicksurveys-example-internal-survey-answer-positive",
+					"ext-quicksurveys-example-internal-survey-answer-neutral",
+					"ext-quicksurveys-example-internal-survey-answer-negative"
+				],
 				"@enabled": "whether the survey is enabled",
 				"enabled": false,
 				"@coverage": "percentage of users that will see the survey",
