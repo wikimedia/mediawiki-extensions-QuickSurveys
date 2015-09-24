@@ -29,7 +29,8 @@ class Hooks {
 	}
 
 	/**
-	 * BeforePageDisplay hook handler
+	 * Init QuickSurveys in BeforePageDisplay hook on existing pages in the main namespace
+	 *
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
 	 *
 	 * @param OutputPage $out
@@ -37,7 +38,10 @@ class Hooks {
 	 * @return bool
 	 */
 	public static function onBeforePageDisplay( &$out, &$sk ) {
-		$out->addModules( 'ext.quicksurveys.init' );
+		$title = $out->getTitle();
+		if ( $title->inNamespace( NS_MAIN ) && $title->exists() ) {
+			$out->addModules( 'ext.quicksurveys.init' );
+		}
 		return true;
 	}
 
