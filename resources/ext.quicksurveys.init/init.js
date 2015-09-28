@@ -26,21 +26,34 @@
 
 	/**
 	 * Insert the quick survey panel into the article either (in priority order)
+	 * (on small screens) after the first paragraph,
+	 * before the infobox,
 	 * before the first instance of a thumbnail,
 	 * before the first instance of a heading
-	 * or at the end of the article when no headings nor thumbnails exist
+	 * or at the end of the article when no headings nor thumbnails exist.
+	 *
 	 * @param {jQuery.Object} $panel
 	 */
 	function insertPanel( $panel ) {
-		var $bodyContent = $( '.mw-content-ltr, .mw-content-rtl' ),
-			$place = $bodyContent
-				.find( '.infobox, > .thumb, > h1, > h2, > h3, > h4, > h5, > h6' )
-				.eq( 0 );
+		var $bodyContent = $( '#bodyContent' ),
+			$place;
 
-		if ( $place.length ) {
-			$panel.insertBefore( $place );
+		if ( window.innerWidth <= 768 ) {
+			$place = $bodyContent.find( '> div > p' ).eq( 0 );
+		}
+
+		if ( $place && $place.length ) {
+			$panel.appendTo( $place );
 		} else {
-			$panel.appendTo( $bodyContent );
+			$place = $bodyContent
+				// Account for the Mobile Frontend section wrapper around .thumb.
+				.find( '.infobox, > div > .thumb, > .thumb, > h1, > h2, > h3, > h4, > h5, > h6' )
+				.eq( 0 );
+			if ( $place.length ) {
+				$panel.insertBefore( $place );
+			} else {
+				$panel.appendTo( $bodyContent );
+			}
 		}
 	}
 
