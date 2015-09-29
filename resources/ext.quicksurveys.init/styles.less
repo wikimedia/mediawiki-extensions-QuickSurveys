@@ -1,11 +1,16 @@
 @import "mediawiki.ui/variables";
 @import "../variables";
 
+.ext-quick-survey-panel,
+.ext-qs-loader-bar {
+	width: auto;
+	background-color: @colorGrayLightest;
+}
+
 /* FIXME: Should be an ajax loader to give impression something is happening */
 .ext-qs-loader-bar {
 	display: block;
 	height: 100px;
-	width: @panelWidth;
 	margin-left: 1.4em;
 	clear: right;
 	float: right;
@@ -20,6 +25,7 @@
 	.ext-qs-loader-bar,
 	.ext-quick-survey-panel {
 		margin-left: 1.4em;
+		width: @panelWidth;
 		clear: right;
 		float: right;
 	}

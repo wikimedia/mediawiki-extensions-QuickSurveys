@@ -1,15 +1,4 @@
-<!-- test infobox -->
 <div class="hatnote">"Barack" and "Obama" redirect here. For his father, see [[:Barack Obama, Sr.]].&#32;For other uses of "Barack", see [[:Barack (disambiguation)]].&#32;For other uses of "Obama", see [[:Obama (disambiguation)]].</div>
-[[Category:Wikipedia indefinitely move-protected pages|Barack Obama]]
-<nowiki></nowiki><indicator name="pp-default">[[File:Padlock-silver.svg|20px|link=Wikipedia:Protection policy#semi|alt=Page semi-protected|This article is semi-protected to promote compliance with the policy on biographies of living people]]</indicator>[[Category:Wikipedia indefinitely semi-protected biographies of living people|Barack Obama]]
-<nowiki /><indicator name="featured-star">[[File:cscr-featured.svg|20x20px
- |link=Wikipedia:Featured articles
- |
- |This is a featured article. Click here for more information.]]
-</indicator>[[Category:Featured articles]]
-
-<nowiki/>[[Category:Use American English from December 2014]][[Category:All Wikipedia articles written in American English]]
-<nowiki/>[[Category:Use mdy dates from July 2015]]
 {| class="infobox vcard " style="width: 22em; border: 4px double #d69d36; padding:0.3em; padding-bottom:0em;border: 1px solid #aaa; border-spacing: 3px; background-color: #f9f9f9; color: black; margin: 0.5em 0 0.5em 1em; padding: 0.2em; float: right; clear: right; font-size: 88%; line-height: 1.5em;"
 ! colspan=2 class="n" style="text-align: center; font-size: 132%;"|<span class="fn">Barack Obama</span>
 |-
@@ -301,3 +290,14 @@ Blank section.
 Blank section.
 == External links ==
 Blank section.
+<!-- test infobox -->
+[[Category:Wikipedia indefinitely move-protected pages|Barack Obama]]
+<nowiki></nowiki><indicator name="pp-default">[[File:Padlock-silver.svg|20px|link=Wikipedia:Protection policy#semi|alt=Page semi-protected|This article is semi-protected to promote compliance with the policy on biographies of living people]]</indicator>[[Category:Wikipedia indefinitely semi-protected biographies of living people|Barack Obama]]
+<nowiki /><indicator name="featured-star">[[File:cscr-featured.svg|20x20px
+ |link=Wikipedia:Featured articles
+ |
+ |This is a featured article. Click here for more information.]]
+</indicator>[[Category:Featured articles]]
+
+<nowiki/>[[Category:Use American English from December 2014]][[Category:All Wikipedia articles written in American English]]
+<nowiki/>[[Category:Use mdy dates from July 2015]]

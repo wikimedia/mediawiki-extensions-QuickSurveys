@@ -36,7 +36,7 @@ class ExternalSurvey extends Survey
 	}
 
 	public function getMessages() {
-		return array_merge( parent::getMessages(), array( $this->privacyPolicy ) );
+		return array_merge( parent::getMessages(), array( $this->privacyPolicy, $this->link ) );
 	}
 
 	public function toArray() {

@@ -1,6 +1,6 @@
 {
 	"name": "QuickSurveys",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"author": [
 		"Bahodir Mansurov",
 		"Joaquin Hernandez",
@@ -57,9 +57,6 @@
 				"ext-quicksurveys-external-survey-yes-button",
 				"ext-quicksurveys-external-survey-no-button"
 			],
-			"skinStyles": {
-				"minerva": "resources/ext.quicksurveys.views/styles.minerva.less"
-			},
 			"styles": [
 				"resources/ext.quicksurveys.views/styles.less"
 			],
@@ -80,9 +77,6 @@
 				"mobile",
 				"desktop"
 			],
-			"skinStyles": {
-				"minerva": "resources/ext.quicksurveys.init/styles.minerva.less"
-			},
 			"styles": [
 				"resources/ext.quicksurveys.init/styles.less"
 			],

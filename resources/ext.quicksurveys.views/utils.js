@@ -45,15 +45,20 @@
 
 	/**
 	 * Return two letter country code from the GeoIP cookie.
-	 * Return 'Unknown' if the cookie is not set.
+	 * Return 'Unknown' if the cookie is not set or code is invalid.
+	 * Country codes should be 1-3 characters per ISO 3166-1.
 	 *
 	 * @return {String}
 	 */
 	function getCountryCode() {
-		var geoIP = mw.cookie.get( 'GeoIP', '' );
+		var geoIP = mw.cookie.get( 'GeoIP', '' ),
+			countryCode;
 
 		if ( geoIP ) {
-			return geoIP.split( ':' )[0];
+			countryCode = geoIP.split( ':' )[0];
+			if ( countryCode.length <= 3 ) {
+				return countryCode;
+			}
 		}
 		return 'Unknown';
 	}
