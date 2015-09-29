@@ -66,4 +66,3 @@
 		getCountryCode: getCountryCode
 	};
 }( jQuery ) );
-
