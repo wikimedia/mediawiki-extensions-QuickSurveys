@@ -13,6 +13,41 @@ use ResourceLoader;
 
 class Hooks {
 	/**
+	 * Register QUnit tests.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderTestModules
+	 *
+	 * @param array $files
+	 * @return bool
+	 */
+	public static function onResourceLoaderTestModules( &$modules, &$rl ) {
+		$boilerplate = array(
+			'localBasePath' => __DIR__ . '/../tests/qunit/',
+			'remoteExtPath' => 'QuickSurveys/tests/qunit',
+			'targets' => array( 'desktop', 'mobile' ),
+		);
+
+		$modules['qunit']['ext.quicksurveys.lib.tests'] = $boilerplate + array(
+			'templates' => array(
+				'vector-1.html' => 'ext.quicksurveys.lib/templates/vector-1.html',
+				'vector-2.html' => 'ext.quicksurveys.lib/templates/vector-2.html',
+				'vector-3.html' => 'ext.quicksurveys.lib/templates/vector-3.html',
+				'vector-4.html' => 'ext.quicksurveys.lib/templates/vector-4.html',
+				'minerva-1.html' => 'ext.quicksurveys.lib/templates/minerva-1.html',
+				'minerva-2.html' => 'ext.quicksurveys.lib/templates/minerva-2.html',
+				'minerva-3.html' => 'ext.quicksurveys.lib/templates/minerva-3.html',
+				'minerva-4.html' => 'ext.quicksurveys.lib/templates/minerva-4.html',
+			),
+			'scripts' => array(
+				'ext.quicksurveys.lib/test_lib.js',
+			),
+			'dependencies' => array(
+				'ext.quicksurveys.lib',
+			),
+		);
+		return true;
+	}
+
+	/**
 	 * ResourceLoaderGetConfigVars hook handler for registering enabled surveys
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderGetConfigVars
 	 *

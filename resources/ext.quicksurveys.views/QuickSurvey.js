@@ -143,7 +143,5 @@
 	} );
 
 	// This always makes me sad... https://phabricator.wikimedia.org/T108655
-	mw.extQuickSurveys = mw.extQuickSurveys || {};
-	mw.extQuickSurveys.views = mw.extQuickSurveys.views || {};
 	mw.extQuickSurveys.views.QuickSurvey = QuickSurvey;
 }( jQuery ) );

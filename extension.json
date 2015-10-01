@@ -36,6 +36,7 @@
 		},
 		"ext.quicksurveys.views": {
 			"dependencies": [
+				"ext.quicksurveys.lib",
 				"oojs-ui",
 				"mediawiki.user",
 				"schema.QuickSurveysResponses"
@@ -66,7 +67,7 @@
 				"resources/ext.quicksurveys.views/ExternalSurvey.js"
 			]
 		},
-		"ext.quicksurveys.init": {
+		"ext.quicksurveys.lib": {
 			"position": "top",
 			"dependencies": [
 				"mediawiki.user",
@@ -78,7 +79,20 @@
 				"desktop"
 			],
 			"styles": [
-				"resources/ext.quicksurveys.init/styles.less"
+				"resources/ext.quicksurveys.lib/styles.less"
+			],
+			"scripts": [
+				"resources/ext.quicksurveys.lib/lib.js"
+			]
+		},
+		"ext.quicksurveys.init": {
+			"position": "top",
+			"dependencies": [
+				"ext.quicksurveys.lib"
+			],
+			"targets": [
+				"mobile",
+				"desktop"
 			],
 			"scripts": [
 				"resources/ext.quicksurveys.init/init.js"
@@ -98,6 +112,9 @@
 	],
 	"manifest_version": 1,
 	"Hooks": {
+		"ResourceLoaderTestModules": [
+			"QuickSurveys\\Hooks::onResourceLoaderTestModules"
+		],
 		"ResourceLoaderGetConfigVars": [
 			"QuickSurveys\\Hooks::onResourceLoaderGetConfigVars"
 		],
