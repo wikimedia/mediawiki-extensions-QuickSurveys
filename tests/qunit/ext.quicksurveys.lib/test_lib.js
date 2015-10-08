@@ -49,7 +49,7 @@
 			'Check it is inserted in correct place (after first paragraph)' );
 	} );
 
-	QUnit.test( 'showSurvey: Placement (no headings)', 1, function ( assert ) {
+	QUnit.test( 'showSurvey: Placement (no headings)', 6, function ( assert ) {
 		var template = mw.template.get( 'ext.quicksurveys.lib.tests', 'minerva-3.html' ),
 			$locationVector = mw.template.get( 'ext.quicksurveys.lib.tests', 'vector-3.html' ).render(),
 			$locationMinerva = template.render(),
@@ -59,11 +59,21 @@
 		qSurveys._insertPanel( $locationMinerva, this.getPanel(), true );
 		qSurveys._insertPanel( $locationMinervaTablet, this.getPanel() );
 
+		assert.ok( $locationVector.find( '.test-panel' ).length === 1,
+			'Check only one panel got added.' );
+		assert.ok( $locationMinervaTablet.find( '.test-panel' ).length === 1,
+			'Check only one panel got added.' );
+		assert.ok( $locationMinerva.find( '.test-panel' ).length === 1,
+			'Check only one panel got added.' );
 		assert.ok( this.isPanelElement( $locationMinerva.find( '> div' ).eq( 0 ).children().eq( 1 ) ),
 			'Check it is inserted in correct place on mobile (after first paragraph)' );
+		assert.ok( this.isPanelElement( $locationVector.find( '> div' ).eq( 0 ).children().eq( 1 ) ),
+			'Check it is inserted in correct place on vector (after first paragraph)' );
+		assert.ok( this.isPanelElement( $locationMinervaTablet.find( '> div' ).eq( 0 ).children().eq( 1 ) ),
+			'Check it is inserted in correct place on tablet (after first paragraph)' );
 	} );
 
-	QUnit.test( 'showSurvey: Placement (plain)', 1, function ( assert ) {
+	QUnit.test( 'showSurvey: Placement (plain)', 3, function ( assert ) {
 		var template = mw.template.get( 'ext.quicksurveys.lib.tests', 'minerva-4.html' ),
 			$locationVector = mw.template.get( 'ext.quicksurveys.lib.tests', 'vector-4.html' ).render(),
 			$locationMinerva = template.render(),
@@ -73,6 +83,10 @@
 		qSurveys._insertPanel( $locationMinerva, this.getPanel(), true );
 		qSurveys._insertPanel( $locationMinervaTablet, this.getPanel() );
 
+		assert.ok( this.isPanelElement( $locationMinerva.find( '> div' ).eq( 1 ) ),
+			'Check it is inserted in correct place on mobile (before first heading)' );
+		assert.ok( this.isPanelElement( $locationVector.find( '> div' ).children().eq( 1 ) ),
+			'Check it is inserted in correct place on vector (before first heading)' );
 		assert.ok( this.isPanelElement( $locationMinervaTablet.find( '> div' ).eq ( 1 ) ),
 			'Check it is inserted in correct place on tablet (before first heading)' );
 	} );
