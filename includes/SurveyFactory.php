@@ -3,6 +3,7 @@
 namespace QuickSurveys;
 
 use InvalidArgumentException;
+use ConfigFactory;
 
 class SurveyFactory
 {
@@ -67,7 +68,11 @@ class SurveyFactory
 			throw new InvalidArgumentException( "The \"{$name}\" external survey doesn't have a link." );
 		}
 
-		if ( !preg_match( '/https/i', wfMessage( $spec['link'] ) ) ) {
+		$config = ConfigFactory::getDefaultInstance()->makeConfig( 'quicksurveys' );
+		if (
+			$config->get( 'QuickSurveysRequireHttps' ) &&
+			!preg_match( '/https/i', wfMessage( $spec['link'] ) )
+		) {
 			throw new InvalidArgumentException( "The \"{$name}\" external survey link requires https." );
 		}
 
