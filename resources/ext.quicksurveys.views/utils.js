@@ -71,4 +71,3 @@
 		getCountryCode: getCountryCode
 	};
 }( jQuery ) );
-

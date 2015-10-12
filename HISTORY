@@ -1,3 +1,7 @@
+==QuickSurveys 0.4.0==
+51d6820 Update mediawiki-codesniffer and parallel-lint settings
+7cdc1a0 Correct sample
+f044186 Make HTTPS requirement configurable.
 ==QuickSurveys 0.3.0==
 4952c44 RuboCop setup
 f4e98b0 Fix schema dependency and resolve other logging errors

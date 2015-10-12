@@ -1,14 +1,3 @@
-<!-- test a page with an infobox without an image -->
-<div class="hatnote">Not to be confused with [[:Kenny Casey (disambiguation)]].</div>
-<table class="infobox vcard" style="width:22em"><tr><th colspan="2" style="text-align:center;font-size:125%;font-weight:bold"><span class="fn">Ken Kesey</span></th></tr><tr><th scope="row" style="padding-top:0.225em;line-height:1.1em;padding-right:0.65em;">Born</th><td style="line-height:1.4em;">
-Kenneth Elton Kesey<br /><span style="display:none">(<span class="bday">1935-09-17</span>)</span>September 17, 1935<br />[[La Junta, Colorado]], U.S.</td></tr><tr><th scope="row" style="padding-top:0.225em;line-height:1.1em;padding-right:0.65em;">Died</th><td style="line-height:1.4em;">
-November 10, 2001<span style="display:none">(<span class="dday deathdate">2001-11-10</span>)</span> (aged&nbsp;66)<br />[[Eugene, Oregon]], U.S.<ref name="NYTobit"/><ref name="oregonianobit"/></td></tr><tr><th scope="row" style="padding-top:0.225em;line-height:1.1em;padding-right:0.65em;">Occupation</th><td class="role" style="line-height:1.4em;">
-Novelist, short story writer, essayist, poet</td></tr><tr><th scope="row" style="padding-top:0.225em;line-height:1.1em;padding-right:0.65em;">Nationality</th><td class="category" style="line-height:1.4em;">
-American</td></tr><tr><th scope="row" style="padding-top:0.225em;line-height:1.1em;padding-right:0.65em;">Genre</th><td class="category" style="line-height:1.4em;">
-[[Beat Generation|Beat]], [[postmodernism]]</td></tr><tr><th scope="row" style="padding-top:0.225em;line-height:1.1em;padding-right:0.65em;">Literary movement</th><td style="line-height:1.4em;">
-[[Merry Pranksters]]</td></tr><tr><th scope="row" style="padding-top:0.225em;line-height:1.1em;padding-right:0.65em;">Notable works</th><td style="line-height:1.4em;">
-''[[One Flew Over the Cuckoo's Nest (novel)|One Flew Over the Cuckoo's Nest]]'' (1962)<br/>''[[Sometimes a Great Notion]]'' (1964)</td></tr></table>
-
 '''Kenneth Elton "Ken" Kesey''' (<span class="nowrap"><span class="IPA nopopups">[[Help:IPA for English|/<span style="border-bottom:1px dotted"><span title="/ˈ/ primary stress follows">ˈ</span><span title="'k' in 'kind'">k</span><span title="/iː/ long 'e' in 'bead'">iː</span><span title="'z' in 'Zion'">z</span><span title="/iː/ long 'e' in 'bead'">iː</span></span>/]]</span></span>; September 17, 1935&nbsp;– November 10, 2001) was an American author, best known for his novel ''[[One Flew Over the Cuckoo's Nest (novel)|One Flew Over the Cuckoo's Nest]]'' (1962)<ref name="NYTobit"/> and as a [[Counterculture of the 1960s|countercultural]] figure who considered himself a link between the [[Beat Generation]] of the 1950s and the [[hippie]]s of the 1960s. 
 
 ==Biography==
