@@ -47,7 +47,7 @@
 	 */
 	function isValidSurvey( survey ) {
 		if ( survey.type === 'external' ) {
-			if ( survey.isInsecure ) {
+			if ( survey.isInsecure && mw.config.get( 'wgQuickSurveysRequireHttps' ) ) {
 				mw.log.warn( 'QuickSurvey with name ' + survey.name + ' has insecure survey link and will not be shown.' );
 				return false;
 			}

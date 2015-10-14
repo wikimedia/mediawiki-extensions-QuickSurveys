@@ -55,7 +55,10 @@ class Hooks {
 	 * @return boolean
 	 */
 	public static function onResourceLoaderGetConfigVars( &$vars ) {
+		global $wgQuickSurveysRequireHttps;
+
 		$surveys = self::getEnabledSurveys();
+		$vars['wgQuickSurveysRequireHttps'] = $wgQuickSurveysRequireHttps;
 		$vars['wgEnabledQuickSurveys']= array_map( function ( Survey $survey ) {
 			return $survey->toArray();
 		}, $surveys );
