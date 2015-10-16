@@ -80,6 +80,19 @@ Then(/^the page has fully loaded$/) do
   end
 end
 
+Then(/^the survey code has fully loaded$/) do
+  on(ArticlePage) do |page|
+    page.wait_until do
+      # Wait for async JS to load and render the survey if applicable
+      script = 'return mw && mw.loader && '\
+        'mw.loader.getState("ext.quicksurveys.views") === "ready";'
+      page.execute_script(script)
+    end
+  end
+end
+
+
+
 Then(/^I should not see the survey$/) do
   expect(on(ArticlePage).survey_element).to_not be_visible
 end
