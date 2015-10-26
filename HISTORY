@@ -1,3 +1,7 @@
+==QuickSurveys 0.5.0==
+37af747 Add tests for positioning of Quick Survey
+a72af0d Fix placement of quick survey
+1da1551 build: Updating development dependencies
 ==QuickSurveys 0.4.0==
 51d6820 Update mediawiki-codesniffer and parallel-lint settings
 7cdc1a0 Correct sample
