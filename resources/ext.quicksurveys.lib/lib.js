@@ -52,6 +52,24 @@
 	}
 
 	/**
+	 * Check if a survey is valid.
+	 * Throws warning when not.
+	 * A survey is currently only invalid if it is external and links to a non-https external site.
+	 *
+	 * @param {Object} survey options
+	 * @return {Boolean}
+	 */
+	function isValidSurvey( survey ) {
+		if ( survey.type === 'external' ) {
+			if ( survey.isInsecure ) {
+				mw.log.warn( 'QuickSurvey with name ' + survey.name + ' has insecure survey link and will not be shown.' );
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
 	 * Show survey
 	 *
 	 * @param {jQuery.Object} $bodyContent to add the panel
@@ -70,13 +88,14 @@
 					mw.util.getParamValue( 'quicksurvey' ) || '',
 					enabledSurveys
 				);
-				if ( enabledSurvey ) {
+				if ( enabledSurvey && isValidSurvey( enabledSurvey ) ) {
 					availableSurveys.push( enabledSurvey );
 				}
 				return false;
 			} else if (
 				getSurveyToken( enabledSurvey ) !== '~' &&
-				getBucketForSurvey( enabledSurvey ) === 'A'
+				getBucketForSurvey( enabledSurvey ) === 'A' &&
+				isValidSurvey( enabledSurvey )
 			) {
 				availableSurveys.push( enabledSurvey );
 			}
