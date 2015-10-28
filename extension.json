@@ -129,6 +129,7 @@
 		]
 	},
 	"config": {
+		"QuickSurveysRequireHttps": false,
 		"QuickSurveysConfig": [
 			{
 				"@name": "survey name",
