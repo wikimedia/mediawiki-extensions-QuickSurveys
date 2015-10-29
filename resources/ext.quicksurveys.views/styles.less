@@ -8,6 +8,29 @@
   margin-top: .5em;
 }
 
+.survey-button-container {
+
+	// FIXME: See https://phabricator.wikimedia.org/T112982
+	.oo-ui-buttonSelectWidget {
+		width: 100%;
+
+		.oo-ui-buttonOptionWidget {
+			display: block;
+			margin-left: 0;
+
+			a {
+				margin: 0;
+				width: 100%;
+				.box-sizing(border-box);
+				border-bottom: none;
+			}
+			&:last-child {
+				border-bottom: 1px solid #cdcdcd;
+			}
+		}
+	}
+}
+
 .ext-quick-survey-panel {
 	.image {
 		background-repeat: no-repeat;
