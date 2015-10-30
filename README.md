@@ -39,3 +39,5 @@ $wgQuickSurveysConfig[] = array(
 	),
 );
 ```
+You can enable insecure external surveys by enabling `wgQuickSurveysRequireHttps` however this is discouraged.
+This will allow you to run a survey from an external website that runs only on http.

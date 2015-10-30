@@ -1,6 +1,6 @@
 {
 	"name": "QuickSurveys",
-	"version": "0.5.0",
+	"version": "0.6.0",
 	"author": [
 		"Bahodir Mansurov",
 		"Joaquin Hernandez",
@@ -129,7 +129,7 @@
 		]
 	},
 	"config": {
-		"QuickSurveysRequireHttps": true,
+		"QuickSurveysRequireHttps": false,
 		"QuickSurveysConfig": [
 			{
 				"@name": "survey name",

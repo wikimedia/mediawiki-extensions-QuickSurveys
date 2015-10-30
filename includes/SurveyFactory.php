@@ -19,7 +19,6 @@ class SurveyFactory
 	 *   <li>A survey's type must be either "internal" or "external"</li>
 	 *   <li>A survey must have a coverage</li>
 	 *   <li>An internal survey must have a set of questions</li>
-	 *   <li>An external survey must have a secure link</li>
 	 *   <li>An external survey must have a privacy policy</li>
 	 * </ul>
 	 *
@@ -66,14 +65,6 @@ class SurveyFactory
 
 		if ( !isset( $spec['link'] ) ) {
 			throw new InvalidArgumentException( "The \"{$name}\" external survey doesn't have a link." );
-		}
-
-		$config = ConfigFactory::getDefaultInstance()->makeConfig( 'quicksurveys' );
-		if (
-			$config->get( 'QuickSurveysRequireHttps' ) &&
-			!preg_match( '/https/i', wfMessage( $spec['link'] ) )
-		) {
-			throw new InvalidArgumentException( "The \"{$name}\" external survey link requires https." );
 		}
 
 		if ( !isset( $spec['privacyPolicy'] ) ) {

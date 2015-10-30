@@ -115,6 +115,8 @@
 
 			if ( mw.eventLog ) {
 				return mw.eventLog.logEvent( 'QuickSurveysResponses', {
+					pageId: mw.config.get( 'wgArticleId' ),
+					pageTitle: mw.config.get( 'wgPageName' ),
 					surveyCodeName: survey.name,
 					surveyResponseValue: answer,
 					platform: 'web',
