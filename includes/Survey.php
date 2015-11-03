@@ -56,12 +56,11 @@ abstract class Survey
 	/**
 	 * Gets the list of i18n message keys that the survey uses
 	 *
-	 * @return [string]
+	 * @return string
 	 */
 	public function getMessages() {
 		return array(
 			$this->question,
-
 			// FIXME: Should description be optional?
 			$this->description,
 		);

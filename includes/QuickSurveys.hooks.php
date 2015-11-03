@@ -126,7 +126,7 @@ class Hooks {
 	/**
 	 * Helper method for getting enabled quick surveys
 	 *
-	 * @return array Enabled survey configuration array
+	 * @return Survey[] Enabled survey configuration array
 	 */
 	private static function getEnabledSurveys() {
 		$config = ConfigFactory::getDefaultInstance()->makeConfig( 'quicksurveys' );
