@@ -2,8 +2,7 @@
 
 namespace QuickSurveys;
 
-abstract class Survey
-{
+abstract class Survey {
 	/**
 	 * @var string The friendly name of the survey
 	 */

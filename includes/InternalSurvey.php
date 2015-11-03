@@ -2,8 +2,7 @@
 
 namespace QuickSurveys;
 
-class InternalSurvey extends Survey
-{
+class InternalSurvey extends Survey {
 	/**
 	 * @var string The name of the internal survey.
 	 */

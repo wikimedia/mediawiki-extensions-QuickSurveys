@@ -4,8 +4,7 @@ namespace QuickSurveys;
 
 use InvalidArgumentException;
 
-class SurveyFactory
-{
+class SurveyFactory {
 	/**
 	 * Creates an instance of either the InternalSurvey or ExternalSurvey class
 	 * given a specification.
@@ -21,6 +20,7 @@ class SurveyFactory
 	 *   <li>An external survey must have a privacy policy</li>
 	 * </ul>
 	 *
+	 * @param array $spec
 	 * @throws InvalidArgumentException If the configuration is invalid
 	 * @return Survey
 	 */
