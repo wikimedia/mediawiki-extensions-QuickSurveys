@@ -1,3 +1,8 @@
+==QuickSurveys 0.6.0==
+6621747 Send insecure surveys to client but do not allow rendering of them.
+1f2af9e Allow insecure external surveys
+7cd3fa3 Stack buttons in quick surveys vertically
+cb41111 Add pageId and pageTitle to EventLogging schema
 ==QuickSurveys 0.5.0==
 37af747 Add tests for positioning of Quick Survey
 a72af0d Fix placement of quick survey
