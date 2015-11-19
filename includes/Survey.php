@@ -54,13 +54,19 @@ abstract class Survey {
 	 */
 	private $platforms;
 
+	/**
+	 * @var string The description of the privacy policy of the website that hosts the survey.
+	 */
+	private $privacyPolicy;
+
 	public function __construct(
 		$name,
 		$question,
 		$description,
 		$isEnabled,
 		$coverage,
-		$platforms
+		$platforms,
+		$privacyPolicy
 	) {
 		$this->name = $name;
 		$this->question = $question;
@@ -68,6 +74,7 @@ abstract class Survey {
 		$this->isEnabled = $isEnabled;
 		$this->coverage = $coverage;
 		$this->platforms = $platforms;
+		$this->privacyPolicy = $privacyPolicy;
 	}
 
 	// --------
@@ -86,11 +93,15 @@ abstract class Survey {
 	 * @return string
 	 */
 	public function getMessages() {
-		return array(
+		$messages = array(
 			$this->question,
 			// FIXME: Should description be optional?
 			$this->description,
 		);
+		if ( !empty( $this->privacyPolicy ) ) {
+			$messages[] = $this->privacyPolicy;
+		}
+		return $messages;
 	}
 	// --------
 
@@ -107,6 +118,7 @@ abstract class Survey {
 			'module' => $this->getResourceLoaderModuleName(),
 			'coverage' => $this->coverage,
 			'platforms' => $this->platforms,
+			'privacyPolicy' => $this->privacyPolicy,
 		);
 	}
 

@@ -23,11 +23,6 @@ class ExternalSurvey extends Survey {
 	 */
 	private $instanceTokenParameterName;
 
-	/**
-	 * @var string The description of the privacy policy of the website that hosts the external survey.
-	 */
-	private $privacyPolicy;
-
 	public function __construct(
 		$name,
 		$question,
@@ -35,24 +30,29 @@ class ExternalSurvey extends Survey {
 		$isEnabled,
 		$coverage,
 		$platforms,
+		$privacyPolicy,
 		$link,
-		$instanceTokenParameterName,
-		$privacyPolicy
+		$instanceTokenParameterName
 	) {
-		parent::__construct( $name, $question, $description, $isEnabled, $coverage, $platforms );
+		parent::__construct(
+			$name,
+			$question,
+			$description,
+			$isEnabled,
+			$coverage,
+			$platforms,
+			$privacyPolicy
+		);
 
 		$this->name = $name;
 		$this->link = $link;
 		$this->instanceTokenParameterName = $instanceTokenParameterName;
-		$this->privacyPolicy = $privacyPolicy;
 		$url = wfMessage( $this->link )->inContentLanguage()->plain();
 		$this->isInsecure = strpos( $url, 'http:' ) === 0;
 	}
 
 	public function getMessages() {
-		return array_merge(
-			parent::getMessages(), array( $this->privacyPolicy, $this->link )
-		);
+		return array_merge( parent::getMessages(), array( $this->link ) );
 	}
 
 	public function toArray() {
@@ -62,7 +62,6 @@ class ExternalSurvey extends Survey {
 			'link' => $this->link,
 			'instanceTokenParameterName' => $this->instanceTokenParameterName,
 			'isInsecure' => $this->isInsecure,
-			'privacyPolicy' => $this->privacyPolicy,
 		);
 	}
 }

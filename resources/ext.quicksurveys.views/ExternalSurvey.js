@@ -14,13 +14,6 @@
 		/**
 		 * @inheritdoc
 		 */
-		initialize: function ( config ) {
-			this.defaults.templateData.footer = mw.message( config.survey.privacyPolicy ).parse();
-			QuickSurvey.prototype.initialize.call( this, config );
-		},
-		/**
-		 * @inheritdoc
-		 */
 		renderButtons: function () {
 			var $btnContainer = this.initialPanel.$element.find( '.survey-button-container' ),
 				btnHref,
