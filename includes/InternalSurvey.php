@@ -19,11 +19,11 @@ class InternalSurvey extends Survey {
 		$description,
 		$isEnabled,
 		$coverage,
+		$platforms,
 		array $answers
 	) {
-		parent::__construct( $name, $question, $description, $isEnabled, $coverage );
+		parent::__construct( $name, $question, $description, $isEnabled, $coverage, $platforms );
 
-		$this->name = $name;
 		$this->answers = $answers;
 	}
 

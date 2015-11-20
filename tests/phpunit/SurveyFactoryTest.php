@@ -6,6 +6,7 @@ use PHPUnit_Framework_TestCase;
 use QuickSurveys\SurveyFactory;
 use QuickSurveys\InternalSurvey;
 use QuickSurveys\ExternalSurvey;
+use InvalidArgumentException;
 
 class SurveyFactoryTest extends PHPUnit_Framework_TestCase
 {
@@ -45,6 +46,20 @@ class SurveyFactoryTest extends PHPUnit_Framework_TestCase
 
 	/**
 	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionMessage The "test" survey doesn't have any platforms.
+	 */
+	public function testItShouldThrowWhenThereAreNoPlatforms() {
+		SurveyFactory::factory( array(
+			'name' => 'test',
+			'type' => 'external',
+			'question' => 'Do you like writing unit tests?',
+			'description' => 'A survey for (potential) developers on the QuickSurveys project.',
+			'coverage' => 1,
+		) );
+	}
+
+	/**
+	 * @expectedException InvalidArgumentException
 	 * @expectedExceptionMessage The "test" external survey doesn't have a link.
 	 */
 	public function testItShouldThrowWhenThereIsNoLink() {
@@ -54,6 +69,15 @@ class SurveyFactoryTest extends PHPUnit_Framework_TestCase
 			'question' => 'Do you like writing unit tests?',
 			'description' => 'A survey for (potential) developers on the QuickSurveys project.',
 			'coverage' => 1,
+			'platforms' => array(
+				'desktop' => array(
+					'stable'
+				),
+				'mobile' => array(
+					'stable',
+					'beta',
+				),
+			),
 		) );
 	}
 
@@ -68,6 +92,15 @@ class SurveyFactoryTest extends PHPUnit_Framework_TestCase
 			'question' => 'Do you like writing unit tests?',
 			'description' => 'A survey for (potential) developers on the QuickSurveys project.',
 			'coverage' => 1,
+			'platforms' => array(
+				'desktop' => array(
+					'stable'
+				),
+				'mobile' => array(
+					'stable',
+					'beta',
+				),
+			),
 			'link' => '//example.org/test-external-survey',
 		) );
 	}
@@ -79,6 +112,15 @@ class SurveyFactoryTest extends PHPUnit_Framework_TestCase
 			'A survey for (potential) developers of the QuickSurveys extension.',
 			true,
 			1,
+			array(
+				'desktop' => array(
+					'stable'
+				),
+				'mobile' => array(
+					'stable',
+					'beta',
+				),
+			),
 			'//example.org/test-external-survey',
 			'ext-quicksurveys-test-external-survey-privacy-policy'
 		);
@@ -90,6 +132,15 @@ class SurveyFactoryTest extends PHPUnit_Framework_TestCase
 			'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 			'enabled' => true,
 			'coverage' => 1,
+			'platforms' => array(
+				'desktop' => array(
+					'stable'
+				),
+				'mobile' => array(
+					'stable',
+					'beta',
+				),
+			),
 			'link' => '//example.org/test-external-survey',
 			'privacyPolicy' => 'ext-quicksurveys-test-external-survey-privacy-policy',
 		) );
@@ -108,6 +159,15 @@ class SurveyFactoryTest extends PHPUnit_Framework_TestCase
 			'question' => 'Do you like writing unit tests?',
 			'description' => 'A survey for (potential) developers on the QuickSurveys project.',
 			'coverage' => 1,
+			'platforms' => array(
+				'desktop' => array(
+					'stable',
+				),
+				'mobile' => array(
+					'stable',
+					'beta',
+				),
+			),
 		) );
 	}
 
@@ -118,6 +178,15 @@ class SurveyFactoryTest extends PHPUnit_Framework_TestCase
 			'A survey for (potential) developers of the QuickSurveys extension.',
 			true,
 			1,
+			array(
+				'desktop' => array(
+					'stable',
+				),
+				'mobile' => array(
+					'stable',
+					'beta',
+				),
+			),
 			array(
 				'ext-quicksurveys-test-internal-survey-positive',
 			)
@@ -130,6 +199,15 @@ class SurveyFactoryTest extends PHPUnit_Framework_TestCase
 			'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 			'enabled' => true,
 			'coverage' => 1,
+			'platforms' => array(
+				'desktop' => array(
+					'stable',
+				),
+				'mobile' => array(
+					'stable',
+					'beta',
+				),
+			),
 			'answers' => array(
 				'ext-quicksurveys-test-internal-survey-positive',
 			),
@@ -158,6 +236,15 @@ class SurveyFactoryTest extends PHPUnit_Framework_TestCase
 			'question' => 'Do you like writing unit tests?',
 			'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 			'coverage' => 1,
+			'platforms' => array(
+				'desktop' => array(
+					'stable',
+				),
+				'mobile' => array(
+					'stable',
+					'beta',
+				),
+			),
 			'answers' => array(
 				'ext-quicksurveys-test-internal-survey-positive',
 			),
@@ -177,5 +264,45 @@ class SurveyFactoryTest extends PHPUnit_Framework_TestCase
 			'question' => 'Do you like writing unit tests?',
 			'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 		) );
+	}
+
+	/**
+	 * @dataProvider provideInvalidPlatforms
+	 */
+	public function testItShouldThrowWhenPlatformsIsInvalid( $platforms, $expectedMessage ) {
+		try {
+			SurveyFactory::factory( array(
+				'name' => 'test',
+				'type' => 'internal',
+				'question' => 'Do you like writing unit tests?',
+				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+				'coverage' => 1,
+				'platforms' => $platforms,
+			) );
+		} catch ( InvalidArgumentException $e ) {
+			$this->assertEquals( $expectedMessage, $e->getMessage() );
+		}
+	}
+
+	public function provideInvalidPlatforms() {
+		return array(
+			array(
+				array(
+					'desktop' => true,
+				),
+				'The "test" survey has specified an invalid platform. ' .
+				'Please specify one or more of the following for the "desktop" platform: stable.'
+			),
+			array(
+				array(
+					'mobile' => array(
+						'stable',
+						'alpha',
+					),
+				),
+				'The "test" survey has specified an invalid platform. ' .
+				'Please specify one or more of the following for the "mobile" platform: stable, beta.',
+			),
+		);
 	}
 }

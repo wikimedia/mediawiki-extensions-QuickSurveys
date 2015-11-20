@@ -5,6 +5,16 @@ namespace QuickSurveys;
 use InvalidArgumentException;
 
 class SurveyFactory {
+	private static $VALID_PLATFORM_MODES = array(
+		'desktop' => array(
+			'stable',
+		),
+		'mobile' => array(
+			'stable',
+			'beta',
+		),
+	);
+
 	/**
 	 * Creates an instance of either the InternalSurvey or ExternalSurvey class
 	 * given a specification.
@@ -48,15 +58,49 @@ class SurveyFactory {
 			throw new InvalidArgumentException( "The \"{$name}\" survey doesn't have a coverage." );
 		}
 
-		if ( !isset( $spec['enabled' ] ) ) {
+		if ( !isset( $spec['platforms'] ) ) {
+			throw new InvalidArgumentException( "The \"{$name}\" survey doesn't have any platforms." );
+		}
+
+		self::validatePlatforms( $spec );
+
+		if ( !isset( $spec['enabled'] ) ) {
 			$spec['enabled'] = false;
 		}
 
-		if ( $spec['type'] === 'internal' ) {
-			return self::factoryInternal( $spec );
-		}
+		$survey = $spec['type'] === 'internal'
+			? self::factoryInternal( $spec )
+			: self::factoryExternal( $spec );
 
-		return self::factoryExternal( $spec );
+		return $survey;
+	}
+
+	private static function validatePlatforms( $spec ) {
+		foreach ( self::$VALID_PLATFORM_MODES as $platform => $validModes ) {
+			if ( !isset( $spec['platforms'][$platform] ) ) {
+				continue;
+			}
+
+			$modes = $spec['platforms'][$platform];
+
+			if (
+				!is_array( $modes ) ||
+				array_diff(
+					$modes,
+					array_intersect(
+						$validModes,
+						$modes
+					)
+				)
+			) {
+				throw new InvalidArgumentException(
+					"The \"{$spec['name']}\" survey has specified an invalid platform. " .
+					"Please specify one or more of the following for the \"{$platform}\" platform: " .
+					join( ', ', $validModes ) .
+					'.'
+				);
+			}
+		}
 	}
 
 	private static function factoryExternal( $spec ) {
@@ -78,6 +122,7 @@ class SurveyFactory {
 			$spec['description'],
 			$spec['enabled'],
 			$spec['coverage'],
+			$spec['platforms'],
 			$spec['link'],
 			$spec['privacyPolicy']
 		);
@@ -98,6 +143,7 @@ class SurveyFactory {
 			$spec['description'],
 			$spec['enabled'],
 			$spec['coverage'],
+			$spec['platforms'],
 			$spec['answers']
 		);
 	}

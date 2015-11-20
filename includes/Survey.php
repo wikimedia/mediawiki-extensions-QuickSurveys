@@ -28,18 +28,46 @@ abstract class Survey {
 	 */
 	private $coverage;
 
+	/**
+	 * @var array The platforms that the survey can be displayed on
+	 *
+	 * A platform can operate in one or more modes: mobile operates in 'stable' or 'beta' mode;
+	 * and desktop only operates in 'stable' mode.
+	 *
+	 * The platforms that the survey can be displayed on, therefore, are repsented as a map of
+	 * platform to a set of platform modes, i.e.
+	 *
+	 * <code><pre>
+	 * <?php
+	 * $platform = array(
+	 *   'desktop' => array(
+	 *   	'stable',
+	 *   ),
+	 *   'mobile' => array(
+	 *   	'stable',
+	 *   	'beta',
+	 *   ),
+	 * );
+	 * </pre></code>
+	 *
+	 * @param array $platforms
+	 */
+	private $platforms;
+
 	public function __construct(
 		$name,
 		$question,
 		$description,
 		$isEnabled,
-		$coverage
+		$coverage,
+		$platforms
 	) {
 		$this->name = $name;
 		$this->question = $question;
 		$this->description = $description;
 		$this->isEnabled = $isEnabled;
 		$this->coverage = $coverage;
+		$this->platforms = $platforms;
 	}
 
 	// --------
@@ -78,6 +106,7 @@ abstract class Survey {
 			'description' => $this->description,
 			'module' => $this->getResourceLoaderModuleName(),
 			'coverage' => $this->coverage,
+			'platforms' => $this->platforms,
 		);
 	}
 

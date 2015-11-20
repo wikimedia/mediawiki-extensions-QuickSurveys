@@ -29,10 +29,11 @@ class ExternalSurvey extends Survey {
 		$description,
 		$isEnabled,
 		$coverage,
+		$platforms,
 		$link,
 		$privacyPolicy
 	) {
-		parent::__construct( $name, $question, $description, $isEnabled, $coverage );
+		parent::__construct( $name, $question, $description, $isEnabled, $coverage, $platforms );
 
 		$this->name = $name;
 		$this->link = $link;

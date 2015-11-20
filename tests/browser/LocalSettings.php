@@ -14,9 +14,9 @@ $wgQuickSurveysConfig = array(
 		"enabled" => true,
 		"coverage" => 0,
 		"description" => "anne-survey-description",
-		"platform" => array(
+		"platforms" => array(
 			"desktop" => array( "stable" ),
-			"mobile" => array( "stable", "beta", "alpha" ),
+			"mobile" => array( "stable", "beta" ),
 		),
 	),
 	array(
@@ -32,25 +32,25 @@ $wgQuickSurveysConfig = array(
 		"enabled" => true,
 		"coverage" => .5,
 		"description" => "ext-quicksurveys-example-internal-survey-description",
-		"platform" => array(
+		"platforms" => array(
 			"desktop" => array( "stable" ),
-			"mobile" => array( "stable", "beta", "alpha" ),
+			"mobile" => array( "stable", "beta" ),
 		),
 	),
 	array(
-		'name' => 'external example survey',
-		'type' => 'external',
+		"name" => "external example survey",
+		"type" => "external",
 		"question" => "ext-quicksurveys-example-external-survey-question",
 		"description" => "ext-quicksurveys-example-external-survey-description",
 		"link" => "ext-quicksurveys-example-external-survey-link",
 		"privacyPolicy" => "ext-quicksurveys-example-external-survey-privacy-policy",
-		'coverage' => .5,
-		'enabled' => true,
-		'platform' => array(
-			'desktop' => array( 'stable' ),
-			'mobile' => array( 'stable', 'beta', 'alpha' ),
+		"coverage" => .5,
+		"enabled" => true,
+		"platforms" => array(
+			"desktop" => array( "stable" ),
+			"mobile" => array( "stable", "beta" ),
 		),
 	)
 );
 // Allow users to edit privacy link. Don't do this in production!
-$wgGroupPermissions['user']['editinterface'] = true;
+$wgGroupPermissions["user"]["editinterface"] = true;
