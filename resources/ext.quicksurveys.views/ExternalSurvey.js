@@ -28,10 +28,16 @@
 						href: mw.message( this.config.survey.link ).parse(),
 						target: '_blank',
 						label: mw.msg( 'ext-quicksurveys-external-survey-yes-button' ),
-						flags: 'constructive'
+						flags: 'constructive',
+						data: {
+							answer: 'ext-quicksurveys-external-survey-yes-button'
+						}
 					},
 					{
-						label: mw.msg( 'ext-quicksurveys-external-survey-no-button' )
+						label: mw.msg( 'ext-quicksurveys-external-survey-no-button' ),
+						data: {
+							answer: 'ext-quicksurveys-external-survey-no-button'
+						}
 					}
 				],
 				self = this;
@@ -39,19 +45,11 @@
 			$.each( buttons, function () {
 				var button = new OO.ui.ButtonWidget( this );
 
-				button.$element.on( 'click', $.proxy( self.onChoose, self ) );
+				button.$element.on( 'click', function () {
+					self.onChoose( button );
+				} );
 				$btnContainer.append( button.$element );
 			} );
-		},
-		/**
-		 * @inheritdoc
-		 */
-		onChoose: function () {
-			/**
-			 * @event dismiss fired when any of the buttons in the survey are selected.
-			 */
-			this.emit( 'dismiss' );
-			this.setItem( this.finalPanel );
 		}
 	} );
 

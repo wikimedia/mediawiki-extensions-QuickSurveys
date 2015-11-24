@@ -132,7 +132,7 @@
 		/**
 		 * Fired when one of the options are clicked.
 		 *
-		 * @param {OO.ui.ButtonOptionWidget} btn
+		 * @param {OO.ui.ButtonOptionWidget|OO.ui.ButtonWidget} btn
 		 */
 		onChoose: function ( btn ) {
 			this.log( btn.data.answer );
