@@ -3,7 +3,6 @@
 namespace QuickSurveys;
 
 use InvalidArgumentException;
-use ConfigFactory;
 
 class SurveyFactory
 {
