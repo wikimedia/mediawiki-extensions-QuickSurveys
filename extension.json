@@ -1,6 +1,6 @@
 {
 	"name": "QuickSurveys",
-	"version": "0.6.0",
+	"version": "1.1.0",
 	"author": [
 		"Bahodir Mansurov",
 		"Joaquin Hernandez",
@@ -150,10 +150,10 @@
 				"enabled": false,
 				"@coverage": "percentage of users that will see the survey",
 				"coverage": 0.5,
-				"@platform": "for each platform (desktop, mobile), which version of it is targeted (stable, beta, alpha)",
-				"platform": {
+				"@platforms": "for each platform (desktop, mobile), which version of it is targeted (stable, beta)",
+				"platforms": {
 					"desktop": ["stable"],
-					"mobile": ["stable", "beta", "alpha"]
+					"mobile": ["stable", "beta"]
 				}
 			},
 			{
@@ -172,10 +172,10 @@
 				"enabled": false,
 				"@coverage": "percentage of users that will see the survey",
 				"coverage": 0.5,
-				"@platform": "for each platform (desktop, mobile), which version of it is targeted (stable, beta, alpha)",
-				"platform": {
+				"@platforms": "for each platform (desktop, mobile), which version of it is targeted (stable, beta)",
+				"platforms": {
 					"desktop": ["stable"],
-					"mobile": ["stable", "beta", "alpha"]
+					"mobile": ["stable", "beta"]
 				}
 			}
 		]

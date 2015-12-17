@@ -1,3 +1,17 @@
+==QuickSurveys 1.1.0==
+cb41111 Add pageId and pageTitle to EventLogging schema
+c83c765 Added Rakefile
+a7e9b39 Fix clear:both breaking pages
+a6aeb9c Fix clear:both breaking pages
+64c85a2 Added Rakefile
+37f9846 Log user interactions with external surveys
+5ccb641 Set explicit output format for message
+3c82ddf Add type hinting
+9f6040f Fix @return phpdoc
+c6474e9 Remove unused import
+8cfc2fa Fix "class Foo {" on the same line, add missing @param
+d093c7e Don't commit composer.lock file
+ac96b8d Validate and forward survey's platforms
 ==QuickSurveys 0.6.0==
 6621747 Send insecure surveys to client but do not allow rendering of them.
 1f2af9e Allow insecure external surveys

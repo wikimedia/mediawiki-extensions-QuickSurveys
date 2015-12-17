@@ -9,7 +9,9 @@
 namespace QuickSurveys;
 
 use ConfigFactory;
+use OutputPage;
 use ResourceLoader;
+use Skin;
 
 class Hooks {
 	/**
@@ -75,7 +77,7 @@ class Hooks {
 	 * @param Skin $sk
 	 * @return bool
 	 */
-	public static function onBeforePageDisplay( &$out, &$sk ) {
+	public static function onBeforePageDisplay( OutputPage &$out, Skin &$sk ) {
 		$title = $out->getTitle();
 		if ( $title->inNamespace( NS_MAIN ) && $title->exists() ) {
 			$out->addModules( 'ext.quicksurveys.init' );
@@ -124,7 +126,7 @@ class Hooks {
 	/**
 	 * Helper method for getting enabled quick surveys
 	 *
-	 * @return array Enabled survey configuration array
+	 * @return Survey[] Enabled survey configuration array
 	 */
 	private static function getEnabledSurveys() {
 		$config = ConfigFactory::getDefaultInstance()->makeConfig( 'quicksurveys' );

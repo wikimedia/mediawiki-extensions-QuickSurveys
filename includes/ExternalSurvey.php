@@ -2,8 +2,7 @@
 
 namespace QuickSurveys;
 
-class ExternalSurvey extends Survey
-{
+class ExternalSurvey extends Survey {
 	/**
 	 * @var bool whether the survey runs on https or not.
 	 */
@@ -30,15 +29,16 @@ class ExternalSurvey extends Survey
 		$description,
 		$isEnabled,
 		$coverage,
+		$platforms,
 		$link,
 		$privacyPolicy
 	) {
-		parent::__construct( $name, $question, $description, $isEnabled, $coverage );
+		parent::__construct( $name, $question, $description, $isEnabled, $coverage, $platforms );
 
 		$this->name = $name;
 		$this->link = $link;
 		$this->privacyPolicy = $privacyPolicy;
-		$this->isInsecure = !preg_match( '/https/i', wfMessage( $this->link ) ) ? true : false;
+		$this->isInsecure = !preg_match( '/https/i', wfMessage( $this->link )->plain() ) ? true : false;
 	}
 
 	public function getMessages() {
