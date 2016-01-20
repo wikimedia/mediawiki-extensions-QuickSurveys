@@ -1,3 +1,10 @@
+==QuickSurveys 1.1.1==
+ec4cfbf Update mediawiki_selenium Ruby gem to the latest version
+b157ea8 QA: Ensure survey code loaded before testing if survey is visible
+c27222b Update QuickSurveys to new structure of Minerva
+213d845 [Hygiene] Update qunit tests for clarity
+d9fec6d build: Updating development dependencies
+07ace04 build: Updating development dependencies
 ==QuickSurveys 1.1.0==
 cb41111 Add pageId and pageTitle to EventLogging schema
 c83c765 Added Rakefile
