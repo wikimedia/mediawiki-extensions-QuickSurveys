@@ -174,7 +174,8 @@
 							description: mw.msg( survey.description )
 						},
 						surveySessionToken: mw.user.sessionId() + '-quicksurveys',
-						surveyInstanceToken: mw.user.generateRandomSessionId()
+						surveyInstanceToken: mw.user.generateRandomSessionId(),
+						isMobileLayout: isMobileLayout
 					};
 
 				if ( survey.type === 'internal' ) {

@@ -121,16 +121,28 @@
 		 * @return {jQuery.Deferred}
 		 */
 		log: function ( answer ) {
-			var survey = this.config.survey;
+			var survey = this.config.survey,
+				skin = mw.config.get( 'skin' ),
+				// FIXME: remove this when SkinMinervaBeta is renamed to 'minerva-beta'.
+				mobileMode = mw.config.get( 'wgMFMode' );
+
+			// On mobile differentiate between minerva stable and beta by appending 'beta' to 'minerva'
+			if ( skin === 'minerva' &&  mobileMode === 'beta' ) {
+				skin += mobileMode;
+			}
 
 			if ( mw.eventLog ) {
 				return mw.eventLog.logEvent( 'QuickSurveysResponses', {
+					namespaceId: mw.config.get( 'wgNamespaceNumber' ),
+					surveySessionToken: this.config.surveySessionToken,
+					surveyInstanceToken: this.config.surveyInstanceToken,
 					pageId: mw.config.get( 'wgArticleId' ),
 					pageTitle: mw.config.get( 'wgPageName' ),
 					surveyCodeName: survey.name,
 					surveyResponseValue: answer,
 					platform: 'web',
-					presentation: mw.config.get( 'skin' ),
+					skin: skin,
+					isTablet: !this.config.isMobileLayout,
 					userLanguage: mw.config.get( 'wgContentLanguage' ),
 					isLoggedIn: !mw.user.isAnon(),
 					editCountBucket: utils.getEditCountBucket( mw.config.get( 'wgUserEditCount' ) ),
