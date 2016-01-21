@@ -59,14 +59,14 @@
 		qSurveys._insertPanel( $locationMinerva, this.getPanel(), true );
 		qSurveys._insertPanel( $locationMinervaTablet, this.getPanel() );
 
-		assert.ok( $locationVector.find( '.test-panel' ).length === 1,
-			'Check only one panel got added.' );
-		assert.ok( $locationMinerva.find( '.test-panel' ).length === 1,
-			'Check only one panel got added.' );
-		assert.ok( $locationMinervaTablet.find( '.test-panel' ).length === 1,
-			'Check only one panel got added.' );
+		assert.equal( $locationVector.find( '.test-panel' ).length, 1,
+			'Check only one panel got added on Vector' );
+		assert.equal( $locationMinerva.find( '.test-panel' ).length, 1,
+			'Check only one panel got added on mobile' );
+		assert.equal( $locationMinervaTablet.find( '.test-panel' ).length, 1,
+			'Check only one panel got added on tablet' );
 		assert.ok( this.isPanelElement( $locationVector.find( '#firstp' ).next() ),
-			'Check it is inserted in correct place on vector (after first paragraph)' );
+			'Check it is inserted in correct place on Vector (after first paragraph)' );
 		assert.ok( this.isPanelElement( $locationMinerva.find( '#firstp' ).next() ),
 			'Check it is inserted in correct place on mobile (after first paragraph)' );
 		assert.ok( this.isPanelElement( $locationMinervaTablet.find( '#firstp' ).next() ),

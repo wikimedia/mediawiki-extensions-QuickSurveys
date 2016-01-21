@@ -27,8 +27,19 @@
 			$panel.insertAfter( $place );
 		} else {
 			$place = $bodyContent
-				// Account for the Mobile Frontend section wrapper around .thumb.
-				.find( '.infobox, > div > .thumb, > .thumb, h1, h2, h3, h4, h5, h6' )
+				.find(
+					[
+						'.infobox',
+
+						// Account for the Mobile Frontend section wrapper
+						// around .thumb.
+						'> div > div > .thumb',
+
+						'> div > .thumb',
+						'> .thumb',
+						'h1, h2, h3, h4, h5, h6'
+					].join( ',' )
+				)
 				.filter( ':not(.toc h2)' )
 				.eq( 0 );
 			if ( $place.length ) {
@@ -36,7 +47,7 @@
 			} else {
 				// Insert this after the first paragraph (for pages with just one paragraph)
 				// or the lead section/content container when no suitable element can be found (empty pages)
-				$place = $bodyContent.find( '> div > p' ).eq( 0 );
+				$place = $bodyContent.find( 'p' ).eq( 0 );
 				// Do this test separately for cases where no paragraph elements
 				// are returned in document order so > div would always come first.
 				// See http://blog.jquery.com/2009/02/20/jquery-1-3-2-released/
