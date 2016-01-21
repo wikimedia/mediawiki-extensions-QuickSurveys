@@ -1,7 +1,55 @@
 // jscs:disable disallowDanglingUnderscores
 ( function ( $ ) {
 	var survey,
-		availableSurveys = [];
+		availableSurveys = [],
+		$window = $( window ),
+		surveyImpressionLogger;
+
+	/**
+	 * // FIXME: upstream the similar code from the 'mobile.startup/util' module and use it
+	 * // see https://phabricator.wikimedia.org/T124317
+	 * Check if at least half of the element's height and half of its width are in viewport
+	 *
+	 * @ignore
+	 * @param {jQuery.Object} $el - element that's being tested
+	 * @return {Boolean}
+	 */
+	function isElementInViewport( $el ) {
+		var windowHeight = $window.height(),
+			windowWidth = $window.width(),
+			windowScrollLeft = $window.scrollLeft(),
+			windowScrollTop = $window.scrollTop(),
+			elHeight = $el.height(),
+			elWidth = $el.width(),
+			elOffset = $el.offset();
+
+		return (
+			( windowScrollTop + windowHeight >= elOffset.top + elHeight / 2 ) &&
+			( windowScrollLeft + windowWidth >= elOffset.left + elWidth / 2 ) &&
+			( windowScrollTop <= elOffset.top + elHeight / 2 )
+		);
+	}
+
+	/**
+	 * Log impression when a survey is seen by the user
+	 * @param {jQuery.Object} $el
+	 * @param {Object} config - survey config data
+	 * @ignore
+	 */
+	function logSurveyImpression( $el, config ) {
+		if ( isElementInViewport( $el ) ) {
+			$window.off( 'scroll.quickSurveys', surveyImpressionLogger );
+
+			if ( mw.eventLog ) {
+				mw.eventLog.logEvent( 'QuickSurveyInitiation', {
+					surveySessionToken: config.surveySessionToken,
+					surveyInstanceToken: config.surveyInstanceToken,
+					surveyCodeName: config.survey.name,
+					eventName: 'impression'
+				} );
+			}
+		}
+	}
 
 	/**
 	 * Insert the quick survey panel into the article either (in priority order)
@@ -124,7 +172,9 @@
 						templateData: {
 							question: mw.msg( survey.question ),
 							description: mw.msg( survey.description )
-						}
+						},
+						surveySessionToken: mw.user.sessionId() + '-quicksurveys',
+						surveyInstanceToken: mw.user.generateRandomSessionId()
 					};
 
 				if ( survey.type === 'internal' ) {
@@ -136,6 +186,13 @@
 					mw.storage.set( getSurveyStorageKey( survey ), '~' );
 				} );
 				$panel.replaceWith( panel.$element );
+
+				surveyImpressionLogger = function () {
+					logSurveyImpression( panel.$element, options );
+				};
+				$window.on( 'scroll.quickSurveys', $.debounce( 250, surveyImpressionLogger ) );
+				// maybe the survey is already visible?
+				surveyImpressionLogger();
 			} );
 		}
 	}

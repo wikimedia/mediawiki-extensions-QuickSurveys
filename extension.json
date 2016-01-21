@@ -72,7 +72,8 @@
 			"dependencies": [
 				"mediawiki.user",
 				"mediawiki.storage",
-				"mediawiki.experiments"
+				"mediawiki.experiments",
+				"schema.QuickSurveyInitiation"
 			],
 			"targets": [
 				"mobile",

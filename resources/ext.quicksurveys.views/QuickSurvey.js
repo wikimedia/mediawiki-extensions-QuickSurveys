@@ -59,6 +59,16 @@
 			QuickSurvey.super.call( this, $.extend( {}, config, {
 				items: [ this.initialPanel, this.finalPanel ]
 			} ) );
+
+			if ( mw.eventLog ) {
+				mw.eventLog.logEvent( 'QuickSurveyInitiation', {
+					beaconCapable: $.isFunction( navigator.sendBeacon ),
+					surveySessionToken: this.config.surveySessionToken,
+					surveyInstanceToken: this.config.surveyInstanceToken,
+					surveyCodeName: this.config.survey.name,
+					eventName: 'eligible'
+				} );
+			}
 		},
 		/**
 		 * Render and append buttons to the initial panel
