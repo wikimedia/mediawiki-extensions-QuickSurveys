@@ -1,3 +1,5 @@
+==QuickSurveys 1.1.2==
+417f059 Fix the failing QUnit tests
 ==QuickSurveys 1.1.1==
 ec4cfbf Update mediawiki_selenium Ruby gem to the latest version
 b157ea8 QA: Ensure survey code loaded before testing if survey is visible
