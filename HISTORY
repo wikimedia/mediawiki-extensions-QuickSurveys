@@ -1,3 +1,8 @@
+==QuickSurveys 1.2.0==
+6eeffdb Fix the failing QUnit tests
+c25869c Add support for logging to Schema:QuickSurveyInitiation
+0960344 Update Schema:QuickSurveysResponses fields
+4233c71 Make the master branch default
 ==QuickSurveys 1.1.2==
 417f059 Fix the failing QUnit tests
 ==QuickSurveys 1.1.1==
