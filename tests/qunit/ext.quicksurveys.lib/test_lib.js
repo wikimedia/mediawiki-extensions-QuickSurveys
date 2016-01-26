@@ -22,11 +22,11 @@
 		qSurveys._insertPanel( $locationMinerva, this.getPanel(), true );
 		qSurveys._insertPanel( $locationMinervaTablet, this.getPanel() );
 
-		assert.ok( this.isPanelElement( $locationVector.find( '#mw-content-text' ).children().eq( 1 ) ),
+		assert.ok( this.isPanelElement( $locationVector.find( '.infobox' ).eq( 0 ).prev() ),
 			'Check on desktop page it is inserted in correct place (before infobox)' );
-		assert.ok( this.isPanelElement( $locationMinerva.find( '> div' ).children().eq( 4 ) ),
+		assert.ok( this.isPanelElement( $locationMinerva.find( '#firstp' ).next() ),
 			'Check on mobile page it is inserted in correct place (after first paragraph)' );
-		assert.ok( this.isPanelElement( $locationMinervaTablet.find( '> div' ).children().eq( 1 ) ),
+		assert.ok( this.isPanelElement( $locationMinervaTablet.find( '.infobox' ).eq( 0 ).prev() ),
 			'Check on mobile page it is inserted in correct place (before infobox)' );
 	} );
 
@@ -41,12 +41,12 @@
 		qSurveys._insertPanel( $locationMinervaTablet, this.getPanel() );
 
 
-		assert.ok( this.isPanelElement( $locationVector.find( '> div' ).eq( 0 ).children().eq( 1 ) ),
+		assert.ok( this.isPanelElement( $locationVector.find( '#firstp' ).next() ),
 			'Check it is inserted in correct place on vector (after first paragraph)' );
-		assert.ok( this.isPanelElement( $locationMinervaTablet.find( '> div' ).eq( 0 ).children().eq( 1 ) ),
-			'Check it is inserted in correct place (before image)' );
-		assert.ok( this.isPanelElement( $locationMinerva.find( '> div' ).eq( 0 ).children().eq( 1 ) ),
+		assert.ok( this.isPanelElement( $locationMinerva.find( '#firstp' ).next() ),
 			'Check it is inserted in correct place (after first paragraph)' );
+		assert.ok( this.isPanelElement( $locationMinervaTablet.find( '.thumb' ).eq( 0 ).prev() ),
+			'Check it is inserted in correct place (before image)' );
 	} );
 
 	QUnit.test( 'showSurvey: Placement (no headings)', 6, function ( assert ) {
@@ -61,15 +61,15 @@
 
 		assert.ok( $locationVector.find( '.test-panel' ).length === 1,
 			'Check only one panel got added.' );
-		assert.ok( $locationMinervaTablet.find( '.test-panel' ).length === 1,
-			'Check only one panel got added.' );
 		assert.ok( $locationMinerva.find( '.test-panel' ).length === 1,
 			'Check only one panel got added.' );
-		assert.ok( this.isPanelElement( $locationMinerva.find( '> div' ).eq( 0 ).children().eq( 1 ) ),
-			'Check it is inserted in correct place on mobile (after first paragraph)' );
-		assert.ok( this.isPanelElement( $locationVector.find( '> div' ).eq( 0 ).children().eq( 1 ) ),
+		assert.ok( $locationMinervaTablet.find( '.test-panel' ).length === 1,
+			'Check only one panel got added.' );
+		assert.ok( this.isPanelElement( $locationVector.find( '#firstp' ).next() ),
 			'Check it is inserted in correct place on vector (after first paragraph)' );
-		assert.ok( this.isPanelElement( $locationMinervaTablet.find( '> div' ).eq( 0 ).children().eq( 1 ) ),
+		assert.ok( this.isPanelElement( $locationMinerva.find( '#firstp' ).next() ),
+			'Check it is inserted in correct place on mobile (after first paragraph)' );
+		assert.ok( this.isPanelElement( $locationMinervaTablet.find( '#firstp' ).next() ),
 			'Check it is inserted in correct place on tablet (after first paragraph)' );
 	} );
 
@@ -83,11 +83,11 @@
 		qSurveys._insertPanel( $locationMinerva, this.getPanel(), true );
 		qSurveys._insertPanel( $locationMinervaTablet, this.getPanel() );
 
-		assert.ok( this.isPanelElement( $locationMinerva.find( '> div' ).eq( 1 ) ),
+		assert.ok( this.isPanelElement( $locationMinerva.find( '#firsth2' ).prev() ),
 			'Check it is inserted in correct place on mobile (before first heading)' );
-		assert.ok( this.isPanelElement( $locationVector.find( '> div' ).children().eq( 1 ) ),
+		assert.ok( this.isPanelElement( $locationVector.find( '#firsth2' ).prev() ),
 			'Check it is inserted in correct place on vector (before first heading)' );
-		assert.ok( this.isPanelElement( $locationMinervaTablet.find( '> div' ).eq ( 1 ) ),
+		assert.ok( this.isPanelElement( $locationMinervaTablet.find( '#firsth2' ).prev() ),
 			'Check it is inserted in correct place on tablet (before first heading)' );
 	} );
 

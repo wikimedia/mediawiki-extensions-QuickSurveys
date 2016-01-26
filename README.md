@@ -35,7 +35,7 @@ $wgQuickSurveysConfig[] = array(
 	// For each platform (desktop, mobile), which version of it is targeted (stable, beta, alpha)
 	'platform' => array(
 		'desktop' => array( 'stable' ),
-		'mobile' => array( 'stable', 'beta', 'alpha' ),
+		'mobile' => array( 'stable', 'beta' ),
 	),
 );
 ```

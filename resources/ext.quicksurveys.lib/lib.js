@@ -20,7 +20,7 @@
 
 		if ( isMobileLayout ) {
 			// Find a paragraph in the first section to insert after
-			$place = $bodyContent.find( '> div' ).eq( 0 ).find( ' > p' ).eq( 0 );
+			$place = $bodyContent.find( '> div > div' ).eq( 0 ).find( ' > p' ).eq( 0 );
 		}
 
 		if ( $place && $place.length ) {
@@ -34,11 +34,11 @@
 			if ( $place.length ) {
 				$panel.insertBefore( $place );
 			} else {
-				// Insert in this after the first paragraph (for pages with just one paragraph
-				//   or the lead section/content container when no suitable element can be found (empty pages)
+				// Insert this after the first paragraph (for pages with just one paragraph)
+				// or the lead section/content container when no suitable element can be found (empty pages)
 				$place = $bodyContent.find( '> div > p' ).eq( 0 );
-				// Do this test separately for cases where no paragraphs
-				// elements are returned in document order so > div would always come first.
+				// Do this test separately for cases where no paragraph elements
+				// are returned in document order so > div would always come first.
 				// See http://blog.jquery.com/2009/02/20/jquery-1-3-2-released/
 				if ( !$place.length ) {
 					// Note that this will only ever happen if you have an article with no headings
