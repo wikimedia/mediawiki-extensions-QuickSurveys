@@ -2,17 +2,24 @@
 	"@metadata": {
 		"authors": [
 			"Wladek92",
-			"Macofe"
+			"Macofe",
+			"Gomoko"
 		]
 	},
-	"quicksurveys-desc": "Affiche les enquêtes mises en forme sur les mobiles et les desktops.",
+	"quicksurveys-desc": "Affiche les enquêtes configurées",
 	"ext-quicksurveys-example-internal-survey-question": "Le texte devrait être plus gros ?",
+	"ext-quicksurveys-example-internal-survey-description": "Voici la description de l’enquête interne exemple",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Oui",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Pas certain",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Non",
-	"ext-quicksurveys-example-external-survey-description": "Ceci est la description de l'exemple d'étude externe.",
+	"ext-quicksurveys-example-external-survey-question": "Nous avons besoin de votre aide pour améliorer Wikipédia.",
+	"ext-quicksurveys-example-external-survey-description": "En répondant à cette enquête, vous nous aiderez à comprendre comment améliorer Wikipédia et le rendre plus utile pour vous. Merci !",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Enquête fournie par ExampleSurveyProvider. Voyez la [//example.org/privacy-policy politique de confidentialité]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Tous les envois sont anonymes. Voyez la [//example.org/privacy-policy politique de confidentialité].",
+	"ext-quicksurveys-survey-confirm-msg": "Merci pour ce retour ! Nous l’utiliserons pour rendre {{SITENAME}} encore meilleur !",
 	"ext-quicksurveys-survey-positive": "Oui",
 	"ext-quicksurveys-survey-negative": "Non",
 	"ext-quicksurveys-survey-neutral": "Pas certain",
+	"ext-quicksurveys-external-survey-yes-button": "Participer à l’enquête",
 	"ext-quicksurveys-external-survey-no-button": "Non merci"
 }
