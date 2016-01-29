@@ -4,11 +4,20 @@
 			"Bjankuloski06"
 		]
 	},
-	"quicksurveys-desc": "Прикажува поставени анкети за мобилна и обична верзија.",
+	"quicksurveys-desc": "Прикажува прилагодени анкети",
 	"ext-quicksurveys-example-internal-survey-question": "Дали текстот треба да биде поголем?",
+	"ext-quicksurveys-example-internal-survey-description": "Ова е опис на примерот за внатрешна анкета.",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Да",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Не знам",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Не",
-	"ext-quicksurveys-example-external-survey-description": "Ова е опис на примерот за надворешна анкета.",
-	"ext-quicksurveys-example-external-survey-privacy-policy-text": "Заштита на личните податоци"
+	"ext-quicksurveys-example-external-survey-question": "Ни треба ваша помош да ја подобриме Википедија.",
+	"ext-quicksurveys-example-external-survey-description": "Пополнувајќи ја анкетава, ни помагате да добиеме претстава за тоа како да ја подобриме Википедија и да ја направиме покорисна за вас. Благодариме!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Анкетата ја овозможи ПримерАнкетар. Погледајте ја страницата за [//example.org/privacy-policyзаштита на личните податоци].",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Учеството е анонимно. Погледајте ја страницата за [//example.org/privacy-policy заштита на личните податоци].",
+	"ext-quicksurveys-survey-confirm-msg": "Благодариме на одѕивот! Ќе го искористиме за да направиме уште повеќе подобрувања на {{SITENAME}}!",
+	"ext-quicksurveys-survey-positive": "Да",
+	"ext-quicksurveys-survey-negative": "Не",
+	"ext-quicksurveys-survey-neutral": "Не знам",
+	"ext-quicksurveys-external-survey-yes-button": "Посетете ја анкетата",
+	"ext-quicksurveys-external-survey-no-button": "Не, благодарам"
 }
