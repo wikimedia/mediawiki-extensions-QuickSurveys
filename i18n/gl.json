@@ -12,10 +12,12 @@
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Non",
 	"ext-quicksurveys-example-external-survey-question": "Necesitamos a súa axuda para mellorar a Wikipedia.",
 	"ext-quicksurveys-example-external-survey-description": "Contestando esta enquisa axudaranos a ver como facer a Wikipedia mellor e máis útil para vostede. Grazas!",
-	"ext-quicksurveys-example-external-survey-privacy-policy": "Enquisa proporcionada por ExampleSurveyProvider. Vexa a <a href=\"//example.org/privacy-policy\" target=\"_blank\">política de privacidade</a>.",
-	"ext-quicksurveys-survey-privacy-policy-default-text": "Todos os envíos son anónimos. Vexa a [[Project:Privacy_policy|política de privacidade]].",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Enquisa proporcionada por ExampleSurveyProvider. Vexa a [//example.org/privacy-policy política de privacidade]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Todos os envíos son anónimos. Vexa a [//example.org/privacy-policy política de privacidade].",
+	"ext-quicksurveys-survey-confirm-msg": "Grazas polo comentario! Estamos a usalos para facer aínda mellor {{SITENAME}}!",
 	"ext-quicksurveys-survey-positive": "Si",
 	"ext-quicksurveys-survey-negative": "Non",
 	"ext-quicksurveys-survey-neutral": "Non o sei",
+	"ext-quicksurveys-external-survey-yes-button": "Visitar enquisa",
 	"ext-quicksurveys-external-survey-no-button": "Non, grazas"
 }

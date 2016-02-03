@@ -10,7 +10,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Sì",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Non sono sicuro",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "No",
-	"ext-quicksurveys-example-external-survey-description": "Questa è la descrizione del sondaggio esterno d'esempio.",
+	"ext-quicksurveys-example-external-survey-description": "Rispondendo a questo sondaggio ci aiuterai a capire come rendere Wikipedia migliore e più utile per te. Grazie!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Sondaggio fornito da ExampleSurveyProvider. Vedi la [//example.org/privacy-policy politica sulla privacy]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Tutti gli invii sono anonimi. Vedi la [//example.org/privacy-policy politica sulla privacy].",
 	"ext-quicksurveys-survey-positive": "Sì",
