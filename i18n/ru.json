@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Okras"
+		]
+	},
+	"quicksurveys-desc": "Отображает настроенные опросы",
+	"ext-quicksurveys-example-internal-survey-question": "Должен ли текст быть крупнее?",
+	"ext-quicksurveys-example-internal-survey-description": "Это описание примера внутреннего опроса",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Да",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Не уверен",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Нет",
+	"ext-quicksurveys-example-external-survey-question": "Чтобы улучшить Википедию, нам нужна ваша помощь.",
+	"ext-quicksurveys-example-external-survey-description": "Ответив на этот опрос, вы поможете нам понять, как сделать Википедию лучше и полезнее для вас. Спасибо!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Опрос предоставлен ExampleSurveyProvider. См. [//example.org/privacy-policy политику конфиденциальности]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Все ответы анонимны. См. [//example.org/privacy-policy политику конфиденциальности].",
+	"ext-quicksurveys-survey-confirm-msg": "Спасибо за отзыв! Мы используем его, чтобы сделать {{grammar:genitive|{{SITENAME}}}} ещё лучше!",
+	"ext-quicksurveys-survey-positive": "Да",
+	"ext-quicksurveys-survey-negative": "Нет",
+	"ext-quicksurveys-survey-neutral": "Не уверен",
+	"ext-quicksurveys-external-survey-yes-button": "Зайти в опрос",
+	"ext-quicksurveys-external-survey-no-button": "Нет, спасибо"
+}
