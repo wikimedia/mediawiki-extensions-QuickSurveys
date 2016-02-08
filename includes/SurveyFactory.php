@@ -116,6 +116,10 @@ class SurveyFactory {
 			);
 		}
 
+		if ( !isset( $spec['instanceTokenParameterName'] ) ) {
+			$spec['instanceTokenParameterName'] = "";
+		}
+
 		return new ExternalSurvey(
 			$spec['name'],
 			$spec['question'],
@@ -124,6 +128,7 @@ class SurveyFactory {
 			$spec['coverage'],
 			$spec['platforms'],
 			$spec['link'],
+			$spec['instanceTokenParameterName'],
 			$spec['privacyPolicy']
 		);
 	}

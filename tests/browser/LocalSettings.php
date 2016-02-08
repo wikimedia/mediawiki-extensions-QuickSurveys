@@ -43,6 +43,7 @@ $wgQuickSurveysConfig = array(
 		"question" => "ext-quicksurveys-example-external-survey-question",
 		"description" => "ext-quicksurveys-example-external-survey-description",
 		"link" => "ext-quicksurveys-example-external-survey-link",
+		"instanceTokenParameterName" => "parameterName",
 		"privacyPolicy" => "ext-quicksurveys-example-external-survey-privacy-policy",
 		"coverage" => .5,
 		"enabled" => true,
