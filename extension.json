@@ -39,6 +39,7 @@
 				"ext.quicksurveys.lib",
 				"oojs-ui",
 				"mediawiki.user",
+				"mediawiki.Uri",
 				"schema.QuickSurveysResponses"
 			],
 			"targets": [
@@ -167,6 +168,8 @@
 				"description": "ext-quicksurveys-example-external-survey-description",
 				"@link": "external link to the survey",
 				"link": "ext-quicksurveys-example-external-survey-link",
+				"@instanceTokenParameterName": "parameter to add to link",
+				"instanceTokenParameterName": "parameterName",
 				"@privacyPolicy": "The i18n key of the privacy policy text.",
 				"privacyPolicy": "ext-quicksurveys-example-external-survey-privacy-policy",
 				"@enabled": "whether the survey is enabled",

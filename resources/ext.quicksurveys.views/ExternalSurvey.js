@@ -23,9 +23,20 @@
 		 */
 		renderButtons: function () {
 			var $btnContainer = this.initialPanel.$element.find( '.survey-button-container' ),
-				buttons = [
+				btnHref,
+				buttons,
+				self = this;
+
+			btnHref = new mw.Uri( mw.message( this.config.survey.link ).parse() );
+
+			if ( this.config.survey.instanceTokenParameterName ) {
+				btnHref.query[this.config.survey.instanceTokenParameterName] =
+					this.config.surveyInstanceToken;
+			}
+
+			buttons = [
 					{
-						href: mw.message( this.config.survey.link ).parse(),
+						href: btnHref.toString(),
 						target: '_blank',
 						label: mw.msg( 'ext-quicksurveys-external-survey-yes-button' ),
 						flags: 'constructive',
@@ -39,8 +50,7 @@
 							answer: 'ext-quicksurveys-external-survey-no-button'
 						}
 					}
-				],
-				self = this;
+				];
 
 			$.each( buttons, function () {
 				var button = new OO.ui.ButtonWidget( this );
