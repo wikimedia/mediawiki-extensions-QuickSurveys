@@ -14,7 +14,7 @@ class ExternalSurvey extends Survey {
 	private $name;
 
 	/**
-	 * @var string The URL of the external survey.
+	 * @var string The key of the message containing the URL of the external survey.
 	 */
 	private $link;
 
@@ -45,7 +45,8 @@ class ExternalSurvey extends Survey {
 		$this->link = $link;
 		$this->instanceTokenParameterName = $instanceTokenParameterName;
 		$this->privacyPolicy = $privacyPolicy;
-		$this->isInsecure = !preg_match( '/https/i', wfMessage( $this->link )->plain() ) ? true : false;
+		$url = wfMessage( $this->link )->inContentLanguage()->plain();
+		$this->isInsecure = strpos( $url, 'http:' ) === 0;
 	}
 
 	public function getMessages() {
