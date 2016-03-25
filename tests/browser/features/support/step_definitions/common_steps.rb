@@ -7,22 +7,22 @@ Given(/^the quick survey test pages are installed$/) do
   api.create_page 'MediaWiki:anne-survey-answer-four', 'Ginger beer'
 
   api.create_page 'Quick survey test page without infobox nor image',
-                  File.read('samples/no_infobox_or_image.wikitext')
+                  File.read(File.join(__dir__, '../../../samples/no_infobox_or_image.wikitext'))
 
   api.create_page 'Quick survey test page without lead section',
-                  File.read('samples/no_lead_section.wikitext')
+                  File.read(File.join(__dir__, '../../../samples/no_lead_section.wikitext'))
 
   api.create_page 'Quick survey test page with no image infobox',
-                  File.read('samples/infobox_no_image.wikitext')
+                  File.read(File.join(__dir__, '../../../samples/infobox_no_image.wikitext'))
 
   api.create_page 'Quick survey test page stub',
-                  File.read('samples/stub.wikitext')
+                  File.read(File.join(__dir__, '../../../samples/stub.wikitext'))
 
   api.create_page 'Quick survey test page with image no infobox',
-                  File.read('samples/image_no_infobox.wikitext')
+                  File.read(File.join(__dir__, '../../../samples/image_no_infobox.wikitext'))
 
   api.create_page 'Quick survey test page with infobox with image',
-                  File.read('samples/infobox_and_image.wikitext')
+                  File.read(File.join(__dir__, '../../../samples/infobox_and_image.wikitext'))
 end
 
 Given(/^I am on the "(.*?)" page with the quick survey flag enabled$/) do |arg1|
