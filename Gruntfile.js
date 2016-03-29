@@ -7,16 +7,15 @@ module.exports = function ( grunt ) {
 
 	grunt.initConfig( {
 		files: {
-			js: 'resources/**/*.js',
-			jsTests: 'tests/qunit/**/*.js'
+			js: 'resources/**/*.js'
 		},
 		jshint: {
 			options: {
 				jshintrc: true
 			},
 			all: [
-				'<%= files.js %>',
-				'<%= files.jsTests %>'
+				'.',
+				'!node_modules/**'
 			]
 		},
 		jscs: {

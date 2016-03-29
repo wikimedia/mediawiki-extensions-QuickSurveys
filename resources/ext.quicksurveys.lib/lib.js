@@ -12,7 +12,7 @@
 	 *
 	 * @ignore
 	 * @param {jQuery.Object} $el - element that's being tested
-	 * @return {Boolean}
+	 * @return {boolean}
 	 */
 	function isElementInViewport( $el ) {
 		var windowHeight = $window.height(),
@@ -32,6 +32,7 @@
 
 	/**
 	 * Log impression when a survey is seen by the user
+	 *
 	 * @param {jQuery.Object} $el
 	 * @param {Object} config - survey config data
 	 * @ignore
@@ -61,7 +62,7 @@
 	 *
 	 * @param {jQuery.Object} $bodyContent to add the panel
 	 * @param {jQuery.Object} $panel
-	 * @param {Boolean} isMobileLayout whether the screen is a mobile layout.
+	 * @param {boolean} isMobileLayout whether the screen is a mobile layout.
 	 */
 	function insertPanel( $bodyContent, $panel, isMobileLayout ) {
 		var $place;
@@ -116,7 +117,7 @@
 	 * A survey is currently only invalid if it is external and links to a non-https external site.
 	 *
 	 * @param {Object} survey options
-	 * @return {Boolean}
+	 * @return {boolean}
 	 */
 	function isValidSurvey( survey ) {
 		if ( survey.type === 'external' ) {
@@ -132,7 +133,7 @@
 	 * Show survey
 	 *
 	 * @param {jQuery.Object} $bodyContent to add the panel
-	 * @param {Boolean} isMobileLayout whether the screen is a mobile layout.
+	 * @param {boolean} isMobileLayout whether the screen is a mobile layout.
 	 */
 	function showSurvey( $bodyContent, isMobileLayout ) {
 		var enabledSurveys = mw.config.get( 'wgEnabledQuickSurveys' ),
@@ -202,7 +203,7 @@
 	 * Get the bucket for the given survey.
 	 * Initializes the survey storage with a token
 	 *
-	 * @return {String} The bucket
+	 * @return {string} The bucket
 	 */
 	function getBucketForSurvey( survey ) {
 		var control = 1 - survey.coverage,
@@ -250,7 +251,7 @@
 	 * 'XXX' is the survey name, then return the survey with the name XXX.
 	 * Return null in the remaining cases.
 	 *
-	 * @param {String} queryString query string
+	 * @param {string} queryString query string
 	 * @param {Array} availableSurveys array of survey objects
 	 * @return {Object|null} Survey object or null
 	 */

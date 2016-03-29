@@ -22,8 +22,8 @@
 	/**
 	 * Return edit count bucket based on the number of edits
 	 *
-	 * @param {Number} editCount
-	 * @return {String}
+	 * @param {number} editCount
+	 * @return {string}
 	 */
 	function getEditCountBucket( editCount ) {
 		var bucket;
@@ -48,14 +48,14 @@
 	 * Return 'Unknown' if the cookie is not set or code is invalid.
 	 * Country codes should be 1-3 characters per ISO 3166-1.
 	 *
-	 * @return {String}
+	 * @return {string}
 	 */
 	function getCountryCode() {
 		var geoIP = mw.cookie.get( 'GeoIP', '' ),
 			countryCode;
 
 		if ( geoIP ) {
-			countryCode = geoIP.split( ':' )[0];
+			countryCode = geoIP.split( ':' )[ 0 ];
 			if ( countryCode.length <= 3 ) {
 				return countryCode;
 			}

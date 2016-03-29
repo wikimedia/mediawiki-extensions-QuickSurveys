@@ -97,8 +97,9 @@
 		},
 		/**
 		 * Make a brand spanking new oojs ui widget from a template partial
-		 * @param {String} widgetName a valid OOJS UI widget
-		 * @param {String} [templatePartialName] name of a registered template partial
+		 *
+		 * @param {string} widgetName a valid OOJS UI widget
+		 * @param {string} [templatePartialName] name of a registered template partial
 		 * @param {Object} [options] further options to be passed to the widget
 		 */
 		widget: function ( widgetName, templatePartialName, options ) {
@@ -117,7 +118,7 @@
 		 * Log the answer to Schema:QuickSurveysResponses
 		 * See {@link https://meta.wikimedia.org/wiki/Schema:QuickSurveysResponses}
 		 *
-		 * @param {String} answer
+		 * @param {string} answer
 		 * @return {jQuery.Deferred}
 		 */
 		log: function ( answer ) {

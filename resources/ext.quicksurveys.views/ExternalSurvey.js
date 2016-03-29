@@ -4,7 +4,6 @@
 
 	/**
 	 * @class ExternalSurvey
-	 * @inherit QuickSurvey
 	 */
 	function ExternalSurvey( config ) {
 		this.initialize( config );
@@ -30,7 +29,7 @@
 			btnHref = new mw.Uri( mw.message( this.config.survey.link ).parse() );
 
 			if ( this.config.survey.instanceTokenParameterName ) {
-				btnHref.query[this.config.survey.instanceTokenParameterName] =
+				btnHref.query[ this.config.survey.instanceTokenParameterName ] =
 					this.config.surveyInstanceToken;
 			}
 
