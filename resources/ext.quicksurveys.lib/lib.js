@@ -6,31 +6,6 @@
 		surveyImpressionLogger;
 
 	/**
-	 * // FIXME: upstream the similar code from the 'mobile.startup/util' module and use it
-	 * // see https://phabricator.wikimedia.org/T124317
-	 * Check if at least half of the element's height and half of its width are in viewport
-	 *
-	 * @ignore
-	 * @param {jQuery.Object} $el - element that's being tested
-	 * @return {boolean}
-	 */
-	function isElementInViewport( $el ) {
-		var windowHeight = $window.height(),
-			windowWidth = $window.width(),
-			windowScrollLeft = $window.scrollLeft(),
-			windowScrollTop = $window.scrollTop(),
-			elHeight = $el.height(),
-			elWidth = $el.width(),
-			elOffset = $el.offset();
-
-		return (
-			( windowScrollTop + windowHeight >= elOffset.top + elHeight / 2 ) &&
-			( windowScrollLeft + windowWidth >= elOffset.left + elWidth / 2 ) &&
-			( windowScrollTop <= elOffset.top + elHeight / 2 )
-		);
-	}
-
-	/**
 	 * Log impression when a survey is seen by the user
 	 *
 	 * @param {jQuery.Object} $el
@@ -38,7 +13,7 @@
 	 * @ignore
 	 */
 	function logSurveyImpression( $el, config ) {
-		if ( isElementInViewport( $el ) ) {
+		if ( mw.viewport.isElementInViewport( $el.get( 0 ) ) ) {
 			$window.off( 'scroll.quickSurveys', surveyImpressionLogger );
 
 			if ( mw.eventLog ) {

@@ -73,6 +73,7 @@
 			"dependencies": [
 				"mediawiki.user",
 				"mediawiki.storage",
+				"mediawiki.viewport",
 				"mediawiki.experiments",
 				"schema.QuickSurveyInitiation"
 			],
