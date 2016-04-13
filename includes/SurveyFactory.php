@@ -127,9 +127,9 @@ class SurveyFactory {
 			$spec['enabled'],
 			$spec['coverage'],
 			$spec['platforms'],
+			$spec['privacyPolicy'],
 			$spec['link'],
-			$spec['instanceTokenParameterName'],
-			$spec['privacyPolicy']
+			$spec['instanceTokenParameterName']
 		);
 	}
 
@@ -149,6 +149,7 @@ class SurveyFactory {
 			$spec['enabled'],
 			$spec['coverage'],
 			$spec['platforms'],
+			!empty( $spec['privacyPolicy'] ) ? $spec['privacyPolicy'] : null,
 			$spec['answers']
 		);
 	}

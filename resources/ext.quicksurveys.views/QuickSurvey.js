@@ -46,6 +46,10 @@
 			this.config = config || {};
 			$.extend( true, this.config, this.defaults );
 
+			if ( config.survey.privacyPolicy ) {
+				this.config.templateData.footer = mw.message( config.survey.privacyPolicy ).parse();
+			}
+
 			// setup initial panel
 			this.initialPanel = this.widget( 'PanelLayout', 'initialPanel' );
 
