@@ -52,16 +52,16 @@ class ExternalSurvey extends Survey {
 	}
 
 	public function getMessages() {
-		return array_merge( parent::getMessages(), array( $this->link ) );
+		return array_merge( parent::getMessages(), [ $this->link ] );
 	}
 
 	public function toArray() {
-		return parent::toArray() + array(
+		return parent::toArray() + [
 			'name' => $this->name,
 			'type' => 'external',
 			'link' => $this->link,
 			'instanceTokenParameterName' => $this->instanceTokenParameterName,
 			'isInsecure' => $this->isInsecure,
-		);
+		];
 	}
 }

@@ -93,11 +93,11 @@ abstract class Survey {
 	 * @return string
 	 */
 	public function getMessages() {
-		$messages = array(
+		$messages = [
 			$this->question,
 			// FIXME: Should description be optional?
 			$this->description,
-		);
+		];
 		if ( !empty( $this->privacyPolicy ) ) {
 			$messages[] = $this->privacyPolicy;
 		}
@@ -111,7 +111,7 @@ abstract class Survey {
 	 * @return array
 	 */
 	public function toArray() {
-		return array(
+		return [
 			'name' => $this->name,
 			'question' => $this->question,
 			'description' => $this->description,
@@ -119,7 +119,7 @@ abstract class Survey {
 			'coverage' => $this->coverage,
 			'platforms' => $this->platforms,
 			'privacyPolicy' => $this->privacyPolicy,
-		);
+		];
 	}
 
 	/**

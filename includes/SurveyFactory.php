@@ -5,15 +5,15 @@ namespace QuickSurveys;
 use InvalidArgumentException;
 
 class SurveyFactory {
-	private static $VALID_PLATFORM_MODES = array(
-		'desktop' => array(
+	private static $VALID_PLATFORM_MODES = [
+		'desktop' => [
 			'stable',
-		),
-		'mobile' => array(
+		],
+		'mobile' => [
 			'stable',
 			'beta',
-		),
-	);
+		],
+	];
 
 	/**
 	 * Creates an instance of either the InternalSurvey or ExternalSurvey class

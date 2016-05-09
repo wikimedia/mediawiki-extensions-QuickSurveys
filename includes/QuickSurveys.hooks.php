@@ -22,14 +22,14 @@ class Hooks {
 	 * @return bool
 	 */
 	public static function onResourceLoaderTestModules( &$modules, &$rl ) {
-		$boilerplate = array(
+		$boilerplate = [
 			'localBasePath' => __DIR__ . '/../tests/qunit/',
 			'remoteExtPath' => 'QuickSurveys/tests/qunit',
-			'targets' => array( 'desktop', 'mobile' ),
-		);
+			'targets' => [ 'desktop', 'mobile' ],
+		];
 
-		$modules['qunit']['ext.quicksurveys.lib.tests'] = $boilerplate + array(
-			'templates' => array(
+		$modules['qunit']['ext.quicksurveys.lib.tests'] = $boilerplate + [
+			'templates' => [
 				'vector-1.html' => 'ext.quicksurveys.lib/templates/vector-1.html',
 				'vector-2.html' => 'ext.quicksurveys.lib/templates/vector-2.html',
 				'vector-3.html' => 'ext.quicksurveys.lib/templates/vector-3.html',
@@ -38,14 +38,14 @@ class Hooks {
 				'minerva-2.html' => 'ext.quicksurveys.lib/templates/minerva-2.html',
 				'minerva-3.html' => 'ext.quicksurveys.lib/templates/minerva-3.html',
 				'minerva-4.html' => 'ext.quicksurveys.lib/templates/minerva-4.html',
-			),
-			'scripts' => array(
+			],
+			'scripts' => [
 				'ext.quicksurveys.lib/test_lib.js',
-			),
-			'dependencies' => array(
+			],
+			'dependencies' => [
 				'ext.quicksurveys.lib',
-			),
-		);
+			],
+		];
 		return true;
 	}
 
@@ -110,12 +110,12 @@ class Hooks {
 
 		foreach ( $enabledSurveys as $survey ) {
 			$moduleName = $survey->getResourceLoaderModuleName();
-			$module = array(
-				$moduleName => array(
+			$module = [
+				$moduleName => [
 					'messages' => $survey->getMessages(),
-					'targets' => array( 'desktop', 'mobile' ),
-				),
-			);
+					'targets' => [ 'desktop', 'mobile' ],
+				],
+			];
 
 			$resourceLoader->register( $module );
 		}
@@ -132,7 +132,7 @@ class Hooks {
 		$config = ConfigFactory::getDefaultInstance()->makeConfig( 'quicksurveys' );
 		$configuredSurveys = $config->has( 'QuickSurveysConfig' )
 			? $config->get( 'QuickSurveysConfig' )
-			: array();
+			: [];
 		$surveys = array_map( '\\QuickSurveys\\SurveyFactory::factory', $configuredSurveys );
 		$enabledSurveys = array_filter( $surveys, function ( Survey $survey ) {
 			return $survey->isEnabled();

@@ -41,10 +41,10 @@ class InternalSurvey extends Survey {
 	}
 
 	public function toArray() {
-		return parent::toArray() + array(
+		return parent::toArray() + [
 			'name' => $this->name,
 			'type' => 'internal',
 			'answers' => $this->answers,
-		);
+		];
 	}
 }
