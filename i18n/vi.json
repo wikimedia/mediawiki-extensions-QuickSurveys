@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Minh Nguyen"
+		]
+	},
+	"quicksurveys-desc": "Hiển thị các thăm dò ý kiến được cấu hình",
+	"ext-quicksurveys-example-internal-survey-question": "Có nên tăng cỡ văn bản?",
+	"ext-quicksurveys-example-internal-survey-description": "Đây là lời miêu tả thăm dò ý kiến nội bộ mẫu",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Có",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Không chắc chắn",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Không",
+	"ext-quicksurveys-example-external-survey-question": "Chúng tôi cần sự giúp đỡ của bạn để cải thiện Wikipedia.",
+	"ext-quicksurveys-example-external-survey-description": "Bằng cách hưởng ứng thăm dò ý kiến này, bạn sẽ cho chúng tôi biết cách để làm Wikipedia tốt hơn và hữu ích hơn cho bạn. Xin cảm ơn!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Cuộc thăm dò ý kiến cho ExampleSurveyProvider cung cấp. Xem [//example.org/privacy-policy chính sách về quyền riêng tư]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Tất cả các thông tin được gửi vào được lưu giữ một cách vô danh. Xem [//example.org/privacy-policy chính sách về quyền riêng tư].",
+	"ext-quicksurveys-survey-confirm-msg": "Cảm ơn bạn vì thông tin phản hồi! Chúng tôi sẽ sử dụng nó để cải thiện {{SITENAME}}!",
+	"ext-quicksurveys-survey-positive": "Có",
+	"ext-quicksurveys-survey-negative": "Không",
+	"ext-quicksurveys-survey-neutral": "Không chắc chắn",
+	"ext-quicksurveys-external-survey-yes-button": "Đi đến thăm dò ý kiến",
+	"ext-quicksurveys-external-survey-no-button": "Thôi"
+}
