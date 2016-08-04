@@ -120,8 +120,9 @@ class SurveyFactoryTest extends PHPUnit_Framework_TestCase
 					'beta',
 				],
 			],
+			'ext-quicksurveys-test-external-survey-privacy-policy',
 			'//example.org/test-external-survey',
-			'ext-quicksurveys-test-external-survey-privacy-policy'
+			''
 		);
 
 		$actual = SurveyFactory::factory( [
@@ -186,6 +187,7 @@ class SurveyFactoryTest extends PHPUnit_Framework_TestCase
 					'beta',
 				],
 			],
+			'',
 			[
 				'ext-quicksurveys-test-internal-survey-positive',
 			]
