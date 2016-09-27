@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Denö",
+			"Mashoi7"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Muga",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Ei varmu",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Ei",
+	"ext-quicksurveys-survey-positive": "Muga",
+	"ext-quicksurveys-survey-negative": "Ei",
+	"ext-quicksurveys-survey-neutral": "Ei varmu",
+	"ext-quicksurveys-external-survey-no-button": "Passibo ei"
+}
