@@ -5,5 +5,8 @@
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Tak",
-	"ext-quicksurveys-example-internal-survey-answer-negative": "Nie"
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Nie",
+	"ext-quicksurveys-survey-positive": "Tak",
+	"ext-quicksurveys-survey-negative": "Nie",
+	"ext-quicksurveys-external-survey-no-button": "Nie, dziękuję"
 }
