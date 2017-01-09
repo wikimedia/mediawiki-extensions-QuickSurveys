@@ -4,7 +4,7 @@
 .ext-quick-survey-panel,
 .ext-qs-loader-bar {
 	width: auto;
-	background-color: @colorGrayLightest;
+	background-color: @colorGray14;
 }
 
 /* FIXME: Should be an ajax loader to give impression something is happening */
@@ -14,14 +14,15 @@
 	margin-left: 1.4em;
 	clear: right;
 	float: right;
-	background-color: @colorGrayLightest;
+	background-color: @colorGray14;
+
 	&.mw-ajax-loader {
 		// FIXME: Why is this not the default? Override it.
 		top: 0;
 	}
 }
 
-@media all and (min-width: @deviceWidthTablet) {
+@media all and ( min-width: @deviceWidthTablet ) {
 	.ext-qs-loader-bar,
 	.ext-quick-survey-panel {
 		margin-left: 1.4em;

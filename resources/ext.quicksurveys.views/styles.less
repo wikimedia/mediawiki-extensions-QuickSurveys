@@ -4,12 +4,11 @@
 @import "../variables";
 
 .panel .survey-footer {
-  font-size: .8em;
-  margin-top: .5em;
+  font-size: 0.8em;
+  margin-top: 0.5em;
 }
 
 .survey-button-container {
-
 	// FIXME: See https://phabricator.wikimedia.org/T112982
 	.oo-ui-buttonSelectWidget {
 		width: 100%;
@@ -21,11 +20,12 @@
 			a {
 				margin: 0;
 				width: 100%;
-				.box-sizing(border-box);
-				border-bottom: none;
+				.box-sizing( border-box );
+				border-bottom: 0;
 			}
+
 			&:last-child {
-				border-bottom: 1px solid #cdcdcd;
+				border-bottom: 1px solid @colorGray12;
 			}
 		}
 	}
