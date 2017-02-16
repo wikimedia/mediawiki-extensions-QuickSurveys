@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe"
+			"Macofe",
+			"Dgstranz"
 		]
 	},
-	"quicksurveys-desc": "Muestra encuestas configuradas en dispositivos móviles y de escritorio.",
+	"quicksurveys-desc": "Muestra las encuestas configuradas.",
 	"ext-quicksurveys-example-internal-survey-question": "¿Debería ser más grande el texto?",
 	"ext-quicksurveys-example-internal-survey-description": "Esta es la descripción de un ejemplo de encuesta interna",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Sí",
