@@ -4,9 +4,9 @@ namespace QuickSurveys;
 
 class ExternalSurvey extends Survey {
 	/**
-	 * @var bool whether the survey runs on https or not.
+	 * @var bool Whether the survey runs on HTTPS or not.
 	 */
-	private $isInsecure;
+	private $isInsecure = null;
 
 	/**
 	 * @var string The name of the external survey.
@@ -47,12 +47,18 @@ class ExternalSurvey extends Survey {
 		$this->name = $name;
 		$this->link = $link;
 		$this->instanceTokenParameterName = $instanceTokenParameterName;
-		$url = wfMessage( $this->link )->inContentLanguage()->plain();
-		$this->isInsecure = strpos( $url, 'http:' ) === 0;
 	}
 
 	public function getMessages() {
 		return array_merge( parent::getMessages(), [ $this->link ] );
+	}
+
+	private function getIsInsecure() {
+		if ( $this->isInsecure === null ) {
+			$url = wfMessage( $this->link )->inContentLanguage()->plain();
+			$this->isInsecure = strpos( $url, 'http:' ) === 0;
+		}
+		return $this->isInsecure;
 	}
 
 	public function toArray() {
@@ -61,7 +67,7 @@ class ExternalSurvey extends Survey {
 			'type' => 'external',
 			'link' => $this->link,
 			'instanceTokenParameterName' => $this->instanceTokenParameterName,
-			'isInsecure' => $this->isInsecure,
+			'isInsecure' => $this->getIsInsecure(),
 		];
 	}
 }
