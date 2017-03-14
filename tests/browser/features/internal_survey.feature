@@ -19,11 +19,6 @@ Feature: Internal surveys
       And the page has fully loaded
     Then I should not see the survey
 
-  Scenario: Internal survey is visible when bucketed
-    And I am bucketed for "internal-example-survey"
-      And I am on the "Quick survey test page stub" page
-    Then I should see the survey
-
   Scenario: Internal survey is not present when dismissed
     And I have dismissed survey "internal-example-survey"
       And I am on the "Quick survey test page stub" page

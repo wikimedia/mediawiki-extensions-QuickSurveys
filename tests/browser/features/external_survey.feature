@@ -16,13 +16,6 @@ Feature: External surveys
       And the page has fully loaded
     Then I should not see the survey
 
-  Scenario: External survey is visible when bucketed
-    And I am bucketed for "external-example-survey"
-      And I am on the "Quick survey test page stub" page
-      And the page has fully loaded
-      And the survey code has fully loaded
-    Then I should see the survey
-
   Scenario: External survey is not present when dismissed
     And I have dismissed survey "external-example-survey"
       And I am on the "Quick survey test page stub" page
