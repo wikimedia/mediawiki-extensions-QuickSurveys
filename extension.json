@@ -37,7 +37,8 @@
 		"ext.quicksurveys.views": {
 			"dependencies": [
 				"ext.quicksurveys.lib",
-				"oojs-ui",
+				"oojs-ui-core",
+				"oojs-ui-widgets",
 				"mediawiki.user",
 				"mediawiki.Uri",
 				"schema.QuickSurveysResponses"
