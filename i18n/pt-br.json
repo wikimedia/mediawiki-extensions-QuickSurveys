@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Felipe L. Ewald"
+		]
+	},
+	"quicksurveys-desc": "Exibe pesquisas configuradas",
+	"ext-quicksurveys-example-internal-survey-question": "O texto deve ser maior?",
+	"ext-quicksurveys-example-internal-survey-description": "Esta é a descrição do exemplo de pesquisa interna",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Sim",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Talvez",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Não",
+	"ext-quicksurveys-example-external-survey-question": "Precisamos da sua ajuda para melhorar a Wikipédia.",
+	"ext-quicksurveys-example-external-survey-description": "Ao responder a esta pesquisa, você irá nos ajudar a entender como tornar a Wikipédia melhor e mais útil para você. Obrigado!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Pesquisa provida por ExampleSurveyProvider. Veja em [//example.org/privacy-policy politica de privacidade]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Todas as submissões são anônimas. Consulte na [//example.org/privacy-policy política de privacidade].",
+	"ext-quicksurveys-survey-confirm-msg": "Obrigado pelo feedback! Vamos usá-lo para tornar {{SITENAME}} ainda melhor!",
+	"ext-quicksurveys-survey-positive": "Sim",
+	"ext-quicksurveys-survey-negative": "Não",
+	"ext-quicksurveys-survey-neutral": "Talvez",
+	"ext-quicksurveys-external-survey-yes-button": "Visitar pesquisa",
+	"ext-quicksurveys-external-survey-no-button": "Não obrigado"
+}
