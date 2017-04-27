@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"SPQRobin"
+			"SPQRobin",
+			"Mainframe98"
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Ja",
@@ -9,5 +10,6 @@
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Nee",
 	"ext-quicksurveys-survey-positive": "Ja",
 	"ext-quicksurveys-survey-negative": "Nee",
-	"ext-quicksurveys-survey-neutral": "Niet zeker"
+	"ext-quicksurveys-survey-neutral": "Niet zeker",
+	"ext-quicksurveys-external-survey-no-button": "Nee, bedankt"
 }
