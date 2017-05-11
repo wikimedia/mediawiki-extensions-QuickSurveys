@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sator"
+			"Sator",
+			"Subi"
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Bai",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Ez",
+	"ext-quicksurveys-example-external-survey-question": "Zure laguntza behar dugu Wikipedia hobetzeko.",
 	"ext-quicksurveys-survey-positive": "Bai",
 	"ext-quicksurveys-survey-negative": "Ez"
 }
