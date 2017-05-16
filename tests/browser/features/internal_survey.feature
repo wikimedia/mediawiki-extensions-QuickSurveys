@@ -1,4 +1,6 @@
-@chrome @en.m.wikipedia.beta.wmflabs.org @firefox @test2.m.wikipedia.org @vagrant @integration
+# Don't add the @en.m.wikipedia.beta.wmflabs.org tag
+# These browser tests only need to run per commit @integration
+@chrome @firefox @vagrant @integration
 Feature: Internal surveys
   Background:
     Given the quick survey test pages are installed
