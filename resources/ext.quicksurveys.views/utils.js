@@ -1,4 +1,4 @@
-( function () {
+( function ( mw ) {
 	/**
 	 * Extends a class with new methods and member properties.
 	 * FIXME: Talk about upstreaming this to oojs ui as a utility function.
@@ -70,4 +70,4 @@
 		getEditCountBucket: getEditCountBucket,
 		getCountryCode: getCountryCode
 	};
-}( jQuery ) );
+}( mediaWiki ) );

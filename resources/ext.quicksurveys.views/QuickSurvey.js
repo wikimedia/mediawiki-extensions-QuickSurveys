@@ -1,9 +1,12 @@
-( function ( $ ) {
+( function ( $, mw ) {
 	var utils = mw.extQuickSurveys.views.utils;
 
 	/**
 	 * @class QuickSurvey
 	 * @extends OO.ui.StackLayout
+	 *
+	 * @constructor
+	 * @param {Object} config
 	 */
 	function QuickSurvey( config ) {
 		this.initialize( config );
@@ -60,6 +63,7 @@
 			this.renderButtons();
 
 			// setup stack
+			// eslint-disable-next-line dot-notation
 			QuickSurvey.super.call( this, $.extend( {}, config, {
 				items: [ this.initialPanel, this.finalPanel ]
 			} ) );
@@ -105,6 +109,7 @@
 		 * @param {string} widgetName a valid OOJS UI widget
 		 * @param {string} [templatePartialName] name of a registered template partial
 		 * @param {Object} [options] further options to be passed to the widget
+		 * @return {*} OOUI widget instance
 		 */
 		widget: function ( widgetName, templatePartialName, options ) {
 			var template,
@@ -132,7 +137,7 @@
 				mobileMode = mw.config.get( 'wgMFMode' );
 
 			// On mobile differentiate between minerva stable and beta by appending 'beta' to 'minerva'
-			if ( skin === 'minerva' &&  mobileMode === 'beta' ) {
+			if ( skin === 'minerva' && mobileMode === 'beta' ) {
 				skin += mobileMode;
 			}
 
@@ -173,4 +178,4 @@
 
 	// This always makes me sad... https://phabricator.wikimedia.org/T108655
 	mw.extQuickSurveys.views.QuickSurvey = QuickSurvey;
-}( jQuery ) );
+}( jQuery, mediaWiki ) );

@@ -1,5 +1,5 @@
 // Register the Hogan compiler with MediaWiki.
-( function () {
+( function ( mw ) {
 	var compiler;
 	/*
 	 * Mustache/Hogan template compiler
@@ -12,4 +12,4 @@
 
 	// register hybrid compiler with core
 	mw.template.registerCompiler( 'muhogan', compiler );
-}() );
+}( mediaWiki ) );

@@ -1,9 +1,11 @@
-( function ( $ ) {
+( function ( $, mw ) {
 	var utils = mw.extQuickSurveys.views.utils,
 		QuickSurvey = mw.extQuickSurveys.views.QuickSurvey;
 
 	/**
 	 * @class ExternalSurvey
+	 * @constructor
+	 * @param {Object} config
 	 */
 	function ExternalSurvey( config ) {
 		this.initialize( config );
@@ -27,22 +29,22 @@
 			}
 
 			buttons = [
-					{
-						href: btnHref.toString(),
-						target: '_blank',
-						label: mw.msg( 'ext-quicksurveys-external-survey-yes-button' ),
-						flags: 'constructive',
-						data: {
-							answer: 'ext-quicksurveys-external-survey-yes-button'
-						}
-					},
-					{
-						label: mw.msg( 'ext-quicksurveys-external-survey-no-button' ),
-						data: {
-							answer: 'ext-quicksurveys-external-survey-no-button'
-						}
+				{
+					href: btnHref.toString(),
+					target: '_blank',
+					label: mw.msg( 'ext-quicksurveys-external-survey-yes-button' ),
+					flags: 'constructive',
+					data: {
+						answer: 'ext-quicksurveys-external-survey-yes-button'
 					}
-				];
+				},
+				{
+					label: mw.msg( 'ext-quicksurveys-external-survey-no-button' ),
+					data: {
+						answer: 'ext-quicksurveys-external-survey-no-button'
+					}
+				}
+			];
 
 			$.each( buttons, function () {
 				var button = new OO.ui.ButtonWidget( this );
@@ -56,4 +58,4 @@
 	} );
 
 	mw.extQuickSurveys.views.ExternalSurvey = ExternalSurvey;
-}( jQuery ) );
+}( jQuery, mediaWiki ) );

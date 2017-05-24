@@ -1,4 +1,4 @@
-( function ( $ ) {
+( function ( $, mw ) {
 	var isMainPage = mw.config.get( 'wgIsMainPage' ),
 		$bodyContent = $( '#bodyContent' ),
 		isMobileLayout = window.innerWidth <= 768,
@@ -28,4 +28,4 @@
 		mw.extQuickSurveys.showSurvey( $bodyContent, isMobileLayout );
 	}
 
-}( jQuery ) );
+}( jQuery, mediaWiki ) );

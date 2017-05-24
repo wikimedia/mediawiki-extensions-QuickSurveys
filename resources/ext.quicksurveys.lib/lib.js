@@ -1,5 +1,4 @@
-// jscs:disable disallowDanglingUnderscores
-( function ( $ ) {
+( function ( $, mw ) {
 	var survey,
 		availableSurveys = [],
 		$window = $( window ),
@@ -105,6 +104,94 @@
 	}
 
 	/**
+	 * Return a survey from the available surveys given the survey query string.
+	 * If the query string is 'true' return a random survey.
+	 * If the query string is either 'internal-survey-XXX' or 'external-survey-XXX' where
+	 * 'XXX' is the survey name, then return the survey with the name XXX.
+	 * Return null in the remaining cases.
+	 *
+	 * @param {string} queryString query string
+	 * @param {Array} availableSurveys array of survey objects
+	 * @return {Object|null} Survey object or null
+	 */
+	function getSurveyFromQueryString( queryString, availableSurveys ) {
+		var surveyIndex,
+			surveyType,
+			surveyName,
+			survey = null;
+
+		// true returns a random survey
+		if ( queryString === 'true' ) {
+			surveyIndex = Math.floor( Math.random() * availableSurveys.length );
+			survey = availableSurveys[ surveyIndex ];
+		} else if ( queryString.indexOf( 'internal-survey-' ) === 0 ) {
+			surveyType = 'internal';
+		} else if ( queryString.indexOf( 'external-survey-' ) === 0 ) {
+			surveyType = 'external';
+		}
+
+		if ( surveyType ) {
+			surveyName = queryString.split( '-' ).slice( 2 ).join( '-' );
+			availableSurveys = $.grep( availableSurveys, function ( survey ) {
+				return survey.name === surveyName && survey.type === surveyType;
+			} );
+			if ( availableSurveys.length ) {
+				survey = availableSurveys[ 0 ];
+			}
+		}
+
+		return survey;
+	}
+
+	/**
+	 * Get the storage key for the given survey.
+	 *
+	 * @param {Object} survey
+	 * @return {string} The survey localStorage key
+	 */
+	function getSurveyStorageKey( survey ) {
+		return 'ext-quicksurvey-' + survey.name.replace( / /g, '-' );
+	}
+
+	/**
+	 * Get the survey token for the given survey.
+	 *
+	 * @param {Object} survey
+	 * @return {string} The survey token
+	 */
+	function getSurveyToken( survey ) {
+		return mw.storage.get( getSurveyStorageKey( survey ) );
+	}
+
+	/**
+	 * Get the bucket for the given survey.
+	 * Initializes the survey storage with a token
+	 *
+	 * @param {Object} survey
+	 * @return {string} The bucket
+	 */
+	function getBucketForSurvey( survey ) {
+		var control = 1 - survey.coverage,
+			a = survey.coverage,
+			storageId = getSurveyStorageKey( survey ),
+			token = getSurveyToken( survey );
+
+		if ( !token ) {
+			// Generate a new token for each survey
+			token = mw.user.generateRandomSessionId();
+			mw.storage.set( storageId, token );
+		}
+		return mw.experiments.getBucket( {
+			name: survey.name,
+			enabled: true,
+			buckets: {
+				control: Number( control ),
+				A: Number( a )
+			}
+		}, token );
+	}
+
+	/**
 	 * Show survey
 	 *
 	 * @param {jQuery.Object} $bodyContent to add the panel
@@ -174,94 +261,10 @@
 		}
 	}
 
-	/**
-	 * Get the bucket for the given survey.
-	 * Initializes the survey storage with a token
-	 *
-	 * @return {string} The bucket
-	 */
-	function getBucketForSurvey( survey ) {
-		var control = 1 - survey.coverage,
-			a = survey.coverage,
-			storageId = getSurveyStorageKey( survey ),
-			token = getSurveyToken( survey );
-
-		if ( !token ) {
-			// Generate a new token for each survey
-			token = mw.user.generateRandomSessionId();
-			mw.storage.set( storageId, token );
-		}
-		return mw.experiments.getBucket( {
-			name: survey.name,
-			enabled: true,
-			buckets: {
-				control: Number( control ),
-				A: Number( a )
-			}
-		}, token );
-	}
-
-	/**
-	 * Get the storage key for the given survey.
-
-	 * @return {String} The survey localStorage key
-	 */
-	function getSurveyStorageKey( survey ) {
-		return 'ext-quicksurvey-' + survey.name.replace( / /g, '-' );
-	}
-
-	/**
-	 * Get the survey token for the given survey.
-
-	 * @returns {String} The survey token
-	 */
-	function getSurveyToken( survey ) {
-		return mw.storage.get( getSurveyStorageKey( survey ) );
-	}
-
-	/**
-	 * Return a survey from the available surveys given the survey query string.
-	 * If the query string is 'true' return a random survey.
-	 * If the query string is either 'internal-survey-XXX' or 'external-survey-XXX' where
-	 * 'XXX' is the survey name, then return the survey with the name XXX.
-	 * Return null in the remaining cases.
-	 *
-	 * @param {string} queryString query string
-	 * @param {Array} availableSurveys array of survey objects
-	 * @return {Object|null} Survey object or null
-	 */
-	function getSurveyFromQueryString( queryString, availableSurveys ) {
-		var surveyIndex,
-			surveyType,
-			surveyName,
-			survey = null;
-
-		// true returns a random survey
-		if ( queryString === 'true' ) {
-			surveyIndex = Math.floor( Math.random() * availableSurveys.length );
-			survey = availableSurveys[ surveyIndex ];
-		} else if ( queryString.indexOf( 'internal-survey-' ) === 0 ) {
-			surveyType = 'internal';
-		} else if ( queryString.indexOf( 'external-survey-' ) === 0 ) {
-			surveyType = 'external';
-		}
-
-		if ( surveyType ) {
-			surveyName = queryString.split( '-' ).slice( 2 ).join( '-' );
-			availableSurveys = $.grep( availableSurveys, function ( survey ) {
-				return survey.name === surveyName && survey.type === surveyType;
-			} );
-			if ( availableSurveys.length ) {
-				survey = availableSurveys[ 0 ];
-			}
-		}
-
-		return survey;
-	}
-
 	mw.extQuickSurveys = {
+		/* eslint-disable-next-line no-underscore-dangle */
 		_insertPanel: insertPanel,
 		views: {},
 		showSurvey: showSurvey
 	};
-}( jQuery ) );
+}( jQuery, mediaWiki ) );
