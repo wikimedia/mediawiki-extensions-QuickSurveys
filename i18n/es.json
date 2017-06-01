@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Macofe",
-			"Dgstranz"
+			"Dgstranz",
+			"Fitoschido"
 		]
 	},
 	"quicksurveys-desc": "Muestra las encuestas configuradas",
@@ -13,8 +14,8 @@
 	"ext-quicksurveys-example-internal-survey-answer-negative": "No",
 	"ext-quicksurveys-example-external-survey-question": "Necesitamos tu ayuda para mejorar Wikipedia.",
 	"ext-quicksurveys-example-external-survey-description": "Esta es la descripción de un ejemplo de encuesta externa.",
-	"ext-quicksurveys-example-external-survey-privacy-policy": "Encuesta proporcionada por ExampleSurveyProvider. Consulta la [//example.org/privacy-policy política de privacidad]",
-	"ext-quicksurveys-survey-privacy-policy-default-text": "Todos los envíos son anónimos. Consulta la [//example.org/privacy-policy política de privacidad].",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Encuesta proporcionada por ExampleSurveyProvider. Consulta la [//example.org/privacy-policy normativa de privacidad]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Todos los envíos son anónimos. Consulta la [//example.org/privacy-policy normativa de privacidad].",
 	"ext-quicksurveys-survey-positive": "Sí",
 	"ext-quicksurveys-survey-negative": "No",
 	"ext-quicksurveys-survey-neutral": "No lo sé",
