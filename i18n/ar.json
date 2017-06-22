@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"عباد ديرانية"
+		]
+	},
+	"ext-quicksurveys-example-external-survey-question": "نحنُ بحاجة لمساعدتك في تحسين ويكيبيديا",
+	"ext-quicksurveys-example-external-survey-description": "إذا عبأت هذا الاستبيان فستساعدنا على فهم ما علينا عمله لتحسين ويكيبيديا وجعلها أكثر نفعاً لك. شكراً!",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "ستكونُ جميع الإجابات سرية. اطَّلع على [//example.org/privacy-policy سياسة الخصوصية].",
+	"ext-quicksurveys-survey-confirm-msg": "شكراً لملاحظاتك! سنستفيدُ منها لجعل تجربتك على {{SITENAME}} أفضل!",
+	"ext-quicksurveys-survey-positive": "نعم",
+	"ext-quicksurveys-survey-negative": "لا",
+	"ext-quicksurveys-survey-neutral": "لستُ متأكداً",
+	"ext-quicksurveys-external-survey-yes-button": "عبّء الاستبيان",
+	"ext-quicksurveys-external-survey-no-button": "لا أُفضّل ذلك"
+}

@@ -5,9 +5,16 @@
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-question": "লেখা কি আরও বড় হওয়া উচিত?",
+	"ext-quicksurveys-example-internal-survey-description": "এটি উদাহরণ অভ্যন্তরীণ জরিপের বর্ণনা",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "হ্যাঁ",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "নিশ্চিত না",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "না",
+	"ext-quicksurveys-example-external-survey-question": "উইকিপিডিয়ার উন্নতির জন্য আমাদের আপনার সাহায্য প্রয়োজন।",
 	"ext-quicksurveys-example-external-survey-description": "এটি উদাহরণ বাহ্যিক সমীক্ষার বিবরণ।",
-	"ext-quicksurveys-example-external-survey-privacy-policy-text": "গোপনীয়তার নীতি"
+	"ext-quicksurveys-survey-confirm-msg": "প্রতিক্রিয়া জানানোর জন্য ধন্যবাদ! আমরা {{SITENAME}}কে আরও ভাল করতে এটি ব্যবহার করছি!",
+	"ext-quicksurveys-survey-positive": "হ্যাঁ",
+	"ext-quicksurveys-survey-negative": "না",
+	"ext-quicksurveys-survey-neutral": "নিশ্চিত না",
+	"ext-quicksurveys-external-survey-yes-button": "জরিপে চলুন",
+	"ext-quicksurveys-external-survey-no-button": "না, ধন্যবাদ"
 }

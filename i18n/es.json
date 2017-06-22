@@ -3,7 +3,8 @@
 		"authors": [
 			"Macofe",
 			"Dgstranz",
-			"Fitoschido"
+			"Fitoschido",
+			"PoLuX124"
 		]
 	},
 	"quicksurveys-desc": "Muestra las encuestas configuradas",
@@ -13,9 +14,10 @@
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "No lo sé",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "No",
 	"ext-quicksurveys-example-external-survey-question": "Necesitamos tu ayuda para mejorar Wikipedia.",
-	"ext-quicksurveys-example-external-survey-description": "Esta es la descripción de un ejemplo de encuesta externa.",
+	"ext-quicksurveys-example-external-survey-description": "Al responder esta encuesta nos ayudarás a entender cómo hacer Wikipedia mejor y más útil para ti. ¡Gracias!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Encuesta proporcionada por ExampleSurveyProvider. Consulta la [//example.org/privacy-policy normativa de privacidad]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Todos los envíos son anónimos. Consulta la [//example.org/privacy-policy normativa de privacidad].",
+	"ext-quicksurveys-survey-confirm-msg": "¡Gracias por tus respuestas! ¡Nos sirven para hacer {{SITENAME}} cada vez mejor!",
 	"ext-quicksurveys-survey-positive": "Sí",
 	"ext-quicksurveys-survey-negative": "No",
 	"ext-quicksurveys-survey-neutral": "No lo sé",

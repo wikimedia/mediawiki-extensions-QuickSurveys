@@ -1,12 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sujiniku"
+			"Sujiniku",
+			"LZia (WMF)"
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-description": "これは、内部調査の例の説明です",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "はい",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "いいえ",
 	"ext-quicksurveys-survey-positive": "はい",
-	"ext-quicksurveys-survey-negative": "いいえ"
+	"ext-quicksurveys-survey-negative": "いいえ",
+	"ext-quicksurveys-external-survey-yes-button": "アンケート",
+	"ext-quicksurveys-external-survey-no-button": "不要です"
 }
