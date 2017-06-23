@@ -1,10 +1,25 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cwlin0416"
+			"Cwlin0416",
+			"Liuxinyu970226",
+			"Shangkuanlc"
 		]
 	},
+	"quicksurveys-desc": "顯示設定問卷",
+	"ext-quicksurveys-example-internal-survey-question": "文字是否該放大？",
+	"ext-quicksurveys-example-internal-survey-description": "這是內部調查範例的敘述",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "是",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "不確定",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "否",
-	"ext-quicksurveys-example-external-survey-privacy-policy-text": "隱私政策"
+	"ext-quicksurveys-example-external-survey-question": "我們需要您協助改善維基百科。",
+	"ext-quicksurveys-example-external-survey-description": "透過回答此問卷，您將協助我們了解如何改善，讓維基百科對您更有助益。十分感謝！",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "由 ExampleSurveyProvider 所提供的問卷。請參見[//example.org/privacy-policy 隱私權政策]。",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "所有的填答都是匿名蒐集的。詳情請見[//example.org/privacy-policy 隱私權政策]。",
+	"ext-quicksurveys-survey-confirm-msg": "感謝您的意見！我們將會利用您的意見改善{{SITENAME}}！",
+	"ext-quicksurveys-survey-positive": "是",
+	"ext-quicksurveys-survey-negative": "否",
+	"ext-quicksurveys-survey-neutral": "不確定",
+	"ext-quicksurveys-external-survey-yes-button": "查看問卷",
+	"ext-quicksurveys-external-survey-no-button": "不用了，謝謝"
 }

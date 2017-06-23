@@ -1,9 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Niharika29"
+			"Niharika29",
+			"Sfic"
 		]
 	},
+	"ext-quicksurveys-example-internal-survey-answer-positive": "हाँ",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "नहीं",
+	"ext-quicksurveys-example-external-survey-question": "हमें विकिपीडिया को बेहतर बनाने के लिए आपकी सहायता चाहिए।",
+	"ext-quicksurveys-survey-positive": "हाँ",
+	"ext-quicksurveys-survey-negative": "नहीं",
 	"ext-quicksurveys-external-survey-yes-button": "सर्वेक्षण देखें",
 	"ext-quicksurveys-external-survey-no-button": "नहीं, धन्यवाद"
 }
