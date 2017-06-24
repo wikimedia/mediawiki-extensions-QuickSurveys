@@ -1,12 +1,24 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe"
+			"Macofe",
+			"Hamilton Abreu"
 		]
 	},
+	"quicksurveys-desc": "Apresenta os inquéritos configurados",
+	"ext-quicksurveys-example-internal-survey-question": "O texto deveria ser maior?",
+	"ext-quicksurveys-example-internal-survey-description": "Esta é a descrição do inquérito interno de exemplo",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Sim",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Não sei",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Não",
+	"ext-quicksurveys-example-external-survey-question": "Precisamos da sua ajuda para melhorar a Wikipédia.",
+	"ext-quicksurveys-example-external-survey-description": "Ao responder a este inquérito ajuda-nos a compreender como melhorar a Wikipédia e torná-la mais útil para si. Obrigado!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Inquérito fornecido por FornecedorDeInquéritoDeExemplo. Consulte as [//example.org/privacy-policy normas de privacidade]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Todos os envios são anónimos. Consulte as [//example.org/privacy-policy normas de privacidade].",
+	"ext-quicksurveys-survey-confirm-msg": "Obrigado por dar a sua opinião! Vamos usá-la para tornar a wiki {{SITENAME}} ainda melhor!",
 	"ext-quicksurveys-survey-positive": "Sim",
 	"ext-quicksurveys-survey-negative": "Não",
+	"ext-quicksurveys-survey-neutral": "Não sei",
+	"ext-quicksurveys-external-survey-yes-button": "Visitar inquérito",
 	"ext-quicksurveys-external-survey-no-button": "Não, obrigado"
 }
