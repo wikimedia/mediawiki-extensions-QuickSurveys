@@ -73,6 +73,62 @@
 			'Check it is inserted in correct place on tablet (after first paragraph)' );
 	} );
 
+	QUnit.test( 'surveyMatchesPlatform', function ( assert ) {
+		var testCases = [
+			[
+				// desktop only
+				{
+					desktop: [ 'stable', 'beta' ],
+					mobile: []
+				},
+				true, false, false
+			],
+			// desktop only
+			[
+				{
+					desktop: [ 'stable', 'beta' ]
+				},
+				true, false, false
+			],
+			// mobile only
+			[
+				{
+					mobile: [ 'stable', 'beta' ]
+				},
+				false, true, true
+			],
+			// mobile only
+			[
+				{
+					desktop: [],
+					mobile: [ 'stable', 'beta' ]
+				},
+				false, true, true
+			],
+			// mobile beta only
+			[
+				{
+					desktop: [],
+					mobile: [ 'beta' ]
+				},
+				false, false, true
+			],
+			// mobile beta only
+			[
+				{
+					mobile: [ 'beta' ]
+				},
+				false, false, true
+			]
+		];
+		testCases.forEach( function ( test ) {
+			assert.ok( qSurveys.surveyMatchesPlatform( { platforms: test[0] }, undefined ) === test[1] );
+			assert.ok( qSurveys.surveyMatchesPlatform( { platforms: test[0] }, 'stable' ) === test[2] );
+			assert.ok( qSurveys.surveyMatchesPlatform( { platforms: test[0] }, 'beta' ) === test[3] );
+		} );
+		QUnit.expect( testCases.length * 3 );
+	} );
+
 	QUnit.test( 'showSurvey: Placement (plain)', 3, function ( assert ) {
 		var template = mw.template.get( 'ext.quicksurveys.lib.tests', 'minerva-4.html' ),
 			$locationVector = mw.template.get( 'ext.quicksurveys.lib.tests', 'vector-4.html' ).render(),

@@ -192,6 +192,21 @@
 	}
 
 	/**
+	 * Check if the current platform matches one of the target platforms of a given survey.
+	 *
+	 * @param {Object} survey options
+	 * @param {string} [mode] the value of wgMFMode
+	 * @return {Boolean}
+	 */
+	function surveyMatchesPlatform( survey, mode ) {
+		var platformKey = mode !== undefined ? 'mobile' : 'desktop',
+			platformValue = mode || 'stable';
+
+		return $.inArray( platformKey, Object.keys( survey.platforms ) ) >= 0 &&
+			$.inArray( platformValue, survey.platforms[ platformKey ] ) >= 0;
+	}
+
+	/**
 	 * Show survey
 	 *
 	 * @param {jQuery.Object} $bodyContent to add the panel
@@ -217,7 +232,8 @@
 			} else if (
 				getSurveyToken( enabledSurvey ) !== '~' &&
 				getBucketForSurvey( enabledSurvey ) === 'A' &&
-				isValidSurvey( enabledSurvey )
+				isValidSurvey( enabledSurvey ) &&
+				surveyMatchesPlatform( enabledSurvey, mw.config.get( 'wgMFMode' ) )
 			) {
 				availableSurveys.push( enabledSurvey );
 			}
@@ -262,6 +278,7 @@
 	}
 
 	mw.extQuickSurveys = {
+		surveyMatchesPlatform: surveyMatchesPlatform,
 		/* eslint-disable-next-line no-underscore-dangle */
 		_insertPanel: insertPanel,
 		views: {},
