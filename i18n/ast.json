@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Xuacu"
+		]
+	},
+	"quicksurveys-desc": "Amuesa les encuestes configuraes",
+	"ext-quicksurveys-example-internal-survey-question": "¿Tendría de ser más grande'l testu?",
+	"ext-quicksurveys-example-internal-survey-description": "Esta ye la descripción del exemplu d'encuesta interna",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Sí",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Nun lo se",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Non",
+	"ext-quicksurveys-example-external-survey-question": "Precisamos la to ayuda p'ameyorar Wikipedia.",
+	"ext-quicksurveys-example-external-survey-description": "Al responder esta encuesta vas ayudanos a entender cómo faer Wikipedia meyor y más útil pa ti. ¡Gracies!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Encuesta proporcionada por ExampleSurveyProvider. Consulta la [//example.org/privacy-policy política d'intimidá]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Tolos unvios son anónimos. Consulta la [//example.org/privacy-policy política d'intimidá].",
+	"ext-quicksurveys-survey-confirm-msg": "¡Gracies poles tos respuestes! Vamos a usales pa faer {{SITENAME}} cada vez meyor.",
+	"ext-quicksurveys-survey-positive": "Sí",
+	"ext-quicksurveys-survey-negative": "Non",
+	"ext-quicksurveys-survey-neutral": "Nun lo se",
+	"ext-quicksurveys-external-survey-yes-button": "Ver la encuesta",
+	"ext-quicksurveys-external-survey-no-button": "Non, gracies"
+}
