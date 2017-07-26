@@ -54,7 +54,7 @@ class Hooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderGetConfigVars
 	 *
 	 * @param array $vars
-	 * @return boolean
+	 * @return bool
 	 */
 	public static function onResourceLoaderGetConfigVars( &$vars ) {
 		global $wgQuickSurveysRequireHttps;
