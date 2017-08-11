@@ -61,7 +61,7 @@ class Hooks {
 
 		$surveys = self::getEnabledSurveys();
 		$vars['wgQuickSurveysRequireHttps'] = $wgQuickSurveysRequireHttps;
-		$vars['wgEnabledQuickSurveys']= array_map( function ( Survey $survey ) {
+		$vars['wgEnabledQuickSurveys'] = array_map( function ( Survey $survey ) {
 			return $survey->toArray();
 		}, $surveys );
 
