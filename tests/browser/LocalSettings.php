@@ -30,7 +30,7 @@ $wgQuickSurveysConfig = [
 		],
 		"schema" => "QuickSurveysResponses",
 		"enabled" => true,
-		"coverage" => .5,
+		"coverage" => 0.5,
 		"description" => "ext-quicksurveys-example-internal-survey-description",
 		"platforms" => [
 			"desktop" => [ "stable" ],
@@ -45,7 +45,7 @@ $wgQuickSurveysConfig = [
 		"link" => "ext-quicksurveys-example-external-survey-link",
 		"instanceTokenParameterName" => "parameterName",
 		"privacyPolicy" => "ext-quicksurveys-example-external-survey-privacy-policy",
-		"coverage" => .5,
+		"coverage" => 0.5,
 		"enabled" => true,
 		"platforms" => [
 			"desktop" => [ "stable" ],
