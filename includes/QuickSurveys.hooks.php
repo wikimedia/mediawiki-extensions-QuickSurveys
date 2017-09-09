@@ -18,7 +18,8 @@ class Hooks {
 	 * Register QUnit tests.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderTestModules
 	 *
-	 * @param array $files
+	 * @param array &$modules
+	 * @param ResourceLoader &$rl
 	 * @return bool
 	 */
 	public static function onResourceLoaderTestModules( &$modules, &$rl ) {
@@ -53,7 +54,7 @@ class Hooks {
 	 * ResourceLoaderGetConfigVars hook handler for registering enabled surveys
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderGetConfigVars
 	 *
-	 * @param array $vars
+	 * @param array &$vars
 	 * @return bool
 	 */
 	public static function onResourceLoaderGetConfigVars( &$vars ) {
@@ -73,8 +74,8 @@ class Hooks {
 	 *
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
 	 *
-	 * @param OutputPage $out
-	 * @param Skin $sk
+	 * @param OutputPage &$out
+	 * @param Skin &$sk
 	 * @return bool
 	 */
 	public static function onBeforePageDisplay( OutputPage &$out, Skin &$sk ) {
@@ -150,7 +151,7 @@ class Hooks {
 	 * If the module has already been registered in
 	 * onResourceLoaderRegisterModules, then it is overwritten.
 	 *
-	 * @param array $schemas The schemas currently registered with the EventLogging
+	 * @param int[] &$schemas The schemas currently registered with the EventLogging
 	 *  extension
 	 * @return bool Always true
 	 */
@@ -168,7 +169,7 @@ class Hooks {
 	 * Adds the path to the QuickSurveys PHPUnit tests to the set of enabled
 	 * extension's test suites.
 	 *
-	 * @param array $paths The set of paths to other extension's PHPUnit test
+	 * @param string[] &$paths The set of paths to other extension's PHPUnit test
 	 *  suites
 	 * @return bool Always true
 	 */
