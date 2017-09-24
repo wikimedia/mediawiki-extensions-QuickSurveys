@@ -10,7 +10,7 @@ use ResourceLoaderContext;
  */
 class ResourceLoaderMuHoganModule extends ResourceLoaderFileModule {
 	/**
-	 * @inheritdoc
+	 * @inheritDoc
 	 */
 	public function getDependencies( ResourceLoaderContext $context = null ) {
 		$deps = parent::getDependencies( $context );
