@@ -12,7 +12,7 @@
 		}
 	} );
 
-	QUnit.test( 'showSurvey: Placement (infobox)', 3, function ( assert ) {
+	QUnit.test( 'showSurvey: Placement (infobox)', function ( assert ) {
 		var minervaTemplate = mw.template.get( 'ext.quicksurveys.lib.tests', 'minerva-1.html' ),
 			$locationVector = mw.template.get( 'ext.quicksurveys.lib.tests', 'vector-1.html' ).render(),
 			$locationMinerva = minervaTemplate.render(),
@@ -30,7 +30,7 @@
 			'Check on mobile page it is inserted in correct place (before infobox)' );
 	} );
 
-	QUnit.test( 'showSurvey: Placement (image)', 3, function ( assert ) {
+	QUnit.test( 'showSurvey: Placement (image)', function ( assert ) {
 		var template = mw.template.get( 'ext.quicksurveys.lib.tests', 'minerva-2.html' ),
 			$locationVector = mw.template.get( 'ext.quicksurveys.lib.tests', 'vector-2.html' ).render(),
 			$locationMinerva = template.render(),
@@ -49,7 +49,7 @@
 			'Check it is inserted in correct place (before image)' );
 	} );
 
-	QUnit.test( 'showSurvey: Placement (no headings)', 6, function ( assert ) {
+	QUnit.test( 'showSurvey: Placement (no headings)', function ( assert ) {
 		var template = mw.template.get( 'ext.quicksurveys.lib.tests', 'minerva-3.html' ),
 			$locationVector = mw.template.get( 'ext.quicksurveys.lib.tests', 'vector-3.html' ).render(),
 			$locationMinerva = template.render(),
@@ -126,10 +126,10 @@
 			assert.ok( qSurveys.surveyMatchesPlatform( { platforms: test[0] }, 'stable' ) === test[2] );
 			assert.ok( qSurveys.surveyMatchesPlatform( { platforms: test[0] }, 'beta' ) === test[3] );
 		} );
-		QUnit.expect( testCases.length * 3 );
+		assert.expect( testCases.length * 3 );
 	} );
 
-	QUnit.test( 'showSurvey: Placement (plain)', 3, function ( assert ) {
+	QUnit.test( 'showSurvey: Placement (plain)', function ( assert ) {
 		var template = mw.template.get( 'ext.quicksurveys.lib.tests', 'minerva-4.html' ),
 			$locationVector = mw.template.get( 'ext.quicksurveys.lib.tests', 'vector-4.html' ).render(),
 			$locationMinerva = template.render(),
