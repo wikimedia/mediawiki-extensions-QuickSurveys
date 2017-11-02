@@ -19,7 +19,7 @@
 
 	// make sure the beta opt-in panel is not shown in Minerva
 	if ( mw.config.get( 'skin' ) === 'minerva' ) {
-		mw.trackSubscribe( 'minerva.betaoptin', function ( topic, data ) {
+		mw.trackSubscribe( 'mobile.betaoptin', function ( topic, data ) {
 			if ( data.isPanelShown === false ) {
 				mw.extQuickSurveys.showSurvey( $bodyContent, isMobileLayout );
 			}
