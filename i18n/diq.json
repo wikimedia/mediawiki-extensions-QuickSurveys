@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mirzali"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Eya",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Nê",
+	"ext-quicksurveys-survey-positive": "Eya",
+	"ext-quicksurveys-survey-negative": "Nê"
+}
