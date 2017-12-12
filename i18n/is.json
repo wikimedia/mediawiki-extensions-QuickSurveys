@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Maxí"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-question": "Á að stækka textann?",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Já",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Ekki viss",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Nei",
+	"ext-quicksurveys-example-external-survey-question": "Við þurfum þína hjálp til að gera Wikipedíu betri.",
+	"ext-quicksurveys-survey-positive": "Já",
+	"ext-quicksurveys-survey-negative": "Nei",
+	"ext-quicksurveys-survey-neutral": "Ekki viss",
+	"ext-quicksurveys-external-survey-yes-button": "Opna könnun",
+	"ext-quicksurveys-external-survey-no-button": "Nei takk"
+}
