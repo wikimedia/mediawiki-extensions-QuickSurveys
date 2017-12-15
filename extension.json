@@ -105,8 +105,8 @@
 		}
 	},
 	"AutoloadClasses": {
-		"QuickSurveys\\ResourceLoaderMuHoganModule": "includes/ResourceLoaderMuhoganModule.php",
-		"QuickSurveys\\Hooks": "includes/QuickSurveys.hooks.php",
+		"QuickSurveys\\ResourceLoaderMuHoganModule": "includes/ResourceLoaderMuHoganModule.php",
+		"QuickSurveys\\Hooks": "includes/Hooks.php",
 		"QuickSurveys\\SurveyFactory": "includes/SurveyFactory.php",
 		"QuickSurveys\\Survey": "includes/Survey.php",
 		"QuickSurveys\\InternalSurvey": "includes/InternalSurvey.php",
