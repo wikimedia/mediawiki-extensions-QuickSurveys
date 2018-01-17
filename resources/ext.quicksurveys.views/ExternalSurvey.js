@@ -33,7 +33,7 @@
 					href: btnHref.toString(),
 					target: '_blank',
 					label: mw.msg( 'ext-quicksurveys-external-survey-yes-button' ),
-					flags: 'constructive',
+					flags: 'progressive',
 					data: {
 						answer: 'ext-quicksurveys-external-survey-yes-button'
 					}
