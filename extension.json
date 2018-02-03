@@ -70,7 +70,6 @@
 			]
 		},
 		"ext.quicksurveys.lib": {
-			"position": "top",
 			"dependencies": [
 				"mediawiki.cookie",
 				"mediawiki.user",
@@ -91,7 +90,6 @@
 			]
 		},
 		"ext.quicksurveys.init": {
-			"position": "top",
 			"dependencies": [
 				"ext.quicksurveys.lib"
 			],
