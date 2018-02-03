@@ -104,9 +104,9 @@
 			buttonSelect.$element.appendTo( $btnContainer );
 		},
 		/**
-		 * Make a brand spanking new oojs ui widget from a template partial
+		 * Make a brand spanking new OOUI widget from a template partial
 		 *
-		 * @param {string} widgetName a valid OOJS UI widget
+		 * @param {string} widgetName a valid OOUI widget
 		 * @param {string} [templatePartialName] name of a registered template partial
 		 * @param {Object} [options] further options to be passed to the widget
 		 * @return {*} OOUI widget instance

@@ -1,7 +1,7 @@
 ( function ( mw ) {
 	/**
 	 * Extends a class with new methods and member properties.
-	 * FIXME: Talk about upstreaming this to oojs ui as a utility function.
+	 * FIXME: Talk about upstreaming this to OOUI as a utility function.
 	 *
 	 * @param {Class} ChildClass to extend.
 	 * @param {OO.Class} ParentClass to extend.

@@ -1,5 +1,5 @@
 # This browser test runs on the beta cluster to protect us against upstream breakages
-# for example OOjs UI
+# for example OOUI
 @chrome @firefox @vagrant @integration @en.m.wikipedia.beta.wmflabs.org
 Feature: Integration
 
