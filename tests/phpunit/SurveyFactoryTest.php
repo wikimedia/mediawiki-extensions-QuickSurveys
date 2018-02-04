@@ -8,6 +8,9 @@ use QuickSurveys\InternalSurvey;
 use QuickSurveys\ExternalSurvey;
 use InvalidArgumentException;
 
+/**
+ * @covers \QuickSurveys\SurveyFactory
+ */
 class SurveyFactoryTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @expectedException InvalidArgumentException
