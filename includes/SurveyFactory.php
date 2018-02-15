@@ -96,7 +96,7 @@ class SurveyFactory {
 				throw new InvalidArgumentException(
 					"The \"{$spec['name']}\" survey has specified an invalid platform. " .
 					"Please specify one or more of the following for the \"{$platform}\" platform: " .
-					join( ', ', $validModes ) .
+					implode( ', ', $validModes ) .
 					'.'
 				);
 			}

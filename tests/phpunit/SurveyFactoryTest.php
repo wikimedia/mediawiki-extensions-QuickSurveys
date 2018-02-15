@@ -2,7 +2,6 @@
 
 namespace Tests\QuickSurveys;
 
-use PHPUnit_Framework_TestCase;
 use QuickSurveys\SurveyFactory;
 use QuickSurveys\InternalSurvey;
 use QuickSurveys\ExternalSurvey;
@@ -11,7 +10,7 @@ use InvalidArgumentException;
 /**
  * @covers \QuickSurveys\SurveyFactory
  */
-class SurveyFactoryTest extends PHPUnit_Framework_TestCase {
+class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 	/**
 	 * @expectedException InvalidArgumentException
 	 * @expectedExceptionMessage The "test" survey doesn't have a question.
