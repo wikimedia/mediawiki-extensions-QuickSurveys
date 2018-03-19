@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ghybu"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Erê",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Na",
+	"ext-quicksurveys-survey-positive": "Erê",
+	"ext-quicksurveys-survey-negative": "Na"
+}
