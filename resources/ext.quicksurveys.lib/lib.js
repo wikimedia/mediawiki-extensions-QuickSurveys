@@ -199,7 +199,7 @@
 	 * @return {Boolean}
 	 */
 	function surveyMatchesPlatform( survey, mode ) {
-		var platformKey = mode !== undefined ? 'mobile' : 'desktop',
+		var platformKey = mode ? 'mobile' : 'desktop',
 			platformValue = mode || 'stable';
 
 		return $.inArray( platformKey, Object.keys( survey.platforms ) ) >= 0 &&
@@ -209,20 +209,21 @@
 	/**
 	 * Show survey
 	 *
-	 * @param {jQuery.Object} $bodyContent to add the panel
-	 * @param {boolean} isMobileLayout whether the screen is a mobile layout.
+	 * @param {string} forcedSurvey Survey to force display of, if any
 	 */
-	function showSurvey( $bodyContent, isMobileLayout ) {
+	function showSurvey( forcedSurvey ) {
 		var enabledSurveys = mw.config.get( 'wgEnabledQuickSurveys' ),
-			$panel = $( '<div class="ext-qs-loader-bar mw-ajax-loader"></div>' );
+			$panel = $( '<div class="ext-qs-loader-bar mw-ajax-loader"></div>' ),
+			$bodyContent = $( '#bodyContent' ),
+			isMobileLayout = window.innerWidth <= 768;
 
 		// Find which surveys are available to the user
 		$( enabledSurveys ).each( function ( i, enabledSurvey ) {
 			// Setting the quicksurvey param makes every enabled survey available
-			if ( mw.util.getParamValue( 'quicksurvey' ) ) {
+			if ( forcedSurvey ) {
 				// Setting the param quicksurvey bypasses the bucketing
 				enabledSurvey = getSurveyFromQueryString(
-					mw.util.getParamValue( 'quicksurvey' ) || '',
+					forcedSurvey || '',
 					enabledSurveys
 				);
 				if ( enabledSurvey && isValidSurvey( enabledSurvey ) ) {
@@ -253,7 +254,7 @@
 							description: mw.msg( survey.description )
 						},
 						surveySessionToken: mw.user.sessionId() + '-quicksurveys',
-						surveyInstanceToken: mw.user.generateRandomSessionId(),
+						surveyInstanceToken: mw.user.stickyRandomId(),
 						isMobileLayout: isMobileLayout
 					};
 
