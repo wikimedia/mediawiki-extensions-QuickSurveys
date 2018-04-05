@@ -29,8 +29,6 @@ abstract class Survey {
 	private $coverage;
 
 	/**
-	 * @var array The platforms that the survey can be displayed on
-	 *
 	 * A platform can operate in one or more modes: mobile operates in 'stable' or 'beta' mode;
 	 * and desktop only operates in 'stable' mode.
 	 *
@@ -50,7 +48,7 @@ abstract class Survey {
 	 * );
 	 * </pre></code>
 	 *
-	 * @param array $platforms
+	 * @var array The platforms that the survey can be displayed on
 	 */
 	private $platforms;
 
