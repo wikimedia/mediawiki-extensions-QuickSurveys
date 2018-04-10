@@ -1,11 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
-			"عباد ديرانية"
+			"عباد ديرانية",
+			"ديفيد"
 		]
 	},
+	"quicksurveys-desc": "يعرض استبيانات مكونة",
+	"ext-quicksurveys-example-internal-survey-question": "هل ينبغي أن يكون النص أكبر؟",
+	"ext-quicksurveys-example-internal-survey-description": "هذا وصف مثال الاستبيان الداخلي",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "نعم",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "غير متأكد",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "لا",
 	"ext-quicksurveys-example-external-survey-question": "نحنُ بحاجة لمساعدتك في تحسين ويكيبيديا",
 	"ext-quicksurveys-example-external-survey-description": "إذا عبأت هذا الاستبيان فستساعدنا على فهم ما علينا عمله لتحسين ويكيبيديا وجعلها أكثر نفعاً لك. شكراً!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "تم توفير الاستبيان بواسطة مثال موفر الاستبيان، راجع [//example.org/privacy-policy سياسة الخصوصية]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "ستكونُ جميع الإجابات سرية. اطَّلع على [//example.org/privacy-policy سياسة الخصوصية].",
 	"ext-quicksurveys-survey-confirm-msg": "شكراً لملاحظاتك! سنستفيدُ منها لجعل تجربتك على {{SITENAME}} أفضل!",
 	"ext-quicksurveys-survey-positive": "نعم",
