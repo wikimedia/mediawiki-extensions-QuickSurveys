@@ -162,20 +162,4 @@ class Hooks {
 
 		return true;
 	}
-
-	/**
-	 * UnitTestsList hook handler.
-	 *
-	 * Adds the path to the QuickSurveys PHPUnit tests to the set of enabled
-	 * extension's test suites.
-	 *
-	 * @param string[] &$paths The set of paths to other extension's PHPUnit test
-	 *  suites
-	 * @return bool Always true
-	 */
-	public static function onUnitTestsList( array &$paths ) {
-		$paths[] = __DIR__ . '/../tests/phpunit';
-
-		return true;
-	}
 }
