@@ -1,12 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe"
+			"Macofe",
+			"Laia Benito Pericas"
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Sí­",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "No",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "NS/NC",
 	"ext-quicksurveys-survey-positive": "Sí­",
 	"ext-quicksurveys-survey-negative": "No",
+	"ext-quicksurveys-survey-neutral": "NS/NC",
 	"ext-quicksurveys-external-survey-no-button": "No, gràcies"
 }
