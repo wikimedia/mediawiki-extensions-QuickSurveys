@@ -93,9 +93,12 @@ abstract class Survey {
 	public function getMessages() {
 		$messages = [
 			$this->question,
-			// FIXME: Should description be optional?
-			$this->description,
 		];
+
+		if ( !empty( $this->description ) ) {
+			$messages[] = $this->description;
+		}
+
 		if ( !empty( $this->privacyPolicy ) ) {
 			$messages[] = $this->privacyPolicy;
 		}
