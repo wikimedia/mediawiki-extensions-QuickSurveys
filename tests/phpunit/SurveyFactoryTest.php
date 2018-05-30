@@ -23,17 +23,6 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 
 	/**
 	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage The "test" survey doesn't have a description.
-	 */
-	public function testItShouldThrowWhenThereIsNoDescription() {
-		SurveyFactory::factory( [
-			'name' => 'test',
-			'question' => 'Do you like writing unit tests?',
-		] );
-	}
-
-	/**
-	 * @expectedException InvalidArgumentException
 	 * @expectedExceptionMessage The "test" survey isn't marked as internal or external.
 	 */
 	public function testItShouldThrowWhenThereIsNoType() {

@@ -251,7 +251,7 @@
 						survey: survey,
 						templateData: {
 							question: mw.msg( survey.question ),
-							description: mw.msg( survey.description )
+							description: survey.description ? mw.msg( survey.description ) : ''
 						},
 						surveySessionToken: mw.user.sessionId() + '-quicksurveys',
 						surveyInstanceToken: mw.user.stickyRandomId(),

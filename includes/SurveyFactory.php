@@ -41,10 +41,6 @@ class SurveyFactory {
 			throw new InvalidArgumentException( "The \"{$name}\" survey doesn't have a question." );
 		}
 
-		if ( !isset( $spec['description'] ) ) {
-			throw new InvalidArgumentException( "The \"{$name}\" survey doesn't have a description." );
-		}
-
 		if (
 			!isset( $spec['type'] )
 			|| ( $spec['type'] !== 'internal' && $spec['type'] !== 'external' )
@@ -123,7 +119,7 @@ class SurveyFactory {
 		return new ExternalSurvey(
 			$spec['name'],
 			$spec['question'],
-			$spec['description'],
+			!empty( $spec['description'] ) ? $spec['description'] : null,
 			$spec['enabled'],
 			$spec['coverage'],
 			$spec['platforms'],
@@ -145,7 +141,7 @@ class SurveyFactory {
 		return new InternalSurvey(
 			$spec['name'],
 			$spec['question'],
-			$spec['description'],
+			!empty( $spec['description'] ) ? $spec['description'] : null,
 			$spec['enabled'],
 			$spec['coverage'],
 			$spec['platforms'],
