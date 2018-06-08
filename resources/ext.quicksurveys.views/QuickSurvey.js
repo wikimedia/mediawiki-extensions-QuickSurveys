@@ -46,6 +46,8 @@
 		 * @param {Object} config
 		 */
 		initialize: function ( config ) {
+			var event;
+
 			this.config = config || {};
 			$.extend( true, this.config, this.defaults );
 
@@ -69,13 +71,19 @@
 			} ) );
 
 			if ( mw.eventLog ) {
-				mw.eventLog.logEvent( 'QuickSurveyInitiation', {
+				event = {
 					beaconCapable: $.isFunction( navigator.sendBeacon ),
 					surveySessionToken: this.config.surveySessionToken,
 					surveyInstanceToken: this.config.surveyInstanceToken,
 					surveyCodeName: this.config.survey.name,
 					eventName: 'eligible'
-				} );
+				};
+
+				if ( window.performance && performance.now ) {
+					event.performanceNow = Math.round( performance.now() );
+				}
+
+				mw.eventLog.logEvent( 'QuickSurveyInitiation', event );
 			}
 		},
 		/**

@@ -12,16 +12,24 @@
 	 * @ignore
 	 */
 	function logSurveyImpression( $el, config ) {
+		var event;
+
 		if ( mw.viewport.isElementInViewport( $el.get( 0 ) ) ) {
 			$window.off( 'scroll.quickSurveys', surveyImpressionLogger );
 
 			if ( mw.eventLog ) {
-				mw.eventLog.logEvent( 'QuickSurveyInitiation', {
+				event = {
 					surveySessionToken: config.surveySessionToken,
 					surveyInstanceToken: config.surveyInstanceToken,
 					surveyCodeName: config.survey.name,
 					eventName: 'impression'
-				} );
+				};
+
+				if ( window.performance && performance.now ) {
+					event.performanceNow = Math.round( performance.now() );
+				}
+
+				mw.eventLog.logEvent( 'QuickSurveyInitiation', event );
 			}
 		}
 	}

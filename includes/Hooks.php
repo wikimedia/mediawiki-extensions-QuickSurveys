@@ -158,7 +158,7 @@ class Hooks {
 	public static function onEventLoggingRegisterSchemas( &$schemas ) {
 		// @see https://meta.wikimedia.org/wiki/Schema:QuickSurveysResponses
 		$schemas['QuickSurveysResponses'] = 15266417;
-		$schemas['QuickSurveyInitiation'] = 15278946;
+		$schemas['QuickSurveyInitiation'] = 18113435;
 
 		return true;
 	}
