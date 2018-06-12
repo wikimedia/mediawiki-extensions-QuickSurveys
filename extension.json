@@ -111,13 +111,8 @@
 		"QuickSurveysResponses": 15266417,
 		"QuickSurveyInitiation": 18113435
 	},
-	"AutoloadClasses": {
-		"QuickSurveys\\ResourceLoaderMuHoganModule": "includes/ResourceLoaderMuHoganModule.php",
-		"QuickSurveys\\Hooks": "includes/Hooks.php",
-		"QuickSurveys\\SurveyFactory": "includes/SurveyFactory.php",
-		"QuickSurveys\\Survey": "includes/Survey.php",
-		"QuickSurveys\\InternalSurvey": "includes/InternalSurvey.php",
-		"QuickSurveys\\ExternalSurvey": "includes/ExternalSurvey.php"
+	"AutoloadNamespaces": {
+		"QuickSurveys\\": "includes/"
 	},
 	"manifest_version": 1,
 	"Hooks": {
