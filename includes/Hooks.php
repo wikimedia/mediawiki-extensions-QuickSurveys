@@ -131,25 +131,4 @@ class Hooks {
 
 		return array_values( $enabledSurveys );
 	}
-
-	/**
-	 * EventLoggingRegisterSchemas hook handler.
-	 *
-	 * Registers our EventLogging schemas so that they can be converted to
-	 * ResourceLoaderSchemaModules by the EventLogging extension.
-	 *
-	 * If the module has already been registered in
-	 * onResourceLoaderRegisterModules, then it is overwritten.
-	 *
-	 * @param int[] &$schemas The schemas currently registered with the EventLogging
-	 *  extension
-	 * @return bool Always true
-	 */
-	public static function onEventLoggingRegisterSchemas( &$schemas ) {
-		// @see https://meta.wikimedia.org/wiki/Schema:QuickSurveysResponses
-		$schemas['QuickSurveysResponses'] = 15266417;
-		$schemas['QuickSurveyInitiation'] = 18113435;
-
-		return true;
-	}
 }

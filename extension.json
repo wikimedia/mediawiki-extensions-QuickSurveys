@@ -107,6 +107,10 @@
 			]
 		}
 	},
+	"EventLoggingSchemas": {
+		"QuickSurveysResponses": 15266417,
+		"QuickSurveyInitiation": 18113435
+	},
 	"AutoloadClasses": {
 		"QuickSurveys\\ResourceLoaderMuHoganModule": "includes/ResourceLoaderMuHoganModule.php",
 		"QuickSurveys\\Hooks": "includes/Hooks.php",
@@ -128,9 +132,6 @@
 		],
 		"ResourceLoaderRegisterModules": [
 			"QuickSurveys\\Hooks::onResourceLoaderRegisterModules"
-		],
-		"EventLoggingRegisterSchemas": [
-			"QuickSurveys\\Hooks::onEventLoggingRegisterSchemas"
 		]
 	},
 	"config": {
