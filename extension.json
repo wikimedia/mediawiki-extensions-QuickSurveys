@@ -11,6 +11,11 @@
 	"descriptionmsg": "quicksurveys-desc",
 	"license-name": "MIT",
 	"type": "other",
+	"requires": {
+		"extensions": {
+			"EventLogging": "*"
+		}
+	},
 	"MessagesDirs": {
 		"QuickSurveys": [
 			"i18n"
@@ -110,9 +115,6 @@
 		"QuickSurveys\\InternalSurvey": "includes/InternalSurvey.php",
 		"QuickSurveys\\ExternalSurvey": "includes/ExternalSurvey.php"
 	},
-	"ExtensionFunctions": [
-		"QuickSurveys\\Hooks::onExtensionSetup"
-	],
 	"manifest_version": 1,
 	"Hooks": {
 		"ResourceLoaderTestModules": [
