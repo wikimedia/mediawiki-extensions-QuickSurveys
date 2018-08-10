@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saederup92"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Ja",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Ikke sikker",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Nej",
+	"ext-quicksurveys-survey-positive": "Ja",
+	"ext-quicksurveys-survey-negative": "Nej",
+	"ext-quicksurveys-survey-neutral": "Ikke sikker",
+	"ext-quicksurveys-external-survey-yes-button": "Besøg undersøgelsen",
+	"ext-quicksurveys-external-survey-no-button": "Nej tak"
+}
