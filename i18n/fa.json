@@ -1,12 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Reza1615"
+			"Reza1615",
+			"Ladsgroup"
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-answer-positive": "بله",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "مطمئن نیستم",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "خیر",
 	"ext-quicksurveys-survey-positive": "بله",
 	"ext-quicksurveys-survey-negative": "خیر",
+	"ext-quicksurveys-survey-neutral": "مطمئن نیستم",
 	"ext-quicksurveys-external-survey-no-button": "نه ممنون"
 }
