@@ -262,7 +262,7 @@
 							description: survey.description ? mw.msg( survey.description ) : ''
 						},
 						surveySessionToken: mw.user.sessionId() + '-quicksurveys',
-						surveyInstanceToken: mw.user.stickyRandomId(),
+						surveyInstanceToken: mw.user.getPageviewToken(),
 						isMobileLayout: isMobileLayout
 					};
 
