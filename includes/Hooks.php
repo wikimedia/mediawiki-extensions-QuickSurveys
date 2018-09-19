@@ -41,7 +41,7 @@ class Hooks {
 				'minerva-4.html' => 'ext.quicksurveys.lib/templates/minerva-4.html',
 			],
 			'scripts' => [
-				'ext.quicksurveys.lib/test_lib.js',
+				'ext.quicksurveys.lib/lib.test.js',
 			],
 			'dependencies' => [
 				'ext.quicksurveys.lib',
