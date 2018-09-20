@@ -20,7 +20,7 @@
 			if ( mw.eventLog ) {
 				event = {
 					surveySessionToken: config.surveySessionToken,
-					surveyInstanceToken: config.surveyInstanceToken,
+					pageViewToken: config.pageViewToken,
 					surveyCodeName: config.survey.name,
 					eventName: 'impression'
 				};
@@ -262,7 +262,7 @@
 							description: survey.description ? mw.msg( survey.description ) : ''
 						},
 						surveySessionToken: mw.user.sessionId() + '-quicksurveys',
-						surveyInstanceToken: mw.user.getPageviewToken(),
+						pageviewToken: mw.user.getPageviewToken(),
 						isMobileLayout: isMobileLayout
 					};
 

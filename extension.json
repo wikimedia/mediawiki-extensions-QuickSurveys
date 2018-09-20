@@ -109,8 +109,8 @@
 		}
 	},
 	"EventLoggingSchemas": {
-		"QuickSurveysResponses": 15266417,
-		"QuickSurveyInitiation": 18113435
+		"QuickSurveysResponses": 18397510,
+		"QuickSurveyInitiation": 18397507
 	},
 	"AutoloadNamespaces": {
 		"QuickSurveys\\": "includes/"

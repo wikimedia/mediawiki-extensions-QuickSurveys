@@ -74,7 +74,7 @@
 				event = {
 					beaconCapable: $.isFunction( navigator.sendBeacon ),
 					surveySessionToken: this.config.surveySessionToken,
-					surveyInstanceToken: this.config.surveyInstanceToken,
+					pageviewToken: this.config.pageViewToken,
 					surveyCodeName: this.config.survey.name,
 					eventName: 'eligible'
 				};
@@ -153,7 +153,7 @@
 				return mw.eventLog.logEvent( 'QuickSurveysResponses', {
 					namespaceId: mw.config.get( 'wgNamespaceNumber' ),
 					surveySessionToken: this.config.surveySessionToken,
-					surveyInstanceToken: this.config.surveyInstanceToken,
+					pageviewToken: this.config.pageViewToken,
 					pageId: mw.config.get( 'wgArticleId' ),
 					pageTitle: mw.config.get( 'wgPageName' ),
 					surveyCodeName: survey.name,
