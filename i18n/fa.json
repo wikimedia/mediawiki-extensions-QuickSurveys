@@ -5,11 +5,13 @@
 			"Ladsgroup"
 		]
 	},
+	"ext-quicksurveys-example-internal-survey-question": "آیا متن باید بزرگتر باشد؟",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "بله",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "مطمئن نیستم",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "خیر",
 	"ext-quicksurveys-survey-positive": "بله",
 	"ext-quicksurveys-survey-negative": "خیر",
 	"ext-quicksurveys-survey-neutral": "مطمئن نیستم",
+	"ext-quicksurveys-external-survey-yes-button": "دیدن پرسشنامه",
 	"ext-quicksurveys-external-survey-no-button": "نه ممنون"
 }
