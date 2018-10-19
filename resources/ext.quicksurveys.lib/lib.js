@@ -20,7 +20,7 @@
 			if ( mw.eventLog ) {
 				event = {
 					surveySessionToken: config.surveySessionToken,
-					pageViewToken: config.pageViewToken,
+					pageviewToken: config.pageviewToken,
 					surveyCodeName: config.survey.name,
 					eventName: 'impression'
 				};

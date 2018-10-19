@@ -25,7 +25,7 @@
 
 			if ( this.config.survey.instanceTokenParameterName ) {
 				btnHref.query[ this.config.survey.instanceTokenParameterName ] =
-					this.config.pageViewToken;
+					this.config.pageviewToken;
 			}
 
 			buttons = [
