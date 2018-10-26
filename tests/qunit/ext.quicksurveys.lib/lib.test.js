@@ -1,7 +1,7 @@
 ( function ( $ ) {
 	var qSurveys = mw.extQuickSurveys;
 
-	QUnit.module( 'QuickSurveys', {
+	QUnit.module( 'ext.quicksurveys.lib', {
 		setup: function () {
 			this.getPanel = function () {
 				return $( '<div class="test-panel"></div>' );

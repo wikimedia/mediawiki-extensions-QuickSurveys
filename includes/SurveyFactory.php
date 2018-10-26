@@ -146,7 +146,8 @@ class SurveyFactory {
 			$spec['coverage'],
 			$spec['platforms'],
 			!empty( $spec['privacyPolicy'] ) ? $spec['privacyPolicy'] : null,
-			$spec['answers']
+			$spec['answers'],
+			!empty( $spec['shuffleAnswersDisplay'] ) ? $spec['shuffleAnswersDisplay'] : true
 		);
 	}
 }

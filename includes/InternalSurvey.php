@@ -13,6 +13,8 @@ class InternalSurvey extends Survey {
 	 */
 	private $answers;
 
+	private $shuffleAnswersDisplay;
+
 	public function __construct(
 		$name,
 		$question,
@@ -21,7 +23,8 @@ class InternalSurvey extends Survey {
 		$coverage,
 		$platforms,
 		$privacyPolicy,
-		array $answers
+		array $answers,
+		$shuffleAnswersDisplay
 	) {
 		parent::__construct(
 			$name,
@@ -34,6 +37,7 @@ class InternalSurvey extends Survey {
 		);
 
 		$this->answers = $answers;
+		$this->shuffleAnswersDisplay = $shuffleAnswersDisplay;
 	}
 
 	public function getMessages() {
@@ -45,6 +49,7 @@ class InternalSurvey extends Survey {
 			'name' => $this->name,
 			'type' => 'internal',
 			'answers' => $this->answers,
+			'shuffleAnswersDisplay' => $this->shuffleAnswersDisplay
 		];
 	}
 }

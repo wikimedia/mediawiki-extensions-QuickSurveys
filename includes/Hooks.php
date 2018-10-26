@@ -47,6 +47,16 @@ class Hooks {
 				'ext.quicksurveys.lib',
 			],
 		];
+
+		$modules['qunit']['ext.quicksurveys.views.tests'] = $boilerplate + [
+			'scripts' => [
+				'ext.quicksurveys.views/views.test.js',
+			],
+			'dependencies' => [
+				'ext.quicksurveys.views',
+			],
+		];
+
 		return true;
 	}
 

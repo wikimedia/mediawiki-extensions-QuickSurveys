@@ -87,14 +87,41 @@
 			}
 		},
 		/**
+		 * Shuffle answers in place
+		 *
+		 * @param {Array} [answers] answers coming from configuration
+		 * @return {Array} shuffled answers
+		 */
+		shuffleAnswers: function ( answers ) {
+			var counter = answers.length,
+				i, temp;
+
+			while ( counter > 0 ) {
+				i = Math.floor( Math.random() * counter );
+
+				counter--;
+
+				temp = answers[ counter ];
+				answers[ counter ] = answers[ i ];
+				answers[ i ] = temp;
+			}
+
+			return answers;
+		},
+		/**
 		 * Render and append buttons to the initial panel
 		 */
 		renderButtons: function () {
 			var $btnContainer = this.initialPanel.$element.find( '.survey-button-container' ),
+				answers = this.config.survey.answers,
 				buttonSelect,
 				buttons;
 
-			buttons = $.map( this.config.survey.answers, function ( answer ) {
+			if ( this.config.survey.shuffleAnswersDisplay ) {
+				answers = this.shuffleAnswers( answers );
+			}
+
+			buttons = $.map( answers, function ( answer ) {
 				return new OO.ui.ButtonOptionWidget( {
 					label: mw.msg( answer ),
 					data: {
