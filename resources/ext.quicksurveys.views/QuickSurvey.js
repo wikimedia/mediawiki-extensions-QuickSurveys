@@ -65,7 +65,6 @@
 			this.renderButtons();
 
 			// setup stack
-			// eslint-disable-next-line dot-notation
 			QuickSurvey.super.call( this, $.extend( {}, config, {
 				items: [ this.initialPanel, this.finalPanel ]
 			} ) );
