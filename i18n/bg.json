@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"StanProg"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Да",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Не",
+	"ext-quicksurveys-survey-positive": "Да",
+	"ext-quicksurveys-survey-negative": "Не"
+}
