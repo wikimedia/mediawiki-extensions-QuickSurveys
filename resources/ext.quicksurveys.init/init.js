@@ -2,13 +2,13 @@
 	var isMainPage = mw.config.get( 'wgIsMainPage' ),
 		isArticle = mw.config.get( 'wgIsArticle' ),
 		// See https://developer.mozilla.org/en-US/docs/Web/API/Navigator/doNotTrack
-		// Taken from https://www.npmjs.com/package/dnt-polyfill
-		isDntEnabled = window.doNotTrack === '1' ||
-			window.navigator && (
-				window.navigator.doNotTrack === '1' ||
-				window.navigator.doNotTrack === 'yes' ||
-				window.navigator.msDoNotTrack === '1'
-			),
+		// Should match the logic in EventLogging/core.js to make sure we show the
+		// survey under the same circumtances that allow us to log its result.
+		isDntEnabled = window.doNotTrack === '1' || (
+			navigator.doNotTrack === '1' ||
+			navigator.doNotTrack === 'yes' ||
+			navigator.msDoNotTrack === '1'
+		),
 		forcedSurvey = mw.util.getParamValue( 'quicksurvey' );
 
 	// Do nothing when not on an article or the user doesn't want to be tracked
