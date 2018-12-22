@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	var survey,
 		availableSurveys = [],
 		$window = $( window ),
@@ -293,4 +293,4 @@
 		views: {},
 		showSurvey: showSurvey
 	};
-}( jQuery, mediaWiki ) );
+}() );

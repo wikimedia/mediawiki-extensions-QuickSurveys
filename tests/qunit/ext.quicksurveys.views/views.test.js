@@ -1,4 +1,4 @@
-( function ( $ ) {
+( function () {
 	var qSurveys = mw.extQuickSurveys;
 
 	QUnit.module( 'ext.quicksurveys.views' );
@@ -39,4 +39,4 @@
 			'⧼ext-quicksurveys-example-internal-survey-answer-positive⧽' );
 	} );
 
-}( jQuery ) );
+}() );

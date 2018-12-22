@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	var utils = mw.extQuickSurveys.views.utils,
 		QuickSurvey = mw.extQuickSurveys.views.QuickSurvey;
 
@@ -58,4 +58,4 @@
 	} );
 
 	mw.extQuickSurveys.views.ExternalSurvey = ExternalSurvey;
-}( jQuery, mediaWiki ) );
+}() );

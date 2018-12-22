@@ -1,6 +1,7 @@
-( function ( mw ) {
+( function () {
 	/**
-	 * Extends a class with new methods and member properties.
+	 * Extend a class with new methods and member properties.
+	 *
 	 * FIXME: Talk about upstreaming this to OOUI as a utility function.
 	 *
 	 * @param {Class} ChildClass to extend.
@@ -20,7 +21,7 @@
 	}
 
 	/**
-	 * Return edit count bucket based on the number of edits
+	 * Return edit count bucket based on the number of edits.
 	 *
 	 * @param {number} editCount
 	 * @return {string}
@@ -45,6 +46,7 @@
 
 	/**
 	 * Return two letter country code from the GeoIP cookie.
+	 *
 	 * Return 'Unknown' if the cookie is not set or code is invalid.
 	 * Country codes should be 1-3 characters per ISO 3166-1.
 	 *
@@ -70,4 +72,4 @@
 		getEditCountBucket: getEditCountBucket,
 		getCountryCode: getCountryCode
 	};
-}( mediaWiki ) );
+}() );

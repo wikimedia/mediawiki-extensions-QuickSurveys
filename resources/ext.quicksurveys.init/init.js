@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	var isMainPage = mw.config.get( 'wgIsMainPage' ),
 		isArticle = mw.config.get( 'wgIsArticle' ),
 		// See https://developer.mozilla.org/en-US/docs/Web/API/Navigator/doNotTrack
@@ -27,4 +27,4 @@
 		mw.extQuickSurveys.showSurvey( forcedSurvey );
 	}
 
-}( jQuery, mediaWiki ) );
+}() );

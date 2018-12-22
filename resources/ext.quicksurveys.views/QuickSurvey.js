@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	var utils = mw.extQuickSurveys.views.utils;
 
 	/**
@@ -212,4 +212,4 @@
 
 	// This always makes me sad... https://phabricator.wikimedia.org/T108655
 	mw.extQuickSurveys.views.QuickSurvey = QuickSurvey;
-}( jQuery, mediaWiki ) );
+}() );

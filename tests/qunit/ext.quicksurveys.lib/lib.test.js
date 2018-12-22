@@ -1,4 +1,4 @@
-( function ( $ ) {
+( function () {
 	var qSurveys = mw.extQuickSurveys;
 
 	QUnit.module( 'ext.quicksurveys.lib', {
@@ -147,4 +147,4 @@
 			'Check it is inserted in correct place on tablet (before first heading)' );
 	} );
 
-}( jQuery ) );
+}() );
