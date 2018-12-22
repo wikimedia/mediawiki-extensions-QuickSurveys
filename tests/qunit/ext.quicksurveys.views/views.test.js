@@ -17,7 +17,7 @@
 			buttonLabels,
 			survey;
 
-		survey = new qSurveys.views.QuickSurvey( config );
+		survey = new qSurveys.QuickSurvey( config );
 
 		buttonLabels = survey.initialPanel.$element.find( '.survey-button-container span.oo-ui-labelElement-label' ).text();
 
@@ -29,7 +29,7 @@
 		this.sandbox.stub( Math, 'random' ).returns( 0.11494871760616443 );
 		config.survey.shuffleAnswersDisplay = true;
 
-		survey = new qSurveys.views.QuickSurvey( config );
+		survey = new qSurveys.QuickSurvey( config );
 
 		buttonLabels = survey.initialPanel.$element.find( '.survey-button-container span.oo-ui-labelElement-label' ).text();
 
