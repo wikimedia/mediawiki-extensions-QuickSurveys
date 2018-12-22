@@ -11,7 +11,9 @@
 		this.initialize( config );
 	}
 
-	utils.extend( ExternalSurvey, QuickSurvey, {
+	OO.inheritClass( ExternalSurvey, QuickSurvey );
+
+	utils.extend( ExternalSurvey.prototype, {
 		/**
 		 * @inheritdoc
 		 */
