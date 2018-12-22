@@ -21,27 +21,25 @@
 	}
 
 	/**
-	 * Return edit count bucket based on the number of edits.
+	 * Get edit count bucket name, based on the number of edits made.
 	 *
-	 * @param {number} editCount
+	 * @param {number|null} editCount
 	 * @return {string}
 	 */
 	function getEditCountBucket( editCount ) {
-		var bucket;
-
-		if ( editCount === 0 || editCount === null ) {
-			bucket = '0';
-		} else if ( editCount >= 1 && editCount <= 4 ) {
-			bucket = '1-4';
-		} else if ( editCount >= 5 && editCount <= 99 ) {
-			bucket = '5-99';
-		} else if ( editCount >= 100 && editCount <= 999 ) {
-			bucket = '100-999';
-		} else if ( editCount >= 1000 ) {
-			bucket = '1000+';
+		if ( editCount >= 1000 ) {
+			return '1000+ edits';
 		}
-		bucket += ' edits';
-		return bucket;
+		if ( editCount >= 100 ) {
+			return '100-999 edits';
+		}
+		if ( editCount >= 5 ) {
+			return '5-99 edits';
+		}
+		if ( editCount >= 1 ) {
+			return '1-4 edits';
+		}
+		return '0 edits';
 	}
 
 	/**
