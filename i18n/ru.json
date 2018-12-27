@@ -3,7 +3,8 @@
 		"authors": [
 			"Okras",
 			"Ole Yves",
-			"Stjn"
+			"Stjn",
+			"Vcohen"
 		]
 	},
 	"quicksurveys-desc": "Отображает настроенные опросы",
@@ -16,7 +17,7 @@
 	"ext-quicksurveys-example-external-survey-description": "Ответив на этот опрос, вы поможете нам понять, как сделать Википедию лучше и полезнее для вас. Спасибо!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Опрос предоставлен ExampleSurveyProvider. См. [//example.org/privacy-policy политику конфиденциальности]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Все ответы анонимны. См. [//example.org/privacy-policy политику конфиденциальности].",
-	"ext-quicksurveys-survey-confirm-msg": "Спасибо за отзыв! Благодаря нему {{SITENAME}} станет ещё лучше.",
+	"ext-quicksurveys-survey-confirm-msg": "Спасибо за отзыв! Благодаря ему {{SITENAME}} станет ещё лучше.",
 	"ext-quicksurveys-survey-positive": "Да",
 	"ext-quicksurveys-survey-negative": "Нет",
 	"ext-quicksurveys-survey-neutral": "Затрудняюсь ответить",
