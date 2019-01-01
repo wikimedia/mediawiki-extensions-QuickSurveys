@@ -1,12 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Saederup92"
+			"Saederup92",
+			"Kranix"
 		]
 	},
+	"ext-quicksurveys-example-internal-survey-question": "Burde teksten være større?",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Ja",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Ikke sikker",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Nej",
+	"ext-quicksurveys-example-external-survey-question": "Vi har brug for din hjælp til at forbedre Wikipedia.",
 	"ext-quicksurveys-survey-positive": "Ja",
 	"ext-quicksurveys-survey-negative": "Nej",
 	"ext-quicksurveys-survey-neutral": "Ikke sikker",
