@@ -1,23 +1,16 @@
 ( function () {
 	/**
-	 * Extend a class with new methods and member properties.
+	 * Extend an object with extra properties.
 	 *
-	 * FIXME: Talk about upstreaming this to OOUI as a utility function.
-	 *
-	 * @param {Class} ChildClass to extend.
-	 * @param {OO.Class} ParentClass to extend.
-	 * @param {Object} prototype Prototype that should be incorporated into the new Class.
 	 * @ignore
-	 * @return {Class}
+	 * @param {Object} target Object to extend.
+	 * @param {Object} mixin Properties to incorporate into the target.
 	 */
-	function extend( ChildClass, ParentClass, prototype ) {
+	function extend( target, mixin ) {
 		var key;
-
-		OO.inheritClass( ChildClass, ParentClass );
-		for ( key in prototype ) {
-			ChildClass.prototype[ key ] = prototype[ key ];
+		for ( key in mixin ) {
+			target[ key ] = mixin[ key ];
 		}
-		return ChildClass;
 	}
 
 	/**

@@ -11,7 +11,10 @@
 	function QuickSurvey( config ) {
 		this.initialize( config );
 	}
-	utils.extend( QuickSurvey, OO.ui.StackLayout, {
+
+	OO.inheritClass( QuickSurvey, OO.ui.StackLayout );
+
+	utils.extend( QuickSurvey.prototype, {
 		/**
 		 * Specifies partials (sub-templates) for use by the widget
 		 * @property {Object}
