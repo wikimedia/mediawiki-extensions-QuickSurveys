@@ -267,9 +267,9 @@
 					};
 
 				if ( survey.type === 'internal' ) {
-					panel = new mw.extQuickSurveys.views.QuickSurvey( options );
+					panel = new mw.extQuickSurveys.QuickSurvey( options );
 				} else {
-					panel = new mw.extQuickSurveys.views.ExternalSurvey( options );
+					panel = new mw.extQuickSurveys.ExternalSurvey( options );
 				}
 				panel.on( 'dismiss', function () {
 					mw.storage.set( getSurveyStorageKey( survey ), '~' );
@@ -290,7 +290,6 @@
 		surveyMatchesPlatform: surveyMatchesPlatform,
 		/* eslint-disable-next-line no-underscore-dangle */
 		_insertPanel: insertPanel,
-		views: {},
 		showSurvey: showSurvey
 	};
 }() );

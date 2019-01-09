@@ -56,9 +56,7 @@
 		return 'Unknown';
 	}
 
-	mw.extQuickSurveys = mw.extQuickSurveys || {};
-	mw.extQuickSurveys.views = mw.extQuickSurveys.views || {};
-	mw.extQuickSurveys.views.utils = {
+	mw.extQuickSurveys.utils = {
 		extend: extend,
 		getEditCountBucket: getEditCountBucket,
 		getCountryCode: getCountryCode

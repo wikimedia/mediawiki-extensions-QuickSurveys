@@ -1,6 +1,6 @@
 ( function () {
-	var utils = mw.extQuickSurveys.views.utils,
-		QuickSurvey = mw.extQuickSurveys.views.QuickSurvey;
+	var utils = mw.extQuickSurveys.utils,
+		QuickSurvey = mw.extQuickSurveys.QuickSurvey;
 
 	/**
 	 * @class ExternalSurvey
@@ -59,5 +59,5 @@
 		}
 	} );
 
-	mw.extQuickSurveys.views.ExternalSurvey = ExternalSurvey;
+	mw.extQuickSurveys.ExternalSurvey = ExternalSurvey;
 }() );
