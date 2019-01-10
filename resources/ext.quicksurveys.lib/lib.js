@@ -2,6 +2,7 @@
 	var survey,
 		availableSurveys = [],
 		$window = $( window ),
+		hasOwn = Object.hasOwnProperty,
 		surveyImpressionLogger;
 
 	/**
@@ -123,32 +124,34 @@
 	 * @return {Object|null} Survey object or null
 	 */
 	function getSurveyFromQueryString( queryString, availableSurveys ) {
-		var surveyIndex,
+		var i,
 			surveyType,
 			surveyName,
-			survey = null;
+			survey;
 
 		// true returns a random survey
 		if ( queryString === 'true' ) {
-			surveyIndex = Math.floor( Math.random() * availableSurveys.length );
-			survey = availableSurveys[ surveyIndex ];
-		} else if ( queryString.indexOf( 'internal-survey-' ) === 0 ) {
+			i = Math.floor( Math.random() * availableSurveys.length );
+			return availableSurveys[ i ];
+		}
+
+		if ( queryString.indexOf( 'internal-survey-' ) === 0 ) {
 			surveyType = 'internal';
 		} else if ( queryString.indexOf( 'external-survey-' ) === 0 ) {
 			surveyType = 'external';
 		}
-
 		if ( surveyType ) {
 			surveyName = queryString.split( '-' ).slice( 2 ).join( '-' );
-			availableSurveys = $.grep( availableSurveys, function ( survey ) {
-				return survey.name === surveyName && survey.type === surveyType;
-			} );
-			if ( availableSurveys.length ) {
-				survey = availableSurveys[ 0 ];
+			for ( i = 0; i < availableSurveys.length; i++ ) {
+				survey = availableSurveys[ i ];
+				if ( survey.name === surveyName && survey.type === surveyType ) {
+					return survey;
+				}
 			}
 		}
 
-		return survey;
+		// unhandled queryString value, or no match found
+		return null;
 	}
 
 	/**
@@ -210,8 +213,8 @@
 		var platformKey = mode ? 'mobile' : 'desktop',
 			platformValue = mode || 'stable';
 
-		return $.inArray( platformKey, Object.keys( survey.platforms ) ) >= 0 &&
-			$.inArray( platformValue, survey.platforms[ platformKey ] ) >= 0;
+		return hasOwn.call( survey.platforms, platformKey ) &&
+			survey.platforms[ platformKey ].indexOf( platformValue ) !== -1;
 	}
 
 	/**
@@ -223,30 +226,32 @@
 		var enabledSurveys = mw.config.get( 'wgEnabledQuickSurveys' ),
 			$panel = $( '<div class="ext-qs-loader-bar mw-ajax-loader"></div>' ),
 			$bodyContent = $( '#bodyContent' ),
-			isMobileLayout = window.innerWidth <= 768;
+			isMobileLayout = window.innerWidth <= 768,
+			enabledSurvey;
 
-		// Find which surveys are available to the user
-		$( enabledSurveys ).each( function ( i, enabledSurvey ) {
+		if ( forcedSurvey ) {
 			// Setting the quicksurvey param makes every enabled survey available
-			if ( forcedSurvey ) {
-				// Setting the param quicksurvey bypasses the bucketing
-				enabledSurvey = getSurveyFromQueryString(
-					forcedSurvey || '',
-					enabledSurveys
-				);
-				if ( enabledSurvey && isValidSurvey( enabledSurvey ) ) {
-					availableSurveys.push( enabledSurvey );
-				}
-				return false;
-			} else if (
-				getSurveyToken( enabledSurvey ) !== '~' &&
-				getBucketForSurvey( enabledSurvey ) === 'A' &&
-				isValidSurvey( enabledSurvey ) &&
-				surveyMatchesPlatform( enabledSurvey, mw.config.get( 'wgMFMode' ) )
-			) {
+			// Setting the param quicksurvey bypasses the bucketing
+			enabledSurvey = getSurveyFromQueryString(
+				forcedSurvey || '',
+				enabledSurveys
+			);
+			if ( enabledSurvey && isValidSurvey( enabledSurvey ) ) {
 				availableSurveys.push( enabledSurvey );
 			}
-		} );
+		} else {
+			// Find which surveys are available to the user
+			enabledSurveys.forEach( function ( enabledSurvey ) {
+				if (
+					getSurveyToken( enabledSurvey ) !== '~' &&
+					getBucketForSurvey( enabledSurvey ) === 'A' &&
+					isValidSurvey( enabledSurvey ) &&
+					surveyMatchesPlatform( enabledSurvey, mw.config.get( 'wgMFMode' ) )
+				) {
+					availableSurveys.push( enabledSurvey );
+				}
+			} );
+		}
 
 		if ( availableSurveys.length ) {
 			// Get a random available survey

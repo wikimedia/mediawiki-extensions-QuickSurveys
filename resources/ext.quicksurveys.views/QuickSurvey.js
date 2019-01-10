@@ -74,7 +74,7 @@
 
 			if ( mw.eventLog ) {
 				event = {
-					beaconCapable: $.isFunction( navigator.sendBeacon ),
+					beaconCapable: !!navigator.sendBeacon,
 					surveySessionToken: this.config.surveySessionToken,
 					pageviewToken: this.config.pageviewToken,
 					surveyCodeName: this.config.survey.name,
@@ -123,7 +123,7 @@
 				answers = this.shuffleAnswers( answers );
 			}
 
-			buttons = $.map( answers, function ( answer ) {
+			buttons = answers.map( function ( answer ) {
 				return new OO.ui.ButtonOptionWidget( {
 					label: mw.msg( answer ),
 					data: {

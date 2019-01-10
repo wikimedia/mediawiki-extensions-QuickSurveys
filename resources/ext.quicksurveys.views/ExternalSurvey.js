@@ -48,8 +48,8 @@
 				}
 			];
 
-			$.each( buttons, function () {
-				var button = new OO.ui.ButtonWidget( this );
+			buttons.forEach( function ( options ) {
+				var button = new OO.ui.ButtonWidget( options );
 
 				button.$element.on( 'click', function () {
 					self.onChoose( button );
