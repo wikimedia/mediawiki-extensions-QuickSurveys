@@ -36,22 +36,19 @@
 	}
 
 	/**
-	 * Return two letter country code from the GeoIP cookie.
+	 * Get a two-letter country code based on the user's IP-connection.
 	 *
-	 * Return 'Unknown' if the cookie is not set or code is invalid.
-	 * Country codes should be 1-3 characters per ISO 3166-1.
+	 * The Geo object is derived from a Cookie response header in the
+	 * CentralNotice `ext.centralNotice.geoIP` module (loaded on all
+	 * page views when installed). If the cookie was refused, this
+	 * falls back to the string "Unknown".
 	 *
-	 * @return {string}
+	 * @return {string} Two-letter country code, "XX", or "Unknown".
 	 */
 	function getCountryCode() {
-		var geoIP = mw.cookie.get( 'GeoIP', '' ),
-			countryCode;
-
-		if ( geoIP ) {
-			countryCode = geoIP.split( ':' )[ 0 ];
-			if ( countryCode.length <= 3 ) {
-				return countryCode;
-			}
+		/* global Geo */
+		if ( window.Geo && typeof Geo.country === 'string' ) {
+			return Geo.country;
 		}
 		return 'Unknown';
 	}
