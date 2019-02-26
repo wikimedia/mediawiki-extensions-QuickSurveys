@@ -23,6 +23,7 @@ class InternalSurvey extends Survey {
 		$coverage,
 		$platforms,
 		$privacyPolicy,
+		$audience,
 		array $answers,
 		$shuffleAnswersDisplay
 	) {
@@ -33,7 +34,8 @@ class InternalSurvey extends Survey {
 			$isEnabled,
 			$coverage,
 			$platforms,
-			$privacyPolicy
+			$privacyPolicy,
+			$audience
 		);
 
 		$this->answers = $answers;

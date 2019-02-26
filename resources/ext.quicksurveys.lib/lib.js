@@ -1,3 +1,11 @@
+/**
+ *
+ * @typedef {Object} Audience
+ * @property {Number} [minEdits] a minimum number of edits the user must have
+ *   if undefined there will be no lower bound
+ * @property {Number} [maxEdits] a maximum number of edits the user must have
+ *   if undefined there will be no upper bound
+ */
 ( function () {
 	var survey,
 		availableSurveys = [],
@@ -113,6 +121,28 @@
 				mw.log.warn( 'QuickSurvey with name ' + survey.name + ' has insecure survey link and will not be shown.' );
 				return false;
 			}
+		}
+		return true;
+	}
+
+	/**
+	 * Check if a survey is suitable for the current user
+	 *
+	 * @param {Audience} audience
+	 * @param {Number|null} editCount of user (null if user is anon)
+	 * @return {boolean}
+	 */
+	function isInAudience( audience, editCount ) {
+		var hasMinEditAudience = audience.minEdits !== undefined,
+			hasMaxEditAudience = audience.maxEdits !== undefined;
+
+		if ( editCount === null && hasMinEditAudience ) {
+			return false;
+		} else if (
+			( hasMinEditAudience && editCount < audience.minEdits ) ||
+			( hasMaxEditAudience && editCount > audience.maxEdits )
+		) {
+			return false;
 		}
 		return true;
 	}
@@ -236,7 +266,7 @@
 
 		if ( forcedSurvey ) {
 			// Setting the quicksurvey param makes every enabled survey available
-			// Setting the param quicksurvey bypasses the bucketing
+			// Setting the param quicksurvey bypasses the bucketing AND audience
 			enabledSurvey = getSurveyFromQueryString(
 				forcedSurvey || '',
 				enabledSurveys
@@ -251,6 +281,7 @@
 					getSurveyToken( enabledSurvey ) !== '~' &&
 					getBucketForSurvey( enabledSurvey ) === 'A' &&
 					isValidSurvey( enabledSurvey ) &&
+					isInAudience( enabledSurvey.audience, mw.config.get( 'wgUserEditCount' ) ) &&
 					surveyMatchesPlatform( enabledSurvey, mw.config.get( 'wgMFMode' ) )
 				) {
 					availableSurveys.push( enabledSurvey );
@@ -297,6 +328,7 @@
 	}
 
 	mw.extQuickSurveys = {
+		isInAudience: isInAudience,
 		surveyMatchesPlatform: surveyMatchesPlatform,
 		/* eslint-disable-next-line no-underscore-dangle */
 		_insertPanel: insertPanel,
