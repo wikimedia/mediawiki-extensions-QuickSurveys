@@ -72,7 +72,12 @@
 						'h1, h2, h3, h4, h5, h6'
 					].join( ',' )
 				)
-				.filter( ':not(.toc h2)' )
+				.filter( ':not(' + [
+					// Minerva
+					'.toc-mobile h2',
+					// Vector
+					'.toc h2'
+				].join( ',' ) + ')' )
 				.eq( 0 );
 			if ( $place.length ) {
 				$panel.insertBefore( $place );
