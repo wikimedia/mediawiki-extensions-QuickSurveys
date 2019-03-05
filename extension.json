@@ -46,8 +46,7 @@
 				"oojs-ui-core",
 				"oojs-ui-widgets",
 				"mediawiki.user",
-				"mediawiki.Uri",
-				"schema.QuickSurveysResponses"
+				"mediawiki.Uri"
 			],
 			"targets": [
 				"mobile",
@@ -81,8 +80,7 @@
 				"mediawiki.user",
 				"mediawiki.storage",
 				"mediawiki.viewport",
-				"mediawiki.experiments",
-				"schema.QuickSurveyInitiation"
+				"mediawiki.experiments"
 			],
 			"targets": [
 				"mobile",
