@@ -1,10 +1,20 @@
 /**
  *
  * @typedef {Object} Audience
+ * @property {string[]} [countries] that the survey should be targetted at
  * @property {Number} [minEdits] a minimum number of edits the user must have
  *   if undefined there will be no lower bound
  * @property {Number} [maxEdits] a maximum number of edits the user must have
  *   if undefined there will be no upper bound
+ */
+/**
+ *
+ * @typedef {Object} Geo
+ * @property {string} country code of the user
+ * @property {string} [region] code of the user
+ * @property {string} [city] of the user
+ * @property {number} [lat] of the user
+ * @property {number} [lon] of the user
  */
 ( function () {
 	var survey,
@@ -126,13 +136,26 @@
 	}
 
 	/**
+	 * Check whether a user's country matches one of the intended countries
+	 *
+	 * @param {Audience} audience
+	 * @param {Geo} geo information for user
+	 * @return {boolean}
+	 */
+	function isInCountry( audience, geo ) {
+		return audience.countries === undefined ? true :
+			audience.countries.indexOf( geo.country ) > -1;
+	}
+
+	/**
 	 * Check if a survey is suitable for the current user
 	 *
 	 * @param {Audience} audience
 	 * @param {Number|null} editCount of user (null if user is anon)
+	 * @param {Geo} [geo] geographical information of user (undefined if not known)
 	 * @return {boolean}
 	 */
-	function isInAudience( audience, editCount ) {
+	function isInAudience( audience, editCount, geo ) {
 		var hasMinEditAudience = audience.minEdits !== undefined,
 			hasMaxEditAudience = audience.maxEdits !== undefined;
 
@@ -144,7 +167,8 @@
 		) {
 			return false;
 		}
-		return true;
+		geo = geo || { country: '??' };
+		return audience.countries ? isInCountry( audience, geo ) : true;
 	}
 
 	/**
@@ -281,7 +305,8 @@
 					getSurveyToken( enabledSurvey ) !== '~' &&
 					getBucketForSurvey( enabledSurvey ) === 'A' &&
 					isValidSurvey( enabledSurvey ) &&
-					isInAudience( enabledSurvey.audience, mw.config.get( 'wgUserEditCount' ) ) &&
+					isInAudience( enabledSurvey.audience,
+						mw.config.get( 'wgUserEditCount' ), window.Geo ) &&
 					surveyMatchesPlatform( enabledSurvey, mw.config.get( 'wgMFMode' ) )
 				) {
 					availableSurveys.push( enabledSurvey );
