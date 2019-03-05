@@ -31,6 +31,7 @@ class ExternalSurvey extends Survey {
 		$coverage,
 		$platforms,
 		$privacyPolicy,
+		SurveyAudience $audience,
 		$link,
 		$instanceTokenParameterName
 	) {
@@ -41,7 +42,8 @@ class ExternalSurvey extends Survey {
 			$isEnabled,
 			$coverage,
 			$platforms,
-			$privacyPolicy
+			$privacyPolicy,
+			$audience
 		);
 
 		$this->name = $name;

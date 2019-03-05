@@ -14,6 +14,11 @@ abstract class Survey {
 	private $question;
 
 	/**
+	 * @var array describes the audience who can participate in a survey
+	 */
+	private $audience;
+
+	/**
 	 * @var string A user-friendly description of, or introduction to, the question
 	 */
 	private $description;
@@ -64,7 +69,8 @@ abstract class Survey {
 		$isEnabled,
 		$coverage,
 		$platforms,
-		$privacyPolicy
+		$privacyPolicy,
+		SurveyAudience $audience
 	) {
 		$this->name = $name;
 		$this->question = $question;
@@ -73,6 +79,7 @@ abstract class Survey {
 		$this->coverage = $coverage;
 		$this->platforms = $platforms;
 		$this->privacyPolicy = $privacyPolicy;
+		$this->audience = $audience;
 	}
 
 	// --------
@@ -113,6 +120,7 @@ abstract class Survey {
 	 */
 	public function toArray() {
 		return [
+			'audience' => $this->audience->toArray(),
 			'name' => $this->name,
 			'question' => $this->question,
 			'description' => $this->description,

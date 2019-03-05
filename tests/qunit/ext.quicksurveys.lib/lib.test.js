@@ -147,4 +147,65 @@
 			'Check it is inserted in correct place on tablet (before first heading)' );
 	} );
 
+	QUnit.test( 'isInAudience (minEdits, maxEdits)', function ( assert ) {
+		var audienceAnyUser = {},
+			editCount = {
+				anon: null,
+				noneditor: 0,
+				newbie: 4,
+				powerUser: 10000
+			},
+			audienceNonEditors = { minEdits: 0, maxEdits: 0 },
+			audienceNewUser = { minEdits: 1, maxEdits: 4 },
+			audienceRecentlyNewUser = { minEdits: 5, maxEdits: 99 },
+			audienceExperiencedUser = { minEdits: 100, maxEdits: 999 },
+			audiencePowerUser = { minEdits: 1000 },
+			audienceNotPowerUser = { maxEdits: 1000 };
+
+		[
+			// new editors
+			[ audienceNonEditors, editCount.noneditor, true,
+				'you can target users with edit count 0'
+			],
+			// Anons
+			// user type, edit count, user is shown survey, explanation of test
+			[ audienceAnyUser, editCount.anon, true,
+				'anon user is shown survey where no audience defined' ],
+			[ audienceRecentlyNewUser, editCount.anon, false,
+				'anons are not targetted if minEdits/maxEdits defined' ],
+			[ audiencePowerUser, editCount.anon, false,
+				'anons are not targetted if minEdits defined' ],
+			[ audienceNotPowerUser, editCount.anon, true,
+				'anons are targetted if only maxEdits defined' ],
+			[ audienceAnyUser, 1000, true, 'anons are part of all the audience!' ],
+			// New users
+			[ audienceNewUser, editCount.newbie, true,
+				'the audience is newbies!' ],
+			[ audienceRecentlyNewUser, editCount.newbie, false,
+				'a newbie has an edit count < audienceRecentlyNewUser.minEdits'
+			],
+			[ audienceExperiencedUser, editCount.newbie, false,
+				'a newbie does not see survey for experienced users'
+			],
+			[ audienceNotPowerUser, editCount.newbie, true,
+				'a newbie is not a power user so sees the survey'
+			],
+			[ audiencePowerUser, editCount.newbie, false,
+				'a newbie is not a power user so does not see the survey'
+			],
+			// power users
+			[ audienceNotPowerUser, editCount.powerUser, false,
+				'the audience is not power users'
+			],
+			[ audiencePowerUser, editCount.powerUser, true,
+				'the audience is power users'
+			]
+
+		].forEach( function ( test ) {
+			assert.ok(
+				qSurveys.isInAudience( test[ 0 ], test[ 1 ] ) === test[ 2 ],
+				test[ 3 ]
+			);
+		} );
+	} );
 }() );

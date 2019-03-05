@@ -5,6 +5,7 @@ namespace Tests\QuickSurveys;
 use QuickSurveys\SurveyFactory;
 use QuickSurveys\InternalSurvey;
 use QuickSurveys\ExternalSurvey;
+use QuickSurveys\SurveyAudience;
 use InvalidArgumentException;
 
 /**
@@ -111,6 +112,7 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 				],
 			],
 			'ext-quicksurveys-test-external-survey-privacy-policy',
+			new SurveyAudience( [] ),
 			'//example.org/test-external-survey',
 			''
 		);
@@ -133,6 +135,7 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 			],
 			'link' => '//example.org/test-external-survey',
 			'privacyPolicy' => 'ext-quicksurveys-test-external-survey-privacy-policy',
+			new SurveyAudience( [] )
 		] );
 
 		$this->assertEquals( $actual, $expected );
@@ -178,6 +181,7 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 				],
 			],
 			'',
+			new SurveyAudience( [] ),
 			[
 				'ext-quicksurveys-test-internal-survey-positive',
 			],

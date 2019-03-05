@@ -124,12 +124,14 @@ class SurveyFactory {
 			$spec['coverage'],
 			$spec['platforms'],
 			$spec['privacyPolicy'],
+			new SurveyAudience( $spec['audience'] ?? [] ),
 			$spec['link'],
 			$spec['instanceTokenParameterName']
 		);
 	}
 
 	private static function factoryInternal( $spec ) {
+		$audience = new SurveyAudience( $spec['audience'] ?? [] );
 		$name = $spec['name'];
 
 		if ( !isset( $spec['answers'] ) ) {
@@ -139,13 +141,14 @@ class SurveyFactory {
 		}
 
 		return new InternalSurvey(
-			$spec['name'],
+			$name,
 			$spec['question'],
 			!empty( $spec['description'] ) ? $spec['description'] : null,
 			$spec['enabled'],
 			$spec['coverage'],
 			$spec['platforms'],
 			!empty( $spec['privacyPolicy'] ) ? $spec['privacyPolicy'] : null,
+			$audience,
 			$spec['answers'],
 			!empty( $spec['shuffleAnswersDisplay'] ) ? $spec['shuffleAnswersDisplay'] : true
 		);
