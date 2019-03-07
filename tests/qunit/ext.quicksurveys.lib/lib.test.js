@@ -147,7 +147,7 @@
 			'Check it is inserted in correct place on tablet (before first heading)' );
 	} );
 
-	QUnit.test( 'isInAudience (minEdits, maxEdits)', function ( assert ) {
+	QUnit.test( 'isInAudience (minEdits, maxEdits, geo)', function ( assert ) {
 		var audienceAnyUser = {},
 			editCount = {
 				anon: null,
@@ -155,22 +155,71 @@
 				newbie: 4,
 				powerUser: 10000
 			},
+			geo = {
+				spain: {
+					country: 'ES'
+				},
+				france: {
+					country: 'FR'
+				},
+				canada: {
+					country: 'CA'
+				}
+			},
+			audienceSpain = { countries: [ 'ES' ] },
+			audienceFrenchSpeakers = { countries: [ 'FR', 'CA' ] },
 			audienceNonEditors = { minEdits: 0, maxEdits: 0 },
+			audienceNonEditorsSpain = { minEdits: 0, maxEdits: 0, countries: [ 'ES' ] },
 			audienceNewUser = { minEdits: 1, maxEdits: 4 },
 			audienceRecentlyNewUser = { minEdits: 5, maxEdits: 99 },
 			audienceExperiencedUser = { minEdits: 100, maxEdits: 999 },
 			audiencePowerUser = { minEdits: 1000 },
+			audienceSpainPowerUsers = { countries: [ 'ES' ], minEdits: 1000 },
 			audienceNotPowerUser = { maxEdits: 1000 };
 
 		[
+			// Country targetting
+			[ audienceSpain, editCount.noneditor, undefined, false,
+				'If Geo is undefined, we do not know the country so do not show the survey'
+			],
+			[ audienceSpain, editCount.noneditor, geo.spain, true,
+				'Users in Spain are seeing Spain targeted surveys'
+			],
+			[ audienceSpain, editCount.noneditor, geo.france, false,
+				'Users in France are not seeing Spain targeted surveys'
+			],
+			[ audienceFrenchSpeakers, editCount.noneditor, geo.spain, false,
+				'Users in Spain are not seeing French targeted surveys'
+			],
+			[ audienceFrenchSpeakers, editCount.noneditor, geo.canada, true,
+				'Users in Canada are seeing French targeted surveys'
+			],
+			[ audienceSpainPowerUsers, editCount.powerUser, geo.spain, true,
+				'Power users in Spain are seeing Spanish power user targeted surveys'
+			],
+			[ audienceSpainPowerUsers, editCount.noneditors, geo.spain, true,
+				'Non-editors in Spain are not seeing Spanish power user targeted surveys'
+			],
+			[ audienceSpainPowerUsers, editCount.noneditors, geo.spain, true,
+				'Non-editors in Spain are not seeing Spanish power user targeted surveys'
+			],
+			[ audienceNonEditorsSpain, editCount.noneditor, geo.spain, true,
+				'Non-editors in Spain are seeing the spanish non-editor survey'
+			],
+			[ audienceNonEditorsSpain, editCount.noneditor, geo.france, false,
+				'Non-editors in France are not seeing the spanish non-editor survey'
+			],
+			[ audienceNonEditorsSpain, editCount.powerUser, geo.spain, false,
+				'Power users in Spain are not seeing the spanish non-editor survey'
+			],
 			// new editors
 			[ audienceNonEditors, editCount.noneditor, true,
-				'you can target users with edit count 0'
-			],
+				'you can target users with edit count 0' ],
 			// Anons
 			// user type, edit count, user is shown survey, explanation of test
 			[ audienceAnyUser, editCount.anon, true,
-				'anon user is shown survey where no audience defined' ],
+				'anon user is shown survey where no audience defined'
+			],
 			[ audienceRecentlyNewUser, editCount.anon, false,
 				'anons are not targetted if minEdits/maxEdits defined' ],
 			[ audiencePowerUser, editCount.anon, false,
@@ -203,8 +252,8 @@
 
 		].forEach( function ( test ) {
 			assert.ok(
-				qSurveys.isInAudience( test[ 0 ], test[ 1 ] ) === test[ 2 ],
-				test[ 3 ]
+				qSurveys.isInAudience.apply( qSurveys, test.slice( 0, test.length - 2 ) ) === test[ test.length - 2 ],
+				test[ test.length - 1 ]
 			);
 		} );
 	} );

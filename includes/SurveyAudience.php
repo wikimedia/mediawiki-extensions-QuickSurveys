@@ -13,6 +13,7 @@ class SurveyAudience {
 	private $validKeys = [
 		'minEdits' => 'integer',
 		'maxEdits' => 'integer',
+		'countries' => 'array',
 	];
 
 	/**
