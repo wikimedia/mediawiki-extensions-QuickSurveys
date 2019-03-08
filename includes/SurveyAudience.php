@@ -14,6 +14,7 @@ class SurveyAudience {
 		'minEdits' => 'integer',
 		'maxEdits' => 'integer',
 		'countries' => 'array',
+		'anons' => 'boolean',
 	];
 
 	/**

@@ -3,6 +3,7 @@
 namespace Tests\QuickSurveys;
 
 use QuickSurveys\SurveyAudience;
+use Wikimedia\Assert\ParameterTypeException;
 
 /**
  * @covers \QuickSurveys\SurveyFactory
@@ -13,18 +14,17 @@ class SurveyAudienceTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testItShouldSerializeCorrectly( $definition, $expected ) {
 		$survey = new SurveyAudience( $definition );
-		$this->assertSame( $survey->toArray(), $expected,
+		$this->assertEquals( $survey->toArray(), $expected,
 			'audience serializes in unexpected way' );
 	}
 
 	/**
 	 * @dataProvider provideInvalidAudience
-	 * @expectedException InvalidArgumentException
 	 */
 	public function testItShouldThrowWhenAudienceBadlyDefined( $definition, $why ) {
 		try {
-			$survey = new SurveyAudience( $definition );
-		} catch ( InvalidArgumentException $e ) {
+			new SurveyAudience( $definition );
+		} catch ( ParameterTypeException $e ) {
 			$this->assertTrue( true, $why );
 		}
 	}
@@ -45,10 +45,12 @@ class SurveyAudienceTest extends \PHPUnit\Framework\TestCase {
 			],
 			[
 				[
+					'anons' => false,
 					'minEdits' => 5,
 					'maxEdits' => 10,
 				],
 				[
+					'anons' => false,
 					'minEdits' => 5,
 					'maxEdits' => 10,
 				],
@@ -56,6 +58,7 @@ class SurveyAudienceTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 	}
+
 	public function provideInvalidAudience() {
 		return [
 			[
@@ -79,6 +82,12 @@ class SurveyAudienceTest extends \PHPUnit\Framework\TestCase {
 				],
 				'minEdits and maxEdits must be a number'
 			],
+			[
+				[
+					'anons' => 1
+				],
+				'anons must be a boolean'
+			]
 		];
 	}
 }

@@ -6,6 +6,8 @@
  *   if undefined there will be no lower bound
  * @property {Number} [maxEdits] a maximum number of edits the user must have
  *   if undefined there will be no upper bound
+ * @property {boolean} [anons] is the survey targetted to anons/logged in only?
+ *   if undefined there will no limit
  */
 /**
  *
@@ -151,15 +153,18 @@
 	 * Check if a survey is suitable for the current user
 	 *
 	 * @param {Audience} audience
+	 * @param {Object} user object
 	 * @param {Number|null} editCount of user (null if user is anon)
 	 * @param {Geo} [geo] geographical information of user (undefined if not known)
 	 * @return {boolean}
 	 */
-	function isInAudience( audience, editCount, geo ) {
+	function isInAudience( audience, user, editCount, geo ) {
 		var hasMinEditAudience = audience.minEdits !== undefined,
 			hasMaxEditAudience = audience.maxEdits !== undefined;
 
-		if ( editCount === null && hasMinEditAudience ) {
+		if ( audience.anons !== undefined && audience.anons !== user.isAnon() ) {
+			return false;
+		} else if ( editCount === null && hasMinEditAudience ) {
 			return false;
 		} else if (
 			( hasMinEditAudience && editCount < audience.minEdits ) ||
@@ -305,7 +310,7 @@
 					getSurveyToken( enabledSurvey ) !== '~' &&
 					getBucketForSurvey( enabledSurvey ) === 'A' &&
 					isValidSurvey( enabledSurvey ) &&
-					isInAudience( enabledSurvey.audience,
+					isInAudience( enabledSurvey.audience, mw.user,
 						mw.config.get( 'wgUserEditCount' ), window.Geo ) &&
 					surveyMatchesPlatform( enabledSurvey, mw.config.get( 'wgMFMode' ) )
 				) {
