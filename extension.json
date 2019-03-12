@@ -30,16 +30,6 @@
 		"remoteExtPath": "QuickSurveys"
 	},
 	"ResourceModules": {
-		"mediawiki.template.muhogan": {
-			"class": "QuickSurveys\\ResourceLoaderMuHoganModule",
-			"scripts": [
-				"resources/mediawiki.template.muhogan/init.js"
-			],
-			"targets": [
-				"mobile",
-				"desktop"
-			]
-		},
 		"ext.quicksurveys.views": {
 			"dependencies": [
 				"ext.quicksurveys.lib",
@@ -52,10 +42,6 @@
 				"mobile",
 				"desktop"
 			],
-			"templates": {
-				"finalPanel.muhogan": "resources/ext.quicksurveys.views/finalPanel.muhogan",
-				"initialPanel.muhogan": "resources/ext.quicksurveys.views/initialPanel.muhogan"
-			},
 			"messages": [
 				"ext-quicksurveys-survey-privacy-policy-default-text",
 				"ext-quicksurveys-survey-confirm-msg",

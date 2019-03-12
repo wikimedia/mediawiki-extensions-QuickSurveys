@@ -20,8 +20,20 @@
 		 * @property {Object}
 		 */
 		templatePartials: {
-			initialPanel: mw.template.get( 'ext.quicksurveys.views', 'initialPanel.muhogan' ),
-			finalPanel: mw.template.get( 'ext.quicksurveys.views', 'finalPanel.muhogan' )
+			initialPanel: $(
+				'<div>' +
+					'<strong data-question></strong>' +
+					'<p data-description></p>' +
+					'<div class="survey-button-container"></div>' +
+					'<div class="survey-footer" data-footer></div>' +
+				'</div>'
+			),
+			finalPanel: $(
+				'<div>' +
+					'<strong data-finalHeading></strong>' +
+					'<div class="survey-footer" data-footer></div>' +
+				'</div>'
+			)
 		},
 		/**
 		 * A set of default options that are merged with config passed into the initialize function.
@@ -149,15 +161,20 @@
 		 * @return {*} OOUI widget instance
 		 */
 		widget: function ( widgetName, templatePartialName, options ) {
-			var template,
-				config = $.extend( {}, this.config[ widgetName ], options );
+			var templateClone,
+				template = this.templatePartials[ templatePartialName ],
+				config = $.extend( {}, this.config[ widgetName ], options ),
+				templateData = this.config.templateData;
 
-			if ( templatePartialName ) {
-				template = this.templatePartials[ templatePartialName ];
-				if ( template ) {
-					config.$content = template.render( this.config.templateData );
-				}
+			if ( template ) {
+				templateClone = template.clone();
+				templateClone.find( '[data-question]' ).text( templateData.question );
+				templateClone.find( '[data-description]' ).text( templateData.description );
+				templateClone.find( '[data-footer]' ).html( templateData.footer );
+				templateClone.find( '[data-finalHeading]' ).text( templateData.finalHeading );
+				config.$content = templateClone;
 			}
+
 			return new OO.ui[ widgetName ]( config );
 		},
 		/**
