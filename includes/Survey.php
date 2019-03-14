@@ -14,7 +14,7 @@ abstract class Survey {
 	private $question;
 
 	/**
-	 * @var array describes the audience who can participate in a survey
+	 * @var SurveyAudience describes the audience who can participate in a survey
 	 */
 	private $audience;
 
