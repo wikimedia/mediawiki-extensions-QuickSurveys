@@ -8,6 +8,10 @@
  *   if undefined there will be no upper bound
  * @property {boolean} [anons] is the survey targetted to anons/logged in only?
  *   if undefined there will no limit
+ * @property {string} [registrationStart] if the survey is targeted by registration
+ * date, user had to join before or on this date. Date is in format YYYY-MM-DD
+ * @property {string} [registrationEnd] if the survey is targeted by registration
+ * date, user had to join on, or after this date. Date is in format YYYY-MM-DD
  */
 /**
  *
@@ -150,6 +154,28 @@
 	}
 
 	/**
+	 * Helper method to verify that user registered in given time frame
+	 * Note: this check is inclusive
+	 *
+	 * @param {Object} user User object
+	 * @param {string} registrationStart date string in YYYY-MM-DD format
+	 * @param {string} registrationEnd date string in YYYY-MM-DD format
+	 * @return {boolean} return true when user between given time range
+	 */
+	function registrationDateNotInRange( user, registrationStart, registrationEnd ) {
+		var from, to;
+
+		if ( user.getRegistration() === false ) {
+			// we cannot detect user registration date, fail by default
+			return true;
+		}
+		from = registrationStart ? new Date( registrationStart + 'T00:00:00+00:00' ) : new Date( false );
+		to = registrationEnd ? new Date( registrationEnd + 'T23:59:59+0000' ) : new Date();
+
+		return from > user.getRegistration() || user.getRegistration() > to;
+	}
+
+	/**
 	 * Check if a survey is suitable for the current user
 	 *
 	 * @param {Audience} audience
@@ -162,7 +188,10 @@
 		var hasMinEditAudience = audience.minEdits !== undefined,
 			hasMaxEditAudience = audience.maxEdits !== undefined;
 
-		if ( audience.anons !== undefined && audience.anons !== user.isAnon() ) {
+		if ( ( audience.registrationStart || audience.registrationEnd ) &&
+			registrationDateNotInRange( user, audience.registrationStart, audience.registrationEnd ) ) {
+			return false;
+		} else if ( audience.anons !== undefined && audience.anons !== user.isAnon() ) {
 			return false;
 		} else if ( editCount === null && hasMinEditAudience ) {
 			return false;
@@ -318,7 +347,6 @@
 				}
 			} );
 		}
-
 		if ( availableSurveys.length ) {
 			// Get a random available survey
 			survey = availableSurveys[ Math.floor( Math.random() * availableSurveys.length ) ];

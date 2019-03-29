@@ -24,6 +24,7 @@ class SurveyAudienceTest extends \PHPUnit\Framework\TestCase {
 	public function testItShouldThrowWhenAudienceBadlyDefined( $definition, $why ) {
 		try {
 			new SurveyAudience( $definition );
+			$this->assertTrue( false, $why );
 		} catch ( ParameterTypeException $e ) {
 			$this->assertTrue( true, $why );
 		}
@@ -48,11 +49,15 @@ class SurveyAudienceTest extends \PHPUnit\Framework\TestCase {
 					'anons' => false,
 					'minEdits' => 5,
 					'maxEdits' => 10,
+					'registrationEnd' => '2018-01-01',
+					'registrationStart' => '2019-12-31',
 				],
 				[
 					'anons' => false,
 					'minEdits' => 5,
 					'maxEdits' => 10,
+					'registrationEnd' => '2018-01-01',
+					'registrationStart' => '2019-12-31',
 				],
 				'a perfectly valid survey'
 			]
@@ -87,7 +92,19 @@ class SurveyAudienceTest extends \PHPUnit\Framework\TestCase {
 					'anons' => 1
 				],
 				'anons must be a boolean'
-			]
+			],
+			[
+				[
+					'registrationStart' => 1553877136,
+				],
+				'registrationStart must be date string in format YYYY-MM-DD'
+			],
+			[
+				[
+					'registrationEnd' => 1553877136,
+				],
+				'registrationEnd must be date string in format YYYY-MM-DD'
+			],
 		];
 	}
 }

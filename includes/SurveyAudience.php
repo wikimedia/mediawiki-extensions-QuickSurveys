@@ -15,6 +15,8 @@ class SurveyAudience {
 		'maxEdits' => 'integer',
 		'countries' => 'array',
 		'anons' => 'boolean',
+		'registrationStart' => 'string',
+		'registrationEnd' => 'string',
 	];
 
 	/**

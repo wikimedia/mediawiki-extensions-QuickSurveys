@@ -150,7 +150,11 @@
 	QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo)', function ( assert ) {
 		var audienceAnyUser = {},
 			anonUser = {
-				isAnon: function () { return true; }
+				isAnon: function () { return true; },
+				getRegistration: function () { return false; }
+			},
+			userRegisteredOn20170105 = {
+				getRegistration: function () { return new Date( '2017-01-05T20:20:00+01:00' ); }
 			},
 			loggedInUser = {
 				isAnon: function () { return false; }
@@ -183,9 +187,40 @@
 			audienceSpainPowerUsers = { countries: [ 'ES' ], minEdits: 1000 },
 			audienceNotPowerUser = { maxEdits: 1000 },
 			audienceLoggedInUser = { anons: false },
-			audienceAnonUser = { anons: true };
+			audienceAnonUser = { anons: true },
+			audienceRegistrationStart20170104 = { registrationStart: '2017-01-04' },
+			audienceRegistrationStart20170105 = { registrationStart: '2017-01-05' },
+			audienceRegistrationStart20170106 = { registrationStart: '2017-01-06' },
+			audienceRegistrationEnd20170104 = { registrationEnd: '2017-01-04' },
+			audienceRegistrationEnd20170105 = { registrationEnd: '2017-01-05' },
+			audienceRegistrationEnd20170106 = { registrationEnd: '2017-01-06' },
+			audienceRegisteredInJan2017 = { registrationStart: '2017-01-01', registrationEnd: '2017-01-31' },
+			audienceRegisteredInFeb2017 = { registrationStart: '2017-02-01', registrationEnd: '2017-01-28' };
 
 		[
+			// User registration targetting
+			[ audienceRegistrationStart20170104, anonUser, editCount.noneditor, undefined, false,
+				'hide survey for anon if registrationStart is set' ],
+			[ audienceRegistrationEnd20170104, anonUser, editCount.noneditor, undefined, false,
+				'hide survey for anon if registrationEnd is set' ],
+			[ audienceRegisteredInJan2017, anonUser, editCount.noneditor, undefined, false,
+				'hide survey for anon if both registrationEnd and registrationStart are set' ],
+			[ audienceRegistrationStart20170104, userRegisteredOn20170105, editCount.noneditor, undefined, true,
+				'show survey for user registered on 2017-01-05 if registrationStart is set to 2017-01-04' ],
+			[ audienceRegistrationStart20170105, userRegisteredOn20170105, editCount.noneditor, undefined, true,
+				'show survey for user registered on 2017-01-05 if registrationStart is set to 2017-01-05' ],
+			[ audienceRegistrationStart20170106, userRegisteredOn20170105, editCount.noneditor, undefined, false,
+				'show survey for user registered on 2017-01-05 if registrationStart is set to 2017-01-06' ],
+			[ audienceRegistrationEnd20170104, userRegisteredOn20170105, editCount.noneditor, undefined, false,
+				'hide survey for user registered on 2017-01-05 if registrationEnd is set to 2017-01-04' ],
+			[ audienceRegistrationEnd20170105, userRegisteredOn20170105, editCount.noneditor, undefined, true,
+				'hide survey for user registered on 2017-01-05 if registrationEnd is set to 2017-01-05' ],
+			[ audienceRegistrationEnd20170106, userRegisteredOn20170105, editCount.noneditor, undefined, true,
+				'show survey for user registered on 2017-01-05 if registrationEnd is set to 2017-01-06' ],
+			[ audienceRegisteredInJan2017, userRegisteredOn20170105, editCount.noneditor, undefined, true,
+				'show survey for user registered on 2017-01-05 if registration constraints are set to Jan 2017' ],
+			[ audienceRegisteredInFeb2017, userRegisteredOn20170105, editCount.noneditor, undefined, false,
+				'hide survey for user registered on 2017-01-05 if registration constraints are set to Feb 2017' ],
 			// Country targetting
 			[ audienceSpain, loggedInUser, editCount.noneditor, undefined, false,
 				'If Geo is undefined, we do not know the country so do not show the survey'
@@ -278,4 +313,7 @@
 			);
 		} );
 	} );
+
+
+
 }() );
