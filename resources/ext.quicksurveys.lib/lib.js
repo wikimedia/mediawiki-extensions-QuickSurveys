@@ -2,9 +2,9 @@
  *
  * @typedef {Object} Audience
  * @property {string[]} [countries] that the survey should be targetted at
- * @property {Number} [minEdits] a minimum number of edits the user must have
+ * @property {number} [minEdits] a minimum number of edits the user must have
  *   if undefined there will be no lower bound
- * @property {Number} [maxEdits] a maximum number of edits the user must have
+ * @property {number} [maxEdits] a maximum number of edits the user must have
  *   if undefined there will be no upper bound
  * @property {boolean} [anons] is the survey targetted to anons/logged in only?
  *   if undefined there will no limit
@@ -180,7 +180,7 @@
 	 *
 	 * @param {Audience} audience
 	 * @param {Object} user object
-	 * @param {Number|null} editCount of user (null if user is anon)
+	 * @param {number|null} editCount of user (null if user is anon)
 	 * @param {Geo} [geo] geographical information of user (undefined if not known)
 	 * @return {boolean}
 	 */
@@ -300,7 +300,7 @@
 	 *
 	 * @param {Object} survey options
 	 * @param {string} [mode] the value of wgMFMode
-	 * @return {Boolean}
+	 * @return {boolean}
 	 */
 	function surveyMatchesPlatform( survey, mode ) {
 		var platformKey = mode ? 'mobile' : 'desktop',
