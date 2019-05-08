@@ -131,13 +131,16 @@
 	 * @param {Object} survey options
 	 * @return {boolean}
 	 */
-	function isValidSurvey( survey ) {
+	function isValidSurvey( /* survey */ ) {
+		/*
+		// TODO: Enable this.
 		if ( survey.type === 'external' ) {
-			if ( survey.isInsecure && mw.config.get( 'wgQuickSurveysRequireHttps' ) ) {
+			if ( survey.isInsecure ) {
 				mw.log.warn( 'QuickSurvey with name ' + survey.name + ' has insecure survey link and will not be shown.' );
 				return false;
 			}
 		}
+		*/
 		return true;
 	}
 
