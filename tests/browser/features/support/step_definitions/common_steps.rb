@@ -50,6 +50,17 @@ Given(/^I am on the "(.*?)" page with the internal quick survey flag enabled$/)\
    )
  end
 
+Given(/^I am on the "(.*?)" page with the internal quick survey with freeform text flag enabled$/)\
+ do |arg1|
+   visit(
+     ArticlePage,
+     using_params: {
+       article_name: arg1,
+       query_string: '?quicksurvey=internal-survey-internal example survey with freeform text'
+     }
+   )
+ end
+
 Given(/^I am on the "(.*?)" page with the external quick survey flag enabled$/)\
  do |arg1|
    visit(
@@ -67,6 +78,11 @@ end
 
 Then(/^I should see the survey$/) do
   expect(on(ArticlePage).survey_element.when_present).to be_visible
+end
+
+Then(/^I should see the survey with freeform text$/) do
+  expect(on(ArticlePage).survey_element.when_present).to be_visible
+  expect(on(ArticlePage).freeform_text_element.when_present).to be_visible
 end
 
 Then(/^the page has fully loaded$/) do

@@ -15,6 +15,10 @@ Feature: Internal surveys
     And I am on the "Quick survey test page stub" page with the internal quick survey flag enabled
     Then I should see the survey
 
+  Scenario: Internal survey with freeform text is visible with flag
+    And I am on the "Quick survey test page stub" page with the internal quick survey with freeform text flag enabled
+    Then I should see the survey with freeform text
+
   Scenario: Internal survey is not present without flag
     And I am not bucketed for "internal-example-survey"
       And I am on the "Quick survey test page stub" page
@@ -31,4 +35,10 @@ Feature: Internal surveys
     And I am on the "Quick survey test page stub" page with the internal quick survey flag enabled
       And I see the internal survey
     When I answer the internal survey in the positive
+    Then I get thanks for my internal survey feedback
+
+  Scenario: User can participate in internal survey with freeform text
+    And I am on the "Quick survey test page stub" page with the internal quick survey with freeform text flag enabled
+      And I see the internal survey with freeform text
+    When I submit a freeform answer to the internal survey with freeform text
     Then I get thanks for my internal survey feedback

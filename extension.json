@@ -1,6 +1,6 @@
 {
 	"name": "QuickSurveys",
-	"version": "1.2.0",
+	"version": "1.3.0",
 	"author": [
 		"Bahodir Mansurov",
 		"Joaquin Hernandez",
@@ -48,6 +48,8 @@
 				"ext-quicksurveys-survey-positive",
 				"ext-quicksurveys-survey-negative",
 				"ext-quicksurveys-survey-neutral",
+				"ext-quicksurveys-internal-freeform-survey-submit-button",
+				"ext-quicksurveys-internal-freeform-survey-no-answer-alert",
 				"ext-quicksurveys-external-survey-yes-button",
 				"ext-quicksurveys-external-survey-no-button"
 			],
@@ -131,6 +133,8 @@
 					"ext-quicksurveys-example-internal-survey-answer-neutral",
 					"ext-quicksurveys-example-internal-survey-answer-negative"
 				],
+				"@freeformTextLabel": "label for the optional free form text",
+				"freeformTextLabel": "ext-quicksurveys-example-internal-survey-freeform-text-label",
 				"@enabled": "whether the survey is enabled",
 				"enabled": false,
 				"@coverage": "percentage of users that will see the survey",

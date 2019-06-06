@@ -52,7 +52,7 @@
 				var button = new OO.ui.ButtonWidget( options );
 
 				button.$element.on( 'click', function () {
-					self.onChoose( button );
+					self.submit( button.data.answer );
 				} );
 				$btnContainer.append( button.$element );
 			} );

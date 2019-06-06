@@ -18,6 +18,12 @@ class ArticlePage
   a(:survey_button_four,
     css: '.panel .oo-ui-buttonSelectWidget .oo-ui-buttonElement-button',
     index: 3)
+  textarea(
+    :freeform_text,
+    css: '.panel .survey-button-container .oo-ui-textInputWidget textarea',
+    index: 0)
+  a(:submit_button,
+    css: '.panel .oo-ui-flaggedElement-progressive .oo-ui-buttonElement-button')
   a(:external_survey_no,
     css: '.panel .oo-ui-buttonWidget .oo-ui-buttonElement-button',
     index: 1)

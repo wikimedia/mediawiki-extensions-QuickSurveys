@@ -15,6 +15,8 @@ class InternalSurvey extends Survey {
 
 	private $shuffleAnswersDisplay;
 
+	private $freeformTextLabel;
+
 	public function __construct(
 		$name,
 		$question,
@@ -25,7 +27,8 @@ class InternalSurvey extends Survey {
 		$privacyPolicy,
 		$audience,
 		array $answers,
-		$shuffleAnswersDisplay
+		$shuffleAnswersDisplay,
+		$freeformTextLabel
 	) {
 		parent::__construct(
 			$name,
@@ -40,10 +43,17 @@ class InternalSurvey extends Survey {
 
 		$this->answers = $answers;
 		$this->shuffleAnswersDisplay = $shuffleAnswersDisplay;
+		$this->freeformTextLabel = $freeformTextLabel;
 	}
 
 	public function getMessages() {
-		return array_merge( parent::getMessages(), $this->answers );
+		$messages = array_merge( parent::getMessages(), $this->answers );
+
+		if ( $this->freeformTextLabel ) {
+			$messages[] = $this->freeformTextLabel;
+		}
+
+		return $messages;
 	}
 
 	public function toArray() {
@@ -51,7 +61,8 @@ class InternalSurvey extends Survey {
 			'name' => $this->name,
 			'type' => 'internal',
 			'answers' => $this->answers,
-			'shuffleAnswersDisplay' => $this->shuffleAnswersDisplay
+			'shuffleAnswersDisplay' => $this->shuffleAnswersDisplay,
+			'freeformTextLabel' => $this->freeformTextLabel
 		];
 	}
 }

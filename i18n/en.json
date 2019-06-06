@@ -14,6 +14,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Yes",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Not sure",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "No",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Other",
 	"ext-quicksurveys-example-external-survey-question": "We need your help improving Wikipedia.",
 	"ext-quicksurveys-example-external-survey-description": "By answering this survey you will help us understand how to make Wikipedia better and more useful for you. Thank you!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Survey provided by ExampleSurveyProvider. See the [//example.org/privacy-policy privacy policy]",
@@ -23,6 +24,8 @@
 	"ext-quicksurveys-survey-positive": "Yes",
 	"ext-quicksurveys-survey-negative": "No",
 	"ext-quicksurveys-survey-neutral": "Not sure",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Submit",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Please select an answer or enter your own.",
 	"ext-quicksurveys-external-survey-yes-button": "Visit survey",
 	"ext-quicksurveys-external-survey-no-button": "No thanks"
 }
