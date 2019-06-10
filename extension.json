@@ -142,6 +142,7 @@
 				}
 			},
 			{
+				"@name": "survey name",
 				"name": "external example survey",
 				"@type": "internal or external link survey",
 				"type": "external",
