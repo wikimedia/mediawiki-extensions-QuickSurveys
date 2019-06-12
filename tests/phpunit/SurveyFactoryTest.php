@@ -185,7 +185,8 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 			[
 				'ext-quicksurveys-test-internal-survey-positive',
 			],
-			true
+			true,
+			null
 		);
 
 		$actual = SurveyFactory::factory( [

@@ -38,6 +38,25 @@ $wgQuickSurveysConfig = [
 		],
 	],
 	[
+		"name" => "internal example survey with freeform text",
+		"type" => "internal",
+		"question" => "ext-quicksurveys-example-internal-survey-question",
+		"answers" => [
+			"ext-quicksurveys-example-internal-survey-answer-positive",
+			"ext-quicksurveys-example-internal-survey-answer-neutral",
+			"ext-quicksurveys-example-internal-survey-answer-negative",
+		],
+		"freeformTextLabel" => "ext-quicksurveys-example-internal-survey-freeform-text-label",
+		"schema" => "QuickSurveysResponses",
+		"enabled" => true,
+		"coverage" => 1,
+		"description" => "ext-quicksurveys-example-internal-survey-description",
+		"platforms" => [
+			"desktop" => [ "stable" ],
+			"mobile" => [ "stable", "beta" ],
+		],
+	],
+	[
 		"name" => "external example survey",
 		"type" => "external",
 		"question" => "ext-quicksurveys-example-external-survey-question",

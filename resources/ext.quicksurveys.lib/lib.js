@@ -106,16 +106,20 @@
 			if ( $place.length ) {
 				$panel.insertBefore( $place );
 			} else {
-				// Insert this after the first paragraph (for pages with just one paragraph)
-				// or the lead section/content container when no suitable element can be found (empty pages)
+				// Insert this after the first paragraph (for pages with
+				// just one paragraph) or the lead section/content
+				// container when no suitable element can be found
+				// (empty pages)
 				$place = $bodyContent.find( 'p' ).eq( 0 );
-				// Do this test separately for cases where no paragraph elements
-				// are returned in document order so > div would always come first.
-				// See http://blog.jquery.com/2009/02/20/jquery-1-3-2-released/
+				// Do this test separately for cases where no paragraph
+				// elements are returned in document order so > div
+				// would always come first. See
+				// http://blog.jquery.com/2009/02/20/jquery-1-3-2-released/
 				if ( !$place.length ) {
-					// Note that this will only ever happen if you have an article with no headings
-					// and only an empty lead section. We only apply to the first one but technically there
-					// should only ever be one.
+					// Note that this will only ever happen if you have
+					// an article with no headings and only an empty
+					// lead section. We only apply to the first one but
+					// technically there should only ever be one.
 					$place = $( '> div' ).eq( 0 );
 				}
 				$panel.insertAfter( $place );
@@ -126,17 +130,20 @@
 	/**
 	 * Check if a survey is valid.
 	 * Throws warning when not.
-	 * A survey is currently only invalid if it is external and links to a non-https external site.
+	 * A survey is currently only invalid if it is external and links to
+	 * a non-https external site.
 	 *
 	 * @param {Object} survey options
 	 * @return {boolean}
 	 */
 	function isValidSurvey( /* survey */ ) {
-		/*
+		/**
 		// TODO: Enable this.
 		if ( survey.type === 'external' ) {
 			if ( survey.isInsecure ) {
-				mw.log.warn( 'QuickSurvey with name ' + survey.name + ' has insecure survey link and will not be shown.' );
+				mw.log.warn( 'QuickSurvey with name ' +
+							 survey.name +
+							 ' has insecure survey link and will not be shown.' );
 				return false;
 			}
 		}
@@ -192,7 +199,8 @@
 			hasMaxEditAudience = audience.maxEdits !== undefined;
 
 		if ( ( audience.registrationStart || audience.registrationEnd ) &&
-			registrationDateNotInRange( user, audience.registrationStart, audience.registrationEnd ) ) {
+			registrationDateNotInRange( user, audience.registrationStart,
+				audience.registrationEnd ) ) {
 			return false;
 		} else if ( audience.anons !== undefined && audience.anons !== user.isAnon() ) {
 			return false;
