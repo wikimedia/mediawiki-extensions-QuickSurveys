@@ -4,5 +4,7 @@
 			"Dr Lotus Black"
 		]
 	},
-	"ext-quicksurveys-example-internal-survey-answer-negative": "မလုပ်ပါ"
+	"ext-quicksurveys-example-internal-survey-answer-negative": "မလုပ်ပါ",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "အခြား",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "ထည့်သွင်းရန်"
 }

@@ -3,7 +3,8 @@
 		"authors": [
 			"Cwlin0416",
 			"Liuxinyu970226",
-			"Shangkuanlc"
+			"Shangkuanlc",
+			"Kly"
 		]
 	},
 	"quicksurveys-desc": "顯示設定問卷",
@@ -12,6 +13,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "是",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "不確定",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "否",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "其它",
 	"ext-quicksurveys-example-external-survey-question": "我們需要您協助改善維基百科。",
 	"ext-quicksurveys-example-external-survey-description": "透過回答此問卷，您將協助我們了解如何改善，讓維基百科對您更有助益。十分感謝！",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "由 ExampleSurveyProvider 所提供的問卷。請參見[//example.org/privacy-policy 隱私權政策]。",
@@ -20,6 +22,8 @@
 	"ext-quicksurveys-survey-positive": "是",
 	"ext-quicksurveys-survey-negative": "否",
 	"ext-quicksurveys-survey-neutral": "不確定",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "送出",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "請選擇或自行輸入答案。",
 	"ext-quicksurveys-external-survey-yes-button": "查看問卷",
 	"ext-quicksurveys-external-survey-no-button": "不用了，謝謝"
 }

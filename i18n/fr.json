@@ -12,6 +12,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Oui",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Pas certain",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Non",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Autre",
 	"ext-quicksurveys-example-external-survey-question": "Nous avons besoin de votre aide pour améliorer Wikipédia.",
 	"ext-quicksurveys-example-external-survey-description": "En répondant à cette enquête, vous nous aiderez à comprendre comment améliorer Wikipédia et le rendre plus utile pour vous. Merci !",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Enquête fournie par ExampleSurveyProvider. Voyez la [//example.org/privacy-policy politique de confidentialité]",
@@ -20,6 +21,8 @@
 	"ext-quicksurveys-survey-positive": "Oui",
 	"ext-quicksurveys-survey-negative": "Non",
 	"ext-quicksurveys-survey-neutral": "Pas certain",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Soumettre",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Veuillez sélectionner une réponse ou entrer la vôtre.",
 	"ext-quicksurveys-external-survey-yes-button": "Participer à l’enquête",
 	"ext-quicksurveys-external-survey-no-button": "Non merci"
 }

@@ -12,6 +12,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "نعم",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "غير متأكد",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "لا",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "أخرى",
 	"ext-quicksurveys-example-external-survey-question": "نحنُ بحاجة لمساعدتك في تحسين ويكيبيديا",
 	"ext-quicksurveys-example-external-survey-description": "إذا عبأت هذا الاستبيان فستساعدنا على فهم ما علينا عمله لتحسين ويكيبيديا وجعلها أكثر نفعاً لك. شكراً!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "تم توفير الاستبيان بواسطة مثال موفر الاستبيان، راجع [//example.org/privacy-policy سياسة الخصوصية]",
@@ -20,6 +21,8 @@
 	"ext-quicksurveys-survey-positive": "نعم",
 	"ext-quicksurveys-survey-negative": "لا",
 	"ext-quicksurveys-survey-neutral": "لستُ متأكداً",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "إرسال",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "يُرجَى تحديد إجابة أو إدخال الخاصة بك.",
 	"ext-quicksurveys-external-survey-yes-button": "عبّء الاستبيان",
 	"ext-quicksurveys-external-survey-no-button": "لا شكرا"
 }

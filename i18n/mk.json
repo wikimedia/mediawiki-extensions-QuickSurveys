@@ -10,6 +10,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Да",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Не знам",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Не",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Друго",
 	"ext-quicksurveys-example-external-survey-question": "Ни треба ваша помош да ја подобриме Википедија.",
 	"ext-quicksurveys-example-external-survey-description": "Пополнувајќи ја анкетава, ни помагате да добиеме претстава за тоа како да ја подобриме Википедија и да ја направиме покорисна за вас. Благодариме!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Анкетата ја овозможи ПримерАнкетар. Погледајте ја страницата за [//example.org/privacy-policyзаштита на личните податоци].",
@@ -18,6 +19,8 @@
 	"ext-quicksurveys-survey-positive": "Да",
 	"ext-quicksurveys-survey-negative": "Не",
 	"ext-quicksurveys-survey-neutral": "Не знам",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Поднеси",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Одберете одговор или внесете свој.",
 	"ext-quicksurveys-external-survey-yes-button": "Посетете ја анкетата",
 	"ext-quicksurveys-external-survey-no-button": "Не, благодарам"
 }
