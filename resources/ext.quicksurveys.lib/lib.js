@@ -9,9 +9,9 @@
  * @property {boolean} [anons] is the survey targetted to anons/logged in only?
  *   if undefined there will no limit
  * @property {string} [registrationStart] if the survey is targeted by registration
- * date, user had to join before or on this date. Date is in format YYYY-MM-DD
+ * date, user had to join on or after this date. Date is in format YYYY-MM-DD
  * @property {string} [registrationEnd] if the survey is targeted by registration
- * date, user had to join on, or after this date. Date is in format YYYY-MM-DD
+ * date, user had to join on or before this date. Date is in format YYYY-MM-DD
  */
 /**
  *
