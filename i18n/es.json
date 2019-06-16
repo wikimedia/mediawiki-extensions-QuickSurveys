@@ -21,6 +21,7 @@
 	"ext-quicksurveys-survey-positive": "Sí",
 	"ext-quicksurveys-survey-negative": "No",
 	"ext-quicksurveys-survey-neutral": "No lo sé",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Enviar",
 	"ext-quicksurveys-external-survey-yes-button": "Visita la encuesta",
 	"ext-quicksurveys-external-survey-no-button": "No, gracias"
 }

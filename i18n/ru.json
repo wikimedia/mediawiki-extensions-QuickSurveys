@@ -4,7 +4,8 @@
 			"Okras",
 			"Ole Yves",
 			"Stjn",
-			"Vcohen"
+			"Vcohen",
+			"Valencia212"
 		]
 	},
 	"quicksurveys-desc": "Отображает настроенные опросы",
@@ -13,6 +14,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Да",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Затрудняюсь ответить",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Нет",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Иное",
 	"ext-quicksurveys-example-external-survey-question": "Чтобы улучшить Википедию, нам нужна ваша помощь.",
 	"ext-quicksurveys-example-external-survey-description": "Ответив на этот опрос, вы поможете нам понять, как сделать Википедию лучше и полезнее для вас. Спасибо!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Опрос предоставлен ExampleSurveyProvider. См. [//example.org/privacy-policy политику конфиденциальности]",

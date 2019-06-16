@@ -1,13 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chrumps"
+			"Chrumps",
+			"Railfail536"
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-question": "Czy tekst powinien być większy?",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Tak",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Nie",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Inne",
 	"ext-quicksurveys-survey-positive": "Tak",
 	"ext-quicksurveys-survey-negative": "Nie",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Wyślij",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Wybierz odpowiedź lub wprowadź własną.",
 	"ext-quicksurveys-external-survey-no-button": "Nie, dziękuję"
 }
