@@ -83,6 +83,7 @@ abstract class Survey {
 	}
 
 	// --------
+
 	/**
 	 * Returns the name of the ResourceLoader module
 	 *
@@ -111,6 +112,7 @@ abstract class Survey {
 		}
 		return $messages;
 	}
+
 	// --------
 
 	/**
