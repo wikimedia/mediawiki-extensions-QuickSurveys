@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"quicksurveys-desc": "Fà 'ndrucà le sondagge configurate",
+	"ext-quicksurveys-example-internal-survey-question": "'U teste avessa essere cchiù granne?",
+	"ext-quicksurveys-example-internal-survey-description": "Queste jè 'a descrizione de l'esembie de sondagge inderne",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Sìne",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Non ge sò secure",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "None",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Otre",
+	"ext-quicksurveys-example-external-survey-question": "Tènime abbesogne de 'na màne da te pe migliorà Uicchipèdie",
+	"ext-quicksurveys-example-external-survey-description": "Respunnenne a stu sondagge ne dèje 'na màne a capì cumme fà Uicchipèdie megghie e cchiù utile pe tte. Grazie!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Sondagge fornite da ExampleSurveyProvider. 'Ndruche 'a [//example.org/privacy-policy policy d'a privacy]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Tutte le resposte sò anomine. 'Ndruche 'a  [//example.org/privacy-policy policy d'a privacy]",
+	"ext-quicksurveys-survey-confirm-msg": "Grazie pa segnalazione! A ste ausame pe fà {{SITENAME}} megghie!",
+	"ext-quicksurveys-survey-positive": "Sìne",
+	"ext-quicksurveys-survey-negative": "None",
+	"ext-quicksurveys-survey-neutral": "Non ge sò secure",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Conferme",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Scacchie 'na resposte o sckaffe una toje.",
+	"ext-quicksurveys-external-survey-yes-button": "'Ndruche 'u sondagge",
+	"ext-quicksurveys-external-survey-no-button": "None, grazie"
+}
