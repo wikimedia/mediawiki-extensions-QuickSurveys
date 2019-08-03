@@ -35,3 +35,4 @@ composer.phar
 vendor/
 composer.lock
 
+/.eslintcache

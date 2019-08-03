@@ -11,6 +11,10 @@ module.exports = function ( grunt ) {
 			js: 'resources/**/*.js'
 		},
 		eslint: {
+			options: {
+				cache: true,
+				reportUnusedDisableDirectives: true
+			},
 			all: [
 				'!node_modules/**',
 				'!vendor/**',

@@ -399,7 +399,6 @@
 	mw.extQuickSurveys = {
 		isInAudience: isInAudience,
 		surveyMatchesPlatform: surveyMatchesPlatform,
-		/* eslint-disable-next-line no-underscore-dangle */
 		_insertPanel: insertPanel,
 		showSurvey: showSurvey
 	};
