@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Trizek (WMF)"
 		]
 	},
 	"quicksurveys-desc": "Vis konfigurerte undersøkelser",
@@ -18,6 +19,8 @@
 	"ext-quicksurveys-survey-positive": "Ja",
 	"ext-quicksurveys-survey-negative": "Nei",
 	"ext-quicksurveys-survey-neutral": "Usikker",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Send inn",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Vennligst velg et svar eller skriv inn ditt eget.",
 	"ext-quicksurveys-external-survey-yes-button": "Besøk undersøkelsen",
 	"ext-quicksurveys-external-survey-no-button": "Nei takk"
 }

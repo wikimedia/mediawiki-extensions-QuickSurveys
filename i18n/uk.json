@@ -3,7 +3,8 @@
 		"authors": [
 			"Dars",
 			"Piramidion",
-			"Vlad5250"
+			"Vlad5250",
+			"Ата"
 		]
 	},
 	"quicksurveys-desc": "Відображає налаштовані опитування",
@@ -22,6 +23,7 @@
 	"ext-quicksurveys-survey-negative": "Ні",
 	"ext-quicksurveys-survey-neutral": "Важко сказати",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "Надіслати",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Будь ласка, оберіть відповідь або введіть власну.",
 	"ext-quicksurveys-external-survey-yes-button": "Відвідати опитування",
 	"ext-quicksurveys-external-survey-no-button": "Ні, дякую"
 }

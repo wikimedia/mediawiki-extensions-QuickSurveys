@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Muhammad Shuaib"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-question": "کیا متن کا حجم اور بڑا ہونا چاہیے؟",
+	"ext-quicksurveys-example-internal-survey-description": "یہ داخلی جائزہ کے نمونہ کی وضاحت ہے",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "ہاں",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "یقینی علم نہیں",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "نہیں",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "دیگر",
+	"ext-quicksurveys-example-external-survey-question": "ہمیں ویکیپیڈیا کی مزید تحسین و ترقی میں آپ کی معاونت درکار ہے۔",
+	"ext-quicksurveys-example-external-survey-description": "اس جائزہ کی مدد سے ہم یہ جاننے کی کوشش کریں گے کہ ہم اس دائرۃ المعارف کو آپ کے لیے مزید مفید اور بہتر کیسے بنا سکتے ہیں، شکریہ!",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "تمام جوابات مخفی اور گمنام ہوں گے۔ [//example.org/privacy-policy اخفائے راز کے اصول] ملاحظہ فرمائیں۔",
+	"ext-quicksurveys-survey-confirm-msg": "تاثرات درج کرنے پر ہم آپ کے ممنون ہیں۔ ہم ان تاثرات کو {{SITENAME}} کی تحسین و ترقی کے لیے استعمال کریں گے۔",
+	"ext-quicksurveys-survey-positive": "ہاں",
+	"ext-quicksurveys-survey-negative": "نہیں",
+	"ext-quicksurveys-survey-neutral": "یقینی علم نہیں",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "درج کریں",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "براہ کرم جواب منتخب کریں یا اپنا جواب تحریر کریں۔",
+	"ext-quicksurveys-external-survey-yes-button": "جائزہ ملاحظہ فرمائیں",
+	"ext-quicksurveys-external-survey-no-button": "نہیں شکریہ"
+}
