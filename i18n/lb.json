@@ -4,13 +4,23 @@
 			"Robby"
 		]
 	},
+	"quicksurveys-desc": "Weist déi agestallt Ëmfroen",
 	"ext-quicksurveys-example-internal-survey-question": "Soll den Text méi grouss sinn?",
+	"ext-quicksurveys-example-internal-survey-description": "Dëst ass d'Beschreiwung vun der interner Beispill-Ëmfro",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Jo",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Net sécher",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Neen",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Anerer",
+	"ext-quicksurveys-example-external-survey-question": "Mir brauchen Är Hëllef fir Wikipedia besser ze maachen.",
 	"ext-quicksurveys-example-external-survey-description": "Duerch d'Matmaache bei dëser Ëmfro hëlleft Dir eis ze verstoe wéi mir Wikipedia  besser a méi nëtzlech fir Iech maache kënnen. Merci!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Ëmfro vum Beispill-Ëmfro-Provider. Kuckt d'[//example.org/privacy-policy Dateschutzrichtlinnen].",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "All Äntwerte sinn anonym. Kuckt d'[//example.org/privacy-policy Dateschutzrichtlinnen].",
+	"ext-quicksurveys-survey-confirm-msg": "Merci fir de Feedback! Mir benotzen et fir {{SITENAME}} nach besser ze maachen!",
 	"ext-quicksurveys-survey-positive": "Jo",
 	"ext-quicksurveys-survey-negative": "Neen",
 	"ext-quicksurveys-survey-neutral": "Net sécher",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Schécken",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Sicht w.e.g. eng Äntwert eraus oder gitt Är eegen an.",
+	"ext-quicksurveys-external-survey-yes-button": "Bei der Ëmfro matmaachen",
 	"ext-quicksurveys-external-survey-no-button": "Nee, merci"
 }
