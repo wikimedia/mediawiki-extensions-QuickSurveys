@@ -84,21 +84,19 @@
 				items: [ this.initialPanel, this.finalPanel ]
 			} ) );
 
-			if ( mw.eventLog ) {
-				event = {
-					beaconCapable: !!navigator.sendBeacon,
-					surveySessionToken: this.config.surveySessionToken,
-					pageviewToken: this.config.pageviewToken,
-					surveyCodeName: this.config.survey.name,
-					eventName: 'eligible'
-				};
+			event = {
+				beaconCapable: !!navigator.sendBeacon,
+				surveySessionToken: this.config.surveySessionToken,
+				pageviewToken: this.config.pageviewToken,
+				surveyCodeName: this.config.survey.name,
+				eventName: 'eligible'
+			};
 
-				if ( window.performance && performance.now ) {
-					event.performanceNow = Math.round( performance.now() );
-				}
-
-				mw.eventLog.logEvent( 'QuickSurveyInitiation', event );
+			if ( window.performance && performance.now ) {
+				event.performanceNow = Math.round( performance.now() );
 			}
+
+			mw.eventLog.logEvent( 'QuickSurveyInitiation', event );
 		},
 		/**
 		 * Shuffle answers in place
@@ -227,25 +225,22 @@
 				skin += mobileMode;
 			}
 
-			if ( mw.eventLog ) {
-				return mw.eventLog.logEvent( 'QuickSurveysResponses', {
-					namespaceId: mw.config.get( 'wgNamespaceNumber' ),
-					surveySessionToken: this.config.surveySessionToken,
-					pageviewToken: this.config.pageviewToken,
-					pageId: mw.config.get( 'wgArticleId' ),
-					pageTitle: mw.config.get( 'wgPageName' ),
-					surveyCodeName: survey.name,
-					surveyResponseValue: answer,
-					platform: 'web',
-					skin: skin,
-					isTablet: !this.config.isMobileLayout,
-					userLanguage: mw.config.get( 'wgContentLanguage' ),
-					isLoggedIn: !mw.user.isAnon(),
-					editCountBucket: utils.getEditCountBucket( mw.config.get( 'wgUserEditCount' ) ),
-					countryCode: utils.getCountryCode()
-				} );
-			}
-			return $.Deferred().reject( 'EventLogging not installed.' );
+			return mw.eventLog.logEvent( 'QuickSurveysResponses', {
+				namespaceId: mw.config.get( 'wgNamespaceNumber' ),
+				surveySessionToken: this.config.surveySessionToken,
+				pageviewToken: this.config.pageviewToken,
+				pageId: mw.config.get( 'wgArticleId' ),
+				pageTitle: mw.config.get( 'wgPageName' ),
+				surveyCodeName: survey.name,
+				surveyResponseValue: answer,
+				platform: 'web',
+				skin: skin,
+				isTablet: !this.config.isMobileLayout,
+				userLanguage: mw.config.get( 'wgContentLanguage' ),
+				isLoggedIn: !mw.user.isAnon(),
+				editCountBucket: utils.getEditCountBucket( mw.config.get( 'wgUserEditCount' ) ),
+				countryCode: utils.getCountryCode()
+			} );
 		},
 
 		/**

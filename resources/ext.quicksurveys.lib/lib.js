@@ -42,20 +42,18 @@
 		if ( mw.viewport.isElementInViewport( $el.get( 0 ) ) ) {
 			$window.off( 'scroll.quickSurveys', surveyImpressionLogger );
 
-			if ( mw.eventLog ) {
-				event = {
-					surveySessionToken: config.surveySessionToken,
-					pageviewToken: config.pageviewToken,
-					surveyCodeName: config.survey.name,
-					eventName: 'impression'
-				};
+			event = {
+				surveySessionToken: config.surveySessionToken,
+				pageviewToken: config.pageviewToken,
+				surveyCodeName: config.survey.name,
+				eventName: 'impression'
+			};
 
-				if ( window.performance && performance.now ) {
-					event.performanceNow = Math.round( performance.now() );
-				}
-
-				mw.eventLog.logEvent( 'QuickSurveyInitiation', event );
+			if ( window.performance && performance.now ) {
+				event.performanceNow = Math.round( performance.now() );
 			}
+
+			mw.eventLog.logEvent( 'QuickSurveyInitiation', event );
 		}
 	}
 
