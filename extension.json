@@ -83,7 +83,8 @@
 		},
 		"ext.quicksurveys.init": {
 			"dependencies": [
-				"ext.quicksurveys.lib"
+				"ext.quicksurveys.lib",
+				"ext.eventLogging"
 			],
 			"targets": [
 				"mobile",
