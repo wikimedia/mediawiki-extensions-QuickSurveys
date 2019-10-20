@@ -12,21 +12,18 @@ use InvalidArgumentException;
  * @covers \QuickSurveys\SurveyFactory
  */
 class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
-	/**
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage The "test" survey doesn't have a question.
-	 */
+
 	public function testItShouldThrowWhenThereIsNoQuestion() {
+		$this->expectException( InvalidArgumentException::class );
+		$this->expectExceptionMessage( 'The "test" survey doesn\'t have a question.' );
 		SurveyFactory::factory( [
 			'name' => 'test',
 		] );
 	}
 
-	/**
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage The "test" survey isn't marked as internal or external.
-	 */
 	public function testItShouldThrowWhenThereIsNoType() {
+		$this->expectException( InvalidArgumentException::class );
+		$this->expectExceptionMessage( 'The "test" survey isn\'t marked as internal or external.' );
 		SurveyFactory::factory( [
 			'name' => 'test',
 			'question' => 'Do you like writing unit tests?',
@@ -34,11 +31,9 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 		] );
 	}
 
-	/**
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage The "test" survey doesn't have any platforms.
-	 */
 	public function testItShouldThrowWhenThereAreNoPlatforms() {
+		$this->expectException( InvalidArgumentException::class );
+		$this->expectExceptionMessage( 'The "test" survey doesn\'t have any platforms.' );
 		SurveyFactory::factory( [
 			'name' => 'test',
 			'type' => 'external',
@@ -48,11 +43,9 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 		] );
 	}
 
-	/**
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage The "test" external survey doesn't have a link.
-	 */
 	public function testItShouldThrowWhenThereIsNoLink() {
+		$this->expectException( InvalidArgumentException::class );
+		$this->expectExceptionMessage( 'The "test" external survey doesn\'t have a link.' );
 		SurveyFactory::factory( [
 			'name' => 'test',
 			'type' => 'external',
@@ -71,11 +64,9 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 		] );
 	}
 
-	/**
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage The "test" external survey doesn't have a privacy policy.
-	 */
 	public function testItShouldThrowWhenThereIsNoPrivacyPolicy() {
+		$this->expectException( InvalidArgumentException::class );
+		$this->expectExceptionMessage( 'The "test" external survey doesn\'t have a privacy policy.' );
 		SurveyFactory::factory( [
 			'name' => 'test',
 			'type' => 'external',
@@ -141,11 +132,9 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals( $actual, $expected );
 	}
 
-	/**
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage The "test" internal survey doesn't have any answers.
-	 */
 	public function testItShouldThrowWhenThereAreNoAnswers() {
+		$this->expectException( InvalidArgumentException::class );
+		$this->expectExceptionMessage( 'The "test" internal survey doesn\'t have any answers.' );
 		SurveyFactory::factory( [
 			'name' => 'test',
 			'type' => 'internal',
@@ -213,11 +202,9 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals( $actual, $expected );
 	}
 
-	/**
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage The "test" survey isn't marked as internal or external.
-	 */
 	public function testItShouldThrowIfTheTypeIsNotRecognized() {
+		$this->expectException( InvalidArgumentException::class );
+		$this->expectExceptionMessage( 'The "test" survey isn\'t marked as internal or external.' );
 		SurveyFactory::factory( [
 			'name' => 'test',
 			'type' => 'ixternal',
@@ -250,11 +237,9 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 		$this->assertFalse( $survey->isEnabled() );
 	}
 
-	/**
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage The "test" survey doesn't have a coverage.
-	 */
 	public function testItShouldThrowWhenThereIsNoCoverage() {
+		$this->expectException( InvalidArgumentException::class );
+		$this->expectExceptionMessage( 'The "test" survey doesn\'t have a coverage.' );
 		SurveyFactory::factory( [
 			'name' => 'test',
 			'type' => 'internal',
