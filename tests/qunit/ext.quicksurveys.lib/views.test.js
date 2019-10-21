@@ -1,7 +1,7 @@
 ( function () {
 	var qSurveys = mw.extQuickSurveys;
 
-	QUnit.module( 'ext.quicksurveys.views' );
+	QUnit.module( 'ext.quicksurveys.lib/views' );
 
 	QUnit.test( 'shuffleAnswersDisplay', function ( assert ) {
 		var config = {
