@@ -16,15 +16,5 @@
 		return;
 	}
 
-	// make sure the beta opt-in panel is not shown in Minerva
-	if ( mw.config.get( 'skin' ) === 'minerva' ) {
-		mw.trackSubscribe( 'mobile.betaoptin', function ( topic, data ) {
-			if ( data.isPanelShown === false ) {
-				mw.extQuickSurveys.showSurvey( forcedSurvey );
-			}
-		} );
-	} else {
-		mw.extQuickSurveys.showSurvey( forcedSurvey );
-	}
-
+	mw.extQuickSurveys.showSurvey( forcedSurvey );
 }() );
