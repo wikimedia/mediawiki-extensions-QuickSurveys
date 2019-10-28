@@ -11,6 +11,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Ja",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Usikker",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Nei",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Annet",
 	"ext-quicksurveys-example-external-survey-question": "Vi trenger din hjelp til å forbedre Wikipedia.",
 	"ext-quicksurveys-example-external-survey-description": "Ved å svare på denne undersøkelsen hjelper du oss å forstå hvordan vi kan gjøre Wikipedia bedre og nyttigere for deg. Tusen takk!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Undersøkelsen holdes av ExampleSurveyProvider. Se [//example.org/privacy-policy personvernspolicy]",
