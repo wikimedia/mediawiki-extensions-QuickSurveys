@@ -10,6 +10,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Sí",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Nun lo se",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Non",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Otros",
 	"ext-quicksurveys-example-external-survey-question": "Precisamos la to ayuda p'ameyorar Wikipedia.",
 	"ext-quicksurveys-example-external-survey-description": "Al responder esta encuesta vas ayudanos a entender cómo faer Wikipedia meyor y más útil pa ti. ¡Gracies!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Encuesta proporcionada por ExampleSurveyProvider. Consulta la [//example.org/privacy-policy política d'intimidá]",
@@ -18,6 +19,8 @@
 	"ext-quicksurveys-survey-positive": "Sí",
 	"ext-quicksurveys-survey-negative": "Non",
 	"ext-quicksurveys-survey-neutral": "Nun lo se",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Unviar",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Seleiciona una respuesta o escribe una propia.",
 	"ext-quicksurveys-external-survey-yes-button": "Ver la encuesta",
 	"ext-quicksurveys-external-survey-no-button": "Non, gracies"
 }
