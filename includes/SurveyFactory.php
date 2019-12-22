@@ -126,6 +126,7 @@ class SurveyFactory {
 			$spec['privacyPolicy'],
 			new SurveyAudience( $spec['audience'] ?? [] ),
 			$spec['link'],
+			// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset Explicit set
 			$spec['instanceTokenParameterName']
 		);
 	}
