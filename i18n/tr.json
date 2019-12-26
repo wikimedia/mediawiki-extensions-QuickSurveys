@@ -1,10 +1,27 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mavrikant"
+			"Mavrikant",
+			"BaRaN6161 TURK"
 		]
 	},
+	"quicksurveys-desc": "Yapılandırılmış anketleri görüntüler",
+	"ext-quicksurveys-example-internal-survey-question": "Metin daha büyük olmalı mı?",
+	"ext-quicksurveys-example-internal-survey-description": "Bu, örnek dahili anketin açıklamasıdır",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Evet",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Emin değilim",
-	"ext-quicksurveys-example-internal-survey-answer-negative": "Hayır"
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Hayır",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Diğer",
+	"ext-quicksurveys-example-external-survey-question": "Vikipedi'yi geliştirmek için yardımınıza ihtiyacımız var.",
+	"ext-quicksurveys-example-external-survey-description": "Bu anketi yanıtlayarak Vikipedi'yi sizin için nasıl daha iyi ve daha yararlı hale getirebileceğimizi anlamamıza yardımcı olacaksınız. Teşekkür ederiz!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "ÖrnekSurveyProvider tarafından sağlanan anket. [//example.org/privacy-policy Gizlilik politikasına] bakın",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Tüm başvurular isimsizdir. [//example.org/privacy-policy Gizlilik politikasına] bakın.",
+	"ext-quicksurveys-survey-confirm-msg": "Geri dönüşünüz için teşekkür ederiz! {{SITENAME}} hizmetini daha da iyi hale getirmek için kullanıyoruz!",
+	"ext-quicksurveys-survey-positive": "Evet",
+	"ext-quicksurveys-survey-negative": "Hayır",
+	"ext-quicksurveys-survey-neutral": "Emin değilim",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Gönder",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Lütfen bir cevap seçin veya kendi cevabınızı girin.",
+	"ext-quicksurveys-external-survey-yes-button": "Anketi ziyaret et",
+	"ext-quicksurveys-external-survey-no-button": "Hayır teşekkürler"
 }
