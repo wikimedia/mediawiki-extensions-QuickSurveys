@@ -8,12 +8,18 @@
 
 namespace QuickSurveys;
 
+use Action;
 use MediaWiki\MediaWikiServices;
 use OutputPage;
 use ResourceLoader;
-use Skin;
 
 class Hooks {
+
+	/**
+	 * The internal name of the view action (see \ViewAction) as returned by Action::getActionName.
+	 */
+	private const VIEW_ACTION_NAME = 'view';
+
 	/**
 	 * Register QUnit tests.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderTestModules
@@ -75,12 +81,25 @@ class Hooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
 	 *
 	 * @param OutputPage &$out
-	 * @param Skin &$sk
 	 * @return bool
 	 */
-	public static function onBeforePageDisplay( OutputPage &$out, Skin &$sk ) {
-		$title = $out->getTitle();
-		if ( $title->inNamespace( NS_MAIN ) && $title->exists() ) {
+	public static function onBeforePageDisplay( OutputPage &$out ) {
+		$context = $out->getContext();
+		$title = $context->getTitle();
+
+		// The following tests are ordered from worst to best performance, with Title#isMainPage
+		// and #exists being roughly tied. The best case for those two is a cache hit. The worst
+		// case for Title#exists is a DB hit.
+		if (
+			$title
+			&& $title->inNamespace( NS_MAIN )
+
+			// Is the user viewing the page?
+			&& Action::getActionName( $context ) === static::VIEW_ACTION_NAME
+
+			&& !$title->isMainPage()
+			&& $title->exists()
+		) {
 			$out->addModules( 'ext.quicksurveys.init' );
 		}
 		return true;
