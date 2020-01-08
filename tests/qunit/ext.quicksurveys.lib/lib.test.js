@@ -40,7 +40,6 @@
 		qSurveys._insertPanel( $locationMinerva, this.getPanel(), true );
 		qSurveys._insertPanel( $locationMinervaTablet, this.getPanel() );
 
-
 		assert.ok( this.isPanelElement( $locationVector.find( '#firstp' ).next() ),
 			'Check it is inserted in correct place on vector (after first paragraph)' );
 		assert.ok( this.isPanelElement( $locationMinerva.find( '#firstp' ).next() ),
@@ -122,9 +121,9 @@
 			]
 		];
 		testCases.forEach( function ( test ) {
-			assert.ok( qSurveys.surveyMatchesPlatform( { platforms: test[0] }, undefined ) === test[1] );
-			assert.ok( qSurveys.surveyMatchesPlatform( { platforms: test[0] }, 'stable' ) === test[2] );
-			assert.ok( qSurveys.surveyMatchesPlatform( { platforms: test[0] }, 'beta' ) === test[3] );
+			assert.ok( qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, undefined ) === test[ 1 ] );
+			assert.ok( qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, 'stable' ) === test[ 2 ] );
+			assert.ok( qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, 'beta' ) === test[ 3 ] );
 		} );
 		assert.expect( testCases.length * 3 );
 	} );
@@ -313,7 +312,5 @@
 			);
 		} );
 	} );
-
-
 
 }() );
