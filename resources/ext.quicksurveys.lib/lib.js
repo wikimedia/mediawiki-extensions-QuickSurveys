@@ -387,7 +387,7 @@
 				surveyImpressionLogger = function () {
 					logSurveyImpression( panel.$element, options );
 				};
-				$window.on( 'scroll.quickSurveys', $.debounce( 250, surveyImpressionLogger ) );
+				$window.on( 'scroll.quickSurveys', mw.util.debounce( 250, surveyImpressionLogger ) );
 				// maybe the survey is already visible?
 				surveyImpressionLogger();
 			} );

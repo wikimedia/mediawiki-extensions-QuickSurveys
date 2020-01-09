@@ -68,7 +68,8 @@
 				"mediawiki.user",
 				"mediawiki.storage",
 				"mediawiki.viewport",
-				"mediawiki.experiments"
+				"mediawiki.experiments",
+				"mediawiki.util"
 			],
 			"targets": [
 				"mobile",
