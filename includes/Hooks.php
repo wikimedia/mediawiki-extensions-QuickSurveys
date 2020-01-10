@@ -8,10 +8,10 @@
 
 namespace QuickSurveys;
 
-use ConfigFactory;
 use OutputPage;
 use ResourceLoader;
 use Skin;
+use MediaWiki\MediaWikiServices;
 
 class Hooks {
 	/**
@@ -42,18 +42,10 @@ class Hooks {
 			],
 			'scripts' => [
 				'ext.quicksurveys.lib/lib.test.js',
+				'ext.quicksurveys.lib/views.test.js',
 			],
 			'dependencies' => [
 				'ext.quicksurveys.lib',
-			],
-		];
-
-		$modules['qunit']['ext.quicksurveys.views.tests'] = $boilerplate + [
-			'scripts' => [
-				'ext.quicksurveys.views/views.test.js',
-			],
-			'dependencies' => [
-				'ext.quicksurveys.views',
 			],
 		];
 
@@ -68,7 +60,8 @@ class Hooks {
 	 * @return bool
 	 */
 	public static function onResourceLoaderGetConfigVars( &$vars ) {
-		$surveys = self::getEnabledSurveys();
+		$surveys = MediaWikiServices::getInstance()->getService( 'QuickSurveys.EnabledSurveys' );
+
 		$vars['wgEnabledQuickSurveys'] = array_map( function ( Survey $survey ) {
 			return $survey->toArray();
 		}, $surveys );
@@ -104,9 +97,9 @@ class Hooks {
 	 * @return bool Always true
 	 */
 	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
-		$enabledSurveys = self::getEnabledSurveys();
+		$surveys = MediaWikiServices::getInstance()->getService( 'QuickSurveys.EnabledSurveys' );
 
-		foreach ( $enabledSurveys as $survey ) {
+		foreach ( $surveys as $survey ) {
 			$moduleName = $survey->getResourceLoaderModuleName();
 			$module = [
 				$moduleName => [
@@ -119,23 +112,5 @@ class Hooks {
 		}
 
 		return true;
-	}
-
-	/**
-	 * Helper method for getting enabled quick surveys
-	 *
-	 * @return Survey[] Enabled survey configuration array
-	 */
-	private static function getEnabledSurveys() {
-		$config = ConfigFactory::getDefaultInstance()->makeConfig( 'quicksurveys' );
-		$configuredSurveys = $config->has( 'QuickSurveysConfig' )
-			? $config->get( 'QuickSurveysConfig' )
-			: [];
-		$surveys = array_map( '\\QuickSurveys\\SurveyFactory::factory', $configuredSurveys );
-		$enabledSurveys = array_filter( $surveys, function ( Survey $survey ) {
-			return $survey->isEnabled();
-		} );
-
-		return array_values( $enabledSurveys );
 	}
 }

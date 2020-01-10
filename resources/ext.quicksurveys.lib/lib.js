@@ -361,7 +361,7 @@
 			survey = availableSurveys[ Math.floor( Math.random() * availableSurveys.length ) ];
 			insertPanel( $bodyContent, $panel, isMobileLayout );
 			// survey.module contains i18n messages
-			mw.loader.using( [ 'ext.quicksurveys.views', survey.module ] ).done( function () {
+			mw.loader.using( [ survey.module ] ).done( function () {
 				var panel,
 					options = {
 						survey: survey,

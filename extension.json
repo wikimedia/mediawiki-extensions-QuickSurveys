@@ -30,13 +30,18 @@
 		"remoteExtPath": "QuickSurveys"
 	},
 	"ResourceModules": {
-		"ext.quicksurveys.views": {
+		"ext.quicksurveys.lib": {
 			"dependencies": [
-				"ext.quicksurveys.lib",
+				"mediawiki.cookie",
+				"mediawiki.storage",
+				"mediawiki.viewport",
+				"mediawiki.experiments",
 				"oojs-ui-core",
 				"oojs-ui-widgets",
 				"mediawiki.user",
-				"mediawiki.Uri"
+				"mediawiki.Uri",
+				"ext.eventLogging",
+				"mediawiki.util"
 			],
 			"targets": [
 				"mobile",
@@ -54,46 +59,18 @@
 				"ext-quicksurveys-external-survey-no-button"
 			],
 			"styles": [
-				"resources/ext.quicksurveys.views/styles.less"
-			],
-			"scripts": [
-				"resources/ext.quicksurveys.views/utils.js",
-				"resources/ext.quicksurveys.views/QuickSurvey.js",
-				"resources/ext.quicksurveys.views/ExternalSurvey.js"
-			]
-		},
-		"ext.quicksurveys.lib": {
-			"dependencies": [
-				"mediawiki.cookie",
-				"mediawiki.user",
-				"mediawiki.storage",
-				"mediawiki.viewport",
-				"mediawiki.experiments",
-				"mediawiki.util"
-			],
-			"targets": [
-				"mobile",
-				"desktop"
-			],
-			"styles": [
 				"resources/ext.quicksurveys.lib/styles.less"
 			],
 			"scripts": [
-				"resources/ext.quicksurveys.lib/lib.js"
+				"resources/ext.quicksurveys.lib/lib.js",
+				"resources/ext.quicksurveys.lib/views/utils.js",
+				"resources/ext.quicksurveys.lib/views/QuickSurvey.js",
+				"resources/ext.quicksurveys.lib/views/ExternalSurvey.js",
+				"resources/ext.quicksurveys.lib/init.js"
 			]
 		},
 		"ext.quicksurveys.init": {
-			"dependencies": [
-				"ext.quicksurveys.lib",
-				"ext.eventLogging"
-			],
-			"targets": [
-				"mobile",
-				"desktop"
-			],
-			"scripts": [
-				"resources/ext.quicksurveys.init/init.js"
-			]
+			"class": "QuickSurveys\\ResourceLoader\\InitModule"
 		}
 	},
 	"EventLoggingSchemas": {
@@ -173,5 +150,8 @@
 				}
 			}
 		]
-	}
+	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	]
 }

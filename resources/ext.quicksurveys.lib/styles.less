@@ -1,5 +1,13 @@
 @import 'mediawiki.ui/variables';
-@import '../variables';
+@import 'mediawiki.mixins';
+
+// Variables
+// =========
+
+@panelWidth: 300px;
+
+// Styles
+// ======
 
 .ext-quick-survey-panel,
 .ext-qs-loader-bar {
@@ -29,5 +37,41 @@
 		width: @panelWidth;
 		clear: right;
 		float: right;
+	}
+}
+
+.panel .survey-footer {
+	font-size: 0.8em;
+	margin-top: 0.5em;
+}
+
+.survey-button-container {
+	// FIXME: See https://phabricator.wikimedia.org/T112982
+	.oo-ui-buttonSelectWidget {
+		width: 100%;
+
+		.oo-ui-buttonOptionWidget {
+			display: block;
+			margin-left: 0;
+
+			a {
+				margin: 0;
+				width: 100%;
+				.box-sizing( border-box );
+				border-bottom: 0;
+			}
+
+			&:last-child {
+				border-bottom: 1px solid @colorGray12;
+			}
+		}
+	}
+}
+
+.ext-quick-survey-panel {
+	.image {
+		background-position: center 80%;
+		background-repeat: no-repeat;
+		background-size: auto 5em;
 	}
 }

@@ -101,7 +101,7 @@ Then(/^the survey code has fully loaded$/) do
     page.wait_until do
       # Wait for async JS to load and render the survey if applicable
       script = 'return mw && mw.loader && '\
-        'mw.loader.getState("ext.quicksurveys.views") === "ready";'
+        'mw.loader.getState("ext.quicksurveys.lib") === "ready";'
       page.execute_script(script)
     end
   end
