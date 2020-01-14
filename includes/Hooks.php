@@ -8,10 +8,10 @@
 
 namespace QuickSurveys;
 
+use MediaWiki\MediaWikiServices;
 use OutputPage;
 use ResourceLoader;
 use Skin;
-use MediaWiki\MediaWikiServices;
 
 class Hooks {
 	/**

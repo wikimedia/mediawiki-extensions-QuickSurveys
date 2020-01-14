@@ -2,11 +2,11 @@
 
 namespace Tests\QuickSurveys;
 
-use QuickSurveys\SurveyFactory;
-use QuickSurveys\InternalSurvey;
-use QuickSurveys\ExternalSurvey;
-use QuickSurveys\SurveyAudience;
 use InvalidArgumentException;
+use QuickSurveys\ExternalSurvey;
+use QuickSurveys\InternalSurvey;
+use QuickSurveys\SurveyAudience;
+use QuickSurveys\SurveyFactory;
 
 /**
  * @covers \QuickSurveys\SurveyFactory
