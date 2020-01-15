@@ -1,3 +1,0 @@
-# .lib/skipFunction.js cannot be parsed by the ESLint parser
-# (see https://github.com/eslint/eslint/issues/8767).
-/resources/ext.quicksurveys.lib/skipFunction.js

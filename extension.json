@@ -67,8 +67,7 @@
 				"resources/ext.quicksurveys.lib/views/QuickSurvey.js",
 				"resources/ext.quicksurveys.lib/views/ExternalSurvey.js",
 				"resources/ext.quicksurveys.lib/init.js"
-			],
-			"skipFunction": "resources/ext.quicksurveys.lib/skipFunction.js"
+			]
 		},
 		"ext.quicksurveys.init": {
 			"class": "QuickSurveys\\ResourceLoader\\InitModule"

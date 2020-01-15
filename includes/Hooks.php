@@ -87,7 +87,7 @@ class Hooks {
 		$context = $out->getContext();
 		$title = $context->getTitle();
 
-		// The following tests are ordered from worst to best performance, with Title#isMainPage
+		// The following tests are ordered from best to worst performance, with Title#isMainPage
 		// and #exists being roughly tied. The best case for those two is a cache hit. The worst
 		// case for Title#exists is a DB hit.
 		if (
