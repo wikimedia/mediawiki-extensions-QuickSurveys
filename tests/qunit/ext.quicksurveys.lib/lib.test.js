@@ -18,9 +18,9 @@
 			$locationMinerva = minervaTemplate.render(),
 			$locationMinervaTablet = minervaTemplate.render();
 
-		qSurveys._insertPanel( $locationVector, this.getPanel(), false );
-		qSurveys._insertPanel( $locationMinerva, this.getPanel(), true );
-		qSurveys._insertPanel( $locationMinervaTablet, this.getPanel() );
+		qSurveys.insertPanel( $locationVector, this.getPanel(), false );
+		qSurveys.insertPanel( $locationMinerva, this.getPanel(), true );
+		qSurveys.insertPanel( $locationMinervaTablet, this.getPanel() );
 
 		assert.ok( this.isPanelElement( $locationVector.find( '.infobox' ).eq( 0 ).prev() ),
 			'Check on desktop page it is inserted in correct place (before infobox)' );
@@ -36,9 +36,9 @@
 			$locationMinerva = template.render(),
 			$locationMinervaTablet = template.render();
 
-		qSurveys._insertPanel( $locationVector, this.getPanel() );
-		qSurveys._insertPanel( $locationMinerva, this.getPanel(), true );
-		qSurveys._insertPanel( $locationMinervaTablet, this.getPanel() );
+		qSurveys.insertPanel( $locationVector, this.getPanel() );
+		qSurveys.insertPanel( $locationMinerva, this.getPanel(), true );
+		qSurveys.insertPanel( $locationMinervaTablet, this.getPanel() );
 
 		assert.ok( this.isPanelElement( $locationVector.find( '#firstp' ).next() ),
 			'Check it is inserted in correct place on vector (after first paragraph)' );
@@ -54,9 +54,9 @@
 			$locationMinerva = template.render(),
 			$locationMinervaTablet = template.render();
 
-		qSurveys._insertPanel( $locationVector, this.getPanel() );
-		qSurveys._insertPanel( $locationMinerva, this.getPanel(), true );
-		qSurveys._insertPanel( $locationMinervaTablet, this.getPanel() );
+		qSurveys.insertPanel( $locationVector, this.getPanel() );
+		qSurveys.insertPanel( $locationMinerva, this.getPanel(), true );
+		qSurveys.insertPanel( $locationMinervaTablet, this.getPanel() );
 
 		assert.equal( $locationVector.find( '.test-panel' ).length, 1,
 			'Check only one panel got added on Vector' );
@@ -134,9 +134,9 @@
 			$locationMinerva = template.render(),
 			$locationMinervaTablet = template.render();
 
-		qSurveys._insertPanel( $locationVector, this.getPanel() );
-		qSurveys._insertPanel( $locationMinerva, this.getPanel(), true );
-		qSurveys._insertPanel( $locationMinervaTablet, this.getPanel() );
+		qSurveys.insertPanel( $locationVector, this.getPanel() );
+		qSurveys.insertPanel( $locationMinerva, this.getPanel(), true );
+		qSurveys.insertPanel( $locationMinervaTablet, this.getPanel() );
 
 		assert.ok( this.isPanelElement( $locationMinerva.find( '#firsth2' ).prev() ),
 			'Check it is inserted in correct place on mobile (before first heading)' );

@@ -395,9 +395,13 @@
 	}
 
 	mw.extQuickSurveys = {
-		isInAudience: isInAudience,
-		surveyMatchesPlatform: surveyMatchesPlatform,
-		_insertPanel: insertPanel,
 		showSurvey: showSurvey
 	};
+
+	// Is this a test environment?
+	if ( window.QUnit ) {
+		mw.extQuickSurveys.isInAudience = isInAudience;
+		mw.extQuickSurveys.surveyMatchesPlatform = surveyMatchesPlatform;
+		mw.extQuickSurveys.insertPanel = insertPanel;
+	}
 }() );
