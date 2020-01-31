@@ -8,11 +8,5 @@
 		return;
 	}
 
-	// TODO: Prior to I924feb06, the main page would have the .init module added to it's output.
-	// Remove this one week after I924feb06 is deployed (2019/01/23).
-	if ( mw.config.get( 'wgIsMainPage' ) ) {
-		return;
-	}
-
 	mw.extQuickSurveys.showSurvey( mw.util.getParamValue( 'quicksurvey' ) );
 }() );
