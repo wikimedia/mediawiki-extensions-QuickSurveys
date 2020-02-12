@@ -26,35 +26,62 @@
 	var survey,
 		availableSurveys = [],
 		$window = $( window ),
-		hasOwn = Object.hasOwnProperty,
-		surveyImpressionLogger;
+		hasOwn = Object.hasOwnProperty;
 
 	/**
 	 * Log impression when a survey is seen by the user
 	 *
-	 * @param {jQuery.Object} $el
 	 * @param {Object} config - survey config data
 	 * @ignore
 	 */
-	function logSurveyImpression( $el, config ) {
-		var event;
+	function logSurveyImpression( config ) {
+		var event = {
+			surveySessionToken: config.surveySessionToken,
+			pageviewToken: config.pageviewToken,
+			surveyCodeName: config.survey.name,
+			eventName: 'impression'
+		};
 
-		if ( mw.viewport.isElementInViewport( $el.get( 0 ) ) ) {
-			$window.off( 'scroll.quickSurveys', surveyImpressionLogger );
-
-			event = {
-				surveySessionToken: config.surveySessionToken,
-				pageviewToken: config.pageviewToken,
-				surveyCodeName: config.survey.name,
-				eventName: 'impression'
-			};
-
-			if ( window.performance && performance.now ) {
-				event.performanceNow = Math.round( performance.now() );
-			}
-
-			mw.eventLog.logEvent( 'QuickSurveyInitiation', event );
+		if ( window.performance && performance.now ) {
+			event.performanceNow = Math.round( performance.now() );
 		}
+
+		mw.eventLog.logEvent( 'QuickSurveyInitiation', event );
+	}
+
+	/**
+	 * Get a promise that resolves when half of the element has intersected with the device
+	 * viewport.
+	 *
+	 * Note well that a promise can only resolve once.
+	 *
+	 * @param {jQuery} $el The element
+	 * @return {jQuery.Promise}
+	 */
+	function getSeenObserver( $el ) {
+		var el = $el.get( 0 ),
+			result = $.Deferred(),
+			callback;
+
+		// Is the element visible right now?
+		if ( mw.viewport.isElementInViewport( el ) ) {
+			result.resolve();
+		} else {
+			callback = mw.util.debounce(
+				250,
+				function () {
+					if ( mw.viewport.isElementInViewport( el ) ) {
+						$window.off( 'scroll.seenObserver', callback );
+
+						result.resolve();
+					}
+				}
+			);
+
+			$window.on( 'scroll.seenObserver', callback );
+		}
+
+		return result.promise();
 	}
 
 	/**
@@ -384,12 +411,11 @@
 				} );
 				$panel.replaceWith( panel.$element );
 
-				surveyImpressionLogger = function () {
-					logSurveyImpression( panel.$element, options );
-				};
-				$window.on( 'scroll.quickSurveys', mw.util.debounce( 250, surveyImpressionLogger ) );
-				// maybe the survey is already visible?
-				surveyImpressionLogger();
+				getSeenObserver( panel.$element )
+					.then( function () {
+						logSurveyImpression( options );
+					} );
+
 			} );
 		}
 	}
