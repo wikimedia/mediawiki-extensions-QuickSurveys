@@ -31,8 +31,8 @@ class SurveyFactory {
 	 * </ul>
 	 *
 	 * @param array $spec
-	 * @throws InvalidArgumentException If the configuration is invalid
 	 * @return Survey
+	 * @throws InvalidArgumentException If the configuration is invalid
 	 */
 	public static function factory( array $spec ) {
 		$name = $spec['name'];
