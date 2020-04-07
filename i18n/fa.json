@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Reza1615",
-			"Ladsgroup",
 			"Arian Ar",
-			"MohammadtheEditor"
+			"Ladsgroup",
+			"MohammadtheEditor",
+			"Reza1615"
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-question": "آیا متن باید بزرگتر باشد؟",

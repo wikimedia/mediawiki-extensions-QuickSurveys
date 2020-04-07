@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Wladek92",
-			"Macofe",
 			"Gomoko",
-			"Thibaut120094"
+			"Macofe",
+			"Thibaut120094",
+			"Wladek92"
 		]
 	},
 	"quicksurveys-desc": "Affiche les enquêtes configurées",

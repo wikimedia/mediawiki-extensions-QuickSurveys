@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Statix64",
-			"Macofe",
 			"Beta16",
-			"Nemo bis"
+			"Macofe",
+			"Nemo bis",
+			"Statix64"
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-question": "Il testo dovrebbe essere più grande?",

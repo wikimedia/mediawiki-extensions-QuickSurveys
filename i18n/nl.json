@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"SPQRobin",
-			"Mainframe98",
 			"Effeietsanders",
-			"Romaine"
+			"Mainframe98",
+			"Romaine",
+			"SPQRobin"
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Ja",
