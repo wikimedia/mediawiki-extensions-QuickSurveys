@@ -73,14 +73,18 @@
 			"class": "QuickSurveys\\ResourceLoader\\InitModule"
 		}
 	},
-	"EventLoggingSchemas": {
-		"QuickSurveysResponses": 18397510,
-		"QuickSurveyInitiation": 18397507
+	"attributes": {
+		"EventLogging":{
+			"Schemas":{
+				"QuickSurveysResponses": 18397510,
+				"QuickSurveyInitiation": 18397507
+			}
+		}
 	},
 	"AutoloadNamespaces": {
 		"QuickSurveys\\": "includes/"
 	},
-	"manifest_version": 1,
+	"manifest_version": 2,
 	"Hooks": {
 		"ResourceLoaderTestModules": [
 			"QuickSurveys\\Hooks::onResourceLoaderTestModules"
@@ -96,60 +100,72 @@
 		]
 	},
 	"config": {
-		"QuickSurveysConfig": [
-			{
-				"@name": "survey name",
-				"name": "internal example survey",
-				"@type": "internal or external link survey",
-				"type": "internal",
-				"@question": "survey question message key",
-				"question": "ext-quicksurveys-example-internal-survey-question",
-				"@description": "The message key of the description of the survey. Displayed immediately below the survey question.",
-				"description": "ext-quicksurveys-example-internal-survey-description",
-				"@answers": "possible answer message keys for positive, neutral, and negative",
-				"answers": [
-					"ext-quicksurveys-example-internal-survey-answer-positive",
-					"ext-quicksurveys-example-internal-survey-answer-neutral",
-					"ext-quicksurveys-example-internal-survey-answer-negative"
-				],
-				"@freeformTextLabel": "label for the optional free form text",
-				"freeformTextLabel": "ext-quicksurveys-example-internal-survey-freeform-text-label",
-				"@enabled": "whether the survey is enabled",
-				"enabled": false,
-				"@coverage": "percentage of users that will see the survey",
-				"coverage": 0.5,
-				"@platforms": "for each platform (desktop, mobile), which version of it is targeted (stable, beta)",
-				"platforms": {
-					"desktop": ["stable"],
-					"mobile": ["stable", "beta"]
+		"QuickSurveysConfig": {
+			"value": [
+				{
+					"@name": "survey name",
+					"name": "internal example survey",
+					"@type": "internal or external link survey",
+					"type": "internal",
+					"@question": "survey question message key",
+					"question": "ext-quicksurveys-example-internal-survey-question",
+					"@description": "The message key of the description of the survey. Displayed immediately below the survey question.",
+					"description": "ext-quicksurveys-example-internal-survey-description",
+					"@answers": "possible answer message keys for positive, neutral, and negative",
+					"answers": [
+						"ext-quicksurveys-example-internal-survey-answer-positive",
+						"ext-quicksurveys-example-internal-survey-answer-neutral",
+						"ext-quicksurveys-example-internal-survey-answer-negative"
+					],
+					"@freeformTextLabel": "label for the optional free form text",
+					"freeformTextLabel": "ext-quicksurveys-example-internal-survey-freeform-text-label",
+					"@enabled": "whether the survey is enabled",
+					"enabled": false,
+					"@coverage": "percentage of users that will see the survey",
+					"coverage": 0.5,
+					"@platforms": "for each platform (desktop, mobile), which version of it is targeted (stable, beta)",
+					"platforms": {
+						"desktop": [
+							"stable"
+						],
+						"mobile": [
+							"stable",
+							"beta"
+						]
+					}
+				},
+				{
+					"@name": "survey name",
+					"name": "external example survey",
+					"@type": "internal or external link survey",
+					"type": "external",
+					"@question": "survey question message key",
+					"question": "ext-quicksurveys-example-external-survey-question",
+					"@description": "the i18n key of the description of the survey",
+					"description": "ext-quicksurveys-example-external-survey-description",
+					"@link": "external link to the survey",
+					"link": "ext-quicksurveys-example-external-survey-link",
+					"@instanceTokenParameterName": "parameter to add to link",
+					"instanceTokenParameterName": "parameterName",
+					"@privacyPolicy": "The i18n key of the privacy policy text.",
+					"privacyPolicy": "ext-quicksurveys-example-external-survey-privacy-policy",
+					"@enabled": "whether the survey is enabled",
+					"enabled": false,
+					"@coverage": "percentage of users that will see the survey",
+					"coverage": 0.5,
+					"@platforms": "for each platform (desktop, mobile), which version of it is targeted (stable, beta)",
+					"platforms": {
+						"desktop": [
+							"stable"
+						],
+						"mobile": [
+							"stable",
+							"beta"
+						]
+					}
 				}
-			},
-			{
-				"@name": "survey name",
-				"name": "external example survey",
-				"@type": "internal or external link survey",
-				"type": "external",
-				"@question": "survey question message key",
-				"question": "ext-quicksurveys-example-external-survey-question",
-				"@description": "the i18n key of the description of the survey",
-				"description": "ext-quicksurveys-example-external-survey-description",
-				"@link": "external link to the survey",
-				"link": "ext-quicksurveys-example-external-survey-link",
-				"@instanceTokenParameterName": "parameter to add to link",
-				"instanceTokenParameterName": "parameterName",
-				"@privacyPolicy": "The i18n key of the privacy policy text.",
-				"privacyPolicy": "ext-quicksurveys-example-external-survey-privacy-policy",
-				"@enabled": "whether the survey is enabled",
-				"enabled": false,
-				"@coverage": "percentage of users that will see the survey",
-				"coverage": 0.5,
-				"@platforms": "for each platform (desktop, mobile), which version of it is targeted (stable, beta)",
-				"platforms": {
-					"desktop": ["stable"],
-					"mobile": ["stable", "beta"]
-				}
-			}
-		]
+			]
+		}
 	},
 	"ServiceWiringFiles": [
 		"includes/ServiceWiring.php"
