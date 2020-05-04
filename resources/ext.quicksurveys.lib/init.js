@@ -5,6 +5,8 @@
 		/1|yes/.test( navigator.doNotTrack ) || // Support: Firefox < 32 (yes/no)
 		window.doNotTrack === '1' // Support: IE 11, Safari 7.1.3+ (window.doNotTrack)
 	) {
+		console.log( 'QuickSurveys are disabled because user has enabled Do Not Track.' );
+
 		return;
 	}
 
