@@ -2,7 +2,7 @@
 	var qSurveys = mw.extQuickSurveys;
 
 	QUnit.module( 'ext.quicksurveys.lib', {
-		setup: function () {
+		beforeEach: function () {
 			this.getPanel = function () {
 				return $( '<div class="test-panel"></div>' );
 			};
@@ -58,11 +58,11 @@
 		qSurveys.insertPanel( $locationMinerva, this.getPanel(), true );
 		qSurveys.insertPanel( $locationMinervaTablet, this.getPanel() );
 
-		assert.equal( $locationVector.find( '.test-panel' ).length, 1,
+		assert.strictEqual( $locationVector.find( '.test-panel' ).length, 1,
 			'Check only one panel got added on Vector' );
-		assert.equal( $locationMinerva.find( '.test-panel' ).length, 1,
+		assert.strictEqual( $locationMinerva.find( '.test-panel' ).length, 1,
 			'Check only one panel got added on mobile' );
-		assert.equal( $locationMinervaTablet.find( '.test-panel' ).length, 1,
+		assert.strictEqual( $locationMinervaTablet.find( '.test-panel' ).length, 1,
 			'Check only one panel got added on tablet' );
 		assert.ok( this.isPanelElement( $locationVector.find( '#firstp' ).next() ),
 			'Check it is inserted in correct place on Vector (after first paragraph)' );
@@ -121,11 +121,10 @@
 			]
 		];
 		testCases.forEach( function ( test ) {
-			assert.ok( qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, undefined ) === test[ 1 ] );
-			assert.ok( qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, 'stable' ) === test[ 2 ] );
-			assert.ok( qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, 'beta' ) === test[ 3 ] );
+			assert.strictEqual( qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, undefined ), test[ 1 ] );
+			assert.strictEqual( qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, 'stable' ), test[ 2 ] );
+			assert.strictEqual( qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, 'beta' ), test[ 3 ] );
 		} );
-		assert.expect( testCases.length * 3 );
 	} );
 
 	QUnit.test( 'showSurvey: Placement (plain)', function ( assert ) {
@@ -306,8 +305,9 @@
 				'anon only: anon should see the survey'
 			]
 		].forEach( function ( test ) {
-			assert.ok(
-				qSurveys.isInAudience.apply( qSurveys, test.slice( 0, test.length - 2 ) ) === test[ test.length - 2 ],
+			assert.strictEqual(
+				qSurveys.isInAudience.apply( qSurveys, test.slice( 0, test.length - 2 ) ),
+				test[ test.length - 2 ],
 				test[ test.length - 1 ]
 			);
 		} );

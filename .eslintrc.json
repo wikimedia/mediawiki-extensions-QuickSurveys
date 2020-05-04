@@ -1,13 +1,11 @@
 {
 	"root": true,
-	"extends": "wikimedia",
-	"env": {
-		"browser": true,
-		"qunit": true
-	},
+	"extends": [
+		"wikimedia/client",
+		"wikimedia/jquery",
+		"wikimedia/mediawiki"
+	],
 	"globals": {
-		"mw": false,
-		"$": false,
 		"OO": false
 	}
 }

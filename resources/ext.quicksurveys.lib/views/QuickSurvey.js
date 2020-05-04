@@ -20,6 +20,7 @@
 		 * @property {Object}
 		 */
 		templatePartials: {
+			// eslint-disable-next-line no-jquery/no-parse-html-literal
 			initialPanel: $(
 				'<div>' +
 					'<strong data-question></strong>' +
@@ -28,6 +29,7 @@
 					'<div class="survey-footer" data-footer></div>' +
 				'</div>'
 			),
+			// eslint-disable-next-line no-jquery/no-parse-html-literal
 			finalPanel: $(
 				'<div>' +
 					'<strong data-finalHeading></strong>' +
@@ -67,6 +69,7 @@
 			$.extend( true, this.config, this.defaults );
 
 			if ( config.survey.privacyPolicy ) {
+				// eslint-disable-next-line mediawiki/msg-doc
 				this.config.templateData.footer = mw.message( config.survey.privacyPolicy ).parse();
 			}
 
@@ -139,6 +142,7 @@
 
 			answerButtons = answers.map( function ( answer ) {
 				return new OO.ui.ButtonOptionWidget( {
+					// eslint-disable-next-line mediawiki/msg-doc
 					label: mw.msg( answer ),
 					data: {
 						answer: answer
@@ -153,6 +157,7 @@
 
 			if ( freeformTextLabel ) {
 				freeformInput = new OO.ui.MultilineTextInputWidget( {
+					// eslint-disable-next-line mediawiki/msg-doc
 					placeholder: mw.msg( freeformTextLabel ),
 					multiline: true,
 					autosize: true,
@@ -284,13 +289,14 @@
 		 */
 		onClickSubmitButton: function ( buttonSelect, freeformInput ) {
 			var selectedButton = buttonSelect.findSelectedItem(),
-				freeformInputValue = $.trim( freeformInput.getValue() );
+				freeformInputValue = freeformInput.getValue().trim();
 
 			if ( selectedButton ) {
 				this.submit( selectedButton.data.answer );
 			} else if ( freeformInputValue ) {
 				this.submit( freeformInputValue );
 			} else {
+				// eslint-disable-next-line no-alert
 				alert( mw.msg( 'ext-quicksurveys-internal-freeform-survey-no-answer-alert' ) );
 			}
 		},

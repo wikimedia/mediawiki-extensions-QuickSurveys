@@ -21,7 +21,7 @@
 
 		buttonLabels = survey.initialPanel.$element.find( '.survey-button-container span.oo-ui-labelElement-label' ).text();
 
-		assert.equal( buttonLabels,
+		assert.strictEqual( buttonLabels,
 			'⧼ext-quicksurveys-example-internal-survey-answer-positive⧽' +
 			'⧼ext-quicksurveys-example-internal-survey-answer-neutral⧽' +
 			'⧼ext-quicksurveys-example-internal-survey-answer-negative⧽' );
@@ -33,7 +33,7 @@
 
 		buttonLabels = survey.initialPanel.$element.find( '.survey-button-container span.oo-ui-labelElement-label' ).text();
 
-		assert.equal( buttonLabels,
+		assert.strictEqual( buttonLabels,
 			'⧼ext-quicksurveys-example-internal-survey-answer-neutral⧽' +
 			'⧼ext-quicksurveys-example-internal-survey-answer-negative⧽' +
 			'⧼ext-quicksurveys-example-internal-survey-answer-positive⧽' );

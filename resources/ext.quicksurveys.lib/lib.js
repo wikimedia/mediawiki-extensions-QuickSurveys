@@ -145,6 +145,7 @@
 					// an article with no headings and only an empty
 					// lead section. We only apply to the first one but
 					// technically there should only ever be one.
+					// eslint-disable-next-line no-jquery/no-global-selector
 					$place = $( '> div' ).eq( 0 );
 				}
 				$panel.insertAfter( $place );
@@ -353,7 +354,8 @@
 	 */
 	function showSurvey( forcedSurvey ) {
 		var enabledSurveys = mw.config.get( 'wgEnabledQuickSurveys' ),
-			$panel = $( '<div class="ext-qs-loader-bar mw-ajax-loader"></div>' ),
+			$panel = $( '<div>' ).addClass( 'ext-qs-loader-bar mw-ajax-loader' ),
+			// eslint-disable-next-line no-jquery/no-global-selector
 			$bodyContent = $( '#bodyContent' ),
 			isMobileLayout = window.innerWidth <= 768,
 			enabledSurvey;
@@ -393,7 +395,9 @@
 					options = {
 						survey: survey,
 						templateData: {
+							// eslint-disable-next-line mediawiki/msg-doc
 							question: mw.msg( survey.question ),
+							// eslint-disable-next-line mediawiki/msg-doc
 							description: survey.description ? mw.msg( survey.description ) : ''
 						},
 						surveySessionToken: mw.user.sessionId() + '-quicksurveys',
