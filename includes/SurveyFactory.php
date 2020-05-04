@@ -150,7 +150,7 @@ class SurveyFactory {
 			!empty( $spec['privacyPolicy'] ) ? $spec['privacyPolicy'] : null,
 			$audience,
 			$spec['answers'],
-			!empty( $spec['shuffleAnswersDisplay'] ) ? $spec['shuffleAnswersDisplay'] : true,
+			$spec['shuffleAnswersDisplay'] ?? true,
 			!empty( $spec['freeformTextLabel'] ) ? $spec['freeformTextLabel'] : null
 		);
 	}

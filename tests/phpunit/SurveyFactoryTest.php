@@ -202,6 +202,56 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals( $actual, $expected );
 	}
 
+	public function testItShouldFactoryAnInternalSurveyWithShuffleAnswersDisplayDisabled() {
+		$expected = new InternalSurvey(
+			'test',
+			'Do you like writing unit tests?',
+			'A survey for (potential) developers of the QuickSurveys extension.',
+			true,
+			1,
+			[
+				'desktop' => [
+					'stable',
+				],
+				'mobile' => [
+					'stable',
+					'beta',
+				],
+			],
+			'',
+			new SurveyAudience( [] ),
+			[
+				'ext-quicksurveys-test-internal-survey-positive',
+			],
+			false,
+			null
+		);
+
+		$actual = SurveyFactory::factory( [
+			'name' => 'test',
+			'type' => 'internal',
+			'question' => 'Do you like writing unit tests?',
+			'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+			'enabled' => true,
+			'coverage' => 1,
+			'platforms' => [
+				'desktop' => [
+					'stable',
+				],
+				'mobile' => [
+					'stable',
+					'beta',
+				],
+			],
+			'answers' => [
+				'ext-quicksurveys-test-internal-survey-positive',
+			],
+			'shuffleAnswersDisplay' => false,
+		] );
+
+		$this->assertEquals( $actual, $expected );
+	}
+
 	public function testItShouldThrowIfTheTypeIsNotRecognized() {
 		$this->expectException( InvalidArgumentException::class );
 		$this->expectExceptionMessage( 'The "test" survey isn\'t marked as internal or external.' );
