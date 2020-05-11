@@ -73,6 +73,27 @@
 			"class": "QuickSurveys\\ResourceLoader\\InitModule"
 		}
 	},
+	"QUnitTestModule": {
+		"localBasePath": "tests/qunit",
+		"remoteExtPath": "QuickSurveys/tests/qunit",
+		"templates": {
+			"vector-1.html": "ext.quicksurveys.lib/templates/vector-1.html",
+			"vector-2.html": "ext.quicksurveys.lib/templates/vector-2.html",
+			"vector-3.html": "ext.quicksurveys.lib/templates/vector-3.html",
+			"vector-4.html": "ext.quicksurveys.lib/templates/vector-4.html",
+			"minerva-1.html": "ext.quicksurveys.lib/templates/minerva-1.html",
+			"minerva-2.html": "ext.quicksurveys.lib/templates/minerva-2.html",
+			"minerva-3.html": "ext.quicksurveys.lib/templates/minerva-3.html",
+			"minerva-4.html": "ext.quicksurveys.lib/templates/minerva-4.html"
+		},
+		"scripts": [
+			"ext.quicksurveys.lib/lib.test.js",
+			"ext.quicksurveys.lib/views.test.js"
+		],
+		"dependencies": [
+			"ext.quicksurveys.lib"
+		]
+	},
 	"attributes": {
 		"EventLogging":{
 			"Schemas":{
@@ -86,9 +107,6 @@
 	},
 	"manifest_version": 2,
 	"Hooks": {
-		"ResourceLoaderTestModules": [
-			"QuickSurveys\\Hooks::onResourceLoaderTestModules"
-		],
 		"ResourceLoaderGetConfigVars": [
 			"QuickSurveys\\Hooks::onResourceLoaderGetConfigVars"
 		],

@@ -13,8 +13,8 @@
 	} );
 
 	QUnit.test( 'showSurvey: Placement (infobox)', function ( assert ) {
-		var minervaTemplate = mw.template.get( 'ext.quicksurveys.lib.tests', 'minerva-1.html' ),
-			$locationVector = mw.template.get( 'ext.quicksurveys.lib.tests', 'vector-1.html' ).render(),
+		var minervaTemplate = mw.template.get( 'test.QuickSurveys', 'minerva-1.html' ),
+			$locationVector = mw.template.get( 'test.QuickSurveys', 'vector-1.html' ).render(),
 			$locationMinerva = minervaTemplate.render(),
 			$locationMinervaTablet = minervaTemplate.render();
 
@@ -31,8 +31,8 @@
 	} );
 
 	QUnit.test( 'showSurvey: Placement (image)', function ( assert ) {
-		var template = mw.template.get( 'ext.quicksurveys.lib.tests', 'minerva-2.html' ),
-			$locationVector = mw.template.get( 'ext.quicksurveys.lib.tests', 'vector-2.html' ).render(),
+		var template = mw.template.get( 'test.QuickSurveys', 'minerva-2.html' ),
+			$locationVector = mw.template.get( 'test.QuickSurveys', 'vector-2.html' ).render(),
 			$locationMinerva = template.render(),
 			$locationMinervaTablet = template.render();
 
@@ -49,8 +49,8 @@
 	} );
 
 	QUnit.test( 'showSurvey: Placement (no headings)', function ( assert ) {
-		var template = mw.template.get( 'ext.quicksurveys.lib.tests', 'minerva-3.html' ),
-			$locationVector = mw.template.get( 'ext.quicksurveys.lib.tests', 'vector-3.html' ).render(),
+		var template = mw.template.get( 'test.QuickSurveys', 'minerva-3.html' ),
+			$locationVector = mw.template.get( 'test.QuickSurveys', 'vector-3.html' ).render(),
 			$locationMinerva = template.render(),
 			$locationMinervaTablet = template.render();
 
@@ -128,8 +128,8 @@
 	} );
 
 	QUnit.test( 'showSurvey: Placement (plain)', function ( assert ) {
-		var template = mw.template.get( 'ext.quicksurveys.lib.tests', 'minerva-4.html' ),
-			$locationVector = mw.template.get( 'ext.quicksurveys.lib.tests', 'vector-4.html' ).render(),
+		var template = mw.template.get( 'test.QuickSurveys', 'minerva-4.html' ),
+			$locationVector = mw.template.get( 'test.QuickSurveys', 'vector-4.html' ).render(),
 			$locationMinerva = template.render(),
 			$locationMinervaTablet = template.render();
 
