@@ -82,8 +82,6 @@ abstract class Survey {
 		$this->audience = $audience;
 	}
 
-	// --------
-
 	/**
 	 * Returns the name of the ResourceLoader module
 	 *
@@ -112,8 +110,6 @@ abstract class Survey {
 		}
 		return $messages;
 	}
-
-	// --------
 
 	/**
 	 * Returns the JSON-encodable, minimal representation of the survey
