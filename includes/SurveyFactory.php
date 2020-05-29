@@ -5,7 +5,7 @@ namespace QuickSurveys;
 use InvalidArgumentException;
 
 class SurveyFactory {
-	private static $VALID_PLATFORM_MODES = [
+	private const VALID_PLATFORM_MODES = [
 		'desktop' => [
 			'stable',
 		],
@@ -71,8 +71,8 @@ class SurveyFactory {
 		return $survey;
 	}
 
-	private static function validatePlatforms( $spec ) {
-		foreach ( self::$VALID_PLATFORM_MODES as $platform => $validModes ) {
+	private static function validatePlatforms( array $spec ) {
+		foreach ( self::VALID_PLATFORM_MODES as $platform => $validModes ) {
 			if ( !isset( $spec['platforms'][$platform] ) ) {
 				continue;
 			}
