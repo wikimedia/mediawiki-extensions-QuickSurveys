@@ -4,11 +4,7 @@ namespace QuickSurveys;
 
 class InternalSurvey extends Survey {
 	/**
-	 * @var string The name of the internal survey.
-	 */
-	private $name;
-	/**
-	 * @var array The set of i18n message keys of the internal survey
+	 * @var string[] The set of i18n message keys of the internal survey
 	 *  answers.
 	 */
 	private $answers;
@@ -58,7 +54,6 @@ class InternalSurvey extends Survey {
 
 	public function toArray() {
 		return parent::toArray() + [
-			'name' => $this->name,
 			'type' => 'internal',
 			'answers' => $this->answers,
 			'shuffleAnswersDisplay' => $this->shuffleAnswersDisplay,
