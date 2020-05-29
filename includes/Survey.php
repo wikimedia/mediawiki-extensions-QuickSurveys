@@ -19,7 +19,7 @@ abstract class Survey {
 	private $audience;
 
 	/**
-	 * @var string A user-friendly description of, or introduction to, the question
+	 * @var string|null A user-friendly description of, or introduction to, the question
 	 */
 	private $description;
 
@@ -53,12 +53,12 @@ abstract class Survey {
 	 * );
 	 * </pre></code>
 	 *
-	 * @var array The platforms that the survey can be displayed on
+	 * @var array[] The platforms that the survey can be displayed on
 	 */
 	private $platforms;
 
 	/**
-	 * @var string The description of the privacy policy of the website that hosts the survey.
+	 * @var string|null The description of the privacy policy of the website that hosts the survey.
 	 */
 	private $privacyPolicy;
 
