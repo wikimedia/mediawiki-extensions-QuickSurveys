@@ -29,7 +29,7 @@ class ExternalSurvey extends Survey {
 		$description,
 		$isEnabled,
 		$coverage,
-		$platforms,
+		array $platforms,
 		$privacyPolicy,
 		SurveyAudience $audience,
 		$link,
@@ -51,11 +51,14 @@ class ExternalSurvey extends Survey {
 		$this->instanceTokenParameterName = $instanceTokenParameterName;
 	}
 
-	public function getMessages() {
+	public function getMessages() : array {
 		return array_merge( parent::getMessages(), [ $this->link ] );
 	}
 
-	private function getIsInsecure() {
+	/**
+	 * @return bool True if the link does *not* use the https protocol
+	 */
+	private function getIsInsecure() : bool {
 		if ( $this->isInsecure === null ) {
 			$url = wfMessage( $this->link )->inContentLanguage()->plain();
 			$this->isInsecure = strpos( $url, 'http:' ) === 0;
@@ -63,7 +66,7 @@ class ExternalSurvey extends Survey {
 		return $this->isInsecure;
 	}
 
-	public function toArray() {
+	public function toArray() : array {
 		return parent::toArray() + [
 			'name' => $this->name,
 			'type' => 'external',

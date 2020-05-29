@@ -34,7 +34,7 @@ class SurveyFactory {
 	 * @return Survey
 	 * @throws InvalidArgumentException If the configuration is invalid
 	 */
-	public static function factory( array $spec ) {
+	public static function factory( array $spec ) : Survey {
 		$name = $spec['name'];
 
 		if ( !isset( $spec['question'] ) ) {
@@ -99,7 +99,7 @@ class SurveyFactory {
 		}
 	}
 
-	private static function factoryExternal( $spec ) {
+	private static function factoryExternal( $spec ) : ExternalSurvey {
 		$name = $spec['name'];
 
 		if ( !isset( $spec['link'] ) ) {
@@ -130,7 +130,7 @@ class SurveyFactory {
 		);
 	}
 
-	private static function factoryInternal( $spec ) {
+	private static function factoryInternal( $spec ) : InternalSurvey {
 		$audience = new SurveyAudience( $spec['audience'] ?? [] );
 		$name = $spec['name'];
 

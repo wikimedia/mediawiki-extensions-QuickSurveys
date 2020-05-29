@@ -30,7 +30,7 @@ class SurveyAudience {
 	 * 	that match the available keys defined in $validKeys
 	 * @throws ParameterTypeException when a key has the wrong type
 	 */
-	public function __construct( $audienceDefinition ) {
+	public function __construct( array $audienceDefinition ) {
 		$audienceData = [];
 		foreach ( $this->validKeys as $name => $type ) {
 			if ( array_key_exists( $name, $audienceDefinition ) ) {
@@ -47,7 +47,7 @@ class SurveyAudience {
 	 *
 	 * @return array
 	 */
-	public function toArray() {
+	public function toArray() : array {
 		return $this->audience;
 	}
 }
