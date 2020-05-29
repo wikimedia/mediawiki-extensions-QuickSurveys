@@ -25,7 +25,6 @@ class Hooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderGetConfigVars
 	 *
 	 * @param array &$vars
-	 * @return bool
 	 */
 	public static function onResourceLoaderGetConfigVars( &$vars ) {
 		$surveys = MediaWikiServices::getInstance()->getService( 'QuickSurveys.EnabledSurveys' );
@@ -33,8 +32,6 @@ class Hooks {
 		$vars['wgEnabledQuickSurveys'] = array_map( function ( Survey $survey ) {
 			return $survey->toArray();
 		}, $surveys );
-
-		return true;
 	}
 
 	/**
@@ -42,10 +39,9 @@ class Hooks {
 	 *
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
 	 *
-	 * @param OutputPage &$out
-	 * @return bool
+	 * @param OutputPage $out
 	 */
-	public static function onBeforePageDisplay( OutputPage &$out ) {
+	public static function onBeforePageDisplay( OutputPage $out ) {
 		$context = $out->getContext();
 		$title = $context->getTitle();
 
@@ -64,7 +60,6 @@ class Hooks {
 		) {
 			$out->addModules( 'ext.quicksurveys.init' );
 		}
-		return true;
 	}
 
 	/**
@@ -74,10 +69,9 @@ class Hooks {
 	 *
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderRegisterModules
 	 *
-	 * @param ResourceLoader &$resourceLoader The ResourceLoader object
-	 * @return bool Always true
+	 * @param ResourceLoader $resourceLoader
 	 */
-	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
+	public static function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ) {
 		$surveys = MediaWikiServices::getInstance()->getService( 'QuickSurveys.EnabledSurveys' );
 
 		foreach ( $surveys as $survey ) {
@@ -91,7 +85,5 @@ class Hooks {
 
 			$resourceLoader->register( $module );
 		}
-
-		return true;
 	}
 }
