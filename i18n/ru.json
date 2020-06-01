@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Diman Russkov",
 			"Okras",
 			"Ole Yves",
 			"Stjn",
@@ -23,6 +24,8 @@
 	"ext-quicksurveys-survey-positive": "Да",
 	"ext-quicksurveys-survey-negative": "Нет",
 	"ext-quicksurveys-survey-neutral": "Затрудняюсь ответить",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Отправить",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Пожалуйста, выберите ответ или введите свой.",
 	"ext-quicksurveys-external-survey-yes-button": "Пройти опрос",
 	"ext-quicksurveys-external-survey-no-button": "Нет, спасибо"
 }
