@@ -3,6 +3,7 @@
 namespace QuickSurveys;
 
 use InvalidArgumentException;
+use Psr\Log\LoggerInterface;
 
 class SurveyFactory {
 	private const VALID_PLATFORM_MODES = [
@@ -31,21 +32,26 @@ class SurveyFactory {
 	 * </ul>
 	 *
 	 * @param array $spec
-	 * @return Survey
-	 * @throws InvalidArgumentException If the configuration is invalid
+	 * @param LoggerInterface $logger
+	 * @return Survey|null
 	 */
-	public static function factory( array $spec ) : Survey {
-		self::validateSpec( $spec );
+	public static function factory( array $spec, LoggerInterface $logger ) : ?Survey {
+		try {
+			self::validateSpec( $spec );
 
-		if ( !isset( $spec['enabled'] ) ) {
-			$spec['enabled'] = false;
+			if ( !isset( $spec['enabled'] ) ) {
+				$spec['enabled'] = false;
+			}
+
+			$survey = $spec['type'] === 'internal'
+				? self::factoryInternal( $spec )
+				: self::factoryExternal( $spec );
+
+			return $survey;
+		} catch ( InvalidArgumentException $ex ) {
+			$logger->error( "Bad survey configuration: " . $ex->getMessage(), [ 'exception' => $ex ] );
+			return null;
 		}
-
-		$survey = $spec['type'] === 'internal'
-			? self::factoryInternal( $spec )
-			: self::factoryExternal( $spec );
-
-		return $survey;
 	}
 
 	/**
