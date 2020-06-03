@@ -23,9 +23,9 @@ class InternalSurvey extends Survey {
 		$description,
 		$isEnabled,
 		$coverage,
-		$platforms,
+		array $platforms,
 		$privacyPolicy,
-		$audience,
+		SurveyAudience $audience,
 		array $answers,
 		$shuffleAnswersDisplay,
 		$freeformTextLabel
@@ -46,7 +46,7 @@ class InternalSurvey extends Survey {
 		$this->freeformTextLabel = $freeformTextLabel;
 	}
 
-	public function getMessages() {
+	public function getMessages() : array {
 		$messages = array_merge( parent::getMessages(), $this->answers );
 
 		if ( $this->freeformTextLabel ) {
@@ -56,7 +56,7 @@ class InternalSurvey extends Survey {
 		return $messages;
 	}
 
-	public function toArray() {
+	public function toArray() : array {
 		return parent::toArray() + [
 			'name' => $this->name,
 			'type' => 'internal',
