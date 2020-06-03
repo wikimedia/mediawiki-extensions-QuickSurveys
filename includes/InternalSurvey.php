@@ -13,8 +13,14 @@ class InternalSurvey extends Survey {
 	 */
 	private $answers;
 
+	/**
+	 * @var bool
+	 */
 	private $shuffleAnswersDisplay;
 
+	/**
+	 * @var string|null
+	 */
 	private $freeformTextLabel;
 
 	public function __construct(
