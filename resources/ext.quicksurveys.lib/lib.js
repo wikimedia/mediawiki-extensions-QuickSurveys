@@ -23,9 +23,7 @@
  * @property {number} [lon] of the user
  */
 ( function () {
-	var survey,
-		availableSurveys = [],
-		$window = $( window ),
+	var $window = $( window ),
 		hasOwn = Object.hasOwnProperty;
 
 	/**
@@ -347,6 +345,46 @@
 			survey.platforms[ platformKey ].indexOf( platformValue ) !== -1;
 	}
 
+	function insertSurvey( survey ) {
+		var $panel = $( '<div>' ).addClass( 'ext-qs-loader-bar mw-ajax-loader' ),
+			// eslint-disable-next-line no-jquery/no-global-selector
+			$bodyContent = $( '#bodyContent' ),
+			isMobileLayout = window.innerWidth <= 768;
+
+		insertPanel( $bodyContent, $panel, survey.embedSelector, isMobileLayout );
+		// survey.module contains i18n messages
+		mw.loader.using( [ survey.module ] ).done( function () {
+			var panel,
+				options = {
+					survey: survey,
+					templateData: {
+						// eslint-disable-next-line mediawiki/msg-doc
+						question: mw.msg( survey.question ),
+						// eslint-disable-next-line mediawiki/msg-doc
+						description: survey.description ? mw.msg( survey.description ) : ''
+					},
+					surveySessionToken: mw.user.sessionId() + '-quicksurveys',
+					pageviewToken: mw.user.getPageviewToken(),
+					isMobileLayout: isMobileLayout
+				};
+
+			if ( survey.type === 'internal' ) {
+				panel = new mw.extQuickSurveys.QuickSurvey( options );
+			} else {
+				panel = new mw.extQuickSurveys.ExternalSurvey( options );
+			}
+			panel.on( 'dismiss', function () {
+				mw.storage.set( getSurveyStorageKey( survey ), '~' );
+			} );
+			$panel.replaceWith( panel.$element );
+
+			getSeenObserver( panel.$element )
+				.then( function () {
+					logSurveyImpression( options );
+				} );
+		} );
+	}
+
 	/**
 	 * Check if a survey matches an element on the current page, or if it doesn't require a match.
 	 *
@@ -358,17 +396,15 @@
 	}
 
 	/**
-	 * Show survey
+	 * Choose and display a survey
 	 *
 	 * @param {string} forcedSurvey Survey to force display of, if any
 	 */
 	function showSurvey( forcedSurvey ) {
-		var enabledSurveys = mw.config.get( 'wgEnabledQuickSurveys' ),
-			$panel = $( '<div>' ).addClass( 'ext-qs-loader-bar mw-ajax-loader' ),
-			// eslint-disable-next-line no-jquery/no-global-selector
-			$bodyContent = $( '#bodyContent' ),
-			isMobileLayout = window.innerWidth <= 768,
-			enabledSurvey;
+		var availableSurveys = [],
+			enabledSurveys = mw.config.get( 'wgEnabledQuickSurveys' ),
+			enabledSurvey,
+			survey;
 
 		if ( forcedSurvey ) {
 			// Setting the quicksurvey param makes every enabled survey available
@@ -404,39 +440,7 @@
 		if ( availableSurveys.length ) {
 			// Get a random available survey
 			survey = availableSurveys[ Math.floor( Math.random() * availableSurveys.length ) ];
-			insertPanel( $bodyContent, $panel, survey.embedElementId, isMobileLayout );
-			// survey.module contains i18n messages
-			mw.loader.using( [ survey.module ] ).done( function () {
-				var panel,
-					options = {
-						survey: survey,
-						templateData: {
-							// eslint-disable-next-line mediawiki/msg-doc
-							question: mw.msg( survey.question ),
-							// eslint-disable-next-line mediawiki/msg-doc
-							description: survey.description ? mw.msg( survey.description ) : ''
-						},
-						surveySessionToken: mw.user.sessionId() + '-quicksurveys',
-						pageviewToken: mw.user.getPageviewToken(),
-						isMobileLayout: isMobileLayout
-					};
-
-				if ( survey.type === 'internal' ) {
-					panel = new mw.extQuickSurveys.QuickSurvey( options );
-				} else {
-					panel = new mw.extQuickSurveys.ExternalSurvey( options );
-				}
-				panel.on( 'dismiss', function () {
-					mw.storage.set( getSurveyStorageKey( survey ), '~' );
-				} );
-				$panel.replaceWith( panel.$element );
-
-				getSeenObserver( panel.$element )
-					.then( function () {
-						logSurveyImpression( options );
-					} );
-
-			} );
+			insertSurvey( survey );
 		}
 	}
 
