@@ -386,13 +386,13 @@
 	}
 
 	/**
-	 * Check if a survey matches an element on the current page, or if it doesn't require a match.
+	 * Check if a survey matches an element on the current page.
 	 *
-	 * @param {string|null} embedElementId Element to match for survey injection
+	 * @param {string} embedElementId Element to match for survey injection
 	 * @return {boolean}
 	 */
 	function isEmbeddedElementMatched( embedElementId ) {
-		return !embedElementId || $( '#' + embedElementId ).length > 0;
+		return $( '#' + embedElementId ).length > 0;
 	}
 
 	/**
@@ -401,7 +401,8 @@
 	 * @param {string} forcedSurvey Survey to force display of, if any
 	 */
 	function showSurvey( forcedSurvey ) {
-		var availableSurveys = [],
+		var embeddedSurveys = [],
+			randomizedSurveys = [],
 			enabledSurveys = mw.config.get( 'wgEnabledQuickSurveys' ),
 			enabledSurvey,
 			survey;
@@ -414,7 +415,7 @@
 				enabledSurveys
 			);
 			if ( enabledSurvey && isValidSurvey( enabledSurvey ) ) {
-				availableSurveys.push( enabledSurvey );
+				randomizedSurveys.push( enabledSurvey );
 			}
 		} else {
 			// Find which surveys are available to the user
@@ -430,16 +431,26 @@
 						window.Geo,
 						mw.config.get( 'wgArticleId' )
 					) &&
-					surveyMatchesPlatform( enabledSurvey, mw.config.get( 'wgMFMode' ) ) &&
-					isEmbeddedElementMatched( enabledSurvey.embedElementId )
+					surveyMatchesPlatform( enabledSurvey, mw.config.get( 'wgMFMode' ) )
 				) {
-					availableSurveys.push( enabledSurvey );
+					if ( enabledSurvey.embedElementId &&
+						isEmbeddedElementMatched( enabledSurvey.embedElementId )
+					) {
+						embeddedSurveys.push( enabledSurvey );
+					} else {
+						randomizedSurveys.push( enabledSurvey );
+					}
 				}
 			} );
 		}
-		if ( availableSurveys.length ) {
+		if ( embeddedSurveys.length ) {
+			// Inject all of the embedded surveys.
+			embeddedSurveys.forEach( function ( survey ) {
+				insertSurvey( survey );
+			} );
+		} else if ( randomizedSurveys.length ) {
 			// Get a random available survey
-			survey = availableSurveys[ Math.floor( Math.random() * availableSurveys.length ) ];
+			survey = randomizedSurveys[ Math.floor( Math.random() * randomizedSurveys.length ) ];
 			insertSurvey( survey );
 		}
 	}
