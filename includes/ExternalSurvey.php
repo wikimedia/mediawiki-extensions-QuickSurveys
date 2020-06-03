@@ -9,11 +9,6 @@ class ExternalSurvey extends Survey {
 	private $isInsecure = null;
 
 	/**
-	 * @var string The name of the external survey.
-	 */
-	private $name;
-
-	/**
 	 * @var string The key of the message containing the URL of the external survey.
 	 */
 	private $link;
@@ -46,7 +41,6 @@ class ExternalSurvey extends Survey {
 			$audience
 		);
 
-		$this->name = $name;
 		$this->link = $link;
 		$this->instanceTokenParameterName = $instanceTokenParameterName;
 	}
@@ -68,7 +62,6 @@ class ExternalSurvey extends Survey {
 
 	public function toArray() : array {
 		return parent::toArray() + [
-			'name' => $this->name,
 			'type' => 'external',
 			'link' => $this->link,
 			'instanceTokenParameterName' => $this->instanceTokenParameterName,
