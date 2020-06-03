@@ -8,9 +8,8 @@ use Wikimedia\Assert\ParameterTypeException;
 class SurveyAudience {
 	/**
 	 * a list of accepted keys and their required types
-	 * @var array
 	 */
-	private $validKeys = [
+	private const VALID_KEYS = [
 		'minEdits' => 'integer',
 		'maxEdits' => 'integer',
 		'countries' => 'array',
@@ -27,12 +26,12 @@ class SurveyAudience {
 
 	/**
 	 * @param array $audienceDefinition defining the audience with keys
-	 * 	that match the available keys defined in $validKeys
+	 * 	that match the available keys defined in VALID_KEYS
 	 * @throws ParameterTypeException when a key has the wrong type
 	 */
 	public function __construct( $audienceDefinition ) {
 		$audienceData = [];
-		foreach ( $this->validKeys as $name => $type ) {
+		foreach ( self::VALID_KEYS as $name => $type ) {
 			if ( array_key_exists( $name, $audienceDefinition ) ) {
 				Assert::parameterType( $type, $audienceDefinition[ $name ], $name );
 				// data is in the correct form so add.
