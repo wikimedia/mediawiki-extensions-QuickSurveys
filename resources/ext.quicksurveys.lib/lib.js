@@ -368,10 +368,14 @@
 					isMobileLayout: isMobileLayout
 				};
 
-			if ( survey.type === 'internal' ) {
-				panel = new mw.extQuickSurveys.QuickSurvey( options );
-			} else {
+			if ( survey.type === 'external' ) {
 				panel = new mw.extQuickSurveys.ExternalSurvey( options );
+			} else if ( survey.layout === 'single-answer' ) {
+				panel = new mw.extQuickSurveys.SingleAnswerSurvey( options );
+			} else if ( survey.layout === 'multiple-answer' ) {
+				panel = new mw.extQuickSurveys.MultipleAnswerSurvey( options );
+			} else {
+				return;
 			}
 			panel.on( 'dismiss', function () {
 				mw.storage.set( getSurveyStorageKey( survey ), '~' );
