@@ -148,6 +148,10 @@ class SurveyFactory {
 			);
 		}
 
+		if ( !isset( $spec['embedElementId'] ) ) {
+			$spec['embedElementId'] = null;
+		}
+
 		return new InternalSurvey(
 			$name,
 			$spec['question'],
@@ -159,7 +163,8 @@ class SurveyFactory {
 			$audience,
 			$spec['answers'],
 			$spec['shuffleAnswersDisplay'] ?? true,
-			!empty( $spec['freeformTextLabel'] ) ? $spec['freeformTextLabel'] : null
+			!empty( $spec['freeformTextLabel'] ) ? $spec['freeformTextLabel'] : null,
+			$spec['embedElementId']
 		);
 	}
 }

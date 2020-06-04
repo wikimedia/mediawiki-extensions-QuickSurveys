@@ -77,6 +77,7 @@
 		"localBasePath": "tests/qunit",
 		"remoteExtPath": "QuickSurveys/tests/qunit",
 		"templates": {
+			"embedded-1.html": "ext.quicksurveys.lib/templates/embedded-1.html",
 			"vector-1.html": "ext.quicksurveys.lib/templates/vector-1.html",
 			"vector-2.html": "ext.quicksurveys.lib/templates/vector-2.html",
 			"vector-3.html": "ext.quicksurveys.lib/templates/vector-3.html",

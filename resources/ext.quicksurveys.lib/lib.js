@@ -94,12 +94,15 @@
 	 *
 	 * @param {jQuery.Object} $bodyContent to add the panel
 	 * @param {jQuery.Object} $panel
+	 * @param {string|null} embedElementId Embedding location DOM element ID.
 	 * @param {boolean} isMobileLayout whether the screen is a mobile layout.
 	 */
-	function insertPanel( $bodyContent, $panel, isMobileLayout ) {
+	function insertPanel( $bodyContent, $panel, embedElementId, isMobileLayout ) {
 		var $place;
 
-		if ( isMobileLayout ) {
+		if ( embedElementId ) {
+			$place = $bodyContent.find( '#' + embedElementId );
+		} else if ( isMobileLayout ) {
 			// Find a paragraph in the first section to insert after
 			$place = $bodyContent.find( '> div > div' ).eq( 0 ).find( ' > p' ).eq( 0 );
 		}
@@ -340,6 +343,16 @@
 	}
 
 	/**
+	 * Check if a survey matches an element on the current page, or if it doesn't require a match.
+	 *
+	 * @param {string|null} embedElementId Element to match for survey injection
+	 * @return {boolean}
+	 */
+	function isEmbeddedElementMatched( embedElementId ) {
+		return !embedElementId || $( '#' + embedElementId ).length > 0;
+	}
+
+	/**
 	 * Show survey
 	 *
 	 * @param {string} forcedSurvey Survey to force display of, if any
@@ -371,7 +384,8 @@
 					isValidSurvey( enabledSurvey ) &&
 					isInAudience( enabledSurvey.audience, mw.user,
 						mw.config.get( 'wgUserEditCount' ), window.Geo ) &&
-					surveyMatchesPlatform( enabledSurvey, mw.config.get( 'wgMFMode' ) )
+					surveyMatchesPlatform( enabledSurvey, mw.config.get( 'wgMFMode' ) ) &&
+					isEmbeddedElementMatched( enabledSurvey.embedElementId )
 				) {
 					availableSurveys.push( enabledSurvey );
 				}
@@ -380,7 +394,7 @@
 		if ( availableSurveys.length ) {
 			// Get a random available survey
 			survey = availableSurveys[ Math.floor( Math.random() * availableSurveys.length ) ];
-			insertPanel( $bodyContent, $panel, isMobileLayout );
+			insertPanel( $bodyContent, $panel, survey.embedElementId, isMobileLayout );
 			// survey.module contains i18n messages
 			mw.loader.using( [ survey.module ] ).done( function () {
 				var panel,
