@@ -60,7 +60,25 @@ class SurveyAudienceTest extends \PHPUnit\Framework\TestCase {
 					'registrationStart' => '2019-12-31',
 				],
 				'a perfectly valid survey'
-			]
+			],
+			[
+				[
+					'pageIds' => [],
+				],
+				[
+					'pageIds' => [],
+				],
+				'empty page filter is allowed, but will never match'
+			],
+			[
+				[
+					'pageIds' => [ 123, 456 ],
+				],
+				[
+					'pageIds' => [ 123, 456 ],
+				],
+				'filter to match a couple of pages'
+			],
 		];
 	}
 

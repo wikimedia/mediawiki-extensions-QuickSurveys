@@ -155,7 +155,7 @@
 			'Check embedded survey is inserted in correct place' );
 	} );
 
-	QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo)', function ( assert ) {
+	QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds)', function ( assert ) {
 		var audienceAnyUser = {},
 			anonUser = {
 				isAnon: function () { return true; },
@@ -203,7 +203,8 @@
 			audienceRegistrationEnd20170105 = { registrationEnd: '2017-01-05' },
 			audienceRegistrationEnd20170106 = { registrationEnd: '2017-01-06' },
 			audienceRegisteredInJan2017 = { registrationStart: '2017-01-01', registrationEnd: '2017-01-31' },
-			audienceRegisteredInFeb2017 = { registrationStart: '2017-02-01', registrationEnd: '2017-01-28' };
+			audienceRegisteredInFeb2017 = { registrationStart: '2017-02-01', registrationEnd: '2017-01-28' },
+			audiencePages = { pageIds: [ 123, 456 ] };
 
 		[
 			// User registration targetting
@@ -313,6 +314,15 @@
 			],
 			[ audienceAnonUser, anonUser, editCount.noneditor, true,
 				'anon only: anon should see the survey'
+			],
+			[ audienceAnonUser, anonUser, editCount.noneditor, undefined, 987, true,
+				'pages: still see the survey when a page number is present but no filter exists'
+			],
+			[ audiencePages, anonUser, editCount.noneditor, undefined, 456, true,
+				'pages: see the survey when page ID matches'
+			],
+			[ audiencePages, anonUser, editCount.noneditor, undefined, 987, false,
+				'pages: don\'t see the survey when page ID is not matched'
 			]
 		].forEach( function ( test ) {
 			assert.strictEqual(

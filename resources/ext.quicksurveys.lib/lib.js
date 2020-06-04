@@ -209,13 +209,18 @@
 	 * @param {Object} user object
 	 * @param {number|null} editCount of user (null if user is anon)
 	 * @param {Geo} [geo] geographical information of user (undefined if not known)
+	 * @param {number} pageId ID of the current page
 	 * @return {boolean}
 	 */
-	function isInAudience( audience, user, editCount, geo ) {
+	function isInAudience( audience, user, editCount, geo, pageId ) {
 		var hasMinEditAudience = audience.minEdits !== undefined,
 			hasMaxEditAudience = audience.maxEdits !== undefined,
-			hasCountries = audience.countries !== undefined;
+			hasCountries = audience.countries !== undefined,
+			hasPageIds = audience.pageIds !== undefined;
 
+		if ( hasPageIds && audience.pageIds.indexOf( pageId ) === -1 ) {
+			return false;
+		}
 		if ( ( audience.registrationStart || audience.registrationEnd ) &&
 			registrationDateNotInRange( user, audience.registrationStart,
 				audience.registrationEnd ) ) {
@@ -382,8 +387,13 @@
 					getSurveyToken( enabledSurvey ) !== '~' &&
 					getBucketForSurvey( enabledSurvey ) === 'A' &&
 					isValidSurvey( enabledSurvey ) &&
-					isInAudience( enabledSurvey.audience, mw.user,
-						mw.config.get( 'wgUserEditCount' ), window.Geo ) &&
+					isInAudience(
+						enabledSurvey.audience,
+						mw.user,
+						mw.config.get( 'wgUserEditCount' ),
+						window.Geo,
+						mw.config.get( 'wgArticleId' )
+					) &&
 					surveyMatchesPlatform( enabledSurvey, mw.config.get( 'wgMFMode' ) ) &&
 					isEmbeddedElementMatched( enabledSurvey.embedElementId )
 				) {

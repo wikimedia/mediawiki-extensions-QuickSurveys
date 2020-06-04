@@ -16,6 +16,7 @@ class SurveyAudience {
 		'anons' => 'boolean',
 		'registrationStart' => 'string',
 		'registrationEnd' => 'string',
+		'pageIds' => 'array',
 	];
 
 	/**
