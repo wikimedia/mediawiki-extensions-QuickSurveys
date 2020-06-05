@@ -1,7 +1,7 @@
 /**
  *
  * @typedef {Object} Audience
- * @property {string[]} [countries] that the survey should be targetted at
+ * @property {string[]} [countries] that the survey should be targeted at
  * @property {number} [minEdits] a minimum number of edits the user must have
  *   if undefined there will be no lower bound
  * @property {number} [maxEdits] a maximum number of edits the user must have
@@ -178,18 +178,6 @@
 	}
 
 	/**
-	 * Check whether a user's country matches one of the intended countries
-	 *
-	 * @param {Audience} audience
-	 * @param {Geo} geo information for user
-	 * @return {boolean}
-	 */
-	function isInCountry( audience, geo ) {
-		return audience.countries === undefined ? true :
-			audience.countries.indexOf( geo.country ) > -1;
-	}
-
-	/**
 	 * Helper method to verify that user registered in given time frame
 	 * Note: this check is inclusive
 	 *
@@ -222,7 +210,8 @@
 	 */
 	function isInAudience( audience, user, editCount, geo ) {
 		var hasMinEditAudience = audience.minEdits !== undefined,
-			hasMaxEditAudience = audience.maxEdits !== undefined;
+			hasMaxEditAudience = audience.maxEdits !== undefined,
+			hasCountries = audience.countries !== undefined;
 
 		if ( ( audience.registrationStart || audience.registrationEnd ) &&
 			registrationDateNotInRange( user, audience.registrationStart,
@@ -239,7 +228,10 @@
 			return false;
 		}
 		geo = geo || { country: '??' };
-		return audience.countries ? isInCountry( audience, geo ) : true;
+		if ( hasCountries && audience.countries.indexOf( geo.country ) === -1 ) {
+			return false;
+		}
+		return true;
 	}
 
 	/**
