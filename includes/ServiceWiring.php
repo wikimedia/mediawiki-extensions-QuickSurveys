@@ -1,7 +1,9 @@
 <?php
 
+use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use QuickSurveys\Survey;
+use QuickSurveys\SurveyFactory;
 
 return [
 	'QuickSurveys.Config' => function ( MediaWikiServices $services ) {
@@ -13,9 +15,15 @@ return [
 		$configuredSurveys = $config->has( 'QuickSurveysConfig' )
 			? $config->get( 'QuickSurveysConfig' )
 			: [];
-		$surveys = array_map( '\\QuickSurveys\\SurveyFactory::factory', $configuredSurveys );
-		$enabledSurveys = array_filter( $surveys, function ( Survey $survey ) {
-			return $survey->isEnabled();
+		$logger = LoggerFactory::getInstance( 'QuickSurveys' );
+		$surveys = array_map(
+			function ( array $spec ) use ( $logger ) {
+				return SurveyFactory::factory( $spec, $logger );
+			},
+			$configuredSurveys
+		);
+		$enabledSurveys = array_filter( $surveys, function ( ?Survey $survey ) {
+			return $survey && $survey->isEnabled();
 		} );
 
 		return array_values( $enabledSurveys );

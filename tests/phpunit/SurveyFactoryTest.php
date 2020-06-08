@@ -2,7 +2,7 @@
 
 namespace Tests\QuickSurveys;
 
-use InvalidArgumentException;
+use Psr\Log\LoggerInterface;
 use QuickSurveys\ExternalSurvey;
 use QuickSurveys\InternalSurvey;
 use QuickSurveys\SurveyAudience;
@@ -14,76 +14,110 @@ use QuickSurveys\SurveyFactory;
 class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 
 	public function testItShouldThrowWhenThereIsNoQuestion() {
-		$this->expectException( InvalidArgumentException::class );
-		$this->expectExceptionMessage( 'The "test" survey doesn\'t have a question.' );
-		SurveyFactory::factory( [
-			'name' => 'test',
-		] );
+		SurveyFactory::factory(
+			[
+				'name' => 'test',
+			],
+			$this->expectsErrorLog(
+				'Bad survey configuration: The "test" survey doesn\'t have a question.' )
+		);
 	}
 
 	public function testItShouldThrowWhenThereIsNoType() {
-		$this->expectException( InvalidArgumentException::class );
-		$this->expectExceptionMessage( 'The "test" survey isn\'t marked as internal or external.' );
-		SurveyFactory::factory( [
-			'name' => 'test',
-			'question' => 'Do you like writing unit tests?',
-			'description' => 'A survey for (potential) developers on the QuickSurveys project.',
-		] );
+		SurveyFactory::factory(
+			[
+				'name' => 'test',
+				'question' => 'Do you like writing unit tests?',
+				'description' => 'A survey for (potential) developers on the QuickSurveys project.',
+			],
+			$this->expectsErrorLog(
+				'Bad survey configuration: The "test" survey isn\'t marked as internal or ' .
+				'external.' )
+		);
 	}
 
 	public function testItShouldThrowWhenThereAreNoPlatforms() {
-		$this->expectException( InvalidArgumentException::class );
-		$this->expectExceptionMessage( 'The "test" survey doesn\'t have any platforms.' );
-		SurveyFactory::factory( [
-			'name' => 'test',
-			'type' => 'external',
-			'question' => 'Do you like writing unit tests?',
-			'description' => 'A survey for (potential) developers on the QuickSurveys project.',
-			'coverage' => 1,
-		] );
+		SurveyFactory::factory(
+			[
+				'name' => 'test',
+				'type' => 'external',
+				'question' => 'Do you like writing unit tests?',
+				'description' => 'A survey for (potential) developers on the QuickSurveys project.',
+				'coverage' => 1,
+			],
+			$this->expectsErrorLog(
+				'Bad survey configuration: The "test" survey doesn\'t have any platforms.' )
+		);
 	}
 
 	public function testItShouldThrowWhenThereIsNoLink() {
-		$this->expectException( InvalidArgumentException::class );
-		$this->expectExceptionMessage( 'The "test" external survey doesn\'t have a link.' );
-		SurveyFactory::factory( [
-			'name' => 'test',
-			'type' => 'external',
-			'question' => 'Do you like writing unit tests?',
-			'description' => 'A survey for (potential) developers on the QuickSurveys project.',
-			'coverage' => 1,
-			'platforms' => [
-				'desktop' => [
-					'stable'
-				],
-				'mobile' => [
-					'stable',
-					'beta',
+		SurveyFactory::factory(
+			[
+				'name' => 'test',
+				'type' => 'external',
+				'question' => 'Do you like writing unit tests?',
+				'description' => 'A survey for (potential) developers on the QuickSurveys project.',
+				'coverage' => 1,
+				'platforms' => [
+					'desktop' => [
+						'stable'
+					],
+					'mobile' => [
+						'stable',
+						'beta',
+					],
 				],
 			],
-		] );
+			$this->expectsErrorLog(
+				'Bad survey configuration: The "test" external survey doesn\'t have a link.' )
+		);
 	}
 
 	public function testItShouldThrowWhenThereIsNoPrivacyPolicy() {
-		$this->expectException( InvalidArgumentException::class );
-		$this->expectExceptionMessage( 'The "test" external survey doesn\'t have a privacy policy.' );
-		SurveyFactory::factory( [
-			'name' => 'test',
-			'type' => 'external',
-			'question' => 'Do you like writing unit tests?',
-			'description' => 'A survey for (potential) developers on the QuickSurveys project.',
-			'coverage' => 1,
-			'platforms' => [
-				'desktop' => [
-					'stable'
+		SurveyFactory::factory(
+			[
+				'name' => 'test',
+				'type' => 'external',
+				'question' => 'Do you like writing unit tests?',
+				'description' => 'A survey for (potential) developers on the QuickSurveys project.',
+				'coverage' => 1,
+				'platforms' => [
+					'desktop' => [
+						'stable'
+					],
+					'mobile' => [
+						'stable',
+						'beta',
+					],
 				],
-				'mobile' => [
-					'stable',
-					'beta',
-				],
+				'link' => '//example.org/test-external-survey',
 			],
-			'link' => '//example.org/test-external-survey',
-		] );
+			$this->expectsErrorLog(
+				'Bad survey configuration: The "test" external survey doesn\'t have a privacy ' .
+				'policy.' )
+		);
+	}
+
+	public function testItShouldThrowWhenAudienceConfigHasBadType() {
+		SurveyFactory::factory(
+			[
+				'name' => 'test',
+				'type' => 'internal',
+				'question' => 'Do you like writing unit tests?',
+				'enabled' => true,
+				'coverage' => 1,
+				'platforms' => [
+					'desktop' => [
+						'stable',
+					],
+				],
+				'audience' => [
+					'minEdits' => 'foobar',
+				]
+			],
+			$this->expectsErrorLog(
+				'Bad survey configuration: Bad value for parameter minEdits: must be a integer' )
+		);
 	}
 
 	public function testItShouldFactoryAnExternalSurvey() {
@@ -103,54 +137,62 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 				],
 			],
 			'ext-quicksurveys-test-external-survey-privacy-policy',
-			new SurveyAudience( [] ),
+			new SurveyAudience( [ 'minEdits' => 100 ] ),
 			'//example.org/test-external-survey',
 			''
 		);
 
-		$actual = SurveyFactory::factory( [
-			'name' => 'test',
-			'type' => 'external',
-			'question' => 'Do you like writing unit tests?',
-			'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
-			'enabled' => true,
-			'coverage' => 1,
-			'platforms' => [
-				'desktop' => [
-					'stable'
+		$actual = SurveyFactory::factory(
+			[
+				'name' => 'test',
+				'type' => 'external',
+				'question' => 'Do you like writing unit tests?',
+				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+				'enabled' => true,
+				'coverage' => 1,
+				'platforms' => [
+					'desktop' => [
+						'stable'
+					],
+					'mobile' => [
+						'stable',
+						'beta',
+					],
 				],
-				'mobile' => [
-					'stable',
-					'beta',
+				'audience' => [
+					'minEdits' => 100,
 				],
+				'link' => '//example.org/test-external-survey',
+				'privacyPolicy' => 'ext-quicksurveys-test-external-survey-privacy-policy',
+				new SurveyAudience( [] )
 			],
-			'link' => '//example.org/test-external-survey',
-			'privacyPolicy' => 'ext-quicksurveys-test-external-survey-privacy-policy',
-			new SurveyAudience( [] )
-		] );
+			$this->createMock( LoggerInterface::class )
+		);
 
 		$this->assertEquals( $actual, $expected );
 	}
 
 	public function testItShouldThrowWhenThereAreNoAnswers() {
-		$this->expectException( InvalidArgumentException::class );
-		$this->expectExceptionMessage( 'The "test" internal survey doesn\'t have any answers.' );
-		SurveyFactory::factory( [
-			'name' => 'test',
-			'type' => 'internal',
-			'question' => 'Do you like writing unit tests?',
-			'description' => 'A survey for (potential) developers on the QuickSurveys project.',
-			'coverage' => 1,
-			'platforms' => [
-				'desktop' => [
-					'stable',
-				],
-				'mobile' => [
-					'stable',
-					'beta',
+		SurveyFactory::factory(
+			[
+				'name' => 'test',
+				'type' => 'internal',
+				'question' => 'Do you like writing unit tests?',
+				'description' => 'A survey for (potential) developers on the QuickSurveys project.',
+				'coverage' => 1,
+				'platforms' => [
+					'desktop' => [
+						'stable',
+					],
+					'mobile' => [
+						'stable',
+						'beta',
+					],
 				],
 			],
-		] );
+			$this->expectsErrorLog(
+				'Bad survey configuration: The "test" internal survey doesn\'t have any answers.' )
+		);
 	}
 
 	public function testItShouldFactoryAnInternalSurvey() {
@@ -178,26 +220,29 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 			null
 		);
 
-		$actual = SurveyFactory::factory( [
-			'name' => 'test',
-			'type' => 'internal',
-			'question' => 'Do you like writing unit tests?',
-			'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
-			'enabled' => true,
-			'coverage' => 1,
-			'platforms' => [
-				'desktop' => [
-					'stable',
+		$actual = SurveyFactory::factory(
+			[
+				'name' => 'test',
+				'type' => 'internal',
+				'question' => 'Do you like writing unit tests?',
+				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+				'enabled' => true,
+				'coverage' => 1,
+				'platforms' => [
+					'desktop' => [
+						'stable',
+					],
+					'mobile' => [
+						'stable',
+						'beta',
+					],
 				],
-				'mobile' => [
-					'stable',
-					'beta',
+				'answers' => [
+					'ext-quicksurveys-test-internal-survey-positive',
 				],
 			],
-			'answers' => [
-				'ext-quicksurveys-test-internal-survey-positive',
-			],
-		] );
+			$this->createMock( LoggerInterface::class )
+		);
 
 		$this->assertEquals( $actual, $expected );
 	}
@@ -227,93 +272,104 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 			null
 		);
 
-		$actual = SurveyFactory::factory( [
-			'name' => 'test',
-			'type' => 'internal',
-			'question' => 'Do you like writing unit tests?',
-			'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
-			'enabled' => true,
-			'coverage' => 1,
-			'platforms' => [
-				'desktop' => [
-					'stable',
+		$actual = SurveyFactory::factory(
+			[
+				'name' => 'test',
+				'type' => 'internal',
+				'question' => 'Do you like writing unit tests?',
+				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+				'enabled' => true,
+				'coverage' => 1,
+				'platforms' => [
+					'desktop' => [
+						'stable',
+					],
+					'mobile' => [
+						'stable',
+						'beta',
+					],
 				],
-				'mobile' => [
-					'stable',
-					'beta',
+				'answers' => [
+					'ext-quicksurveys-test-internal-survey-positive',
 				],
+				'shuffleAnswersDisplay' => false,
 			],
-			'answers' => [
-				'ext-quicksurveys-test-internal-survey-positive',
-			],
-			'shuffleAnswersDisplay' => false,
-		] );
+			$this->createMock( LoggerInterface::class )
+		);
 
 		$this->assertEquals( $actual, $expected );
 	}
 
 	public function testItShouldThrowIfTheTypeIsNotRecognized() {
-		$this->expectException( InvalidArgumentException::class );
-		$this->expectExceptionMessage( 'The "test" survey isn\'t marked as internal or external.' );
-		SurveyFactory::factory( [
-			'name' => 'test',
-			'type' => 'ixternal',
-			'question' => 'Do you like writing unit tests?',
-			'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
-		] );
+		SurveyFactory::factory(
+			[
+				'name' => 'test',
+				'type' => 'ixternal',
+				'question' => 'Do you like writing unit tests?',
+				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+			],
+			$this->expectsErrorLog(
+				'Bad survey configuration: The "test" survey isn\'t marked as internal or ' .
+				'external.' )
+		);
 	}
 
 	public function testItShouldMarkTheSurveyAsDisabledByDefault() {
-		$survey = SurveyFactory::factory( [
-			'name' => 'test',
-			'type' => 'internal',
-			'question' => 'Do you like writing unit tests?',
-			'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
-			'coverage' => 1,
-			'platforms' => [
-				'desktop' => [
-					'stable',
+		$survey = SurveyFactory::factory(
+			[
+				'name' => 'test',
+				'type' => 'internal',
+				'question' => 'Do you like writing unit tests?',
+				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+				'coverage' => 1,
+				'platforms' => [
+					'desktop' => [
+						'stable',
+					],
+					'mobile' => [
+						'stable',
+						'beta',
+					],
 				],
-				'mobile' => [
-					'stable',
-					'beta',
+				'answers' => [
+					'ext-quicksurveys-test-internal-survey-positive',
 				],
 			],
-			'answers' => [
-				'ext-quicksurveys-test-internal-survey-positive',
-			],
-		] );
+			$this->createMock( LoggerInterface::class )
+		);
 
 		$this->assertFalse( $survey->isEnabled() );
 	}
 
 	public function testItShouldThrowWhenThereIsNoCoverage() {
-		$this->expectException( InvalidArgumentException::class );
-		$this->expectExceptionMessage( 'The "test" survey doesn\'t have a coverage.' );
-		SurveyFactory::factory( [
-			'name' => 'test',
-			'type' => 'internal',
-			'question' => 'Do you like writing unit tests?',
-			'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
-		] );
+		SurveyFactory::factory(
+			[
+				'name' => 'test',
+				'type' => 'internal',
+				'question' => 'Do you like writing unit tests?',
+				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+			],
+			$this->expectsErrorLog(
+				'Bad survey configuration: The "test" survey doesn\'t have a coverage.' )
+		);
 	}
 
 	/**
 	 * @dataProvider provideInvalidPlatforms
 	 */
 	public function testItShouldThrowWhenPlatformsIsInvalid( $platforms, $expectedMessage ) {
-		try {
-			SurveyFactory::factory( [
+		$survey = SurveyFactory::factory(
+			[
 				'name' => 'test',
 				'type' => 'internal',
 				'question' => 'Do you like writing unit tests?',
 				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 				'coverage' => 1,
 				'platforms' => $platforms,
-			] );
-		} catch ( InvalidArgumentException $e ) {
-			$this->assertEquals( $expectedMessage, $e->getMessage() );
-		}
+			],
+			$this->expectsErrorLog( 'Bad survey configuration: ' . $expectedMessage )
+		);
+		$this->assertNull( $survey );
 	}
 
 	public function provideInvalidPlatforms() {
@@ -336,5 +392,17 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 				'Please specify one or more of the following for the "mobile" platform: stable, beta.',
 			],
 		];
+	}
+
+	private function expectsErrorLog( string $message ) : LoggerInterface {
+		$logger = $this->createMock( LoggerInterface::class );
+		$logger
+			->expects( $this->atLeastOnce() )
+			->method( 'error' )
+			->with(
+				$this->equalTo( $message ),
+				$this->anything()
+			);
+		return $logger;
 	}
 }
