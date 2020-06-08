@@ -35,6 +35,24 @@ class SurveyFactory {
 	 * @throws InvalidArgumentException If the configuration is invalid
 	 */
 	public static function factory( array $spec ) : Survey {
+		self::validateSpec( $spec );
+
+		if ( !isset( $spec['enabled'] ) ) {
+			$spec['enabled'] = false;
+		}
+
+		$survey = $spec['type'] === 'internal'
+			? self::factoryInternal( $spec )
+			: self::factoryExternal( $spec );
+
+		return $survey;
+	}
+
+	/**
+	 * @param array $spec
+	 * @throws InvalidArgumentException
+	 */
+	private static function validateSpec( array $spec ) {
 		$name = $spec['name'];
 
 		if ( !isset( $spec['question'] ) ) {
@@ -59,16 +77,6 @@ class SurveyFactory {
 		}
 
 		self::validatePlatforms( $spec );
-
-		if ( !isset( $spec['enabled'] ) ) {
-			$spec['enabled'] = false;
-		}
-
-		$survey = $spec['type'] === 'internal'
-			? self::factoryInternal( $spec )
-			: self::factoryExternal( $spec );
-
-		return $survey;
 	}
 
 	private static function validatePlatforms( array $spec ) {
