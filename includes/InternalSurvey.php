@@ -19,6 +19,11 @@ class InternalSurvey extends Survey {
 	 */
 	private $freeformTextLabel;
 
+	/**
+	 * @var string|null
+	 */
+	private $embedElementId;
+
 	public function __construct(
 		$name,
 		$question,
@@ -30,7 +35,8 @@ class InternalSurvey extends Survey {
 		SurveyAudience $audience,
 		array $answers,
 		$shuffleAnswersDisplay,
-		$freeformTextLabel
+		$freeformTextLabel,
+		$embedElementId
 	) {
 		parent::__construct(
 			$name,
@@ -46,6 +52,7 @@ class InternalSurvey extends Survey {
 		$this->answers = $answers;
 		$this->shuffleAnswersDisplay = $shuffleAnswersDisplay;
 		$this->freeformTextLabel = $freeformTextLabel;
+		$this->embedElementId = $embedElementId;
 	}
 
 	public function getMessages() : array {
@@ -63,7 +70,8 @@ class InternalSurvey extends Survey {
 			'type' => 'internal',
 			'answers' => $this->answers,
 			'shuffleAnswersDisplay' => $this->shuffleAnswersDisplay,
-			'freeformTextLabel' => $this->freeformTextLabel
+			'freeformTextLabel' => $this->freeformTextLabel,
+			'embedElementId' => $this->embedElementId,
 		];
 	}
 }

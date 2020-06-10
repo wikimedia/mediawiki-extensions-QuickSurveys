@@ -217,6 +217,7 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 				'ext-quicksurveys-test-internal-survey-positive',
 			],
 			true,
+			null,
 			null
 		);
 
@@ -269,6 +270,7 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 				'ext-quicksurveys-test-internal-survey-positive',
 			],
 			false,
+			null,
 			null
 		);
 
