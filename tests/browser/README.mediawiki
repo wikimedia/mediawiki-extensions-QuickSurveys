@@ -1,2 +1,0 @@
-= Setup =
-Please include the LocalSettings.php file in your MediaWiki instance.
