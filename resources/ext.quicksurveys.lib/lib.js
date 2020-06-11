@@ -351,7 +351,7 @@
 			$bodyContent = $( '#bodyContent' ),
 			isMobileLayout = window.innerWidth <= 768;
 
-		insertPanel( $bodyContent, $panel, survey.embedSelector, isMobileLayout );
+		insertPanel( $bodyContent, $panel, survey.embedElementId, isMobileLayout );
 		// survey.module contains i18n messages
 		mw.loader.using( [ survey.module ] ).done( function () {
 			var panel,
