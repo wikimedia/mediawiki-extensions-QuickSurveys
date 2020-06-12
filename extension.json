@@ -61,14 +61,14 @@
 			"styles": [
 				"resources/ext.quicksurveys.lib/styles.less"
 			],
-			"scripts": [
+			"packageFiles": [
+				"resources/ext.quicksurveys.lib/init.js",
 				"resources/ext.quicksurveys.lib/lib.js",
 				"resources/ext.quicksurveys.lib/views/utils.js",
 				"resources/ext.quicksurveys.lib/views/QuickSurvey.js",
 				"resources/ext.quicksurveys.lib/views/MultipleAnswerSurvey.js",
 				"resources/ext.quicksurveys.lib/views/SingleAnswerSurvey.js",
-				"resources/ext.quicksurveys.lib/views/ExternalSurvey.js",
-				"resources/ext.quicksurveys.lib/init.js"
+				"resources/ext.quicksurveys.lib/views/ExternalSurvey.js"
 			]
 		},
 		"ext.quicksurveys.init": {
