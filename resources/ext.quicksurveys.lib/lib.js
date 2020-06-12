@@ -263,6 +263,7 @@
 			return availableSurveys[ i ];
 		}
 
+		// TODO: Deprecate these prefixes.
 		if ( queryString.indexOf( 'internal-survey-' ) === 0 ) {
 			surveyType = 'internal';
 		} else if ( queryString.indexOf( 'external-survey-' ) === 0 ) {
@@ -270,11 +271,17 @@
 		}
 		if ( surveyType ) {
 			surveyName = queryString.split( '-' ).slice( 2 ).join( '-' );
-			for ( i = 0; i < availableSurveys.length; i++ ) {
-				survey = availableSurveys[ i ];
-				if ( survey.name === surveyName && survey.type === surveyType ) {
-					return survey;
-				}
+		} else {
+			surveyName = queryString;
+		}
+
+		for ( i = 0; i < availableSurveys.length; i++ ) {
+			survey = availableSurveys[ i ];
+			if (
+				survey.name === surveyName &&
+				( !surveyType || survey.type === surveyType )
+			) {
+				return survey;
 			}
 		}
 
