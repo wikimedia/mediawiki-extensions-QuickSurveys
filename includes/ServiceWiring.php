@@ -16,9 +16,10 @@ return [
 			? $config->get( 'QuickSurveysConfig' )
 			: [];
 		$logger = LoggerFactory::getInstance( 'QuickSurveys' );
+		$surveyFactory = new SurveyFactory( $logger );
 		$surveys = array_map(
-			function ( array $spec ) use ( $logger ) {
-				return SurveyFactory::factory( $spec, $logger );
+			function ( array $spec ) use ( $surveyFactory ) {
+				return $surveyFactory->newSurvey( $spec );
 			},
 			$configuredSurveys
 		);

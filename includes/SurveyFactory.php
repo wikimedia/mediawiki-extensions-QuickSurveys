@@ -17,6 +17,20 @@ class SurveyFactory {
 	];
 
 	/**
+	 * @var LoggerInterface
+	 */
+	private $logger;
+
+	/**
+	 * Inject services.
+	 *
+	 * @param LoggerInterface $logger
+	 */
+	public function __construct( LoggerInterface $logger ) {
+		$this->logger = $logger;
+	}
+
+	/**
 	 * Creates an instance of either the InternalSurvey or ExternalSurvey class
 	 * given a specification.
 	 *
@@ -33,24 +47,23 @@ class SurveyFactory {
 	 * </ul>
 	 *
 	 * @param array $spec
-	 * @param LoggerInterface $logger
 	 * @return Survey|null
 	 */
-	public static function factory( array $spec, LoggerInterface $logger ) : ?Survey {
+	public function newSurvey( array $spec ) : ?Survey {
 		try {
-			self::validateSpec( $spec );
+			$this->validateSpec( $spec );
 
 			if ( !isset( $spec['enabled'] ) ) {
 				$spec['enabled'] = false;
 			}
 
 			$survey = $spec['type'] === 'internal'
-				? self::factoryInternal( $spec )
-				: self::factoryExternal( $spec );
+				? $this->factoryInternal( $spec )
+				: $this->factoryExternal( $spec );
 
 			return $survey;
 		} catch ( InvalidArgumentException $ex ) {
-			$logger->error( "Bad survey configuration: " . $ex->getMessage(), [ 'exception' => $ex ] );
+			$this->logger->error( "Bad survey configuration: " . $ex->getMessage(), [ 'exception' => $ex ] );
 			return null;
 		}
 	}
@@ -59,7 +72,7 @@ class SurveyFactory {
 	 * @param array $spec
 	 * @throws InvalidArgumentException
 	 */
-	private static function validateSpec( array $spec ) {
+	private function validateSpec( array $spec ) {
 		$name = $spec['name'];
 
 		if ( !isset( $spec['question'] ) ) {
@@ -83,10 +96,10 @@ class SurveyFactory {
 			throw new InvalidArgumentException( "The \"{$name}\" survey doesn't have any platforms." );
 		}
 
-		self::validatePlatforms( $spec );
+		$this->validatePlatforms( $spec );
 	}
 
-	private static function validatePlatforms( array $spec ) {
+	private function validatePlatforms( array $spec ) {
 		foreach ( self::VALID_PLATFORM_MODES as $platform => $validModes ) {
 			if ( !isset( $spec['platforms'][$platform] ) ) {
 				continue;
@@ -114,7 +127,7 @@ class SurveyFactory {
 		}
 	}
 
-	private static function factoryExternal( $spec ) : ExternalSurvey {
+	private function factoryExternal( $spec ) : ExternalSurvey {
 		$name = $spec['name'];
 
 		if ( !isset( $spec['link'] ) ) {
@@ -141,7 +154,7 @@ class SurveyFactory {
 		);
 	}
 
-	private static function factoryInternal( $spec ) : InternalSurvey {
+	private function factoryInternal( $spec ) : InternalSurvey {
 		$name = $spec['name'];
 
 		if ( !isset( $spec['answers'] ) ) {
