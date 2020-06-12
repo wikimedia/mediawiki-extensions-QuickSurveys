@@ -2,31 +2,30 @@
 
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
-use QuickSurveys\Survey;
 use QuickSurveys\SurveyFactory;
 
 return [
-	'QuickSurveys.Config' => function ( MediaWikiServices $services ) {
-		return $services->getService( 'ConfigFactory' )
-			->makeConfig( 'quicksurveys' );
-	},
-	'QuickSurveys.EnabledSurveys' => function ( MediaWikiServices $services ) {
-		$config = $services->getService( 'QuickSurveys.Config' );
-		$configuredSurveys = $config->has( 'QuickSurveysConfig' )
-			? $config->get( 'QuickSurveysConfig' )
-			: [];
-		$logger = LoggerFactory::getInstance( 'QuickSurveys' );
-		$surveyFactory = new SurveyFactory( $logger );
-		$surveys = array_map(
-			function ( array $spec ) use ( $surveyFactory ) {
-				return $surveyFactory->newSurvey( $spec );
-			},
-			$configuredSurveys
-		);
-		$enabledSurveys = array_filter( $surveys, function ( ?Survey $survey ) {
-			return $survey && $survey->isEnabled();
-		} );
+	'QuickSurveys.Config' =>
+		/**
+		 * Subset of configuration under the QuickSurveys namespace
+		 */
+		function ( MediaWikiServices $services ) : Config {
+			return $services->getService( 'ConfigFactory' )
+				->makeConfig( 'quicksurveys' );
+		},
+	'QuickSurveys.EnabledSurveys' =>
+		/**
+		 * @param MediaWikiServices $services
+		 * @return \QuickSurveys\Survey[] List of active surveys to be selected from on the client
+		 */
+		function ( MediaWikiServices $services ) : array {
+			$config = $services->getService( 'QuickSurveys.Config' );
+			$configuredSurveys = $config->has( 'QuickSurveysConfig' )
+				? $config->get( 'QuickSurveysConfig' )
+				: [];
+			$logger = LoggerFactory::getInstance( 'QuickSurveys' );
 
-		return array_values( $enabledSurveys );
-	}
+			$factory = new SurveyFactory( $logger );
+			return $factory->parseSurveyConfig( $configuredSurveys );
+		}
 ];
