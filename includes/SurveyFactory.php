@@ -126,26 +126,21 @@ class SurveyFactory {
 			);
 		}
 
-		if ( !isset( $spec['instanceTokenParameterName'] ) ) {
-			$spec['instanceTokenParameterName'] = "";
-		}
-
 		return new ExternalSurvey(
-			$spec['name'],
+			$name,
 			$spec['question'],
-			!empty( $spec['description'] ) ? $spec['description'] : null,
+			$spec['description'] ?? null,
 			$spec['enabled'],
 			$spec['coverage'],
 			$spec['platforms'],
 			$spec['privacyPolicy'],
 			new SurveyAudience( $spec['audience'] ?? [] ),
 			$spec['link'],
-			$spec['instanceTokenParameterName']
+			$spec['instanceTokenParameterName'] ?? ''
 		);
 	}
 
 	private static function factoryInternal( $spec ) : InternalSurvey {
-		$audience = new SurveyAudience( $spec['audience'] ?? [] );
 		$name = $spec['name'];
 
 		if ( !isset( $spec['answers'] ) ) {
@@ -154,23 +149,19 @@ class SurveyFactory {
 			);
 		}
 
-		if ( !isset( $spec['embedElementId'] ) ) {
-			$spec['embedElementId'] = null;
-		}
-
 		return new InternalSurvey(
 			$name,
 			$spec['question'],
-			!empty( $spec['description'] ) ? $spec['description'] : null,
+			$spec['description'] ?? null,
 			$spec['enabled'],
 			$spec['coverage'],
 			$spec['platforms'],
-			!empty( $spec['privacyPolicy'] ) ? $spec['privacyPolicy'] : null,
-			$audience,
+			$spec['privacyPolicy'] ?? null,
+			new SurveyAudience( $spec['audience'] ?? [] ),
 			$spec['answers'],
 			$spec['shuffleAnswersDisplay'] ?? true,
-			!empty( $spec['freeformTextLabel'] ) ? $spec['freeformTextLabel'] : null,
-			$spec['embedElementId']
+			$spec['freeformTextLabel'] ?? null,
+			$spec['embedElementId'] ?? null
 		);
 	}
 }

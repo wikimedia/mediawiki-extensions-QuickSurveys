@@ -111,9 +111,12 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 						'stable',
 					],
 				],
+				'answers' => [
+					'ext-quicksurveys-test-internal-survey-positive',
+				],
 				'audience' => [
 					'minEdits' => 'foobar',
-				]
+				],
 			],
 			$this->expectsErrorLog(
 				'Bad survey configuration: Bad value for parameter minEdits: must be a integer' )
