@@ -29,6 +29,7 @@ class SurveyFactory {
 	 *   <li>A survey must have a coverage</li>
 	 *   <li>An internal survey must have a set of questions</li>
 	 *   <li>An external survey must have a privacy policy</li>
+	 *   <li>An internal survey must have a layout of either "single-answer" or "multiple-answer"</li>
 	 * </ul>
 	 *
 	 * @param array $spec
@@ -149,6 +150,15 @@ class SurveyFactory {
 			);
 		}
 
+		// TODO: Remove default value after a deprecation period.  See T255130.
+		$layout = $spec['layout'] ?? 'single-answer';
+		if ( !in_array( $layout, [ 'single-answer', 'multiple-answer' ] ) ) {
+			throw new InvalidArgumentException(
+				"The \"{$name}\" internal survey layout is not one of \"single-answer\" or " .
+				"\"multiple-answer\"."
+			);
+		}
+
 		return new InternalSurvey(
 			$name,
 			$spec['question'],
@@ -161,7 +171,8 @@ class SurveyFactory {
 			$spec['answers'],
 			$spec['shuffleAnswersDisplay'] ?? true,
 			$spec['freeformTextLabel'] ?? null,
-			$spec['embedElementId'] ?? null
+			$spec['embedElementId'] ?? null,
+			$layout
 		);
 	}
 }

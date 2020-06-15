@@ -180,6 +180,7 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 			[
 				'name' => 'test',
 				'type' => 'internal',
+				'layout' => 'single-answer',
 				'question' => 'Do you like writing unit tests?',
 				'description' => 'A survey for (potential) developers on the QuickSurveys project.',
 				'coverage' => 1,
@@ -221,13 +222,15 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 			],
 			true,
 			null,
-			null
+			null,
+			'single-answer'
 		);
 
 		$actual = SurveyFactory::factory(
 			[
 				'name' => 'test',
 				'type' => 'internal',
+				'layout' => 'single-answer',
 				'question' => 'Do you like writing unit tests?',
 				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 				'enabled' => true,
@@ -274,13 +277,15 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 			],
 			false,
 			null,
-			null
+			null,
+			'single-answer'
 		);
 
 		$actual = SurveyFactory::factory(
 			[
 				'name' => 'test',
 				'type' => 'internal',
+				'layout' => 'single-answer',
 				'question' => 'Do you like writing unit tests?',
 				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 				'enabled' => true,
@@ -324,6 +329,7 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 			[
 				'name' => 'test',
 				'type' => 'internal',
+				'layout' => 'single-answer',
 				'question' => 'Do you like writing unit tests?',
 				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 				'coverage' => 1,
@@ -351,11 +357,59 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 			[
 				'name' => 'test',
 				'type' => 'internal',
+				'layout' => 'single-answer',
 				'question' => 'Do you like writing unit tests?',
 				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 			],
 			$this->expectsErrorLog(
 				'Bad survey configuration: The "test" survey doesn\'t have a coverage.' )
+		);
+	}
+
+	public function testItShouldUseDefaultLayout() {
+		$survey = SurveyFactory::factory(
+			[
+				'name' => 'test',
+				'type' => 'internal',
+				'coverage' => 0.5,
+				'platforms' => [
+					'desktop' => [
+						'stable',
+					],
+				],
+				'question' => 'Do you like writing unit tests?',
+				'answers' => [
+					'ext-quicksurveys-test-internal-survey-positive',
+				],
+				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+			],
+			$this->createMock( LoggerInterface::class )
+		);
+
+		$this->assertSame( 'single-answer', $survey->toArray()['layout'] );
+	}
+
+	public function testItShouldThrowWhenThereIsBadLayout() {
+		SurveyFactory::factory(
+			[
+				'name' => 'test',
+				'type' => 'internal',
+				'layout' => 'garbage',
+				'coverage' => 0.5,
+				'platforms' => [
+					'desktop' => [
+						'stable',
+					],
+				],
+				'question' => 'Do you like writing unit tests?',
+				'answers' => [
+					'ext-quicksurveys-test-internal-survey-positive',
+				],
+				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+			],
+			$this->expectsErrorLog(
+				'Bad survey configuration: The "test" internal survey layout is not one of "single-answer"' .
+				' or "multiple-answer".' )
 		);
 	}
 
@@ -367,6 +421,7 @@ class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
 			[
 				'name' => 'test',
 				'type' => 'internal',
+				'layout' => 'single-answer',
 				'question' => 'Do you like writing unit tests?',
 				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 				'coverage' => 1,
