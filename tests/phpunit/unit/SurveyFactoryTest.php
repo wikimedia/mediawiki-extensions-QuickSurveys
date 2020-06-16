@@ -11,7 +11,7 @@ use QuickSurveys\SurveyFactory;
 /**
  * @covers \QuickSurveys\SurveyFactory
  */
-class SurveyFactoryTest extends \PHPUnit\Framework\TestCase {
+class SurveyFactoryTest extends \MediaWikiUnitTestCase {
 
 	public function testItShouldThrowWhenThereIsNoQuestion() {
 		$factory = new SurveyFactory(

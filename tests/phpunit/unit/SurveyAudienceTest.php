@@ -8,7 +8,7 @@ use Wikimedia\Assert\ParameterTypeException;
 /**
  * @covers \QuickSurveys\SurveyFactory
  */
-class SurveyAudienceTest extends \PHPUnit\Framework\TestCase {
+class SurveyAudienceTest extends \MediaWikiUnitTestCase {
 	/**
 	 * @dataProvider provideValidAudience
 	 */
