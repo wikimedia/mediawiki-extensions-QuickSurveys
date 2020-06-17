@@ -91,6 +91,10 @@ abstract class Survey {
 		return 'ext.quicksurveys.survey.' . str_replace( ' ', '.', $this->name );
 	}
 
+	public function getAudience() : SurveyAudience {
+		return $this->audience;
+	}
+
 	/**
 	 * Gets the list of i18n message keys that the survey uses
 	 *

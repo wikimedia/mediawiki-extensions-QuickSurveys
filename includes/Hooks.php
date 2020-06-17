@@ -40,8 +40,11 @@ class Hooks {
 		$context = $out->getContext();
 		$title = $context->getTitle();
 		$action = Action::getActionName( $context );
+		$surveys = MediaWikiServices::getInstance()->getService( 'QuickSurveys.EnabledSurveys' );
 
-		if ( SurveyContextFilter::isAnySurveyAvailable( $title, $action ) ) {
+		if ( ( new SurveyContextFilter( $surveys ) )->isAnySurveyAvailable( $title, $action ) ) {
+			// TODO: It's annoying that we parse survey config a second time, inside this indirected
+			//  call.  Ideally we could construct the ResourceLoader data module right here.
 			$out->addModules( 'ext.quicksurveys.init' );
 		}
 	}
