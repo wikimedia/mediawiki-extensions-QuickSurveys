@@ -16,11 +16,6 @@ use ResourceLoader;
 class Hooks {
 
 	/**
-	 * The internal name of the view action (see \ViewAction) as returned by Action::getActionName.
-	 */
-	private const VIEW_ACTION_NAME = 'view';
-
-	/**
 	 * ResourceLoaderGetConfigVars hook handler for registering enabled surveys
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderGetConfigVars
 	 *
@@ -44,20 +39,9 @@ class Hooks {
 	public static function onBeforePageDisplay( OutputPage $out ) {
 		$context = $out->getContext();
 		$title = $context->getTitle();
+		$action = Action::getActionName( $context );
 
-		// The following tests are ordered from best to worst performance, with Title#isMainPage
-		// and #exists being roughly tied. The best case for those two is a cache hit. The worst
-		// case for Title#exists is a DB hit.
-		if (
-			$title
-			&& $title->inNamespace( NS_MAIN )
-
-			// Is the user viewing the page?
-			&& Action::getActionName( $context ) === static::VIEW_ACTION_NAME
-
-			&& !$title->isMainPage()
-			&& $title->exists()
-		) {
+		if ( SurveyContextFilter::isAnySurveyAvailable( $title, $action ) ) {
 			$out->addModules( 'ext.quicksurveys.init' );
 		}
 	}
