@@ -31,6 +31,25 @@ class SurveyFactory {
 	}
 
 	/**
+	 * @param array[] $specs Raw configuration from $wgQuickSurveysConfig
+	 * @return Survey[] List of valid and enabled surveys
+	 */
+	public function parseSurveyConfig( array $specs ) : array {
+		$surveysOrInvalid = array_map(
+			[ $this, 'newSurvey' ],
+			$specs
+		);
+		$enabledSurveys = array_filter(
+			$surveysOrInvalid,
+			function ( ?Survey $survey ) : bool {
+				return $survey && $survey->isEnabled();
+			}
+		);
+
+		return array_values( $enabledSurveys );
+	}
+
+	/**
 	 * Creates an instance of either the InternalSurvey or ExternalSurvey class
 	 * given a specification.
 	 *
