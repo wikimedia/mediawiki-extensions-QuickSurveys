@@ -470,10 +470,10 @@ function showSurvey( forcedSurvey ) {
 }
 
 module.exports = {
-	private: {
+	showSurvey: showSurvey,
+	test: {
 		insertPanel: insertPanel,
 		isInAudience: isInAudience,
 		surveyMatchesPlatform: surveyMatchesPlatform
-	},
-	showSurvey: showSurvey
+	}
 };
