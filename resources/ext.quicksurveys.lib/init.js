@@ -7,12 +7,12 @@ QuickSurveyLib.showSurvey( overrideParam );
 mw.extQuickSurveys = QuickSurveyLib;
 
 module.exports = {
-	private: {
+	test: {
 		ExternalSurvey: require( './views/ExternalSurvey.js' ),
 		MultipleAnswerSurvey: require( './views/MultipleAnswerSurvey.js' ),
 		SingleAnswerSurvey: require( './views/SingleAnswerSurvey.js' ),
-		insertPanel: QuickSurveyLib.private.insertPanel,
-		isInAudience: QuickSurveyLib.private.isInAudience,
-		surveyMatchesPlatform: QuickSurveyLib.private.surveyMatchesPlatform
+		insertPanel: QuickSurveyLib.test.insertPanel,
+		isInAudience: QuickSurveyLib.test.isInAudience,
+		surveyMatchesPlatform: QuickSurveyLib.test.surveyMatchesPlatform
 	}
 };
