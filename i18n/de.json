@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Metalhead64"
+			"Metalhead64",
+			"TMg"
 		]
 	},
 	"quicksurveys-desc": "Ermöglicht die Anzeige konfigurierter Umfragen",
@@ -10,6 +11,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Ja",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Nicht sicher",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Nein",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Andere Antwort",
 	"ext-quicksurveys-example-external-survey-question": "Wir brauchen deine Hilfe beim Verbessern von Wikipedia.",
 	"ext-quicksurveys-example-external-survey-description": "Durch das Beantworten dieser Umfrage hilfst du uns zu verstehen, wie man Wikipedia besser und nützlicher für dich macht. Vielen Dank!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Umfrage zur Verfügung gestellt durch BeispielUmfrageAnbieter. Siehe die [//example.org/privacy-policy Datenschutzrichtlinie].",
@@ -18,6 +20,8 @@
 	"ext-quicksurveys-survey-positive": "Ja",
 	"ext-quicksurveys-survey-negative": "Nein",
 	"ext-quicksurveys-survey-neutral": "Nicht sicher",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Absenden",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Bitte wähle eine Antwort oder trage eine eigene ein.",
 	"ext-quicksurveys-external-survey-yes-button": "Umfrage besuchen",
 	"ext-quicksurveys-external-survey-no-button": "Nein danke"
 }
