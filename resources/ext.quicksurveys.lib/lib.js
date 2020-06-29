@@ -447,10 +447,10 @@ function showSurvey( forcedSurvey ) {
 				) &&
 				surveyMatchesPlatform( enabledSurvey, mw.config.get( 'wgMFMode' ) )
 			) {
-				if ( enabledSurvey.embedElementId &&
-					isEmbeddedElementMatched( enabledSurvey.embedElementId )
-				) {
-					embeddedSurveys.push( enabledSurvey );
+				if ( enabledSurvey.embedElementId ) {
+					if ( isEmbeddedElementMatched( enabledSurvey.embedElementId ) ) {
+						embeddedSurveys.push( enabledSurvey );
+					}
 				} else {
 					randomizedSurveys.push( enabledSurvey );
 				}
