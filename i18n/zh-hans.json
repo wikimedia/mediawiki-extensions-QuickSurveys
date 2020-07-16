@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"沈澄心"
 		]
 	},
 	"quicksurveys-desc": "显示配置的调查",
@@ -10,8 +11,8 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "是",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "不确定",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "否",
-	"ext-quicksurveys-example-external-survey-question": "我们需要您帮助改进维基百科。",
-	"ext-quicksurveys-example-external-survey-description": "通过回答此调查，您将帮助我们了解如何将维基百科做的更好，更加对您有所帮助。感谢您！",
+	"ext-quicksurveys-example-external-survey-question": "我们需要您帮助改进{{SITENAME}}。",
+	"ext-quicksurveys-example-external-survey-description": "通过回答此调查，您将帮助我们了解如何让{{SITENAME}}做得更好，更加对您有所帮助。感谢您！",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "由ExampleSurveyProvider提供的调查。请参见[//example.org/privacy-policy 隐私政策]。",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "所有意见书都是匿名的。请参见[//example.org/privacy-policy 隐私政策]。",
 	"ext-quicksurveys-survey-confirm-msg": "感谢反馈！我们正在使用它以使{{SITENAME}}变得更好！",

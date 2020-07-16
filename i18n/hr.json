@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Astrind"
+			"Astrind",
+			"Bugoslav"
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Drugo",
+	"ext-quicksurveys-example-external-survey-question": "Potrebna nam je Vaša pomoć u poboljšanju projekta imena {{SITENAME}}.",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "Predaj"
 }

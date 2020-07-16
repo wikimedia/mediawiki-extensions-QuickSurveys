@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"BaRaN6161 TURK",
 			"Bahodir Mansurov",
 			"Joaquin Hernandez",
 			"Jon Robson",
@@ -13,7 +14,7 @@
 	"ext-quicksurveys-example-internal-survey-question": "The question for the example internal survey",
 	"ext-quicksurveys-example-internal-survey-description": "Description of the example internal survey",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "The positive answer for the example internal survey\n{{Identical|Yes}}",
-	"ext-quicksurveys-example-internal-survey-answer-neutral": "The neutral answer for the example internal survey\n{{Identical|Not sure}}",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "The neutral answer for the example internal survey",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "The negative answer for the example internal survey\n{{Identical|No}}",
 	"ext-quicksurveys-example-internal-survey-freeform-text-label": "The label for the optional free form text input\n{{Identical|Other}}",
 	"ext-quicksurveys-example-external-survey-question": "The question for (title of) the example external survey",
