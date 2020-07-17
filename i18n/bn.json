@@ -10,7 +10,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "হ্যাঁ",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "নিশ্চিত না",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "না",
-	"ext-quicksurveys-example-external-survey-question": "উইকিপিডিয়ার উন্নতির জন্য আমাদের আপনার সাহায্য প্রয়োজন।",
+	"ext-quicksurveys-example-external-survey-question": "{{SITENAME}}-এর উন্নতির জন্য আমাদের আপনার সাহায্য প্রয়োজন।",
 	"ext-quicksurveys-example-external-survey-description": "এটি উদাহরণ বাহ্যিক সমীক্ষার বিবরণ।",
 	"ext-quicksurveys-survey-confirm-msg": "প্রতিক্রিয়া জানানোর জন্য ধন্যবাদ! আমরা {{SITENAME}}কে আরও ভাল করতে এটি ব্যবহার করছি!",
 	"ext-quicksurveys-survey-positive": "হ্যাঁ",

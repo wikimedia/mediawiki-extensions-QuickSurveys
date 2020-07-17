@@ -9,6 +9,8 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Ja",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Osäker",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Nej",
+	"ext-quicksurveys-example-external-survey-question": "Vi behöver din hjälp att förbättra {{SITENAME}}.",
+	"ext-quicksurveys-example-external-survey-description": "Genom att svara på denna enkät hjälper du oss att förstå hur vi kan göra {{SITENAME}} bättre och mer användbart för dig. Tack!",
 	"ext-quicksurveys-survey-positive": "Ja",
 	"ext-quicksurveys-survey-negative": "Nej",
 	"ext-quicksurveys-survey-neutral": "Osäker",
