@@ -177,7 +177,7 @@ function isValidSurvey( /* survey */ ) {
 			return false;
 		}
 	}
-	*/
+	 */
 	return true;
 }
 

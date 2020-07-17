@@ -16,6 +16,7 @@ OO.inheritClass( QuickSurvey, OO.ui.StackLayout );
 utils.extend( QuickSurvey.prototype, {
 	/**
 	 * Specifies partials (sub-templates) for use by the widget
+	 *
 	 * @property {Object}
 	 */
 	templatePartials: {
@@ -39,6 +40,7 @@ utils.extend( QuickSurvey.prototype, {
 	/**
 	 * A set of default options that are merged with config passed into the initialize function.
 	 * This is likely to change so currently no options are documented.
+	 *
 	 * @cfg {Object} defaults Default options hash.
 	 */
 	defaults: {
