@@ -11,7 +11,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "নিশ্চিত না",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "না",
 	"ext-quicksurveys-example-external-survey-question": "{{SITENAME}}-এর উন্নতির জন্য আমাদের আপনার সাহায্য প্রয়োজন।",
-	"ext-quicksurveys-example-external-survey-description": "এটি উদাহরণ বাহ্যিক সমীক্ষার বিবরণ।",
+	"ext-quicksurveys-example-external-survey-description": "এই সমীক্ষাটির উত্তর দিয়ে আপনি আমাদের বুঝতে সাহায্য করবেন যে কীভাবে আমরা {{SITENAME}}-কে আপনার জন্য আর‌ও ভালো ও উপযোগী করে তুলতে পারি। ধন্যবাদ!",
 	"ext-quicksurveys-survey-confirm-msg": "প্রতিক্রিয়া জানানোর জন্য ধন্যবাদ! আমরা {{SITENAME}}কে আরও ভাল করতে এটি ব্যবহার করছি!",
 	"ext-quicksurveys-survey-positive": "হ্যাঁ",
 	"ext-quicksurveys-survey-negative": "না",

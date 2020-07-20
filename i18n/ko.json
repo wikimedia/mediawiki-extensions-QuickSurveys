@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ykhwong"
+			"Ykhwong",
+			"밝은소년"
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-answer-positive": "예",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "확실치 않음",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "아니오",
 	"ext-quicksurveys-example-internal-survey-freeform-text-label": "기타",
-	"ext-quicksurveys-example-external-survey-question": "위키백과 개선에 여러분의 도움이 필요합니다.",
+	"ext-quicksurveys-example-external-survey-question": "{{SITENAME}} 개선에 여러분의 도움이 필요합니다.",
 	"ext-quicksurveys-survey-positive": "예",
 	"ext-quicksurveys-survey-negative": "아니오",
 	"ext-quicksurveys-survey-neutral": "확실치 않음",
