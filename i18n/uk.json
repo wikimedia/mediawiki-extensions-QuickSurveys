@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Andriy.v",
 			"Dars",
 			"Piramidion",
 			"Vlad5250",
@@ -18,7 +19,7 @@
 	"ext-quicksurveys-example-external-survey-description": "Відповівши на це опитування, Ви допоможете нам зрозуміти, як зробити {{GRAMMAR:accusative|{{SITENAME}}}} кращою та кориснішою для Вас вікі. Дякуємо!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Опитування забезпечує ExampleSurveyProvider. Див. [//example.org/privacy-policy політику конфіденційності]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Всі відповіді є анонімними. Див. [//example.org/privacy-policy політику конфіденційності].",
-	"ext-quicksurveys-survey-confirm-msg": "Дякуємо за відгук! Ми використовуємо такі відгуки, аби зробити проект {{SITENAME}} ще кращим!",
+	"ext-quicksurveys-survey-confirm-msg": "Дякуємо за відгук! Ми використовуємо такі відгуки, аби зробити проєкт {{SITENAME}} ще кращим!",
 	"ext-quicksurveys-survey-positive": "Так",
 	"ext-quicksurveys-survey-negative": "Ні",
 	"ext-quicksurveys-survey-neutral": "Важко сказати",
