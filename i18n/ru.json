@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Diman Russkov",
+			"MuratTheTurkish",
 			"Okras",
 			"Ole Yves",
 			"Stjn",
@@ -16,8 +17,8 @@
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Затрудняюсь ответить",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Нет",
 	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Иное",
-	"ext-quicksurveys-example-external-survey-question": "Чтобы улучшить Википедию, нам нужна ваша помощь.",
-	"ext-quicksurveys-example-external-survey-description": "Ответив на этот опрос, вы поможете нам понять, как сделать Википедию лучше и полезнее для вас. Спасибо!",
+	"ext-quicksurveys-example-external-survey-question": "Чтобы улучшить {{SITENAME}}, нам нужна ваша помощь.",
+	"ext-quicksurveys-example-external-survey-description": "Ответив на этот опрос, вы поможете нам понять, как сделать {{SITENAME}} лучше и полезнее для вас. Спасибо!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Опрос предоставлен ExampleSurveyProvider. См. [//example.org/privacy-policy политику конфиденциальности]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Все ответы анонимны. См. [//example.org/privacy-policy политику конфиденциальности].",
 	"ext-quicksurveys-survey-confirm-msg": "Спасибо за отзыв! Благодаря ему {{SITENAME}} станет ещё лучше.",
