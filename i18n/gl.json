@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"ArenaL5",
 			"Elisardojm"
 		]
 	},
@@ -10,8 +11,8 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Si",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Non o sei",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Non",
-	"ext-quicksurveys-example-external-survey-question": "Necesitamos a súa axuda para mellorar a Wikipedia.",
-	"ext-quicksurveys-example-external-survey-description": "Contestando esta enquisa axudaranos a ver como facer a Wikipedia mellor e máis útil para vostede. Grazas!",
+	"ext-quicksurveys-example-external-survey-question": "Necesitamos a súa axuda para mellorar {{SITENAME}}.",
+	"ext-quicksurveys-example-external-survey-description": "Contestando esta enquisa axudaranos a ver como facer {{SITENAME}} mellor e máis útil para vostede. Grazas!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Enquisa proporcionada por ExampleSurveyProvider. Vexa a [//example.org/privacy-policy política de privacidade]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Todos os envíos son anónimos. Vexa a [//example.org/privacy-policy política de privacidade].",
 	"ext-quicksurveys-survey-confirm-msg": "Grazas polo comentario! Estamos a usalos para facer aínda mellor {{SITENAME}}!",
