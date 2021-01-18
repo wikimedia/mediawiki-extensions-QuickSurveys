@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Da",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Ne",
+	"ext-quicksurveys-survey-positive": "Da",
+	"ext-quicksurveys-survey-negative": "Ne"
+}
