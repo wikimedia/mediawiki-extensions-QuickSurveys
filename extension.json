@@ -100,8 +100,8 @@
 	"attributes": {
 		"EventLogging":{
 			"Schemas":{
-				"QuickSurveysResponses": 18397510,
-				"QuickSurveyInitiation": 18397507
+				"QuickSurveysResponses": "/analytics/legacy/quicksurveysresponses/1.0.0",
+				"QuickSurveyInitiation": "/analytics/legacy/quicksurveyinitiation/1.0.0"
 			}
 		}
 	},
