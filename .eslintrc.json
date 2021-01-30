@@ -9,6 +9,7 @@
 		"wikimedia/mediawiki"
 	],
 	"rules": {
-		"no-shadow": "warn"
+		"no-shadow": "warn",
+		"compat/compat": "warn"
 	}
 }
