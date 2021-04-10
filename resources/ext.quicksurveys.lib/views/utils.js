@@ -13,28 +13,6 @@ function extend( target, mixin ) {
 }
 
 /**
- * Get edit count bucket name, based on the number of edits made.
- *
- * @param {number|null} editCount
- * @return {string}
- */
-function getEditCountBucket( editCount ) {
-	if ( editCount >= 1000 ) {
-		return '1000+ edits';
-	}
-	if ( editCount >= 100 ) {
-		return '100-999 edits';
-	}
-	if ( editCount >= 5 ) {
-		return '5-99 edits';
-	}
-	if ( editCount >= 1 ) {
-		return '1-4 edits';
-	}
-	return '0 edits';
-}
-
-/**
  * Get a two-letter country code based on the user's IP-connection.
  *
  * The Geo object is derived from a Cookie response header in the
@@ -54,6 +32,5 @@ function getCountryCode() {
 
 module.exports = {
 	extend: extend,
-	getEditCountBucket: getEditCountBucket,
 	getCountryCode: getCountryCode
 };
