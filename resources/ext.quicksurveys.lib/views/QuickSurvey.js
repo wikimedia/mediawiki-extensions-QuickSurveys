@@ -166,7 +166,8 @@ utils.extend( QuickSurvey.prototype, {
 		var survey = this.config.survey,
 			skin = mw.config.get( 'skin' ),
 			// FIXME: remove this when SkinMinervaBeta is renamed to 'minerva-beta'.
-			mobileMode = mw.config.get( 'wgMFMode' );
+			mobileMode = mw.config.get( 'wgMFMode' ),
+			event;
 
 		// On mobile differentiate between minerva stable and beta
 		// by appending 'beta' to 'minerva'
@@ -174,7 +175,7 @@ utils.extend( QuickSurvey.prototype, {
 			skin += mobileMode;
 		}
 
-		return mw.eventLog.logEvent( 'QuickSurveysResponses', {
+		event = {
 			namespaceId: mw.config.get( 'wgNamespaceNumber' ),
 			surveySessionToken: this.config.surveySessionToken,
 			pageviewToken: this.config.pageviewToken,
@@ -187,9 +188,12 @@ utils.extend( QuickSurvey.prototype, {
 			isTablet: !this.config.isMobileLayout,
 			userLanguage: mw.config.get( 'wgContentLanguage' ),
 			isLoggedIn: !mw.user.isAnon(),
-			editCountBucket: utils.getEditCountBucket( mw.config.get( 'wgUserEditCount' ) ),
 			countryCode: utils.getCountryCode()
-		} );
+		};
+		if ( event.isLoggedIn ) {
+			event.editCountBucket = mw.config.get( 'wgUserEditCountBucket' );
+		}
+		return mw.eventLog.logEvent( 'QuickSurveysResponses', event );
 	},
 	/**
 	 * Submit user's answer to the backend and show the next panel
