@@ -167,7 +167,8 @@ utils.extend( QuickSurvey.prototype, {
 			skin = mw.config.get( 'skin' ),
 			// FIXME: remove this when SkinMinervaBeta is renamed to 'minerva-beta'.
 			mobileMode = mw.config.get( 'wgMFMode' ),
-			event;
+			event,
+			editCountBucket;
 
 		// On mobile differentiate between minerva stable and beta
 		// by appending 'beta' to 'minerva'
@@ -190,8 +191,9 @@ utils.extend( QuickSurvey.prototype, {
 			isLoggedIn: !mw.user.isAnon(),
 			countryCode: utils.getCountryCode()
 		};
-		if ( event.isLoggedIn ) {
-			event.editCountBucket = mw.config.get( 'wgUserEditCountBucket' );
+		editCountBucket = mw.config.get( 'wgUserEditCountBucket' );
+		if ( editCountBucket ) {
+			event.editCountBucket = editCountBucket;
 		}
 		return mw.eventLog.logEvent( 'QuickSurveysResponses', event );
 	},
