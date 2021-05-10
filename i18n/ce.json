@@ -13,12 +13,12 @@
 	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Кхин",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Хаттар делла ExampleSurveyProvider. Хьажа [//example.org/privacy-policy къайлаха политика]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Дерриге жоьпаш ду аноним. Хьажа [//example.org/privacy-policy къайлаха политика].",
-	"ext-quicksurveys-survey-confirm-msg": "Баркалла! И бахьнехь {{SITENAME}} кхин дика хира ю.",
+	"ext-quicksurveys-survey-confirm-msg": "Баркалла! И бахьнехь {{SITENAME}} кхин дика хира йу.",
 	"ext-quicksurveys-survey-positive": "ХӀаъ",
 	"ext-quicksurveys-survey-negative": "ХӀан-хӀа",
 	"ext-quicksurveys-survey-neutral": "Ца хаа",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "ДӀадахьийта",
-	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Дехар до, харжа жоп я язде хьайгара.",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Дехар до, харжа жоп йа йазде хьайгара.",
 	"ext-quicksurveys-external-survey-yes-button": "Хаттарийн юкъакхета",
 	"ext-quicksurveys-external-survey-no-button": "ХӀан-хӀа, баркалла"
 }
