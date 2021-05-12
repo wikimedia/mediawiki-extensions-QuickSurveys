@@ -41,7 +41,7 @@ class SurveyFactory {
 		);
 		$enabledSurveys = array_filter(
 			$surveysOrInvalid,
-			function ( ?Survey $survey ) : bool {
+			static function ( ?Survey $survey ) : bool {
 				return $survey && $survey->isEnabled();
 			}
 		);

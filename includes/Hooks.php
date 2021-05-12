@@ -24,7 +24,7 @@ class Hooks {
 	public static function onResourceLoaderGetConfigVars( &$vars ) {
 		$surveys = MediaWikiServices::getInstance()->getService( 'QuickSurveys.EnabledSurveys' );
 
-		$vars['wgEnabledQuickSurveys'] = array_map( function ( Survey $survey ) {
+		$vars['wgEnabledQuickSurveys'] = array_map( static function ( Survey $survey ) {
 			return $survey->toArray();
 		}, $surveys );
 	}

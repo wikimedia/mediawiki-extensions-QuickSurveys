@@ -9,7 +9,7 @@ return [
 		/**
 		 * Subset of configuration under the QuickSurveys namespace
 		 */
-		function ( MediaWikiServices $services ) : Config {
+		static function ( MediaWikiServices $services ) : Config {
 			return $services->getService( 'ConfigFactory' )
 				->makeConfig( 'quicksurveys' );
 		},
@@ -18,7 +18,7 @@ return [
 		 * @param MediaWikiServices $services
 		 * @return \QuickSurveys\Survey[] List of active surveys to be selected from on the client
 		 */
-		function ( MediaWikiServices $services ) : array {
+		static function ( MediaWikiServices $services ) : array {
 			$config = $services->getService( 'QuickSurveys.Config' );
 			$configuredSurveys = $config->has( 'QuickSurveysConfig' )
 				? $config->get( 'QuickSurveysConfig' )
