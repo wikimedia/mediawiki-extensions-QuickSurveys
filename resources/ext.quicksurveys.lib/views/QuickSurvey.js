@@ -24,7 +24,6 @@ utils.extend( QuickSurvey.prototype, {
 		initialPanel: $(
 			'<div>' +
 				'<strong data-question></strong>' +
-				'<p data-description></p>' +
 				'<div class="survey-button-container"></div>' +
 				'<div class="survey-footer" data-footer></div>' +
 			'</div>'
@@ -139,17 +138,31 @@ utils.extend( QuickSurvey.prototype, {
 	 * @return {*} OOUI widget instance
 	 */
 	widget: function ( widgetName, templatePartialName, options ) {
-		var templateClone,
+		var templateClone, question,
 			template = this.templatePartials[ templatePartialName ],
 			config = $.extend( {}, this.config[ widgetName ], options ),
 			templateData = this.config.templateData;
 
 		if ( template ) {
 			templateClone = template.clone();
-			templateClone.find( '[data-question]' ).text( templateData.question );
-			templateClone.find( '[data-description]' ).text( templateData.description );
+
+			question = templateClone.find( '[data-question]' );
+			question.text( templateData.question );
+
+			if ( templateData.description ) {
+				question.after(
+
+					// We set the data-description attribute for consistency with the other elements
+					// in the template.
+					$( '<p>' )
+						.attr( 'data-description', '' )
+						.text( templateData.description )
+				);
+			}
+
 			templateClone.find( '[data-footer]' ).html( templateData.footer );
 			templateClone.find( '[data-finalHeading]' ).text( templateData.finalHeading );
+
 			config.$content = templateClone;
 		}
 
