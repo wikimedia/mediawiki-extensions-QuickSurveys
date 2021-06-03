@@ -13,6 +13,24 @@
  * @property {string} [registrationEnd] if the survey is targeted by registration
  * date, user had to join on or before this date. Date is in format YYYY-MM-DD
  */
+
+/**
+ * @typedef SurveyDefinition
+ * @property {Audience} audience
+ * @property {number} coverage
+ * @property {string} description
+ * @property {string} [instanceTokenParameterName]
+ * @property {boolean} isInsecure
+ * @property {string} link
+ * @property {string} module
+ * @property {string} name
+ * @property {Object} platforms
+ * @property {string} privacyPolicy
+ * @property {string} question
+ * @property {string} type
+ * @property {string|null} embedElementId Embedding location DOM element ID.
+ */
+
 /**
  *
  * @typedef {Object} Geo
@@ -23,8 +41,7 @@
  * @property {number} [lon] of the user
  */
 
-var $window = $( window ),
-	hasOwn = Object.hasOwnProperty,
+var hasOwn = Object.hasOwnProperty,
 	ExternalSurvey = require( './views/ExternalSurvey.js' ),
 	SingleAnswerSurvey = require( './views/SingleAnswerSurvey.js' ),
 	MultipleAnswerSurvey = require( './views/MultipleAnswerSurvey.js' );
@@ -52,7 +69,7 @@ function logSurveyImpression( config ) {
 
 /**
  * Get a promise that resolves when half of the element has intersected with the device
- * viewport.
+ * viewport. If browser doesn't support IntersectionObserver the promise will be rejected.
  *
  * Note well that a promise can only resolve once.
  *
@@ -62,26 +79,30 @@ function logSurveyImpression( config ) {
 function getSeenObserver( $el ) {
 	var el = $el.get( 0 ),
 		result = $.Deferred(),
-		callback;
+		observer;
 
-	// Is the element visible right now?
-	if ( mw.viewport.isElementInViewport( el ) ) {
-		result.resolve();
-	} else {
-		callback = mw.util.debounce(
-			250,
-			function () {
-				if ( mw.viewport.isElementInViewport( el ) ) {
-					$window.off( 'scroll.seenObserver', callback );
-
+	if ( 'IntersectionObserver' in window ) {
+		// Setup the area for observing.
+		// By default the root is the viewport which is what we want.
+		// See https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+		observer = new IntersectionObserver(
+			function ( entries ) {
+				var entry = entries && entries[ 0 ];
+				if ( entry && entry.isIntersecting ) {
+					// If intersecting resolve the promise and stop observing it to free up resources.
+					observer.unobserve( el );
 					result.resolve();
 				}
+			},
+			{
+				threshold: 1
 			}
 		);
-
-		$window.on( 'scroll.seenObserver', callback );
+		// This should only ever observe one element given the function returns a promise.
+		observer.observe( el );
+	} else {
+		result.reject();
 	}
-
 	return result.promise();
 }
 
@@ -355,6 +376,12 @@ function surveyMatchesPlatform( survey, mode ) {
 		survey.platforms[ platformKey ].indexOf( platformValue ) !== -1;
 }
 
+/**
+ * Inserts a survey into the page and logs a survey impression.
+ * For older browsers, the survey impression will be logged, regardless
+ * of whether it is seen.
+ * @param {SurveyDefinition} survey
+ */
 function insertSurvey( survey ) {
 	var $panel = $( '<div>' ).addClass( 'ext-qs-loader-bar mw-ajax-loader' ),
 		// eslint-disable-next-line no-jquery/no-global-selector
@@ -394,6 +421,10 @@ function insertSurvey( survey ) {
 
 		getSeenObserver( panel.$element )
 			.then( function () {
+				logSurveyImpression( options );
+			}, function () {
+				// Assume an impression on this browser.
+				// The browser user agent can be used to determine where this applied.
 				logSurveyImpression( options );
 			} );
 	} );
