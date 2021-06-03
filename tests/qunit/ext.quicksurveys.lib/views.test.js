@@ -1,4 +1,7 @@
-var qSurveys = require( 'ext.quicksurveys.lib' ).test;
+var qSurveys = $.extend(
+	require( 'ext.quicksurveys.lib' ).test,
+	require( 'ext.quicksurveys.lib.views' ).test
+);
 
 QUnit.module( 'ext.quicksurveys.lib/views' );
 

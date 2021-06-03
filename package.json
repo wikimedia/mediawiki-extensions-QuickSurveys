@@ -5,11 +5,20 @@
 		"lint:js:fix": "npm -s run lint:js -- --fix",
 		"lint:js": "eslint --cache .",
 		"lint": "npm -s run lint:js && npm -s run lint:i18n",
-		"test": "npm run lint"
+		"test:unit": "jest --testRegex tests/jest/*.test.js",
+		"test": "npm run lint && npm run test:unit"
 	},
 	"devDependencies": {
-		"eslint-config-wikimedia": "0.20.0",
+		"@vue/test-utils": "1.2.0",
+		"@wikimedia/mw-node-qunit": "6.2.1",
+		"@wikimedia/wvui": "0.2.0",
+		"babel-core": "6.26.3",
+		"eslint-config-wikimedia": "^0.20.0",
 		"grunt-banana-checker": "0.9.0",
-		"stylelint-config-wikimedia": "0.10.3"
+		"jest": "26.6.3",
+		"stylelint-config-wikimedia": "0.10.3",
+		"vue": "2.6.14",
+		"vue-jest": "3.0.7",
+		"vue-template-compiler": "2.6.14"
 	}
 }

@@ -9,9 +9,11 @@
 namespace QuickSurveys;
 
 use Action;
+use Config;
 use MediaWiki\MediaWikiServices;
 use OutputPage;
 use ResourceLoader;
+use ResourceLoaderContext;
 
 class Hooks {
 
@@ -47,6 +49,24 @@ class Hooks {
 			//  call.  Ideally we could construct the ResourceLoader data module right here.
 			$out->addModules( 'ext.quicksurveys.init' );
 		}
+	}
+
+	/**
+	 * @param ResourceLoaderContext $context
+	 * @param Config $config
+	 * @return array
+	 */
+	public static function getQuickSurveysConfig(
+		ResourceLoaderContext $context,
+		Config $config
+	) {
+		return [
+			// Temporary feature module. When we remove the temporary QuickSurveysUseVue feature
+			// flag, we will merge all the files into a single ResourceLoader module and make Vue.js
+			// the default.
+			'module' => $config->get( 'QuickSurveysUseVue' ) ?
+				'ext.quicksurveys.lib.vue' : 'ext.quicksurveys.lib.views'
+		];
 	}
 
 	/**

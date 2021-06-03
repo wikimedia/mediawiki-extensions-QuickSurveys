@@ -1,0 +1,25 @@
+{
+	"root": true,
+	"extends": [
+		"../../.eslintrc.json"
+	],
+	"parserOptions": {
+		"ecmaVersion": 6
+	},
+	"globals": {
+		"OO": "readonly"
+	},
+	"rules": {
+		"es/no-object-assign": "off",
+		"es/no-array-from": "off",
+		"no-restricted-properties": "off",
+		"no-implicit-globals": "off",
+		"max-len": "off",
+		"compat/compat": "off",
+		"one-var": "off"
+	},
+	"env": {
+		"es6": true,
+		"jest": true
+	}
+}

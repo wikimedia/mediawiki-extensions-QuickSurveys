@@ -41,22 +41,22 @@
  * @property {number} [lon] of the user
  */
 
-var hasOwn = Object.hasOwnProperty,
-	ExternalSurvey = require( './views/ExternalSurvey.js' ),
-	SingleAnswerSurvey = require( './views/SingleAnswerSurvey.js' ),
-	MultipleAnswerSurvey = require( './views/MultipleAnswerSurvey.js' );
+var
+	hasOwn = Object.hasOwnProperty,
+	qsConfig = require( './config.json' );
 
 /**
  * Log impression when a survey is seen by the user
  *
- * @param {Object} config - survey config data
- * @ignore
+ * @param {string} surveySessionToken
+ * @param {string} pageviewToken
+ * @param {string} surveyName
  */
-function logSurveyImpression( config ) {
+function logSurveyImpression( surveySessionToken, pageviewToken, surveyName ) {
 	var event = {
-		surveySessionToken: config.surveySessionToken,
-		pageviewToken: config.pageviewToken,
-		surveyCodeName: config.survey.name,
+		surveySessionToken: surveySessionToken,
+		pageviewToken: pageviewToken,
+		surveyCodeName: surveyName,
 		eventName: 'impression'
 	};
 
@@ -388,48 +388,49 @@ function insertSurvey( survey ) {
 	var $panel = $.createSpinner().addClass( 'ext-qs-loader-bar' ),
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$bodyContent = $( '#bodyContent' ),
+		surveySessionToken = mw.user.sessionId() + '-quicksurveys',
+		dismissSurvey = function () {
+			mw.storage.set( getSurveyStorageKey( survey ), '~' );
+		},
+		pageviewToken = mw.user.getPageviewToken(),
 		isMobileLayout = window.innerWidth <= 768;
 
 	insertPanel( $bodyContent, $panel, survey.embedElementId, isMobileLayout );
+
 	// survey.module contains i18n messages
-	mw.loader.using( [ survey.module ] ).done( function () {
-		var panel,
-			options = {
-				survey: survey,
-				templateData: {
-					// eslint-disable-next-line mediawiki/msg-doc
-					question: mw.msg( survey.question ),
-					// eslint-disable-next-line mediawiki/msg-doc
-					description: survey.description ? mw.msg( survey.description ) : ''
-				},
-				surveySessionToken: mw.user.sessionId() + '-quicksurveys',
-				pageviewToken: mw.user.getPageviewToken(),
-				isMobileLayout: isMobileLayout
-			};
-
-		if ( survey.type === 'external' ) {
-			panel = new ExternalSurvey( options );
-		} else if ( survey.layout === 'single-answer' ) {
-			panel = new SingleAnswerSurvey( options );
-		} else if ( survey.layout === 'multiple-answer' ) {
-			panel = new MultipleAnswerSurvey( options );
-		} else {
-			return;
-		}
-		panel.on( 'dismiss', function () {
-			mw.storage.set( getSurveyStorageKey( survey ), '~' );
-		} );
-		$panel.replaceWith( panel.$element );
-
-		getSeenObserver( panel.$element )
-			.then( function () {
-				logSurveyImpression( options );
-			}, function () {
-				// Assume an impression on this browser.
-				// The browser user agent can be used to determine where this applied.
-				logSurveyImpression( options );
+	var uiLibraryModuleName = qsConfig.module;
+	mw.loader.using( [ survey.module, uiLibraryModuleName ] ).then( function ( require ) {
+		var module = require( uiLibraryModuleName );
+		if ( module ) {
+			module.render(
+				$panel[ 0 ],
+				survey,
+				dismissSurvey,
+				surveySessionToken,
+				pageviewToken,
+				isMobileLayout
+			).then( function () {
+				// eslint-disable-next-line no-use-before-define
+				reportWhenSeen( $panel, surveySessionToken, pageviewToken, survey.name );
 			} );
+		}
 	} );
+}
+
+/**
+ * Logs a survey impression when the survey is observed by user.
+ * If the browser does not support IntersectionObserver it will log immediately.
+ *
+ * @param {jQuery.Object} $el
+ * @param {string} surveySessionToken
+ * @param {string} pageviewToken
+ * @param {string} surveyName
+ */
+function reportWhenSeen( $el, surveySessionToken, pageviewToken, surveyName ) {
+	var done = function () {
+		logSurveyImpression( surveySessionToken, pageviewToken, surveyName );
+	};
+	getSeenObserver( $el ).then( done, done );
 }
 
 /**

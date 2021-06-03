@@ -12,7 +12,7 @@
 	"license-name": "MIT",
 	"type": "other",
 	"requires": {
-		"MediaWiki": ">= 1.34.0",
+		"MediaWiki": ">= 1.37.0",
 		"extensions": {
 			"EventLogging": "*"
 		}
@@ -35,8 +35,6 @@
 				"mediawiki.cookie",
 				"mediawiki.storage",
 				"mediawiki.experiments",
-				"oojs-ui-core",
-				"oojs-ui-widgets",
 				"mediawiki.user",
 				"mediawiki.Uri",
 				"ext.eventLogging",
@@ -63,13 +61,49 @@
 			],
 			"packageFiles": [
 				"resources/ext.quicksurveys.lib/init.js",
-				"resources/ext.quicksurveys.lib/lib.js",
+				{
+					"name": "resources/ext.quicksurveys.lib/config.json",
+					"callback": "QuickSurveys\\Hooks::getQuickSurveysConfig"
+				},
+				"resources/ext.quicksurveys.lib/lib.js"
+			]
+		},
+		"ext.quicksurveys.lib.views": {
+			"dependencies": [
+				"oojs-ui-core",
+				"oojs-ui-widgets",
+				"ext.quicksurveys.lib"
+			],
+			"targets": [
+				"mobile",
+				"desktop"
+			],
+			"packageFiles": [
+				"resources/ext.quicksurveys.lib/views/render.js",
 				"resources/ext.quicksurveys.lib/views/utils.js",
 				"resources/ext.quicksurveys.lib/views/QuickSurvey.js",
 				"resources/ext.quicksurveys.lib/QuickSurveyUtils.js",
 				"resources/ext.quicksurveys.lib/views/MultipleAnswerSurvey.js",
 				"resources/ext.quicksurveys.lib/views/SingleAnswerSurvey.js",
 				"resources/ext.quicksurveys.lib/views/ExternalSurvey.js"
+			]
+		},
+		"ext.quicksurveys.lib.vue": {
+			"dependencies": [
+				"vue",
+				"wvui",
+				"mediawiki.ui.checkbox",
+				"ext.quicksurveys.lib"
+			],
+			"targets": [
+				"mobile",
+				"desktop"
+			],
+			"packageFiles": [
+				"resources/ext.quicksurveys.lib/vue/render.js",
+				"resources/ext.quicksurveys.lib/views/utils.js",
+				"resources/ext.quicksurveys.lib/QuickSurveyUtils.js",
+				"resources/ext.quicksurveys.lib/vue/QuickSurvey.vue"
 			]
 		},
 		"ext.quicksurveys.init": {
@@ -95,7 +129,7 @@
 			"ext.quicksurveys.lib/views.test.js"
 		],
 		"dependencies": [
-			"ext.quicksurveys.lib"
+			"ext.quicksurveys.lib.views"
 		]
 	},
 	"attributes": {
@@ -122,6 +156,10 @@
 		]
 	},
 	"config": {
+		"QuickSurveysUseVue": {
+			"description": "Temporary configuration flag for transitioning user interface to Vue.js",
+			"value": false
+		},
 		"QuickSurveysConfig": {
 			"description": "Array of surveys eligible to be displayed on the wiki. Full documentation can be found in https://www.mediawiki.org/wiki/Extension:QuickSurveys#Configuration",
 			"public": true,
