@@ -1,4 +1,5 @@
 var utils = require( './utils.js' ),
+	QuickSurveyUtils = require( '../QuickSurveyUtils.js' ),
 	QuickSurvey = require( './QuickSurvey.js' );
 
 /**
@@ -29,7 +30,7 @@ utils.extend( SingleAnswerSurvey.prototype, {
 			submitButton;
 
 		if ( this.config.survey.shuffleAnswersDisplay ) {
-			answers = this.shuffleAnswers( answers );
+			answers = QuickSurveyUtils.shuffleAnswers( answers );
 		}
 
 		answerButtons = answers.map( function ( answer ) {
