@@ -34,7 +34,6 @@
 			"dependencies": [
 				"mediawiki.cookie",
 				"mediawiki.storage",
-				"mediawiki.viewport",
 				"mediawiki.experiments",
 				"oojs-ui-core",
 				"oojs-ui-widgets",
