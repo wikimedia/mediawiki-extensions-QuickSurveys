@@ -23,17 +23,14 @@
 					class="survey-button-container">
 					<div v-for="(btn, i) in buttons"
 						:key="i">
-						<div class="mw-ui-checkbox wvui-checkbox">
-							<input
-								v-model="checkedAnswers"
-								type="checkbox"
-								:value="btn.label"
-								name="answer">
-							<label for="btn.label">{{ btn.label }}</label>
-						</div>
+						<wvui-checkbox
+							v-model="checkedAnswers"
+							:input-value="btn.label">
+							{{ btn.label }}
+						</wvui-checkbox>
 					</div>
 				</div>
-				<div v-if="mustBeSubmitted">
+				<div v-if="mustBeSubmitted" class="survey-submit">
 					<wvui-input v-if="requiresSingularAnswer"
 						v-model="otherAnswer"
 						type="text"
@@ -61,6 +58,7 @@ var wvui = require( 'wvui' ),
 module.exports = {
 	name: 'QuickSurvey',
 	components: {
+		WvuiCheckbox: wvui.WvuiCheckbox,
 		WvuiInput: wvui.WvuiInput,
 		WvuiButton: wvui.WvuiButton
 	},
@@ -278,9 +276,19 @@ module.exports = {
 .ext-quick-survey-panel .wvui-checkbox {
 	margin: 12px 0;
 }
+
+.ext-quick-survey-panel .wvui-input {
+	margin-bottom: 12px;
+}
+
+.ext-quick-survey-panel .survey-submit {
+	margin-top: 12px;
+}
+
 .ext-quick-survey-panel .content {
 	padding: 12px 16px 16px;
 }
+
 .ext-quick-survey-single-answer .survey-button-container button {
 	width: 100%;
 }

@@ -92,7 +92,6 @@
 			"dependencies": [
 				"vue",
 				"wvui",
-				"mediawiki.ui.checkbox",
 				"ext.quicksurveys.lib"
 			],
 			"targets": [
