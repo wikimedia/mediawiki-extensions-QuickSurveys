@@ -41,7 +41,8 @@
 				"mediawiki.user",
 				"mediawiki.Uri",
 				"ext.eventLogging",
-				"mediawiki.util"
+				"mediawiki.util",
+				"jquery.spinner"
 			],
 			"targets": [
 				"mobile",

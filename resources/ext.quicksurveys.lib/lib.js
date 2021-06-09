@@ -356,7 +356,7 @@ function surveyMatchesPlatform( survey, mode ) {
 }
 
 function insertSurvey( survey ) {
-	var $panel = $( '<div>' ).addClass( 'ext-qs-loader-bar mw-ajax-loader' ),
+	var $panel = $.createSpinner().addClass( 'ext-qs-loader-bar' ),
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$bodyContent = $( '#bodyContent' ),
 		isMobileLayout = window.innerWidth <= 768;

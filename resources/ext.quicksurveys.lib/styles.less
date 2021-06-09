@@ -17,16 +17,20 @@
 
 /* FIXME: Should be an ajax loader to give impression something is happening */
 .ext-qs-loader-bar {
-	display: block;
 	height: 100px;
 	margin-left: 1.4em;
 	clear: right;
 	float: right;
 	background-color: @colorGray14;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-	&.mw-ajax-loader {
-		// FIXME: Why is this not the default? Override it.
-		top: 0;
+	.mw-spinner-container {
+		transform: scale( 0.5 );
+		transform-origin: center;
+		width: 25%;
+		height: 75%;
 	}
 }
 
