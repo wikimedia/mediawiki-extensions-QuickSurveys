@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Liuxinyu970226",
+			"Shizhao",
 			"沈澄心"
 		]
 	},
@@ -11,6 +12,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "是",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "不确定",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "否",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "其他",
 	"ext-quicksurveys-example-external-survey-question": "我们需要您帮助改进{{SITENAME}}。",
 	"ext-quicksurveys-example-external-survey-description": "通过回答此调查，您将帮助我们了解如何让{{SITENAME}}做得更好，更加对您有所帮助。感谢您！",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "由ExampleSurveyProvider提供的调查。请参见[//example.org/privacy-policy 隐私政策]。",
@@ -19,6 +21,8 @@
 	"ext-quicksurveys-survey-positive": "是",
 	"ext-quicksurveys-survey-negative": "否",
 	"ext-quicksurveys-survey-neutral": "不确定",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "提交",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "请选择一个答案或输入您自己的答案。",
 	"ext-quicksurveys-external-survey-yes-button": "查看调查",
 	"ext-quicksurveys-external-survey-no-button": "不用了，谢谢"
 }
