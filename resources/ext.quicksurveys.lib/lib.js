@@ -89,7 +89,8 @@ function getSeenObserver( $el ) {
 			function ( entries ) {
 				var entry = entries && entries[ 0 ];
 				if ( entry && entry.isIntersecting ) {
-					// If intersecting resolve the promise and stop observing it to free up resources.
+					// If intersecting resolve the promise,
+					// and stop observing it to free up resources.
 					observer.unobserve( el );
 					result.resolve();
 				}
@@ -380,6 +381,7 @@ function surveyMatchesPlatform( survey, mode ) {
  * Inserts a survey into the page and logs a survey impression.
  * For older browsers, the survey impression will be logged, regardless
  * of whether it is seen.
+ *
  * @param {SurveyDefinition} survey
  */
 function insertSurvey( survey ) {
@@ -449,18 +451,18 @@ function showSurvey( forcedSurvey ) {
 	var embeddedSurveys = [],
 		randomizedSurveys = [],
 		enabledSurveys = mw.config.get( 'wgEnabledQuickSurveys' ),
-		enabledSurvey,
+		enabledSurveyFromQueryString,
 		survey;
 
 	if ( forcedSurvey ) {
 		// Setting the quicksurvey param makes every enabled survey available
 		// Setting the param quicksurvey bypasses the bucketing AND audience
-		enabledSurvey = getSurveyFromQueryString(
+		enabledSurveyFromQueryString = getSurveyFromQueryString(
 			forcedSurvey || '',
 			enabledSurveys
 		);
-		if ( enabledSurvey && isValidSurvey( enabledSurvey ) ) {
-			randomizedSurveys.push( enabledSurvey );
+		if ( enabledSurveyFromQueryString && isValidSurvey( enabledSurveyFromQueryString ) ) {
+			randomizedSurveys.push( enabledSurveyFromQueryString );
 		}
 	} else {
 		// Find which surveys are available to the user
@@ -490,8 +492,8 @@ function showSurvey( forcedSurvey ) {
 	}
 	if ( embeddedSurveys.length ) {
 		// Inject all of the embedded surveys.
-		embeddedSurveys.forEach( function ( survey ) {
-			insertSurvey( survey );
+		embeddedSurveys.forEach( function ( embeddedSurvey ) {
+			insertSurvey( embeddedSurvey );
 		} );
 	} else if ( randomizedSurveys.length ) {
 		// Get a random available survey

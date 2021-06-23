@@ -88,6 +88,8 @@ utils.extend( QuickSurvey.prototype, {
 		} ) );
 
 		event = {
+			// informational purposes only
+			// eslint-disable-next-line compat/compat
 			beaconCapable: !!navigator.sendBeacon,
 			surveySessionToken: this.config.surveySessionToken,
 			pageviewToken: this.config.pageviewToken,

@@ -120,7 +120,9 @@ QUnit.test( 'surveyMatchesPlatform', function ( assert ) {
 		]
 	];
 	testCases.forEach( function ( test ) {
-		assert.strictEqual( qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, undefined ), test[ 1 ] );
+		assert.strictEqual(
+			qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, undefined ), test[ 1 ]
+		);
 		assert.strictEqual( qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, 'stable' ), test[ 2 ] );
 		assert.strictEqual( qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, 'beta' ), test[ 3 ] );
 	} );
@@ -213,21 +215,29 @@ QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds)', function ( 
 			'hide survey for anon if registrationEnd is set' ],
 		[ audienceRegisteredInJan2017, anonUser, editCount.noneditor, undefined, false,
 			'hide survey for anon if both registrationEnd and registrationStart are set' ],
-		[ audienceRegistrationStart20170104, userRegisteredOn20170105, editCount.noneditor, undefined, true,
+		[ audienceRegistrationStart20170104,
+			userRegisteredOn20170105, editCount.noneditor, undefined, true,
 			'show survey for user registered on 2017-01-05 if registrationStart is set to 2017-01-04' ],
-		[ audienceRegistrationStart20170105, userRegisteredOn20170105, editCount.noneditor, undefined, true,
+		[ audienceRegistrationStart20170105, userRegisteredOn20170105, editCount.noneditor,
+			undefined, true,
 			'show survey for user registered on 2017-01-05 if registrationStart is set to 2017-01-05' ],
-		[ audienceRegistrationStart20170106, userRegisteredOn20170105, editCount.noneditor, undefined, false,
+		[ audienceRegistrationStart20170106, userRegisteredOn20170105, editCount.noneditor,
+			undefined, false,
 			'hide survey for user registered on 2017-01-05 if registrationStart is set to 2017-01-06' ],
-		[ audienceRegistrationEnd20170104, userRegisteredOn20170105, editCount.noneditor, undefined, false,
+		[ audienceRegistrationEnd20170104, userRegisteredOn20170105, editCount.noneditor,
+			undefined, false,
 			'hide survey for user registered on 2017-01-05 if registrationEnd is set to 2017-01-04' ],
-		[ audienceRegistrationEnd20170105, userRegisteredOn20170105, editCount.noneditor, undefined, true,
+		[ audienceRegistrationEnd20170105, userRegisteredOn20170105, editCount.noneditor,
+			undefined, true,
 			'show survey for user registered on 2017-01-05 if registrationEnd is set to 2017-01-05' ],
-		[ audienceRegistrationEnd20170106, userRegisteredOn20170105, editCount.noneditor, undefined, true,
+		[ audienceRegistrationEnd20170106, userRegisteredOn20170105, editCount.noneditor,
+			undefined, true,
 			'show survey for user registered on 2017-01-05 if registrationEnd is set to 2017-01-06' ],
-		[ audienceRegisteredInJan2017, userRegisteredOn20170105, editCount.noneditor, undefined, true,
+		[ audienceRegisteredInJan2017, userRegisteredOn20170105, editCount.noneditor,
+			undefined, true,
 			'show survey for user registered on 2017-01-05 if registration constraints are set to Jan 2017' ],
-		[ audienceRegisteredInFeb2017, userRegisteredOn20170105, editCount.noneditor, undefined, false,
+		[ audienceRegisteredInFeb2017, userRegisteredOn20170105, editCount.noneditor,
+			undefined, false,
 			'hide survey for user registered on 2017-01-05 if registration constraints are set to Feb 2017' ],
 		// Country targetting
 		[ audienceSpain, loggedInUser, editCount.noneditor, undefined, false,
