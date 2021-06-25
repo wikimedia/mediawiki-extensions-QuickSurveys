@@ -61,31 +61,7 @@
 			],
 			"packageFiles": [
 				"resources/ext.quicksurveys.lib/init.js",
-				{
-					"name": "resources/ext.quicksurveys.lib/config.json",
-					"callback": "QuickSurveys\\Hooks::getQuickSurveysConfig"
-				},
 				"resources/ext.quicksurveys.lib/lib.js"
-			]
-		},
-		"ext.quicksurveys.lib.views": {
-			"dependencies": [
-				"oojs-ui-core",
-				"oojs-ui-widgets",
-				"ext.quicksurveys.lib"
-			],
-			"targets": [
-				"mobile",
-				"desktop"
-			],
-			"packageFiles": [
-				"resources/ext.quicksurveys.lib/views/render.js",
-				"resources/ext.quicksurveys.lib/views/utils.js",
-				"resources/ext.quicksurveys.lib/views/QuickSurvey.js",
-				"resources/ext.quicksurveys.lib/QuickSurveyLogger.js",
-				"resources/ext.quicksurveys.lib/views/MultipleAnswerSurvey.js",
-				"resources/ext.quicksurveys.lib/views/SingleAnswerSurvey.js",
-				"resources/ext.quicksurveys.lib/views/ExternalSurvey.js"
 			]
 		},
 		"ext.quicksurveys.lib.vue": {
@@ -100,8 +76,8 @@
 			],
 			"packageFiles": [
 				"resources/ext.quicksurveys.lib/vue/render.js",
-				"resources/ext.quicksurveys.lib/views/utils.js",
-				"resources/ext.quicksurveys.lib/QuickSurveyLogger.js",
+				"resources/ext.quicksurveys.lib/vue/utils.js",
+				"resources/ext.quicksurveys.lib/vue/QuickSurveyLogger.js",
 				"resources/ext.quicksurveys.lib/vue/QuickSurvey.vue"
 			]
 		},
@@ -124,11 +100,10 @@
 			"minerva-4.html": "ext.quicksurveys.lib/templates/minerva-4.html"
 		},
 		"scripts": [
-			"ext.quicksurveys.lib/lib.test.js",
-			"ext.quicksurveys.lib/views.test.js"
+			"ext.quicksurveys.lib/lib.test.js"
 		],
 		"dependencies": [
-			"ext.quicksurveys.lib.views"
+			"ext.quicksurveys.lib"
 		]
 	},
 	"attributes": {
@@ -155,10 +130,6 @@
 		]
 	},
 	"config": {
-		"QuickSurveysUseVue": {
-			"description": "Temporary configuration flag for transitioning user interface to Vue.js",
-			"value": false
-		},
 		"QuickSurveysConfig": {
 			"description": "Array of surveys eligible to be displayed on the wiki. Full documentation can be found in https://www.mediawiki.org/wiki/Extension:QuickSurveys#Configuration",
 			"public": true,

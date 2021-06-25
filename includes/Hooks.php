@@ -9,11 +9,9 @@
 namespace QuickSurveys;
 
 use Action;
-use Config;
 use MediaWiki\MediaWikiServices;
 use OutputPage;
 use ResourceLoader;
-use ResourceLoaderContext;
 
 class Hooks {
 
@@ -52,24 +50,6 @@ class Hooks {
 	}
 
 	/**
-	 * @param ResourceLoaderContext $context
-	 * @param Config $config
-	 * @return array
-	 */
-	public static function getQuickSurveysConfig(
-		ResourceLoaderContext $context,
-		Config $config
-	) {
-		return [
-			// Temporary feature module. When we remove the temporary QuickSurveysUseVue feature
-			// flag, we will merge all the files into a single ResourceLoader module and make Vue.js
-			// the default.
-			'module' => $config->get( 'QuickSurveysUseVue' ) ?
-				'ext.quicksurveys.lib.vue' : 'ext.quicksurveys.lib.views'
-		];
-	}
-
-	/**
 	 * ResourceLoaderRegisterModules hook handler
 	 *
 	 * Registers needed modules for enabled surveys
@@ -85,6 +65,7 @@ class Hooks {
 			$moduleName = $survey->getResourceLoaderModuleName();
 			$module = [
 				$moduleName => [
+					'dependencies' => [ 'ext.quicksurveys.lib.vue' ],
 					'messages' => $survey->getMessages(),
 					'targets' => [ 'desktop', 'mobile' ],
 				],

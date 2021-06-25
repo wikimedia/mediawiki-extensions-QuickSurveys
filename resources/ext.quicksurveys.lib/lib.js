@@ -41,9 +41,7 @@
  * @property {number} [lon] of the user
  */
 
-var
-	hasOwn = Object.hasOwnProperty,
-	qsConfig = require( './config.json' );
+var hasOwn = Object.hasOwnProperty;
 
 /**
  * Log impression when a survey is seen by the user
@@ -436,10 +434,14 @@ function insertSurvey( survey ) {
 
 	insertPanel( $bodyContent, $panel, survey.embedElementId, isMobileLayout );
 
-	// survey.module contains i18n messages
-	var uiLibraryModuleName = qsConfig.module;
-	mw.loader.using( [ survey.module, uiLibraryModuleName ] ).then( function ( require ) {
-		var module = require( uiLibraryModuleName );
+	// survey.module contains i18n messages and code to render.
+	// We load this asynchronously to avoid loading this all on page load for
+	// pages where a survey will never be shown.
+	// For example, some surveys are targetted at
+	// users with certain edit counts, or certain browser.
+	// See SurveyAudience for more information.
+	mw.loader.using( [ survey.module ] ).then( function ( require ) {
+		var module = require( 'ext.quicksurveys.lib.vue' );
 		if ( module ) {
 			module.render(
 				$panel[ 0 ],
