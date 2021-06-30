@@ -7,18 +7,15 @@ module.exports = {
 	 * @param {string} pageviewToken
 	 */
 	logInitialized: function ( name, surveySessionToken, pageviewToken ) {
-		var event = {
+		mw.eventLog.logEvent( 'QuickSurveyInitiation', {
 			// eslint-disable-next-line compat/compat
 			beaconCapable: !!navigator.sendBeacon,
 			surveySessionToken: surveySessionToken,
 			pageviewToken: pageviewToken,
 			surveyCodeName: name,
-			eventName: 'eligible'
-		};
-		if ( window.performance && performance.now ) {
-			event.performanceNow = Math.round( performance.now() );
-		}
-		mw.eventLog.logEvent( 'QuickSurveyInitiation', event );
+			eventName: 'eligible',
+			performanceNow: Math.round( mw.now() )
+		} );
 	},
 	/**
 	 * Shuffle answers in place
