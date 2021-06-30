@@ -18,28 +18,6 @@ module.exports = {
 		} );
 	},
 	/**
-	 * Shuffle answers in place
-	 *
-	 * @param {Array} [answers] answers coming from configuration
-	 * @return {Array} shuffled answers
-	 */
-	shuffleAnswers: function ( answers ) {
-		var counter = answers.length,
-			i, temp;
-
-		while ( counter > 0 ) {
-			i = Math.floor( Math.random() * counter );
-
-			counter--;
-
-			temp = answers[ counter ];
-			answers[ counter ] = answers[ i ];
-			answers[ i ] = temp;
-		}
-
-		return answers;
-	},
-	/**
 	 *
 	 * @param {string} name
 	 * @param {string} answer

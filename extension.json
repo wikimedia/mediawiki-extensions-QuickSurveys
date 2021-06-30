@@ -82,7 +82,7 @@
 				"resources/ext.quicksurveys.lib/views/render.js",
 				"resources/ext.quicksurveys.lib/views/utils.js",
 				"resources/ext.quicksurveys.lib/views/QuickSurvey.js",
-				"resources/ext.quicksurveys.lib/QuickSurveyUtils.js",
+				"resources/ext.quicksurveys.lib/QuickSurveyLogger.js",
 				"resources/ext.quicksurveys.lib/views/MultipleAnswerSurvey.js",
 				"resources/ext.quicksurveys.lib/views/SingleAnswerSurvey.js",
 				"resources/ext.quicksurveys.lib/views/ExternalSurvey.js"
@@ -102,7 +102,7 @@
 			"packageFiles": [
 				"resources/ext.quicksurveys.lib/vue/render.js",
 				"resources/ext.quicksurveys.lib/views/utils.js",
-				"resources/ext.quicksurveys.lib/QuickSurveyUtils.js",
+				"resources/ext.quicksurveys.lib/QuickSurveyLogger.js",
 				"resources/ext.quicksurveys.lib/vue/QuickSurvey.vue"
 			]
 		},

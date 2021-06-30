@@ -1,4 +1,4 @@
-var QuickSurveyUtils = require( '../QuickSurveyUtils.js' );
+var QuickSurveyLogger = require( '../QuickSurveyLogger.js' );
 
 /**
  * @class QuickSurvey
@@ -85,7 +85,7 @@ QuickSurvey.prototype.initialize = function ( config ) {
 	QuickSurvey.super.call( this, $.extend( {}, config, {
 		items: [ this.initialPanel, this.finalPanel ]
 	} ) );
-	QuickSurveyUtils.logInitialized(
+	QuickSurveyLogger.logInitialized(
 		this.config.survey.name,
 		this.config.surveySessionToken,
 		this.config.pageviewToken
@@ -160,7 +160,7 @@ QuickSurvey.prototype.submit = function ( answer ) {
  * @param {string} answer
  */
 QuickSurvey.prototype.log = function ( answer ) {
-	QuickSurveyUtils.logResponse(
+	QuickSurveyLogger.logResponse(
 		this.config.survey.name,
 		answer,
 		this.config.surveySessionToken,

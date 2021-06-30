@@ -54,7 +54,8 @@
 
 <script>
 var wvui = require( 'wvui' ),
-	QuickSurveyHelpers = require( '../QuickSurveyUtils.js' );
+	utils = require( '../views/utils.js' ),
+	QuickSurveyLogger = require( '../QuickSurveyLogger.js' );
 
 // @vue/component
 module.exports = {
@@ -183,7 +184,7 @@ module.exports = {
 				// "a computed property will only re-evaluate
 				// when some of its reactive dependencies have changed."
 				answersComputed = this.shuffleAnswersDisplay ?
-					QuickSurveyHelpers.shuffleAnswers( answers ) :
+					utils.shuffleAnswers( answers ) :
 					answers;
 
 			return answersComputed.map( function ( answer ) {
@@ -259,7 +260,7 @@ module.exports = {
 		 * @param {string} answer
 		 */
 		endSurvey: function ( answer ) {
-			QuickSurveyHelpers.logResponse(
+			QuickSurveyLogger.logResponse(
 				this.name,
 				answer,
 				this.surveySessionToken,

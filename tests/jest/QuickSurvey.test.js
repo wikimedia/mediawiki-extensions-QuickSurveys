@@ -1,10 +1,10 @@
 let QuickSurvey;
 const VueTestUtils = require( '@vue/test-utils' );
 const wvui = require( '@wikimedia/wvui' ).default;
-const QuickSurveyHelpers = require( '../../resources/ext.quicksurveys.lib/QuickSurveyUtils.js' );
+const QuickSurveyLogger = require( '../../resources/ext.quicksurveys.lib/QuickSurveyLogger.js' );
 
 const open = window.open,
-	logResponse = QuickSurveyHelpers.logResponse,
+	logResponse = QuickSurveyLogger.logResponse,
 	alert = window.alert;
 
 describe( 'QuickSurvey', () => {
@@ -17,12 +17,12 @@ describe( 'QuickSurvey', () => {
 			logEvent: jest.fn()
 		};
 		window.alert = jest.fn();
-		QuickSurveyHelpers.logResponse = jest.fn();
+		QuickSurveyLogger.logResponse = jest.fn();
 	} );
 
 	afterEach( () => {
 		window.open = open;
-		QuickSurveyHelpers.logResponse = logResponse;
+		QuickSurveyLogger.logResponse = logResponse;
 		window.alert = alert;
 	} );
 
@@ -153,13 +153,13 @@ describe( 'QuickSurvey', () => {
 				input.setValue( 'FREETEXT' );
 
 				// nothing submitted at this point.
-				expect( QuickSurveyHelpers.logResponse.mock.calls.length ).toBe( 0 );
+				expect( QuickSurveyLogger.logResponse.mock.calls.length ).toBe( 0 );
 
 				// submit.
 				return buttons.at( 3 ).trigger( 'click' ).then( () => {
-					expect( QuickSurveyHelpers.logResponse.mock.calls.length ).toBe( 1 );
+					expect( QuickSurveyLogger.logResponse.mock.calls.length ).toBe( 1 );
 					expect(
-						QuickSurveyHelpers.logResponse
+						QuickSurveyLogger.logResponse
 					).toHaveBeenCalledWith(
 						'survey',
 						'FREETEXT',
@@ -202,14 +202,14 @@ describe( 'QuickSurvey', () => {
 			// Attempting to click the submit button without any selections will cause an alert
 			return submitButton.trigger( 'click' ).then( () => {
 				expect( window.alert.mock.calls.length ).toBe( 1 );
-				expect( QuickSurveyHelpers.logResponse.mock.calls.length ).toBe( 0 );
+				expect( QuickSurveyLogger.logResponse.mock.calls.length ).toBe( 0 );
 
 				// However after clicking one of the checkboxes it should be possible to submit
 				checkboxes.at( 0 ).setChecked( true );
 				expect( window.alert.mock.calls.length ).toBe( 1 );
 				// clicking submit leads to the response being logged.
 				return submitButton.trigger( 'click' ).then( () => {
-					expect( QuickSurveyHelpers.logResponse.mock.calls.length ).toBe( 1 );
+					expect( QuickSurveyLogger.logResponse.mock.calls.length ).toBe( 1 );
 				} );
 			} );
 		} );

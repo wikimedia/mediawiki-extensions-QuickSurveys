@@ -30,7 +30,31 @@ function getCountryCode() {
 	return 'Unknown';
 }
 
+/**
+ * Shuffle answers in place
+ *
+ * @param {Array} [answers] answers coming from configuration
+ * @return {Array} shuffled answers
+ */
+function shuffleAnswers( answers ) {
+	var counter = answers.length,
+		i, temp;
+
+	while ( counter > 0 ) {
+		i = Math.floor( Math.random() * counter );
+
+		counter--;
+
+		temp = answers[ counter ];
+		answers[ counter ] = answers[ i ];
+		answers[ i ] = temp;
+	}
+
+	return answers;
+}
+
 module.exports = {
+	shuffleAnswers: shuffleAnswers,
 	extend: extend,
 	getCountryCode: getCountryCode
 };
