@@ -205,10 +205,11 @@ QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds)', function ( 
 		audienceRegistrationEnd20170106 = { registrationEnd: '2017-01-06' },
 		audienceRegisteredInJan2017 = { registrationStart: '2017-01-01', registrationEnd: '2017-01-31' },
 		audienceRegisteredInFeb2017 = { registrationStart: '2017-02-01', registrationEnd: '2017-01-28' },
-		audiencePages = { pageIds: [ 123, 456 ] };
+		audiencePages = { pageIds: [ 123, 456 ] },
+		audienceChrome = { userAgent: [ 'Chrome' ] };
 
 	[
-		// User registration targetting
+		// User registration targeting
 		[ audienceRegistrationStart20170104, anonUser, editCount.noneditor, undefined, false,
 			'hide survey for anon if registrationStart is set' ],
 		[ audienceRegistrationEnd20170104, anonUser, editCount.noneditor, undefined, false,
@@ -239,7 +240,7 @@ QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds)', function ( 
 		[ audienceRegisteredInFeb2017, userRegisteredOn20170105, editCount.noneditor,
 			undefined, false,
 			'hide survey for user registered on 2017-01-05 if registration constraints are set to Feb 2017' ],
-		// Country targetting
+		// Country targeting
 		[ audienceSpain, loggedInUser, editCount.noneditor, undefined, false,
 			'If Geo is undefined, we do not know the country so do not show the survey'
 		],
@@ -332,6 +333,10 @@ QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds)', function ( 
 		],
 		[ audiencePages, anonUser, editCount.noneditor, undefined, 987, false,
 			'pages: don\'t see the survey when page ID is not matched'
+		],
+		// target specific user agent
+		[ audienceChrome, loggedInUser, editCount.noneditor, true,
+			'user agent: show survey when target user agent matches audience user agent'
 		]
 	].forEach( function ( test ) {
 		assert.strictEqual(

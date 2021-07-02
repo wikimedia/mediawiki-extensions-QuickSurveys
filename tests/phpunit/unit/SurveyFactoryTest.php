@@ -152,7 +152,10 @@ class SurveyFactoryTest extends \MediaWikiUnitTestCase {
 				],
 			],
 			'ext-quicksurveys-test-external-survey-privacy-policy',
-			new SurveyAudience( [ 'minEdits' => 100 ] ),
+			new SurveyAudience( [
+				'minEdits' => 100,
+				'userAgent' => [ 'KaiOS' ]
+			] ),
 			'//example.org/test-external-survey',
 			''
 		);
@@ -177,6 +180,7 @@ class SurveyFactoryTest extends \MediaWikiUnitTestCase {
 				],
 				'audience' => [
 					'minEdits' => 100,
+					'userAgent' => [ 'KaiOS' ]
 				],
 				'link' => '//example.org/test-external-survey',
 				'privacyPolicy' => 'ext-quicksurveys-test-external-survey-privacy-policy',

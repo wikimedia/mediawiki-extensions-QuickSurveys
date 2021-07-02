@@ -37,7 +37,7 @@ abstract class Survey {
 	 * A platform can operate in one or more modes: mobile operates in 'stable' or 'beta' mode;
 	 * and desktop only operates in 'stable' mode.
 	 *
-	 * The platforms that the survey can be displayed on, therefore, are repsented as a map of
+	 * The platforms that the survey can be displayed on, therefore, are represented as a map of
 	 * platform to a set of platform modes, i.e.
 	 *
 	 * <code><pre>

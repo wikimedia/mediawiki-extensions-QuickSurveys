@@ -51,6 +51,7 @@ class SurveyAudienceTest extends \MediaWikiUnitTestCase {
 					'maxEdits' => 10,
 					'registrationEnd' => '2018-01-01',
 					'registrationStart' => '2019-12-31',
+					'userAgent' => [ 'KaiOS', 'Chrome' ]
 				],
 				[
 					'anons' => false,
@@ -58,6 +59,7 @@ class SurveyAudienceTest extends \MediaWikiUnitTestCase {
 					'maxEdits' => 10,
 					'registrationEnd' => '2018-01-01',
 					'registrationStart' => '2019-12-31',
+					'userAgent' => [ 'KaiOS', 'Chrome' ]
 				],
 				'a perfectly valid survey'
 			],

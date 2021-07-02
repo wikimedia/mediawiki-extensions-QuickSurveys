@@ -186,6 +186,12 @@
 							"stable",
 							"beta"
 						]
+					},
+					"audience": {
+						"userAgent": [
+							"Chrome",
+							"KaiOS"
+						]
 					}
 				},
 				{

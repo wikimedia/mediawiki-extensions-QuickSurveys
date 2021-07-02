@@ -17,6 +17,7 @@ class SurveyAudience {
 		'registrationStart' => 'string',
 		'registrationEnd' => 'string',
 		'pageIds' => 'array',
+		'userAgent' => 'array',
 	];
 
 	/**

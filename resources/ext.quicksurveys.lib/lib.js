@@ -226,6 +226,41 @@ function registrationDateNotInRange( user, registrationStart, registrationEnd ) 
 }
 
 /**
+ * Check if audience user agent matches survey's target user agent.
+ *
+ * @param {Array} targetUserAgent
+ * @return {boolean} true if user agent matches
+ */
+function isUsingTargetBrowser( targetUserAgent ) {
+	var keywordToRegexMap = {
+			KaiOS: /KaiOS[/\s](\d+\.\d+)/i,
+			InternetExplorer: /MSIE (\d+\.\d+);/i,
+			Chrome: /Chrome[/\s](\d+\.\d+)/i,
+			Edge: /Edge\/\d+/i,
+			Firefox: /Firefox[/\s](\d+\.\d+)/i,
+			Opera: /OPR[/\s](\d+\.\d+)/i,
+			Safari: /Safari[/\s](\d+\.\d+)/i
+		},
+		uaMatch = 0,
+		targetChrome = targetUserAgent.indexOf( 'Chrome' ) > -1;
+
+	// Check each target user agent against the user's user agent.
+	targetUserAgent.forEach( function ( ua ) {
+		if ( Object.prototype.hasOwnProperty.call( keywordToRegexMap, ua ) &&
+			keywordToRegexMap[ ua ].test( navigator.userAgent )
+		) {
+			++uaMatch;
+			// User agent string for Chrome includes Safari, so the simple regex fails to prevent
+			// showing a given survey to Chrome when Safari is targeted but Chrome is not.
+			if ( ua === 'Safari' && !targetChrome && navigator.userAgent.indexOf( 'Chrome' ) > -1 ) {
+				--uaMatch;
+			}
+		}
+	} );
+	return !!uaMatch;
+}
+
+/**
  * Check if a survey is suitable for the current user
  *
  * @param {Audience} audience
@@ -239,7 +274,8 @@ function isInAudience( audience, user, editCount, geo, pageId ) {
 	var hasMinEditAudience = audience.minEdits !== undefined,
 		hasMaxEditAudience = audience.maxEdits !== undefined,
 		hasCountries = audience.countries !== undefined,
-		hasPageIds = audience.pageIds !== undefined;
+		hasPageIds = audience.pageIds !== undefined,
+		hasTarget = audience.userAgent !== undefined && audience.userAgent.length > 0;
 
 	if ( hasPageIds && audience.pageIds.indexOf( pageId ) === -1 ) {
 		return false;
@@ -260,6 +296,9 @@ function isInAudience( audience, user, editCount, geo, pageId ) {
 	}
 	geo = geo || { country: '??' };
 	if ( hasCountries && audience.countries.indexOf( geo.country ) === -1 ) {
+		return false;
+	}
+	if ( hasTarget && !isUsingTargetBrowser( audience.userAgent ) ) {
 		return false;
 	}
 	return true;
