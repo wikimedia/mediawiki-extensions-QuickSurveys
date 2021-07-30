@@ -15,8 +15,7 @@
 		"no-restricted-properties": "off",
 		"no-implicit-globals": "off",
 		"max-len": "off",
-		"compat/compat": "off",
-		"one-var": "off"
+		"compat/compat": "off"
 	},
 	"env": {
 		"es6": true,
