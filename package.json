@@ -4,7 +4,8 @@
 		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
 		"lint:js:fix": "npm -s run lint:js -- --fix",
 		"lint:js": "eslint --cache .",
-		"lint": "npm -s run lint:js && npm -s run lint:i18n",
+		"lint:styles": "stylelint --cache --report-needless-disables --max-warnings 0 \"**/*.{less,css,vue}\"",
+		"lint": "npm -s run lint:js && npm run -s lint:styles && npm -s run lint:i18n",
 		"test:unit": "jest --testRegex tests/jest/*.test.js",
 		"test": "npm run lint && npm run test:unit"
 	},
@@ -16,7 +17,7 @@
 		"eslint-config-wikimedia": "^0.20.0",
 		"grunt-banana-checker": "0.9.0",
 		"jest": "26.6.3",
-		"stylelint-config-wikimedia": "0.10.3",
+		"stylelint-config-wikimedia": "0.11.1",
 		"vue": "2.6.14",
 		"vue-jest": "3.0.7",
 		"vue-template-compiler": "2.6.14"
