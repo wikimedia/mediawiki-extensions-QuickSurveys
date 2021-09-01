@@ -44,7 +44,10 @@ function render(
 					yesButtonLabel: mw.msg( 'ext-quicksurveys-external-survey-yes-button' ),
 					noButtonLabel: mw.msg( 'ext-quicksurveys-external-survey-no-button' ),
 					thankYouMessage: mw.msg( 'ext-quicksurveys-survey-confirm-msg' ),
-					footer: mw.message( 'ext-quicksurveys-survey-privacy-policy-default-text' ).parse(),
+					// eslint-disable-next-line mediawiki/msg-doc
+					footer: mw.message(
+						survey.privacyPolicy || 'ext-quicksurveys-survey-privacy-policy-default-text'
+					).parse(),
 					shuffleAnswersDisplay: survey.shuffleAnswersDisplay,
 					freeformTextLabel: survey.freeformTextLabel ?
 						// eslint-disable-next-line mediawiki/msg-doc
