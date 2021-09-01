@@ -1,4 +1,4 @@
-var utils = require( './views/utils.js' );
+var utils = require( './utils.js' );
 
 module.exports = {
 	/**

@@ -51,8 +51,8 @@
 
 <script>
 var wvui = require( 'wvui' ),
-	utils = require( '../views/utils.js' ),
-	QuickSurveyLogger = require( '../QuickSurveyLogger.js' );
+	utils = require( './utils.js' ),
+	QuickSurveyLogger = require( './QuickSurveyLogger.js' );
 
 // @vue/component
 module.exports = {

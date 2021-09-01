@@ -1,7 +1,7 @@
 let QuickSurvey;
 const VueTestUtils = require( '@vue/test-utils' );
 const wvui = require( '@wikimedia/wvui' ).default;
-const QuickSurveyLogger = require( '../../resources/ext.quicksurveys.lib/QuickSurveyLogger.js' );
+const QuickSurveyLogger = require( '../../resources/ext.quicksurveys.lib/vue/QuickSurveyLogger.js' );
 
 const open = window.open,
 	logResponse = QuickSurveyLogger.logResponse,
