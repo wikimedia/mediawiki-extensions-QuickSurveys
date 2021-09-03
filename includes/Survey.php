@@ -87,11 +87,11 @@ abstract class Survey {
 	 *
 	 * @return string
 	 */
-	public function getResourceLoaderModuleName() : string {
+	public function getResourceLoaderModuleName(): string {
 		return 'ext.quicksurveys.survey.' . str_replace( ' ', '.', $this->name );
 	}
 
-	public function getAudience() : SurveyAudience {
+	public function getAudience(): SurveyAudience {
 		return $this->audience;
 	}
 
@@ -100,7 +100,7 @@ abstract class Survey {
 	 *
 	 * @return string[]
 	 */
-	public function getMessages() : array {
+	public function getMessages(): array {
 		$messages = [
 			$this->question,
 		];
@@ -120,7 +120,7 @@ abstract class Survey {
 	 *
 	 * @return array
 	 */
-	public function toArray() : array {
+	public function toArray(): array {
 		return [
 			'audience' => $this->audience->toArray(),
 			'name' => $this->name,
@@ -138,7 +138,7 @@ abstract class Survey {
 	 *
 	 * @return bool
 	 */
-	public function isEnabled() : bool {
+	public function isEnabled(): bool {
 		return $this->isEnabled;
 	}
 }

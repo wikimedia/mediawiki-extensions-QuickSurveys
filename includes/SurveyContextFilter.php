@@ -22,7 +22,7 @@ class SurveyContextFilter {
 		$this->surveys = $surveys;
 	}
 
-	public function isAnySurveyAvailable( ?Title $title, string $action ) : bool {
+	public function isAnySurveyAvailable( ?Title $title, string $action ): bool {
 		if ( !$this->surveys ) {
 			return false;
 		}
@@ -42,7 +42,7 @@ class SurveyContextFilter {
 		return $title->exists();
 	}
 
-	private function isKnownPageId( int $pageId ) : bool {
+	private function isKnownPageId( int $pageId ): bool {
 		foreach ( $this->surveys as $survey ) {
 			$audience = $survey->getAudience()->toArray();
 			if ( in_array( $pageId, $audience['pageIds'] ?? [] ) ) {

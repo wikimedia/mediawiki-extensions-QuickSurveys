@@ -480,7 +480,7 @@ class SurveyFactoryTest extends \MediaWikiUnitTestCase {
 		];
 	}
 
-	private function expectsErrorLog( string $message ) : LoggerInterface {
+	private function expectsErrorLog( string $message ): LoggerInterface {
 		$logger = $this->createMock( LoggerInterface::class );
 		$logger
 			->expects( $this->atLeastOnce() )

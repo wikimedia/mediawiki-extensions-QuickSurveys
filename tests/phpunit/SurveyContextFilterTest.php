@@ -16,7 +16,7 @@ class SurveyContextFilterTest extends \MediaWikiIntegrationTestCase {
 	private $existingTalkPage;
 	private $nonexistingPage;
 
-	public function setUp() : void {
+	public function setUp(): void {
 		parent::setUp();
 
 		$this->getExistingTestPage( 'Foo' );

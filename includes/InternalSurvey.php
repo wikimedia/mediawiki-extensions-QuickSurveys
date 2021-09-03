@@ -62,7 +62,7 @@ class InternalSurvey extends Survey {
 		$this->layout = $layout;
 	}
 
-	public function getMessages() : array {
+	public function getMessages(): array {
 		$messages = array_merge( parent::getMessages(), $this->answers );
 
 		if ( $this->freeformTextLabel ) {
@@ -72,7 +72,7 @@ class InternalSurvey extends Survey {
 		return $messages;
 	}
 
-	public function toArray() : array {
+	public function toArray(): array {
 		return parent::toArray() + [
 			'type' => 'internal',
 			'answers' => $this->answers,

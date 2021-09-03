@@ -34,14 +34,14 @@ class SurveyFactory {
 	 * @param array[] $specs Raw configuration from $wgQuickSurveysConfig
 	 * @return Survey[] List of valid and enabled surveys
 	 */
-	public function parseSurveyConfig( array $specs ) : array {
+	public function parseSurveyConfig( array $specs ): array {
 		$surveysOrInvalid = array_map(
 			[ $this, 'newSurvey' ],
 			$specs
 		);
 		$enabledSurveys = array_filter(
 			$surveysOrInvalid,
-			static function ( ?Survey $survey ) : bool {
+			static function ( ?Survey $survey ): bool {
 				return $survey && $survey->isEnabled();
 			}
 		);
@@ -68,7 +68,7 @@ class SurveyFactory {
 	 * @param array $spec
 	 * @return Survey|null
 	 */
-	public function newSurvey( array $spec ) : ?Survey {
+	public function newSurvey( array $spec ): ?Survey {
 		try {
 			$this->validateSpec( $spec );
 
@@ -146,7 +146,7 @@ class SurveyFactory {
 		}
 	}
 
-	private function factoryExternal( $spec ) : ExternalSurvey {
+	private function factoryExternal( $spec ): ExternalSurvey {
 		$name = $spec['name'];
 
 		if ( !isset( $spec['link'] ) ) {
@@ -173,7 +173,7 @@ class SurveyFactory {
 		);
 	}
 
-	private function factoryInternal( $spec ) : InternalSurvey {
+	private function factoryInternal( $spec ): InternalSurvey {
 		$name = $spec['name'];
 
 		if ( !isset( $spec['answers'] ) ) {
