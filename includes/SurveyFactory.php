@@ -46,6 +46,7 @@ class SurveyFactory {
 			}
 		);
 
+		// @phan-suppress-next-line PhanTypeMismatchReturn array_filter removes null entries
 		return array_values( $enabledSurveys );
 	}
 
