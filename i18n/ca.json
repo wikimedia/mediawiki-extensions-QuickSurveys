@@ -1,15 +1,26 @@
 {
 	"@metadata": {
 		"authors": [
+			"Arnaugir",
 			"Laia Benito Pericas",
 			"Macofe"
 		]
 	},
+	"ext-quicksurveys-example-internal-survey-question": "El text hauria de ser més gros?",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Sí­",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "NS/NC",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "No",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Altres",
+	"ext-quicksurveys-example-external-survey-question": "Necessitem la vostra ajuda per a millorar {{SITENAME}}.",
+	"ext-quicksurveys-example-external-survey-description": "Contestar aquesta enquesta ens ajudarà a entendre com fer que {{SITENAME}} sigui millor i més útil. Gràcies!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Enquesta proporcionada per ExampleSurveyProvider. Vegeu [//example.org/privacy-policy la política de privadesa]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Totes les respostes són anònimes. Vegeu la [//example.org/privacy-policy política de privadesa].",
+	"ext-quicksurveys-survey-confirm-msg": "Gràcies pel comentari! Ho tindrem en compte per fer que {{SITENAME}} sigui encara millor!",
 	"ext-quicksurveys-survey-positive": "Sí­",
 	"ext-quicksurveys-survey-negative": "No",
 	"ext-quicksurveys-survey-neutral": "NS/NC",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Tramet",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Si us plau escolliu una resposta o entreu la vostra pròpia.",
+	"ext-quicksurveys-external-survey-yes-button": "Visiteu l'enquesta",
 	"ext-quicksurveys-external-survey-no-button": "No, gràcies"
 }
