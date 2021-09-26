@@ -9,22 +9,26 @@
 namespace QuickSurveys;
 
 use Action;
+use Config;
 use MediaWiki\MediaWikiServices;
 use OutputPage;
 use ResourceLoader;
+use ResourceLoaderContext;
 
 class Hooks {
 
 	/**
-	 * ResourceLoaderGetConfigVars hook handler for registering enabled surveys
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderGetConfigVars
+	 * Get data about the enabled surveys to be exported to the ext.quicksurveys.lib module
+	 * via a virtual file.
 	 *
-	 * @param array &$vars
+	 * @param ResourceLoaderContext $context
+	 * @param Config $conf
+	 * @return array
 	 */
-	public static function onResourceLoaderGetConfigVars( &$vars ) {
+	public static function getSurveyConfig( ResourceLoaderContext $context, Config $conf ) {
 		$surveys = MediaWikiServices::getInstance()->getService( 'QuickSurveys.EnabledSurveys' );
 
-		$vars['wgEnabledQuickSurveys'] = array_map( static function ( Survey $survey ) {
+		return array_map( static function ( Survey $survey ) {
 			return $survey->toArray();
 		}, $surveys );
 	}

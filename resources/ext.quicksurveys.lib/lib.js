@@ -492,7 +492,7 @@ function isEmbeddedElementMatched( embedElementId ) {
 function showSurvey( forcedSurvey ) {
 	var embeddedSurveys = [],
 		randomizedSurveys = [],
-		enabledSurveys = mw.config.get( 'wgEnabledQuickSurveys' ),
+		enabledSurveys = require( './surveyData.json' ),
 		enabledSurveyFromQueryString,
 		survey;
 

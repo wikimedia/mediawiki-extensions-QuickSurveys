@@ -61,7 +61,11 @@
 			],
 			"packageFiles": [
 				"resources/ext.quicksurveys.lib/init.js",
-				"resources/ext.quicksurveys.lib/lib.js"
+				"resources/ext.quicksurveys.lib/lib.js",
+				{
+					"name": "resources/ext.quicksurveys.lib/surveyData.json",
+					"callback": "QuickSurveys\\Hooks::getSurveyConfig"
+				}
 			]
 		},
 		"ext.quicksurveys.lib.vue": {
@@ -119,9 +123,6 @@
 	},
 	"manifest_version": 2,
 	"Hooks": {
-		"ResourceLoaderGetConfigVars": [
-			"QuickSurveys\\Hooks::onResourceLoaderGetConfigVars"
-		],
 		"BeforePageDisplay": [
 			"QuickSurveys\\Hooks::onBeforePageDisplay"
 		],
