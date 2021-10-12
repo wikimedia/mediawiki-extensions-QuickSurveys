@@ -49,7 +49,11 @@
 	margin-top: 0.5em;
 }
 
-.ext-quick-survey-panel {
+.mw-body > .content .panel.ext-quick-survey-panel {
+	// override center text-align in mobile frontend
+	// resolves https://phabricator.wikimedia.org/T255427
+	text-align: initial;
+
 	.image {
 		background-position: center 80%;
 		background-repeat: no-repeat;
