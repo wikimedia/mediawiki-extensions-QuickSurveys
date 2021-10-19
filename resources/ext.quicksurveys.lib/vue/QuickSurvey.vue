@@ -266,7 +266,11 @@ module.exports = {
 				!this.isMobileLayout
 			);
 			this.$emit( 'dismiss' );
-			this.completed = true;
+			if ( answer === 'ext-quicksurveys-external-survey-no-button' ) {
+				this.$emit( 'destroy' );
+			} else {
+				this.completed = true;
+			}
 		}
 	}
 };
