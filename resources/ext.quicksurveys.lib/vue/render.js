@@ -16,8 +16,7 @@ function render(
 	panel, survey, dismissSurvey, surveySessionToken, pageviewToken, isMobileLayout
 ) {
 	var deferred = $.Deferred();
-	// eslint-disable-next-line no-new
-	new Vue( {
+	var vm = new Vue( {
 		el: panel,
 		mounted: function () {
 			deferred.resolve( this.$el );
@@ -36,7 +35,11 @@ function render(
 
 			return createElement( QuickSurvey, {
 				on: {
-					dismiss: dismissSurvey
+					dismiss: dismissSurvey,
+					destroy: function () {
+						vm.$destroy();
+						vm.$el.remove();
+					}
 				},
 				props: {
 					submitButtonLabel: mw.msg( 'ext-quicksurveys-internal-freeform-survey-submit-button' ),

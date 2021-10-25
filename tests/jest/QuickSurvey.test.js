@@ -67,7 +67,7 @@ describe( 'QuickSurvey', () => {
 		).toBe( 2 );
 	} );
 
-	it( 'clicking dismiss button ends survey', () => {
+	it( 'clicking dismiss button removes survey', () => {
 		const survey = VueTestUtils.mount( QuickSurvey, {
 			propsData: {
 				name: 'survey',
@@ -81,11 +81,15 @@ describe( 'QuickSurvey', () => {
 			}
 		} );
 
-		return survey.findAllComponents( wvui.WvuiButton ).at( 1 ).trigger( 'click' ).then( () => {
-			expect(
-				survey.html()
-			).toContain( 'thanks!' );
-		} );
+		return survey.findAllComponents( wvui.WvuiButton ).at( 1 ).trigger( 'click' ).then( () => survey.vm.$nextTick() )
+			.then( () => {
+				expect(
+					survey.emitted( 'dismiss' )
+				).toBeTruthy();
+				expect(
+					survey.emitted( 'destroy' )
+				).toBeTruthy();
+			} );
 	} );
 
 	it( 'Opens window when yes clicked for external surveys', () => {
