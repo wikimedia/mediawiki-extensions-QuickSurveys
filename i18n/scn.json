@@ -7,5 +7,6 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Sì",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "No",
 	"ext-quicksurveys-survey-positive": "Sì",
-	"ext-quicksurveys-survey-negative": "No"
+	"ext-quicksurveys-survey-negative": "No",
+	"ext-quicksurveys-external-survey-no-button": "No, grazzi"
 }
