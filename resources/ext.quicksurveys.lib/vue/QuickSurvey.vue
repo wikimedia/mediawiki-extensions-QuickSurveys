@@ -1,34 +1,41 @@
 <template>
 	<div :class="rootClasses">
 		<div class="message content">
-			<div v-if="completed">
-				<strong>{{ thankYouMessage }}</strong>
+			<div class="survey-close-button">
+				<wvui-button
+					type="quiet"
+					@click="dismissAndDestroy">
+					<wvui-icon :icon="closeIcon"></wvui-icon>
+				</wvui-button>
 			</div>
-			<div v-else>
+			<template v-if="completed">
+				<strong>{{ thankYouMessage }}</strong>
+			</template>
+			<template v-else>
 				<strong>{{ question }}</strong>
 				<p v-if="description">
 					{{ description }}
 				</p>
-				<div v-if="requiresSingularAnswer"
-					class="survey-button-container">
-					<wvui-button v-for="(btn, i) in buttons"
-						:key="i"
-						:action="btn.action"
-						:type="btn.type"
-						@click="clickButton(btn.answer, btn.href)">
-						{{ btn.label }}
-					</wvui-button>
-				</div>
-				<div v-else
-					class="survey-button-container">
-					<div v-for="(btn, i) in buttons"
-						:key="i">
-						<wvui-checkbox
-							v-model="checkedAnswers"
-							:input-value="btn.label">
+				<div class="survey-button-container">
+					<template v-if="requiresSingularAnswer">
+						<wvui-button v-for="(btn, i) in buttons"
+							:key="i"
+							:action="btn.action"
+							:type="btn.type"
+							@click="clickButton(btn.answer, btn.href)">
 							{{ btn.label }}
-						</wvui-checkbox>
-					</div>
+						</wvui-button>
+					</template>
+					<template v-else>
+						<div v-for="(btn, i) in buttons"
+							:key="i">
+							<wvui-checkbox
+								v-model="checkedAnswers"
+								:input-value="btn.label">
+								{{ btn.label }}
+							</wvui-checkbox>
+						</div>
+					</template>
 				</div>
 				<div v-if="mustBeSubmitted" class="survey-submit">
 					<wvui-input v-if="requiresSingularAnswer"
@@ -42,7 +49,7 @@
 						{{ submitButtonLabel }}
 					</wvui-button>
 				</div>
-			</div>
+			</template>
 			<!-- eslint-disable vue/no-v-html -->
 			<div class="survey-footer" v-html="footer"></div>
 		</div>
@@ -60,7 +67,8 @@ module.exports = {
 	components: {
 		WvuiCheckbox: wvui.WvuiCheckbox,
 		WvuiInput: wvui.WvuiInput,
-		WvuiButton: wvui.WvuiButton
+		WvuiButton: wvui.WvuiButton,
+		WvuiIcon: wvui.WvuiIcon
 	},
 	props: {
 		shuffleAnswersDisplay: {
@@ -140,6 +148,10 @@ module.exports = {
 		description: {
 			type: String,
 			default: ''
+		},
+		closeIcon: {
+			type: String,
+			default: 'M4.34 2.93l12.73 12.73-1.41 1.41L2.93 4.35z M17.07 4.34L4.34 17.07l-1.41-1.41L15.66 2.93z'
 		}
 	},
 	data: function () {
@@ -265,12 +277,19 @@ module.exports = {
 				this.pageviewToken,
 				!this.isMobileLayout
 			);
-			this.$emit( 'dismiss' );
 			if ( answer === 'ext-quicksurveys-external-survey-no-button' ) {
-				this.$emit( 'destroy' );
+				this.dismissAndDestroy();
 			} else {
+				this.$emit( 'dismiss' );
 				this.completed = true;
 			}
+		},
+		/**
+		 * Dismisses the current survey and removes it from the page
+		 */
+		dismissAndDestroy: function () {
+			this.$emit( 'dismiss' );
+			this.$emit( 'destroy' );
 		}
 	}
 };
@@ -290,10 +309,29 @@ module.exports = {
 }
 
 .ext-quick-survey-panel .content {
-	padding: 12px 16px 16px;
+	padding: 16px;
 }
 
-.ext-quick-survey-single-answer .survey-button-container button {
+.ext-quick-survey-panel .survey-button-container button {
 	width: 100%;
+}
+
+.ext-quick-survey-panel .survey-close-button {
+	float: right;
+}
+
+.ext-quick-survey-panel .survey-close-button .wvui-button {
+	padding: 0;
+}
+
+.ext-quick-survey-panel .survey-close-button .wvui-button,
+.ext-quick-survey-panel .survey-close-button .wvui-icon {
+	min-width: 24px;
+	min-height: 24px;
+}
+
+.ext-quick-survey-panel .survey-close-button .wvui-icon svg {
+	width: 14px;
+	height: 14px;
 }
 </style>

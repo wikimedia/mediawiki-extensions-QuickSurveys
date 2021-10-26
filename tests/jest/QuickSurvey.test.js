@@ -44,30 +44,33 @@ describe( 'QuickSurvey', () => {
 		).toContain( 'ext-quick-survey-panel' );
 
 		expect(
-			survey.findComponent( wvui.WvuiButton ).exists()
-		).toBe( false );
+			survey.findAllComponents( wvui.WvuiButton ).length
+		).toBe( 1 );
 	} );
 
-	it( 'renders two external survey buttons with externalLink', () => {
+	it( 'renders with required parameters', () => {
 		const survey = VueTestUtils.mount( QuickSurvey, {
 			propsData: {
 				name: 'survey',
-				question: 'question',
-				thankYouMessage: 'thanks!',
 				yesButtonLabel: 'yes',
 				noButtonLabel: 'no',
-				externalLink: 'https://',
+				question: 'question',
+				thankYouMessage: 'thanks!',
 				surveySessionToken: 'ss',
 				pageviewToken: 'pv'
 			}
 		} );
 
 		expect(
+			survey.classes()
+		).toContain( 'ext-quick-survey-panel' );
+
+		expect(
 			survey.findAllComponents( wvui.WvuiButton ).length
-		).toBe( 2 );
+		).toBe( 1 );
 	} );
 
-	it( 'clicking dismiss button removes survey', () => {
+	it( 'clicking the close button dismisses and removes survey', () => {
 		const survey = VueTestUtils.mount( QuickSurvey, {
 			propsData: {
 				name: 'survey',
@@ -81,7 +84,7 @@ describe( 'QuickSurvey', () => {
 			}
 		} );
 
-		return survey.findAllComponents( wvui.WvuiButton ).at( 1 ).trigger( 'click' ).then( () => survey.vm.$nextTick() )
+		return survey.findAllComponents( wvui.WvuiButton ).at( 0 ).trigger( 'click' ).then( () => survey.vm.$nextTick() )
 			.then( () => {
 				expect(
 					survey.emitted( 'dismiss' )
@@ -92,25 +95,71 @@ describe( 'QuickSurvey', () => {
 			} );
 	} );
 
-	it( 'Opens window when yes clicked for external surveys', () => {
-		const survey = VueTestUtils.mount( QuickSurvey, {
+	describe( 'ExternalSurvey', () => {
+		it( 'renders two external survey buttons with externalLink', () => {
+			const survey = VueTestUtils.mount( QuickSurvey, {
 				propsData: {
 					name: 'survey',
+					question: 'question',
 					thankYouMessage: 'thanks!',
 					yesButtonLabel: 'yes',
 					noButtonLabel: 'no',
-					question: 'question',
 					externalLink: 'https://',
 					surveySessionToken: 'ss',
 					pageviewToken: 'pv'
 				}
-			} ),
-			buttons = survey.findAllComponents( wvui.WvuiButton );
+			} );
 
-		return buttons.at( 0 ).trigger( 'click' ).then( () => {
 			expect(
-				window.open.mock.calls.length
-			).toBe( 1 );
+				survey.findAllComponents( wvui.WvuiButton ).length
+			).toBe( 3 );
+		} );
+
+		it( 'clicking dismiss button removes survey', () => {
+			const survey = VueTestUtils.mount( QuickSurvey, {
+				propsData: {
+					name: 'survey',
+					question: 'question',
+					thankYouMessage: 'thanks!',
+					yesButtonLabel: 'yes please',
+					noButtonLabel: 'no',
+					externalLink: 'https://',
+					surveySessionToken: 'ss',
+					pageviewToken: 'pv'
+				}
+			} );
+
+			return survey.findAllComponents( wvui.WvuiButton ).at( 2 ).trigger( 'click' ).then( () => survey.vm.$nextTick() )
+				.then( () => {
+					expect(
+						survey.emitted( 'dismiss' )
+					).toBeTruthy();
+					expect(
+						survey.emitted( 'destroy' )
+					).toBeTruthy();
+				} );
+		} );
+
+		it( 'Opens window when yes clicked for external surveys', () => {
+			const survey = VueTestUtils.mount( QuickSurvey, {
+					propsData: {
+						name: 'survey',
+						thankYouMessage: 'thanks!',
+						yesButtonLabel: 'yes',
+						noButtonLabel: 'no',
+						question: 'question',
+						externalLink: 'https://',
+						surveySessionToken: 'ss',
+						pageviewToken: 'pv'
+					}
+				} ),
+				buttons = survey.findAllComponents( wvui.WvuiButton );
+
+			return buttons.at( 1 ).trigger( 'click' ).then( () => {
+				expect(
+					window.open.mock.calls.length
+				).toBe( 1 );
+			} );
 		} );
 	} );
 
@@ -137,7 +186,7 @@ describe( 'QuickSurvey', () => {
 
 		it( 'requires an answer', () => {
 			const survey = VueTestUtils.mount( QuickSurvey, SINGLE_ANSWER_SURVEY );
-			return survey.findAllComponents( wvui.WvuiButton ).at( 3 ).trigger( 'click' ).then( () => {
+			return survey.findAllComponents( wvui.WvuiButton ).at( 4 ).trigger( 'click' ).then( () => {
 				expect( window.alert.mock.calls.length ).toBe( 1 );
 			} );
 		} );
@@ -150,7 +199,7 @@ describe( 'QuickSurvey', () => {
 			expect( checkboxes.length ).toBe( 0 );
 
 			// choose "maybe"
-			const maybeBtn = buttons.at( 1 );
+			const maybeBtn = buttons.at( 2 );
 			return maybeBtn.trigger( 'click' ).then( () => {
 				const input = survey.findComponent( wvui.WvuiInput ).find( 'input' );
 				// set value to freetext
@@ -160,7 +209,7 @@ describe( 'QuickSurvey', () => {
 				expect( QuickSurveyLogger.logResponse.mock.calls.length ).toBe( 0 );
 
 				// submit.
-				return buttons.at( 3 ).trigger( 'click' ).then( () => {
+				return buttons.at( 4 ).trigger( 'click' ).then( () => {
 					expect( QuickSurveyLogger.logResponse.mock.calls.length ).toBe( 1 );
 					expect(
 						QuickSurveyLogger.logResponse
@@ -201,7 +250,7 @@ describe( 'QuickSurvey', () => {
 			const survey = VueTestUtils.mount( QuickSurvey, MULTI_ANSWER_SURVEY );
 
 			const checkboxes = survey.findAll( 'input[type="checkbox"]' );
-			const submitButton = survey.findAllComponents( wvui.WvuiButton ).at( 0 );
+			const submitButton = survey.findAllComponents( wvui.WvuiButton ).at( 1 );
 			expect( checkboxes.length ).toBe( 3 );
 			// Attempting to click the submit button without any selections will cause an alert
 			return submitButton.trigger( 'click' ).then( () => {
