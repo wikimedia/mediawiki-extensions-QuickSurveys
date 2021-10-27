@@ -27,5 +27,6 @@
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "Submit",
 	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Please select an answer or enter your own.",
 	"ext-quicksurveys-external-survey-yes-button": "Visit survey",
-	"ext-quicksurveys-external-survey-no-button": "No thanks"
+	"ext-quicksurveys-external-survey-no-button": "No thanks",
+	"ext-quicksurveys-test-external-survey-no-http-link": "http://example.org"
 }

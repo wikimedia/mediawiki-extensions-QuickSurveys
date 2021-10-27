@@ -116,9 +116,23 @@ class SurveyFactory {
 			throw new InvalidArgumentException( "The \"{$name}\" survey doesn't have any platforms." );
 		}
 
-		$this->validatePlatforms( $spec );
+		if ( $spec['type'] === 'external' && isset( $spec['link'] ) ) {
+			$link = $spec['link'];
+			$url = wfMessage( $link )->inContentLanguage()->plain();
+			$bit = parse_url( $url, PHP_URL_SCHEME );
+
+			if ( $bit !== 'https' ) {
+				throw new InvalidArgumentException( "The \"{$name}\" external survey must have a secure url." );
+			}
+		}
+
+			$this->validatePlatforms( $spec );
 	}
 
+	/**
+	 * @param array $spec
+	 * @throws InvalidArgumentException
+	 */
 	private function validatePlatforms( array $spec ) {
 		foreach ( self::VALID_PLATFORM_MODES as $platform => $validModes ) {
 			if ( !isset( $spec['platforms'][$platform] ) ) {
@@ -147,6 +161,11 @@ class SurveyFactory {
 		}
 	}
 
+	/**
+	 * @param array $spec
+	 * @throws InvalidArgumentException
+	 * @return ExternalSurvey
+	 */
 	private function factoryExternal( $spec ): ExternalSurvey {
 		$name = $spec['name'];
 
@@ -174,6 +193,11 @@ class SurveyFactory {
 		);
 	}
 
+	/**
+	 * @param array $spec
+	 * @throws InvalidArgumentException
+	 * @return InternalSurvey
+	 */
 	private function factoryInternal( $spec ): InternalSurvey {
 		$name = $spec['name'];
 

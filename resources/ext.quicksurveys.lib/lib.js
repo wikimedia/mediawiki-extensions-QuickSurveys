@@ -178,30 +178,6 @@ function insertPanel( $bodyContent, $panel, embedElementId, isMobileLayout ) {
 }
 
 /**
- * Check if a survey is valid.
- * Throws warning when not.
- * A survey is currently only invalid if it is external and links to
- * a non-https external site.
- *
- * @param {Object} survey options
- * @return {boolean}
- */
-function isValidSurvey( /* survey */ ) {
-	/*
-	// TODO: Enable this.
-	if ( survey.type === 'external' ) {
-		if ( survey.isInsecure ) {
-			mw.log.warn( 'QuickSurvey with name ' +
-						 survey.name +
-						 ' has insecure survey link and will not be shown.' );
-			return false;
-		}
-	}
-	*/
-	return true;
-}
-
-/**
  * Helper method to verify that user registered in given time frame
  * Note: this check is inclusive
  *
@@ -503,7 +479,7 @@ function showSurvey( forcedSurvey ) {
 			forcedSurvey || '',
 			enabledSurveys
 		);
-		if ( enabledSurveyFromQueryString && isValidSurvey( enabledSurveyFromQueryString ) ) {
+		if ( enabledSurveyFromQueryString ) {
 			randomizedSurveys.push( enabledSurveyFromQueryString );
 		}
 	} else {
@@ -512,7 +488,6 @@ function showSurvey( forcedSurvey ) {
 			if (
 				getSurveyToken( enabledSurvey ) !== '~' &&
 				getBucketForSurvey( enabledSurvey ) === 'A' &&
-				isValidSurvey( enabledSurvey ) &&
 				isInAudience(
 					enabledSurvey.audience,
 					mw.user,

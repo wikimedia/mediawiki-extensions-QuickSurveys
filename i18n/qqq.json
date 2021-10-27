@@ -30,5 +30,6 @@
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "label for the submit button for internal surveys",
 	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "alert message when the user tries to submit the form without providing an answer",
 	"ext-quicksurveys-external-survey-yes-button": "label of the link to the survey",
-	"ext-quicksurveys-external-survey-no-button": "decline button label\n{{Identical|No thanks}}"
+	"ext-quicksurveys-external-survey-no-button": "decline button label\n{{Identical|No thanks}}",
+	"ext-quicksurveys-test-external-survey-no-http-link": "{{notranslate}}\nA link without https used for integration tests"
 }
