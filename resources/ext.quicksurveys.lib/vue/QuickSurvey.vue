@@ -1,18 +1,22 @@
 <template>
 	<div :class="rootClasses">
 		<div class="message content">
-			<div class="survey-close-button">
-				<wvui-button
-					type="quiet"
-					@click="dismissAndDestroy">
-					<wvui-icon :icon="closeIcon"></wvui-icon>
-				</wvui-button>
+			<div class="survey-header">
+				<template v-if="completed">
+					<strong>{{ thankYouMessage }}</strong>
+				</template>
+				<template v-else>
+					<strong>{{ question }}</strong>
+				</template>
+				<div class="survey-close-button">
+					<wvui-button
+						type="quiet"
+						@click="dismissAndDestroy">
+						<wvui-icon :icon="closeIcon"></wvui-icon>
+					</wvui-button>
+				</div>
 			</div>
-			<template v-if="completed">
-				<strong>{{ thankYouMessage }}</strong>
-			</template>
-			<template v-else>
-				<strong>{{ question }}</strong>
+			<template v-if="!completed">
 				<p v-if="description">
 					{{ description }}
 				</p>
@@ -37,7 +41,7 @@
 						</div>
 					</template>
 				</div>
-				<div v-if="mustBeSubmitted" class="survey-submit">
+				<template v-if="mustBeSubmitted">
 					<wvui-input v-if="requiresSingularAnswer"
 						v-model="otherAnswer"
 						type="text"
@@ -48,7 +52,7 @@
 						@click="submitAnswer">
 						{{ submitButtonLabel }}
 					</wvui-button>
-				</div>
+				</template>
 			</template>
 			<!-- eslint-disable vue/no-v-html -->
 			<div class="survey-footer" v-html="footer"></div>
@@ -295,43 +299,58 @@ module.exports = {
 };
 </script>
 
-<style>
-.ext-quick-survey-panel .wvui-checkbox {
-	margin: 12px 0;
-}
+<style lang="less">
+.ext-quick-survey-panel {
+	@spacing: 16px;
+	@spacing-inner: 8px;
+	@close-button-displacement: 2px;
+	@close-button-size: 24px;
 
-.ext-quick-survey-panel .wvui-input {
-	margin-bottom: 12px;
-}
+	.content {
+		padding: (@spacing - @close-button-displacement) @spacing;
 
-.ext-quick-survey-panel .survey-submit {
-	margin-top: 12px;
-}
+		> :not( :first-child ) {
+			margin: @spacing-inner 0 0;
+		}
+	}
 
-.ext-quick-survey-panel .content {
-	padding: 16px;
-}
+	.survey-button-container {
+		> :not( :first-child ) {
+			margin: @spacing-inner 0 0;
+		}
 
-.ext-quick-survey-panel .survey-button-container button {
-	width: 100%;
-}
+		> .wvui-button {
+			width: 100%;
+			/* Disable wvui's button max-width */
+			max-width: none;
+		}
+	}
 
-.ext-quick-survey-panel .survey-close-button {
-	float: right;
-}
+	.survey-header {
+		display: flex;
 
-.ext-quick-survey-panel .survey-close-button .wvui-button {
-	padding: 0;
-}
+		strong {
+			margin-top: @close-button-displacement;
+			flex: 1;
+		}
 
-.ext-quick-survey-panel .survey-close-button .wvui-button,
-.ext-quick-survey-panel .survey-close-button .wvui-icon {
-	min-width: 24px;
-	min-height: 24px;
-}
+		.survey-close-button {
+			.wvui-button {
+				padding: 0;
+			}
 
-.ext-quick-survey-panel .survey-close-button .wvui-icon svg {
-	width: 14px;
-	height: 14px;
+			.wvui-button,
+			.wvui-icon {
+				min-width: @close-button-size;
+				min-height: @close-button-size;
+			}
+
+			.wvui-icon svg {
+				@close-button-icon-size: 14px;
+				width: @close-button-icon-size;
+				height: @close-button-icon-size;
+			}
+		}
+	}
 }
 </style>
