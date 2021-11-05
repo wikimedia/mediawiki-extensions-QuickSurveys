@@ -17,7 +17,7 @@
 				</div>
 			</div>
 			<template v-if="!completed">
-				<p v-if="description">
+				<p v-if="description" class="survey-description">
 					{{ description }}
 				</p>
 				<div class="survey-button-container">
@@ -307,14 +307,34 @@ module.exports = {
 .ext-quick-survey-panel {
 	@spacing: 16px;
 	@spacing-inner: 8px;
+	/* Space to remove from top spacing in the content due to close-button spacing */
 	@close-button-displacement: 2px;
 	@close-button-size: 24px;
+	/* line-height: 20px, with base font-size 14px = */
+	@line-height: 1.42857143;
+	/*
+	We need to move the header down to align with the button's baseline, because
+	the text has a line-height of 20px and the button of 24px.
+	In order to keep the margin to align the text dependent on size in case the base font size
+	is different than 14px per browser settings, we convert those 24px-20px into
+	em.
+	*/
+	@header-align-displacement: 1em * (@close-button-size - (14px * @line-height)) / 14px;
 
 	.content {
 		padding: (@spacing - @close-button-displacement) @spacing;
+		line-height: @line-height;
 
 		> :not( :first-child ) {
 			margin: @spacing-inner 0 0;
+		}
+
+		.survey-description {
+			/*
+			Request from design to reduce the spacing between the description and
+			header due to line-height whitespace already present in the header.
+			*/
+			margin-top: 4px;
 		}
 	}
 
@@ -334,11 +354,13 @@ module.exports = {
 		display: flex;
 
 		strong {
-			margin-top: @close-button-displacement;
+			margin-top: @header-align-displacement;
 			flex: 1;
 		}
 
 		.survey-close-button {
+			margin-left: @spacing;
+
 			.wvui-button {
 				padding: 0;
 			}
@@ -355,6 +377,11 @@ module.exports = {
 				height: @close-button-icon-size;
 			}
 		}
+	}
+
+	.survey-footer {
+		font-size: /* 1 = 14px, 13px = */ 0.928571428571em;
+		line-height: /* 1 = 13px, 18px = */ 1.38;
 	}
 }
 </style>
