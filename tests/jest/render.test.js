@@ -1,3 +1,5 @@
+'use strict';
+
 const wvui = require( '@wikimedia/wvui' ).default;
 
 describe( 'QuickSurvey', () => {
@@ -88,11 +90,11 @@ describe( 'QuickSurvey', () => {
 	} );
 
 	it( 'calls dismissSurvey when no-thanks is clicked in an external survey', () => {
-		let container = document.createElement( 'div' );
-		let el = document.createElement( 'div' );
+		const container = document.createElement( 'div' );
+		const el = document.createElement( 'div' );
 		container.appendChild( el );
 
-		let dismissSurvey = jest.fn( () => {} );
+		const dismissSurvey = jest.fn( () => {} );
 		return vue.render(
 			el,
 			{
@@ -105,11 +107,11 @@ describe( 'QuickSurvey', () => {
 			() => {},
 			'ss', 'pp', false
 		).then( ( node ) => {
-			let buttons = Array.from( node.querySelectorAll( 'button' ) ).filter( b => b.textContent.indexOf( 'ext-quicksurveys-external-survey-no-button' ) > -1 );
+			const buttons = Array.from( node.querySelectorAll( 'button' ) ).filter( ( b ) => b.textContent.includes( 'ext-quicksurveys-external-survey-no-button' ) );
 			expect(
 				buttons.length
 			).toBe( 1 );
-			let noThanks = buttons[ 0 ];
+			const noThanks = buttons[ 0 ];
 
 			noThanks.click();
 

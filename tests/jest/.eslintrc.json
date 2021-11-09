@@ -1,24 +1,15 @@
 {
 	"root": true,
 	"extends": [
-		"../../.eslintrc.json"
+		"wikimedia/mediawiki",
+		"wikimedia/server"
 	],
-	"parserOptions": {
-		"ecmaVersion": 6
-	},
-	"globals": {
-		"OO": "readonly"
-	},
 	"rules": {
-		"es/no-object-assign": "off",
-		"es/no-array-from": "off",
-		"no-restricted-properties": "off",
-		"no-implicit-globals": "off",
-		"max-len": "off",
-		"compat/compat": "off"
+		"compat/compat": "off",
+		"max-len": "off"
 	},
 	"env": {
-		"es6": true,
-		"jest": true
+		"jest": true,
+		"browser": true
 	}
 }

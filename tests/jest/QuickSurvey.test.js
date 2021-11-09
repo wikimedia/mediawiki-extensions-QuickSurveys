@@ -1,3 +1,5 @@
+'use strict';
+
 let QuickSurvey;
 const VueTestUtils = require( '@vue/test-utils' );
 const wvui = require( '@wikimedia/wvui' ).default;
