@@ -21,11 +21,11 @@ QUnit.test( 'showSurvey: Placement (infobox)', function ( assert ) {
 	qSurveys.insertPanel( $locationMinerva, this.getPanel(), null, true );
 	qSurveys.insertPanel( $locationMinervaTablet, this.getPanel(), null );
 
-	assert.ok( this.isPanelElement( $locationVector.find( '.infobox' ).eq( 0 ).prev() ),
+	assert.true( this.isPanelElement( $locationVector.find( '.infobox' ).eq( 0 ).prev() ),
 		'Check on desktop page it is inserted in correct place (before infobox)' );
-	assert.ok( this.isPanelElement( $locationMinerva.find( '#firstp' ).next() ),
+	assert.true( this.isPanelElement( $locationMinerva.find( '#firstp' ).next() ),
 		'Check on mobile page it is inserted in correct place (after first paragraph)' );
-	assert.ok( this.isPanelElement( $locationMinervaTablet.find( '.infobox' ).eq( 0 ).prev() ),
+	assert.true( this.isPanelElement( $locationMinervaTablet.find( '.infobox' ).eq( 0 ).prev() ),
 		'Check on mobile page it is inserted in correct place (before infobox)' );
 } );
 
@@ -39,11 +39,11 @@ QUnit.test( 'showSurvey: Placement (image)', function ( assert ) {
 	qSurveys.insertPanel( $locationMinerva, this.getPanel(), null, true );
 	qSurveys.insertPanel( $locationMinervaTablet, this.getPanel(), null );
 
-	assert.ok( this.isPanelElement( $locationVector.find( '#firstp' ).next() ),
+	assert.true( this.isPanelElement( $locationVector.find( '#firstp' ).next() ),
 		'Check it is inserted in correct place on vector (after first paragraph)' );
-	assert.ok( this.isPanelElement( $locationMinerva.find( '#firstp' ).next() ),
+	assert.true( this.isPanelElement( $locationMinerva.find( '#firstp' ).next() ),
 		'Check it is inserted in correct place (after first paragraph)' );
-	assert.ok( this.isPanelElement( $locationMinervaTablet.find( '.thumb' ).eq( 0 ).prev() ),
+	assert.true( this.isPanelElement( $locationMinervaTablet.find( '.thumb' ).eq( 0 ).prev() ),
 		'Check it is inserted in correct place (before image)' );
 } );
 
@@ -63,11 +63,11 @@ QUnit.test( 'showSurvey: Placement (no headings)', function ( assert ) {
 		'Check only one panel got added on mobile' );
 	assert.strictEqual( $locationMinervaTablet.find( '.test-panel' ).length, 1,
 		'Check only one panel got added on tablet' );
-	assert.ok( this.isPanelElement( $locationVector.find( '#firstp' ).next() ),
+	assert.true( this.isPanelElement( $locationVector.find( '#firstp' ).next() ),
 		'Check it is inserted in correct place on Vector (after first paragraph)' );
-	assert.ok( this.isPanelElement( $locationMinerva.find( '#firstp' ).next() ),
+	assert.true( this.isPanelElement( $locationMinerva.find( '#firstp' ).next() ),
 		'Check it is inserted in correct place on mobile (after first paragraph)' );
-	assert.ok( this.isPanelElement( $locationMinervaTablet.find( '#firstp' ).next() ),
+	assert.true( this.isPanelElement( $locationMinervaTablet.find( '#firstp' ).next() ),
 		'Check it is inserted in correct place on tablet (after first paragraph)' );
 } );
 
@@ -138,11 +138,11 @@ QUnit.test( 'showSurvey: Placement (plain)', function ( assert ) {
 	qSurveys.insertPanel( $locationMinerva, this.getPanel(), null, true );
 	qSurveys.insertPanel( $locationMinervaTablet, this.getPanel(), null );
 
-	assert.ok( this.isPanelElement( $locationMinerva.find( '#firsth2' ).prev() ),
+	assert.true( this.isPanelElement( $locationMinerva.find( '#firsth2' ).prev() ),
 		'Check it is inserted in correct place on mobile (before first heading)' );
-	assert.ok( this.isPanelElement( $locationVector.find( '#firsth2' ).prev() ),
+	assert.true( this.isPanelElement( $locationVector.find( '#firsth2' ).prev() ),
 		'Check it is inserted in correct place on vector (before first heading)' );
-	assert.ok( this.isPanelElement( $locationMinervaTablet.find( '#firsth2' ).prev() ),
+	assert.true( this.isPanelElement( $locationMinervaTablet.find( '#firsth2' ).prev() ),
 		'Check it is inserted in correct place on tablet (before first heading)' );
 } );
 
@@ -152,7 +152,7 @@ QUnit.test( 'showSurvey: Placement (embedded)', function ( assert ) {
 
 	qSurveys.insertPanel( $location, this.getPanel(), embedElementId );
 
-	assert.ok( this.isPanelElement( $location.find( '#secondh2' ).next().next() ),
+	assert.true( this.isPanelElement( $location.find( '#secondh2' ).next().next() ),
 		'Check embedded survey is inserted in correct place' );
 } );
 

@@ -187,7 +187,7 @@ function insertPanel( $bodyContent, $panel, embedElementId, isMobileLayout ) {
  * @return {boolean}
  */
 function isValidSurvey( /* survey */ ) {
-	/**
+	/*
 	// TODO: Enable this.
 	if ( survey.type === 'external' ) {
 		if ( survey.isInsecure ) {
@@ -197,7 +197,7 @@ function isValidSurvey( /* survey */ ) {
 			return false;
 		}
 	}
-	 */
+	*/
 	return true;
 }
 

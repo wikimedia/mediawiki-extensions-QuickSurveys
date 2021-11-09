@@ -22,16 +22,18 @@
 				</p>
 				<div class="survey-button-container">
 					<template v-if="requiresSingularAnswer">
-						<wvui-button v-for="(btn, i) in buttons"
+						<wvui-button
+							v-for="( btn, i ) in buttons"
 							:key="i"
 							:action="btn.action"
 							:type="btn.type"
-							@click="clickButton(btn.answer, btn.href)">
+							@click="clickButton( btn.answer, btn.href )">
 							{{ btn.label }}
 						</wvui-button>
 					</template>
 					<template v-else>
-						<div v-for="(btn, i) in buttons"
+						<div
+							v-for="( btn, i ) in buttons"
 							:key="i">
 							<wvui-checkbox
 								v-model="checkedAnswers"
@@ -42,12 +44,14 @@
 					</template>
 				</div>
 				<template v-if="mustBeSubmitted">
-					<wvui-input v-if="requiresSingularAnswer"
+					<wvui-input
+						v-if="requiresSingularAnswer"
 						v-model="otherAnswer"
 						type="text"
 						:placeholder="freeformTextLabel"
 						@input="resetSelectedButton"></wvui-input>
-					<wvui-button type="normal"
+					<wvui-button
+						type="normal"
 						action="progressive"
 						@click="submitAnswer">
 						{{ submitButtonLabel }}
