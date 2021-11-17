@@ -11,7 +11,7 @@ use QuickSurveys\SurveyFactory;
 /**
  * @covers \QuickSurveys\SurveyFactory
  */
-class SurveyFactoryTest extends \MediaWikiUnitTestCase {
+class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 
 	public function testItShouldThrowWhenThereIsNoQuestion() {
 		$factory = new SurveyFactory(
@@ -103,7 +103,35 @@ class SurveyFactoryTest extends \MediaWikiUnitTestCase {
 						'beta',
 					],
 				],
-				'link' => '//example.org/test-external-survey',
+				'link' => 'ext-quicksurveys-example-external-survey-link',
+			]
+		);
+	}
+
+	public function testItShouldThrowWhenThereIsNoHttpsPresent() {
+		$factory = new SurveyFactory(
+			$this->expectsErrorLog(
+				'Bad survey configuration: The "test" external survey must have a secure url.' )
+		);
+		$factory->newSurvey(
+			[
+				'name' => 'test',
+				'type' => 'external',
+				'question' => 'Do you feel safe?',
+				'enabled' => true,
+				'description' => 'A survey for TST ',
+				'coverage' => 1,
+				'platforms' => [
+					'desktop' => [
+						'stable'
+					],
+					'mobile' => [
+						'stable',
+						'beta',
+					],
+				],
+				'link' => 'ext-quicksurveys-test-external-survey-no-http-link"',
+				'privacyPolicy' => 'ext-quicksurveys-test-external-survey-privacy-policy',
 			]
 		);
 	}
@@ -156,7 +184,7 @@ class SurveyFactoryTest extends \MediaWikiUnitTestCase {
 				'minEdits' => 100,
 				'userAgent' => [ 'KaiOS' ]
 			] ),
-			'//example.org/test-external-survey',
+			'ext-quicksurveys-example-external-survey-link',
 			''
 		);
 
@@ -182,7 +210,7 @@ class SurveyFactoryTest extends \MediaWikiUnitTestCase {
 					'minEdits' => 100,
 					'userAgent' => [ 'KaiOS' ]
 				],
-				'link' => '//example.org/test-external-survey',
+				'link' => 'ext-quicksurveys-example-external-survey-link',
 				'privacyPolicy' => 'ext-quicksurveys-test-external-survey-privacy-policy',
 				new SurveyAudience( [] )
 			]
