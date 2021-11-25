@@ -71,12 +71,11 @@ function logSurveyImpression( surveySessionToken, pageviewToken, surveyName ) {
  *
  * Note well that a promise can only resolve once.
  *
- * @param {jQuery} $el The element
+ * @param {HTMLElement} el The element
  * @return {jQuery.Promise}
  */
-function getSeenObserver( $el ) {
-	var el = $el.get( 0 ),
-		result = $.Deferred(),
+function getSeenObserver( el ) {
+	var result = $.Deferred(),
 		observer;
 
 	if ( 'IntersectionObserver' in window ) {
@@ -391,6 +390,22 @@ function surveyMatchesPlatform( survey, mode ) {
 }
 
 /**
+ * Logs a survey impression when the survey is observed by user.
+ * If the browser does not support IntersectionObserver it will log immediately.
+ *
+ * @param {HTMLElement} el
+ * @param {string} surveySessionToken
+ * @param {string} pageviewToken
+ * @param {string} surveyName
+ */
+function reportWhenSeen( el, surveySessionToken, pageviewToken, surveyName ) {
+	var done = function () {
+		logSurveyImpression( surveySessionToken, pageviewToken, surveyName );
+	};
+	getSeenObserver( el ).then( done, done );
+}
+
+/**
  * Inserts a survey into the page and logs a survey impression.
  * For older browsers, the survey impression will be logged, regardless
  * of whether it is seen.
@@ -426,28 +441,12 @@ function insertSurvey( survey ) {
 				surveySessionToken,
 				pageviewToken,
 				isMobileLayout
-			).then( function () {
-				// eslint-disable-next-line no-use-before-define
-				reportWhenSeen( $panel, surveySessionToken, pageviewToken, survey.name );
+			).then( function ( el ) {
+				// Use the Vue element instead of $panel
+				reportWhenSeen( el, surveySessionToken, pageviewToken, survey.name );
 			} );
 		}
 	} );
-}
-
-/**
- * Logs a survey impression when the survey is observed by user.
- * If the browser does not support IntersectionObserver it will log immediately.
- *
- * @param {jQuery.Object} $el
- * @param {string} surveySessionToken
- * @param {string} pageviewToken
- * @param {string} surveyName
- */
-function reportWhenSeen( $el, surveySessionToken, pageviewToken, surveyName ) {
-	var done = function () {
-		logSurveyImpression( surveySessionToken, pageviewToken, surveyName );
-	};
-	getSeenObserver( $el ).then( done, done );
 }
 
 /**
