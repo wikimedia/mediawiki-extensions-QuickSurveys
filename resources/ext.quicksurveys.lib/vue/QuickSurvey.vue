@@ -165,6 +165,7 @@ module.exports = {
 	data: function () {
 		return {
 			checkedAnswers: [],
+			shuffledAnswers: false,
 			otherAnswer: '',
 			selectedAnswer: '',
 			completed: false
@@ -201,9 +202,12 @@ module.exports = {
 				// Per Vue.js docs safe for this to be computed:
 				// "a computed property will only re-evaluate
 				// when some of its reactive dependencies have changed."
-				answersComputed = this.shuffleAnswersDisplay ?
+				answersComputed = this.shuffleAnswersDisplay && !this.shuffledAnswers ?
 					utils.shuffleAnswers( answers ) :
 					answers;
+
+			// T295681: Only shuffle once to avoid shuffling when a user clicks a button
+			this.markAnswersShuffled();
 
 			return answersComputed.map( function ( answer ) {
 				var isSelected = answer.key === this.selectedAnswer;
@@ -236,6 +240,12 @@ module.exports = {
 					key: 'ext-quicksurveys-external-survey-no-button'
 				}
 			];
+		},
+		/**
+		 * Marks answers as shuffled.
+		 */
+		markAnswersShuffled: function () {
+			this.shuffledAnswers = true;
 		},
 		/**
 		 * Resets the selected answer.

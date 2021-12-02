@@ -193,6 +193,24 @@ describe( 'QuickSurvey', () => {
 			} );
 		} );
 
+		it( 'does not shuffle answers when clicked', () => {
+			const survey = VueTestUtils.mount( QuickSurvey, SINGLE_ANSWER_SURVEY );
+
+			const buttons = survey.findAllComponents( wvui.WvuiButton );
+
+			// get current text for each button
+			const button1Text = buttons.at( 1 ).text();
+			const button2Text = buttons.at( 2 ).text();
+			const button3Text = buttons.at( 3 ).text();
+
+			// click the second choice
+			return buttons.at( 2 ).trigger( 'click' ).then( () => {
+				expect( buttons.at( 1 ).text() ).toBe( button1Text );
+				expect( buttons.at( 2 ).text() ).toBe( button2Text );
+				expect( buttons.at( 3 ).text() ).toBe( button3Text );
+			} );
+		} );
+
 		it( 'Supports single answer surveys with free form text field', () => {
 			const survey = VueTestUtils.mount( QuickSurvey, SINGLE_ANSWER_SURVEY );
 
