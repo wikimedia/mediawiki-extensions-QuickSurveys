@@ -356,6 +356,31 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 		$this->assertEquals( $actual, $expected );
 	}
 
+	public function testItShouldThrowIfTheSurveyNameIsNotUnique() {
+		$factory = new SurveyFactory(
+			$this->expectsErrorLog( 'Bad survey configuration: The survey name "test" is not unique' )
+		);
+
+		$specs = [
+			[
+				'name' => 'test',
+				'type' => 'external',
+				'question' => 'Do you like writing unit tests?',
+				'enabled' => true,
+				'description' => 'A survey for (potential) developers of the QuickSurveys extension.'
+			],
+			[
+				'name' => 'test',
+				'type' => 'external',
+				'question' => 'Do you like writing unit tests?',
+				'enabled' => true,
+				'description' => 'A survey for (potential) developers of the QuickSurveys extension.'
+			],
+		];
+
+		$factory->parseSurveyConfig( $specs );
+	}
+
 	public function testItShouldThrowIfTheTypeIsNotRecognized() {
 		$factory = new SurveyFactory(
 			$this->expectsErrorLog(

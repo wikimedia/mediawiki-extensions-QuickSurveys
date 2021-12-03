@@ -35,10 +35,13 @@ class SurveyFactory {
 	 * @return Survey[] List of valid and enabled surveys
 	 */
 	public function parseSurveyConfig( array $specs ): array {
-		$surveysOrInvalid = array_map(
-			[ $this, 'newSurvey' ],
-			$specs
-		);
+		$surveysOrInvalid = [];
+
+		foreach ( $specs as $spec ) {
+			if ( $this->validateUniqueName( $spec, $specs ) ) {
+				$surveysOrInvalid[] = $this->newSurvey( $spec );
+			}
+		}
 		$enabledSurveys = array_filter(
 			$surveysOrInvalid,
 			static function ( ?Survey $survey ): bool {
@@ -48,6 +51,54 @@ class SurveyFactory {
 
 		// @phan-suppress-next-line PhanTypeMismatchReturn array_filter removes null entries
 		return array_values( $enabledSurveys );
+	}
+
+	/**
+	 * checks QuickSurveys name for duplications
+	 *
+	 * @param array $spec
+	 * @param array $specs
+	 * @return bool
+	 */
+	private function validateUniqueName( $spec, $specs ) {
+		if ( !isset( $spec[ 'name' ] ) ) {
+			$this->logger->error( "Bad survey configuration: The survey name does not have a value",
+						[ 'exception' => "Bad survey configuration: The survey name does not have a value" ] );
+			return false;
+		}
+		$retBool = false;
+		$name = trim( $spec[ 'name' ] );
+		$currentName = strtoupper( $name );
+		$enabledNameArray = [];
+
+		// get array of current enabled quicksurveys name
+		foreach ( $specs as $specArray ) {
+			$enabled = array_key_exists( 'enabled', $specArray ) && $specArray[ 'enabled' ];
+			$surveyName = array_key_exists( 'name', $specArray ) ? strtoupper( trim( $specArray[ 'name' ] ) ) : null;
+			if ( $enabled && $surveyName !== null ) {
+				$enabledNameArray[] = $surveyName;
+			}
+		}
+
+		// make sure there are enabled surveys, then check
+		if ( !empty( $enabledNameArray ) ) {
+			// verify that $currentName is in the $enabledNameArray only 0 or 1 time
+			$matches = preg_grep( '/' . $currentName . '/i', $enabledNameArray );
+			// get the count
+			$numberDuplicates = ( !is_array( $matches ) && $matches === false ) ? 0 : count( $matches );
+			// if there is more than one copy of the item, it is a duplicate, enter log message
+			if ( $numberDuplicates <= 1 ) {
+				$retBool = true;
+			} else {
+				// write out to logger
+				$this->logger->error( "Bad survey configuration: The survey name \"{$name}\" is not unique",
+									[ 'exception' => "The \"{$name}\" survey name is not unique" ] );
+			}
+		} else {
+			$retBool = true;
+		}
+
+		return $retBool;
 	}
 
 	/**
@@ -126,7 +177,7 @@ class SurveyFactory {
 			}
 		}
 
-			$this->validatePlatforms( $spec );
+		$this->validatePlatforms( $spec );
 	}
 
 	/**
