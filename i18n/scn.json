@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ajeje Brazorf"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Sì",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Nun sugnu sicuru",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "No",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Àutru",
+	"ext-quicksurveys-survey-positive": "Sì",
+	"ext-quicksurveys-survey-negative": "No",
+	"ext-quicksurveys-survey-neutral": "Nun sugnu sicuru",
+	"ext-quicksurveys-external-survey-no-button": "No, grazzi"
+}
