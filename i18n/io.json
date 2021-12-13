@@ -1,9 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Joao Xavier"
+			"Joao Xavier",
+			"JSantos"
 		]
 	},
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Yes",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "No",
 	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Altra",
+	"ext-quicksurveys-survey-positive": "Yes",
+	"ext-quicksurveys-survey-negative": "No",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "Sendez"
 }
