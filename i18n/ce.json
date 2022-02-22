@@ -10,7 +10,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "ХӀаъ",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Ца хаа",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "ХӀан-хӀа",
-	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Кхин",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Кхийерг",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Хаттар делла ExampleSurveyProvider. Хьажа [//example.org/privacy-policy къайлаха политика]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Дерриге жоьпаш ду аноним. Хьажа [//example.org/privacy-policy къайлаха политика].",
 	"ext-quicksurveys-survey-confirm-msg": "Баркалла! И бахьнехь {{SITENAME}} кхин дика хира йу.",
