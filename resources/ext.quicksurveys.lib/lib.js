@@ -55,11 +55,14 @@ function logSurveyImpression( surveySessionToken, pageviewToken, surveyName ) {
 		surveySessionToken: surveySessionToken,
 		pageviewToken: pageviewToken,
 		surveyCodeName: surveyName,
-		eventName: 'impression'
+		eventName: 'impression',
+		performanceNow: mw.now()
 	};
 
-	if ( window.performance && performance.now ) {
-		event.performanceNow = Math.round( performance.now() );
+	var userEditCountBucket = mw.config.get( 'wgUserEditCountBucket' );
+
+	if ( userEditCountBucket ) {
+		event.userEditCountBucket = userEditCountBucket;
 	}
 
 	mw.eventLog.logEvent( 'QuickSurveyInitiation', event );
