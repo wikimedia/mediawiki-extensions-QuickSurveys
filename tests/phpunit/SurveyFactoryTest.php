@@ -216,7 +216,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			]
 		);
 
-		$this->assertEquals( $actual, $expected );
+		$this->assertEquals( $expected, $actual );
 	}
 
 	public function testItShouldThrowWhenThereAreNoAnswers() {
@@ -297,7 +297,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			]
 		);
 
-		$this->assertEquals( $actual, $expected );
+		$this->assertEquals( $expected, $actual );
 	}
 
 	public function testItShouldFactoryAnInternalSurveyWithShuffleAnswersDisplayDisabled() {
@@ -353,7 +353,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			]
 		);
 
-		$this->assertEquals( $actual, $expected );
+		$this->assertEquals( $expected, $actual );
 	}
 
 	public function testItShouldThrowIfTheSurveyNameIsNotUnique() {

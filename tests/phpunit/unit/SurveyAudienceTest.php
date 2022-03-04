@@ -14,7 +14,7 @@ class SurveyAudienceTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testItShouldSerializeCorrectly( $definition, $expected ) {
 		$survey = new SurveyAudience( $definition );
-		$this->assertEquals( $survey->toArray(), $expected,
+		$this->assertEquals( $expected, $survey->toArray(),
 			'audience serializes in unexpected way' );
 	}
 
