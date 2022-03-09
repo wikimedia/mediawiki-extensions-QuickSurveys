@@ -443,6 +443,7 @@ function insertSurvey( survey ) {
 		var module = require( 'ext.quicksurveys.lib.vue' );
 		if ( module ) {
 			module.render(
+				require( 'vue' ),
 				$panel[ 0 ],
 				survey,
 				dismissSurvey,

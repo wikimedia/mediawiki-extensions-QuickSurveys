@@ -12,7 +12,7 @@
 	"license-name": "MIT",
 	"type": "other",
 	"requires": {
-		"MediaWiki": ">= 1.37.0"
+		"MediaWiki": ">= 1.39.0"
 	},
 	"MessagesDirs": {
 		"QuickSurveys": [
@@ -68,8 +68,7 @@
 		},
 		"ext.quicksurveys.lib.vue": {
 			"dependencies": [
-				"vue",
-				"wvui",
+				"@wikimedia/codex",
 				"ext.quicksurveys.lib"
 			],
 			"targets": [
@@ -78,6 +77,13 @@
 			],
 			"packageFiles": [
 				"resources/ext.quicksurveys.lib/vue/render.js",
+				{
+					"name": "resources/ext.quicksurveys.lib/vue/icons.json",
+					"callback": "ResourceLoaderCodexModule::getIcons",
+					"callbackParam": [
+						"cdxIconClose"
+					]
+				},
 				"resources/ext.quicksurveys.lib/vue/utils.js",
 				"resources/ext.quicksurveys.lib/vue/QuickSurveyLogger.js",
 				"resources/ext.quicksurveys.lib/vue/QuickSurvey.vue"

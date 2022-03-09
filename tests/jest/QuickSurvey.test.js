@@ -2,7 +2,7 @@
 
 let QuickSurvey;
 const VueTestUtils = require( '@vue/test-utils' );
-const wvui = require( '@wikimedia/wvui' ).default;
+const codex = require( '@wikimedia/codex' );
 
 const open = window.open,
 	alert = window.alert;
@@ -10,7 +10,6 @@ const open = window.open,
 describe( 'QuickSurvey', () => {
 
 	beforeEach( () => {
-		jest.mock( 'wvui', () => wvui );
 		QuickSurvey = require( '../../resources/ext.quicksurveys.lib/vue/QuickSurvey.vue' );
 		window.open = jest.fn();
 		mw.eventLog = {
@@ -42,7 +41,7 @@ describe( 'QuickSurvey', () => {
 		).toContain( 'ext-quick-survey-panel' );
 
 		expect(
-			survey.findAllComponents( wvui.WvuiButton ).length
+			survey.findAllComponents( codex.CdxButton ).length
 		).toBe( 1 );
 	} );
 
@@ -64,7 +63,7 @@ describe( 'QuickSurvey', () => {
 		).toContain( 'ext-quick-survey-panel' );
 
 		expect(
-			survey.findAllComponents( wvui.WvuiButton ).length
+			survey.findAllComponents( codex.CdxButton ).length
 		).toBe( 1 );
 	} );
 
@@ -82,7 +81,7 @@ describe( 'QuickSurvey', () => {
 			}
 		} );
 
-		return survey.findAllComponents( wvui.WvuiButton ).at( 0 ).trigger( 'click' ).then( () => survey.vm.$nextTick() )
+		return survey.findAllComponents( codex.CdxButton )[ 0 ].trigger( 'click' ).then( () => survey.vm.$nextTick() )
 			.then( () => {
 				expect(
 					survey.emitted( 'dismiss' )
@@ -109,7 +108,7 @@ describe( 'QuickSurvey', () => {
 			} );
 
 			expect(
-				survey.findAllComponents( wvui.WvuiButton ).length
+				survey.findAllComponents( codex.CdxButton ).length
 			).toBe( 3 );
 		} );
 
@@ -127,7 +126,7 @@ describe( 'QuickSurvey', () => {
 				}
 			} );
 
-			return survey.findAllComponents( wvui.WvuiButton ).at( 2 ).trigger( 'click' ).then( () => survey.vm.$nextTick() )
+			return survey.findAllComponents( codex.CdxButton )[ 2 ].trigger( 'click' ).then( () => survey.vm.$nextTick() )
 				.then( () => {
 					expect(
 						survey.emitted( 'dismiss' )
@@ -151,9 +150,9 @@ describe( 'QuickSurvey', () => {
 						pageviewToken: 'pv'
 					}
 				} ),
-				buttons = survey.findAllComponents( wvui.WvuiButton );
+				buttons = survey.findAllComponents( codex.CdxButton );
 
-			return buttons.at( 1 ).trigger( 'click' ).then( () => {
+			return buttons[ 1 ].trigger( 'click' ).then( () => {
 				expect(
 					window.open.mock.calls.length
 				).toBe( 1 );
@@ -175,8 +174,8 @@ describe( 'QuickSurvey', () => {
 						pageviewToken: 'pv'
 					}
 				} ),
-				buttons = survey.findAllComponents( wvui.WvuiButton );
-			return buttons.at( 1 ).trigger( 'click' ).then( () => {
+				buttons = survey.findAllComponents( codex.CdxButton );
+			return buttons[ 1 ].trigger( 'click' ).then( () => {
 				expect( survey.find( 'div.survey-footer' ).text() ).toContain( privacyPolicy );
 			} );
 		} );
@@ -198,8 +197,8 @@ describe( 'QuickSurvey', () => {
 						pageviewToken: 'pv'
 					}
 				} ),
-				buttons = survey.findAllComponents( wvui.WvuiButton );
-			return buttons.at( 1 ).trigger( 'click' ).then( () => {
+				buttons = survey.findAllComponents( codex.CdxButton );
+			return buttons[ 1 ].trigger( 'click' ).then( () => {
 				expect( survey.find( 'div.survey-footer' ).text() ).toContain( additionalInfo );
 			} );
 		} );
@@ -208,7 +207,6 @@ describe( 'QuickSurvey', () => {
 	describe( 'SingleAnswerSurvey', () => {
 		const additionalInfo = 'addtional info instead of privacy policy';
 		const privacyPolicy = 'privacy policy instead of additional info';
-		const logEventMock = jest.fn();
 		const SINGLE_ANSWER_SURVEY = {
 			propsData: {
 				layout: 'single-answer',
@@ -227,15 +225,12 @@ describe( 'QuickSurvey', () => {
 				isMobileLayout: false,
 				surveySessionToken: 'ss',
 				pageviewToken: 'pv'
-			},
-			listeners: {
-				logEvent: logEventMock
 			}
 		};
 
 		it( 'requires an answer', () => {
 			const survey = VueTestUtils.mount( QuickSurvey, SINGLE_ANSWER_SURVEY );
-			return survey.findAllComponents( wvui.WvuiButton ).at( 4 ).trigger( 'click' ).then( () => {
+			return survey.findAllComponents( codex.CdxButton )[ 4 ].trigger( 'click' ).then( () => {
 				expect( window.alert.mock.calls.length ).toBe( 1 );
 			} );
 		} );
@@ -243,44 +238,45 @@ describe( 'QuickSurvey', () => {
 		it( 'does not shuffle answers when clicked', () => {
 			const survey = VueTestUtils.mount( QuickSurvey, SINGLE_ANSWER_SURVEY );
 
-			const buttons = survey.findAllComponents( wvui.WvuiButton );
+			const buttons = survey.findAllComponents( codex.CdxButton );
 
 			// get current text for each button
-			const button1Text = buttons.at( 1 ).text();
-			const button2Text = buttons.at( 2 ).text();
-			const button3Text = buttons.at( 3 ).text();
+			const button1Text = buttons[ 1 ].text();
+			const button2Text = buttons[ 2 ].text();
+			const button3Text = buttons[ 3 ].text();
 
 			// click the second choice
-			return buttons.at( 2 ).trigger( 'click' ).then( () => {
-				expect( buttons.at( 1 ).text() ).toBe( button1Text );
-				expect( buttons.at( 2 ).text() ).toBe( button2Text );
-				expect( buttons.at( 3 ).text() ).toBe( button3Text );
+			return buttons[ 2 ].trigger( 'click' ).then( () => {
+				expect( buttons[ 1 ].text() ).toBe( button1Text );
+				expect( buttons[ 2 ].text() ).toBe( button2Text );
+				expect( buttons[ 3 ].text() ).toBe( button3Text );
 			} );
 		} );
 
 		it( 'Supports single answer surveys with free form text field', () => {
 			const survey = VueTestUtils.mount( QuickSurvey, SINGLE_ANSWER_SURVEY );
 
-			const buttons = survey.findAllComponents( wvui.WvuiButton );
+			const buttons = survey.findAllComponents( codex.CdxButton );
 			const checkboxes = survey.findAll( 'input[type="checkbox"]' );
 			expect( checkboxes.length ).toBe( 0 );
 
 			// choose "maybe"
-			const maybeBtn = buttons.at( 2 );
+			const maybeBtn = buttons[ 2 ];
 			return maybeBtn.trigger( 'click' ).then( () => {
-				const input = survey.findComponent( wvui.WvuiInput ).find( 'input' );
+				const input = survey.findComponent( codex.CdxTextInput ).find( 'input' );
 				// set value to freetext
 				input.setValue( 'FREETEXT' );
 
 				// nothing submitted at this point.
-				expect( logEventMock.mock.calls.length ).toBe( 0 );
+				expect( survey.emitted( 'logEvent' ) ).toBe( undefined );
 
 				// submit.
-				return buttons.at( 4 ).trigger( 'click' ).then( () => {
-					expect( logEventMock.mock.calls.length ).toBe( 1 );
+				return buttons[ 4 ].trigger( 'click' ).then( () => {
+					const logEvent = survey.emitted( 'logEvent' );
+					expect( logEvent.length ).toBe( 1 );
 					expect(
-						logEventMock
-					).toHaveBeenCalledWith(
+						logEvent[ 0 ]
+					).toStrictEqual( [
 						'QuickSurveysResponses',
 						{
 							countryCode: 'Unknown',
@@ -297,15 +293,15 @@ describe( 'QuickSurvey', () => {
 							surveySessionToken: 'ss',
 							userLanguage: undefined
 						}
-					);
+					] );
 				} );
 			} );
 		} );
 
 		it( 'displays privacy policy when completed if additional information is not defined', () => {
 			const survey = VueTestUtils.mount( QuickSurvey, SINGLE_ANSWER_SURVEY );
-			const buttons = survey.findAllComponents( wvui.WvuiButton );
-			return buttons.at( 1 ).trigger( 'click' ).then( () => {
+			const buttons = survey.findAllComponents( codex.CdxButton );
+			return buttons[ 1 ].trigger( 'click' ).then( () => {
 				expect( survey.find( 'div.survey-footer' ).text() ).toContain( privacyPolicy );
 			} );
 		} );
@@ -313,17 +309,16 @@ describe( 'QuickSurvey', () => {
 		it( 'displays additional information instead of privacy policy when completed if additional information is defined', () => {
 			SINGLE_ANSWER_SURVEY.propsData.footer = additionalInfo;
 			const survey = VueTestUtils.mount( QuickSurvey, SINGLE_ANSWER_SURVEY );
-			const buttons = survey.findAllComponents( wvui.WvuiButton );
-			return buttons.at( 1 ).trigger( 'click' ).then( () => {
+			const buttons = survey.findAllComponents( codex.CdxButton );
+			return buttons[ 1 ].trigger( 'click' ).then( () => {
 				expect( survey.find( 'div.survey-footer' ).text() ).toContain( additionalInfo );
 			} );
 		} );
 	} );
 
 	describe( 'MultipleAnswerSurvey', () => {
-		const logEventMock = jest.fn();
 		const MULTI_ANSWER_SURVEY = {
-			propsData: {
+			props: {
 				layout: 'multiple-answer',
 				name: 'survey-multi',
 				answers: [
@@ -339,9 +334,6 @@ describe( 'QuickSurvey', () => {
 				isMobileLayout: false,
 				surveySessionToken: 'ss',
 				pageviewToken: 'pv'
-			},
-			listeners: {
-				logEvent: logEventMock
 			}
 		};
 
@@ -349,19 +341,19 @@ describe( 'QuickSurvey', () => {
 			const survey = VueTestUtils.mount( QuickSurvey, MULTI_ANSWER_SURVEY );
 
 			const checkboxes = survey.findAll( 'input[type="checkbox"]' );
-			const submitButton = survey.findAllComponents( wvui.WvuiButton ).at( 1 );
+			const submitButton = survey.findAllComponents( codex.CdxButton )[ 1 ];
 			expect( checkboxes.length ).toBe( 3 );
 			// Attempting to click the submit button without any selections will cause an alert
 			return submitButton.trigger( 'click' ).then( () => {
 				expect( window.alert.mock.calls.length ).toBe( 1 );
-				expect( logEventMock.mock.calls.length ).toBe( 0 );
+				expect( survey.emitted( 'logEvent' ) ).toBe( undefined );
 
 				// However after clicking one of the checkboxes it should be possible to submit
-				checkboxes.at( 0 ).setChecked( true );
+				checkboxes[ 0 ].setChecked( true );
 				expect( window.alert.mock.calls.length ).toBe( 1 );
 				// clicking submit leads to the response being logged.
 				return submitButton.trigger( 'click' ).then( () => {
-					expect( logEventMock.mock.calls.length ).toBe( 1 );
+					expect( survey.emitted( 'logEvent' ).length ).toBe( 1 );
 				} );
 			} );
 		} );

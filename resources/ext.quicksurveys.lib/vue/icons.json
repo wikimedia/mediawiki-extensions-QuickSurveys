@@ -1,0 +1,4 @@
+{
+	"@doc": "This JSON is replaced by a virtual JSON in production but is required for TypeScript and JEST.",
+	"cdxIconClose": "<!-- an SVG for the close icon -->"
+}
