@@ -1,6 +1,6 @@
 <template>
 	<div :class="rootClasses">
-		<div class="message content">
+		<div class="message survey-content">
 			<div class="survey-header">
 				<template v-if="completed">
 					<strong>{{ thankYouMessage }}</strong>
@@ -331,7 +331,7 @@ module.exports = {
 	*/
 	@header-align-displacement: 1em * (@close-button-size - (14px * @line-height)) / 14px;
 
-	.content {
+	.survey-content {
 		padding: (@spacing - @close-button-displacement) @spacing;
 		line-height: @line-height;
 
