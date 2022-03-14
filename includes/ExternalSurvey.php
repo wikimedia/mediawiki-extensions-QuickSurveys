@@ -27,6 +27,8 @@ class ExternalSurvey extends Survey {
 	 * @param float $coverage
 	 * @param array $platforms
 	 * @param string $privacyPolicy
+	 * @param string $additionalInfo
+	 * @param string $confirmMsg
 	 * @param SurveyAudience $audience
 	 * @param string $link
 	 * @param string $instanceTokenParameterName
@@ -39,6 +41,8 @@ class ExternalSurvey extends Survey {
 		$coverage,
 		array $platforms,
 		$privacyPolicy,
+		$additionalInfo,
+		$confirmMsg,
 		SurveyAudience $audience,
 		$link,
 		$instanceTokenParameterName
@@ -51,6 +55,8 @@ class ExternalSurvey extends Survey {
 			$coverage,
 			$platforms,
 			$privacyPolicy,
+			$additionalInfo,
+			$confirmMsg,
 			$audience
 		);
 

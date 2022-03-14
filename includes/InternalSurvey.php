@@ -37,6 +37,8 @@ class InternalSurvey extends Survey {
 		$coverage,
 		array $platforms,
 		$privacyPolicy,
+		$additionalInfo,
+		$confirmMsg,
 		SurveyAudience $audience,
 		array $answers,
 		$shuffleAnswersDisplay,
@@ -52,6 +54,8 @@ class InternalSurvey extends Survey {
 			$coverage,
 			$platforms,
 			$privacyPolicy,
+			$additionalInfo,
+			$confirmMsg,
 			$audience
 		);
 

@@ -58,8 +58,14 @@
 					</wvui-button>
 				</template>
 			</template>
-			<!-- eslint-disable vue/no-v-html -->
-			<div class="survey-footer" v-html="footer"></div>
+			<template v-if="completed && additionalInfo">
+				<!-- eslint-disable vue/no-v-html -->
+				<div class="survey-footer" v-html="additionalInfo"></div>
+			</template>
+			<template v-else>
+				<!-- eslint-disable vue/no-v-html -->
+				<div class="survey-footer" v-html="footer"></div>
+			</template>
 		</div>
 	</div>
 </template>
@@ -138,6 +144,10 @@ module.exports = {
 			required: true
 		},
 		externalLink: {
+			type: String,
+			default: ''
+		},
+		additionalInfo: {
 			type: String,
 			default: ''
 		},

@@ -26,6 +26,8 @@
  * @property {string} name
  * @property {Object} platforms
  * @property {string} privacyPolicy
+ * @property {string|null} additionalInfo
+ * @property {string|null} thankYouMessage
  * @property {string} question
  * @property {string} type
  * @property {string|null} embedElementId Embedding location DOM element ID.

@@ -14,6 +14,16 @@ abstract class Survey {
 	private $question;
 
 	/**
+	 * @var string|null
+	 */
+	private $additionalInfo;
+
+	/**
+	 * @var string|null
+	 */
+	private $confirmMsg;
+
+	/**
 	 * @var SurveyAudience describes the audience who can participate in a survey
 	 */
 	private $audience;
@@ -70,6 +80,8 @@ abstract class Survey {
 		$coverage,
 		array $platforms,
 		$privacyPolicy,
+		$additionalInfo,
+		$confirmMsg,
 		SurveyAudience $audience
 	) {
 		$this->name = $name;
@@ -79,6 +91,8 @@ abstract class Survey {
 		$this->coverage = $coverage;
 		$this->platforms = $platforms;
 		$this->privacyPolicy = $privacyPolicy;
+		$this->additionalInfo = $additionalInfo;
+		$this->confirmMsg = $confirmMsg;
 		$this->audience = $audience;
 	}
 
@@ -112,6 +126,14 @@ abstract class Survey {
 		if ( !empty( $this->privacyPolicy ) ) {
 			$messages[] = $this->privacyPolicy;
 		}
+
+		if ( !empty( $this->additionalInfo ) ) {
+			$messages[] = $this->additionalInfo;
+		}
+
+		if ( !empty( $this->confirmMsg ) ) {
+			$messages[] = $this->confirmMsg;
+		}
 		return $messages;
 	}
 
@@ -130,6 +152,8 @@ abstract class Survey {
 			'coverage' => $this->coverage,
 			'platforms' => $this->platforms,
 			'privacyPolicy' => $this->privacyPolicy,
+			'additionalInfo' => $this->additionalInfo,
+			'confirmMsg' => $this->confirmMsg,
 		];
 	}
 

@@ -238,6 +238,8 @@ class SurveyFactory {
 			$spec['coverage'],
 			$spec['platforms'],
 			$spec['privacyPolicy'],
+			$spec['additionalInfo'] ?? null,
+			$spec['confirmMsg'] ?? null,
 			new SurveyAudience( $spec['audience'] ?? [] ),
 			$spec['link'],
 			$spec['instanceTokenParameterName'] ?? ''
@@ -275,6 +277,8 @@ class SurveyFactory {
 			$spec['coverage'],
 			$spec['platforms'],
 			$spec['privacyPolicy'] ?? null,
+			$spec['additionalInfo'] ?? null,
+			$spec['confirmMsg'] ?? null,
 			new SurveyAudience( $spec['audience'] ?? [] ),
 			$spec['answers'],
 			$spec['shuffleAnswersDisplay'] ?? true,
