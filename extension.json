@@ -114,7 +114,7 @@
 		"EventLogging": {
 			"Schemas": {
 				"QuickSurveysResponses": "/analytics/legacy/quicksurveysresponses/1.0.0",
-				"QuickSurveyInitiation": "/analytics/legacy/quicksurveyinitiation/1.0.0"
+				"QuickSurveyInitiation": "/analytics/legacy/quicksurveyinitiation/1.1.0"
 			}
 		}
 	},

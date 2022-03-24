@@ -7,7 +7,7 @@ module.exports = {
 	 * @param {string} pageviewToken
 	 */
 	logInitialized: function ( name, surveySessionToken, pageviewToken ) {
-		mw.eventLog.logEvent( 'QuickSurveyInitiation', {
+		var event = {
 			// eslint-disable-next-line compat/compat
 			beaconCapable: !!navigator.sendBeacon,
 			surveySessionToken: surveySessionToken,
@@ -15,7 +15,15 @@ module.exports = {
 			surveyCodeName: name,
 			eventName: 'eligible',
 			performanceNow: Math.round( mw.now() )
-		} );
+		};
+
+		var userEditCountBucket = mw.config.get( 'wgUserEditCountBucket' );
+
+		if ( userEditCountBucket ) {
+			event.userEditCountBucket = userEditCountBucket;
+		}
+
+		mw.eventLog.logEvent( 'QuickSurveyInitiation', event );
 	},
 	/**
 	 *
