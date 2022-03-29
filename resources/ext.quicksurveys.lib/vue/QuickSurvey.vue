@@ -345,6 +345,10 @@ module.exports = {
 			header due to line-height whitespace already present in the header.
 			*/
 			margin-top: 4px;
+			/*
+			Request from design to prevent description from flowing beneath close button.
+			*/
+			margin-right: @close-button-size;
 		}
 	}
 
@@ -370,6 +374,8 @@ module.exports = {
 
 		.survey-close-button {
 			margin-left: @spacing;
+			display: block;
+			float: right;
 
 			.wvui-button {
 				padding: 0;
