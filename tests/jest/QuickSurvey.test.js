@@ -163,9 +163,55 @@ describe( 'QuickSurvey', () => {
 				).toBe( 1 );
 			} );
 		} );
+
+		it( 'displays privacy policy when completed if additional information is not defined', () => {
+			const privacyPolicy = 'privacy policy instead of additional info';
+			const survey = VueTestUtils.mount( QuickSurvey, {
+					propsData: {
+						name: 'survey',
+						thankYouMessage: 'thanks!',
+						footer: privacyPolicy,
+						yesButtonLabel: 'yes',
+						noButtonLabel: 'no',
+						question: 'question',
+						externalLink: 'https://',
+						surveySessionToken: 'ss',
+						pageviewToken: 'pv'
+					}
+				} ),
+				buttons = survey.findAllComponents( wvui.WvuiButton );
+			return buttons.at( 1 ).trigger( 'click' ).then( () => {
+				expect( survey.find( 'div.survey-footer' ).text() ).toContain( privacyPolicy );
+			} );
+		} );
+
+		it( 'displays additional information instead of privacy policy when completed if additional information is defined', () => {
+			const additionalInfo = 'addtional info instead of privacy policy';
+			const privacyPolicy = 'privacy policy instead of additional info';
+			const survey = VueTestUtils.mount( QuickSurvey, {
+					propsData: {
+						name: 'survey',
+						thankYouMessage: 'thanks!',
+						additionalInfo: additionalInfo,
+						footer: privacyPolicy,
+						yesButtonLabel: 'yes',
+						noButtonLabel: 'no',
+						question: 'question',
+						externalLink: 'https://',
+						surveySessionToken: 'ss',
+						pageviewToken: 'pv'
+					}
+				} ),
+				buttons = survey.findAllComponents( wvui.WvuiButton );
+			return buttons.at( 1 ).trigger( 'click' ).then( () => {
+				expect( survey.find( 'div.survey-footer' ).text() ).toContain( additionalInfo );
+			} );
+		} );
 	} );
 
 	describe( 'SingleAnswerSurvey', () => {
+		const additionalInfo = 'addtional info instead of privacy policy';
+		const privacyPolicy = 'privacy policy instead of additional info';
 		const SINGLE_ANSWER_SURVEY = {
 			propsData: {
 				layout: 'single-answer',
@@ -175,6 +221,7 @@ describe( 'QuickSurvey', () => {
 					{ key: 'maybe', label: 'maybe' },
 					{ key: 'no', label: 'no' }
 				],
+				footer: privacyPolicy,
 				thankYouMessage: 'thank you come again',
 				shuffleAnswersDisplay: true,
 				freeformTextLabel: 'label-msg',
@@ -241,6 +288,23 @@ describe( 'QuickSurvey', () => {
 						true
 					);
 				} );
+			} );
+		} );
+
+		it( 'displays privacy policy when completed if additional information is not defined', () => {
+			const survey = VueTestUtils.mount( QuickSurvey, SINGLE_ANSWER_SURVEY );
+			const buttons = survey.findAllComponents( wvui.WvuiButton );
+			return buttons.at( 1 ).trigger( 'click' ).then( () => {
+				expect( survey.find( 'div.survey-footer' ).text() ).toContain( privacyPolicy );
+			} );
+		} );
+
+		it( 'displays additional information instead of privacy policy when completed if additional information is defined', () => {
+			SINGLE_ANSWER_SURVEY.propsData.footer = additionalInfo;
+			const survey = VueTestUtils.mount( QuickSurvey, SINGLE_ANSWER_SURVEY );
+			const buttons = survey.findAllComponents( wvui.WvuiButton );
+			return buttons.at( 1 ).trigger( 'click' ).then( () => {
+				expect( survey.find( 'div.survey-footer' ).text() ).toContain( additionalInfo );
 			} );
 		} );
 	} );

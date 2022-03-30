@@ -46,7 +46,11 @@ function render(
 					noAnswerErrorMessage: mw.msg( 'ext-quicksurveys-internal-freeform-survey-no-answer-alert' ),
 					yesButtonLabel: mw.msg( 'ext-quicksurveys-external-survey-yes-button' ),
 					noButtonLabel: mw.msg( 'ext-quicksurveys-external-survey-no-button' ),
-					thankYouMessage: mw.msg( 'ext-quicksurveys-survey-confirm-msg' ),
+					additionalInfo: survey.additionalInfo ?
+						// eslint-disable-next-line mediawiki/msg-doc
+						mw.message( survey.additionalInfo ).parse() : undefined,
+					// eslint-disable-next-line mediawiki/msg-doc
+					thankYouMessage: mw.msg( survey.confirmMsg || 'ext-quicksurveys-survey-confirm-msg' ),
 					// eslint-disable-next-line mediawiki/msg-doc
 					footer: mw.message(
 						survey.privacyPolicy || 'ext-quicksurveys-survey-privacy-policy-default-text'

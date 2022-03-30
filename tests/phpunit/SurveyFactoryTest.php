@@ -156,6 +156,8 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'answers' => [
 					'ext-quicksurveys-test-internal-survey-positive',
 				],
+				null,
+				null,
 				'audience' => [
 					'minEdits' => 'foobar',
 				],
@@ -180,6 +182,8 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				],
 			],
 			'ext-quicksurveys-test-external-survey-privacy-policy',
+			null,
+			null,
 			new SurveyAudience( [
 				'minEdits' => 100,
 				'userAgent' => [ 'KaiOS' ]
@@ -206,12 +210,16 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 						'beta',
 					],
 				],
+				null,
+				null,
 				'audience' => [
 					'minEdits' => 100,
 					'userAgent' => [ 'KaiOS' ]
 				],
 				'link' => 'ext-quicksurveys-example-external-survey-link',
 				'privacyPolicy' => 'ext-quicksurveys-test-external-survey-privacy-policy',
+				null,
+				null,
 				new SurveyAudience( [] )
 			]
 		);
@@ -262,6 +270,8 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				],
 			],
 			'',
+			null,
+			null,
 			new SurveyAudience( [] ),
 			[
 				'ext-quicksurveys-test-internal-survey-positive',
@@ -317,6 +327,8 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				],
 			],
 			'',
+			null,
+			null,
 			new SurveyAudience( [] ),
 			[
 				'ext-quicksurveys-test-internal-survey-positive',
