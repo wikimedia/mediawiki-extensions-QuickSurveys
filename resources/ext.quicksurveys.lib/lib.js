@@ -58,7 +58,7 @@ function logSurveyImpression( surveySessionToken, pageviewToken, surveyName ) {
 		pageviewToken: pageviewToken,
 		surveyCodeName: surveyName,
 		eventName: 'impression',
-		performanceNow: mw.now()
+		performanceNow: Math.round( mw.now() )
 	};
 
 	var userEditCountBucket = mw.config.get( 'wgUserEditCountBucket' );
