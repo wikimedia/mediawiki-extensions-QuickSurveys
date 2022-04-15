@@ -9,11 +9,11 @@
 					<strong>{{ question }}</strong>
 				</template>
 				<div class="survey-close-button">
-					<wvui-button
+					<WvuiButton
 						type="quiet"
 						@click="dismissAndDestroy">
-						<wvui-icon :icon="closeIcon"></wvui-icon>
-					</wvui-button>
+						<WvuiIcon :icon="closeIcon"></WvuiIcon>
+					</WvuiButton>
 				</div>
 			</div>
 			<template v-if="!completed">
@@ -22,40 +22,40 @@
 				</p>
 				<div class="survey-button-container">
 					<template v-if="requiresSingularAnswer">
-						<wvui-button
+						<WvuiButton
 							v-for="( btn, i ) in buttons"
 							:key="i"
 							:action="btn.action"
 							:type="btn.type"
 							@click="clickButton( btn.answer, btn.href )">
 							{{ btn.label }}
-						</wvui-button>
+						</WvuiButton>
 					</template>
 					<template v-else>
 						<div
 							v-for="( btn, i ) in buttons"
 							:key="i">
-							<wvui-checkbox
+							<WvuiCheckbox
 								v-model="checkedAnswers"
 								:input-value="btn.label">
 								{{ btn.label }}
-							</wvui-checkbox>
+							</WvuiCheckbox>
 						</div>
 					</template>
 				</div>
 				<template v-if="mustBeSubmitted">
-					<wvui-input
+					<WvuiInput
 						v-if="requiresSingularAnswer"
 						v-model="otherAnswer"
 						type="text"
 						:placeholder="freeformTextLabel"
-						@input="resetSelectedButton"></wvui-input>
-					<wvui-button
+						@input="resetSelectedButton"></WvuiInput>
+					<WvuiButton
 						type="normal"
 						action="progressive"
 						@click="submitAnswer">
 						{{ submitButtonLabel }}
-					</wvui-button>
+					</WvuiButton>
 				</template>
 			</template>
 			<template v-if="completed && additionalInfo">
