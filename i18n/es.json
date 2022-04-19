@@ -3,6 +3,7 @@
 		"authors": [
 			"DDPAT",
 			"Dgstranz",
+			"DiegoAmbrocio",
 			"Fitoschido",
 			"Ice bulldog",
 			"Macofe",
@@ -15,6 +16,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Sí",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "No lo sé",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "No",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Otro",
 	"ext-quicksurveys-example-external-survey-question": "Necesitamos tu ayuda para mejorar {{SITENAME}}.",
 	"ext-quicksurveys-example-external-survey-description": "Al responder esta encuesta nos ayudarás a entender cómo hacer {{SITENAME}} mejor y más útil para ti. ¡Gracias!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Encuesta proporcionada por ExampleSurveyProvider. Consulta la [//example.org/privacy-policy normativa de privacidad]",
@@ -24,6 +26,7 @@
 	"ext-quicksurveys-survey-negative": "No",
 	"ext-quicksurveys-survey-neutral": "No lo sé",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "Enviar",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Seleccione una respuesta o introduzca la suya propia.",
 	"ext-quicksurveys-external-survey-yes-button": "Visita la encuesta",
 	"ext-quicksurveys-external-survey-no-button": "No, gracias"
 }
