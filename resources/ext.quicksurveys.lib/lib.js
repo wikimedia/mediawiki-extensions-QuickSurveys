@@ -524,10 +524,13 @@ function showSurvey( forcedSurvey ) {
 }
 
 module.exports = {
-	showSurvey: showSurvey,
-	test: {
+	showSurvey: showSurvey
+};
+
+if ( window.QUnit ) {
+	module.exports.test = {
 		insertPanel: insertPanel,
 		isInAudience: isInAudience,
 		surveyMatchesPlatform: surveyMatchesPlatform
-	}
-};
+	};
+}
