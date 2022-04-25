@@ -61,10 +61,10 @@ function logSurveyImpression( surveySessionToken, pageviewToken, surveyName ) {
 		performanceNow: Math.round( mw.now() )
 	};
 
-	var userEditCountBucket = mw.config.get( 'wgUserEditCountBucket' );
+	var editCountBucket = mw.config.get( 'wgUserEditCountBucket' );
 
-	if ( userEditCountBucket ) {
-		event.userEditCountBucket = userEditCountBucket;
+	if ( editCountBucket ) {
+		event.editCountBucket = editCountBucket;
 	}
 
 	mw.eventLog.logEvent( 'QuickSurveyInitiation', event );
