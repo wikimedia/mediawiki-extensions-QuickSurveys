@@ -1,5 +1,5 @@
 <template>
-	<div :class="rootClasses">
+	<div :class="rootClasses" :dir="direction">
 		<div class="message survey-content">
 			<div class="survey-header">
 				<template v-if="completed">
@@ -142,6 +142,10 @@ module.exports = {
 		question: {
 			type: String,
 			required: true
+		},
+		direction: {
+			type: String,
+			default: 'auto'
 		},
 		externalLink: {
 			type: String,
