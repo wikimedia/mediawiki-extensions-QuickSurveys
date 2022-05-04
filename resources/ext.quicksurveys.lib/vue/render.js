@@ -10,11 +10,12 @@ var Vue = require( 'vue' ),
  * @param {string} surveySessionToken
  * @param {string} pageviewToken
  * @param {boolean} isMobileLayout
+ * @param {string} htmlDirection
  * @return {jQuery.Deferred}
  */
 function render(
-	panel, survey, dismissSurvey, surveySessionToken, pageviewToken, isMobileLayout
-) {
+	panel, survey, dismissSurvey, surveySessionToken, pageviewToken, isMobileLayout,
+	htmlDirection ) {
 	var deferred = $.Deferred();
 	var vm = new Vue( {
 		el: panel,
@@ -75,7 +76,8 @@ function render(
 					description: survey.description ? mw.msg( survey.description ) : '',
 					surveySessionToken: surveySessionToken,
 					pageviewToken: pageviewToken,
-					isMobileLayout: isMobileLayout
+					isMobileLayout: isMobileLayout,
+					direction: htmlDirection
 				}
 			} );
 		}

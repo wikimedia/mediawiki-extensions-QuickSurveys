@@ -429,6 +429,7 @@ function insertSurvey( survey ) {
 		isMobileLayout = window.innerWidth <= 768;
 
 	insertPanel( $bodyContent, $panel, survey.embedElementId, isMobileLayout );
+	var htmlDirection = document.getElementById( 'firstHeading' ).getAttribute( 'dir' );
 
 	// survey.module contains i18n messages and code to render.
 	// We load this asynchronously to avoid loading this all on page load for
@@ -445,7 +446,8 @@ function insertSurvey( survey ) {
 				dismissSurvey,
 				surveySessionToken,
 				pageviewToken,
-				isMobileLayout
+				isMobileLayout,
+				htmlDirection
 			).then( function ( el ) {
 				// Use the Vue element instead of $panel
 				reportWhenSeen( el, surveySessionToken, pageviewToken, survey.name );
