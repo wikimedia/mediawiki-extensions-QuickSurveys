@@ -313,7 +313,7 @@ QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds)', function ( 
 		],
 		// target logged-in users
 		[ audienceLoggedInUser, anonUser, editCount.anon, false,
-			'logged-in only: anon shouldn\'t see the the survey'
+			'logged-in only: anon shouldn\'t see the survey'
 		],
 		[ audienceLoggedInUser, loggedInUser, editCount.noneditor, true,
 			'logged-in only: logged-in user should see the survey'
