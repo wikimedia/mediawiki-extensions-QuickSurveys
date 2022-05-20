@@ -11,9 +11,9 @@ namespace QuickSurveys;
 use Action;
 use Config;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\ResourceLoader as RL;
+use MediaWiki\ResourceLoader\ResourceLoader;
 use OutputPage;
-use ResourceLoader;
-use ResourceLoaderContext;
 
 class Hooks {
 
@@ -21,11 +21,11 @@ class Hooks {
 	 * Get data about the enabled surveys to be exported to the ext.quicksurveys.lib module
 	 * via a virtual file.
 	 *
-	 * @param ResourceLoaderContext $context
+	 * @param RL\Context $context
 	 * @param Config $conf
 	 * @return array
 	 */
-	public static function getSurveyConfig( ResourceLoaderContext $context, Config $conf ) {
+	public static function getSurveyConfig( RL\Context $context, Config $conf ) {
 		$surveys = MediaWikiServices::getInstance()->getService( 'QuickSurveys.EnabledSurveys' );
 
 		return array_map( static function ( Survey $survey ) {

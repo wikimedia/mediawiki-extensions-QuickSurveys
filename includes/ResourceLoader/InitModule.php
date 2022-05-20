@@ -3,7 +3,7 @@
 namespace QuickSurveys\ResourceLoader;
 
 use MediaWiki\MediaWikiServices;
-use ResourceLoaderContext;
+use MediaWiki\ResourceLoader as RL;
 
 /**
  * AKA The ext.quicksurveys.init module.
@@ -14,8 +14,8 @@ use ResourceLoaderContext;
  *
  * See T213459#4871107 for the original design of this approach.
  */
-class InitModule extends \ResourceLoaderFileModule {
-	public function getDependencies( ResourceLoaderContext $context = null ) {
+class InitModule extends RL\FileModule {
+	public function getDependencies( RL\Context $context = null ) {
 		$enabledSurveys = MediaWikiServices::getInstance()->getService( 'QuickSurveys.EnabledSurveys' );
 
 		$result = parent::getDependencies( $context );
