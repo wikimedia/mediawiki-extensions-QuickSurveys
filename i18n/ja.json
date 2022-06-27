@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Bonfire12",
+			"DDesouza",
 			"LZia (WMF)",
 			"Sujiniku"
 		]
@@ -10,6 +11,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-positive": "はい",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "いいえ",
 	"ext-quicksurveys-example-external-survey-question": "{{SITENAME}}の改善のために、あなたの助けが必要です。",
+	"ext-quicksurveys-survey-confirm-msg": "ありがとうございました！",
 	"ext-quicksurveys-survey-positive": "はい",
 	"ext-quicksurveys-survey-negative": "いいえ",
 	"ext-quicksurveys-external-survey-yes-button": "アンケート",
