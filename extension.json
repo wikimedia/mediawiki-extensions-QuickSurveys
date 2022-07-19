@@ -12,10 +12,7 @@
 	"license-name": "MIT",
 	"type": "other",
 	"requires": {
-		"MediaWiki": ">= 1.37.0",
-		"extensions": {
-			"EventLogging": "*"
-		}
+		"MediaWiki": ">= 1.37.0"
 	},
 	"MessagesDirs": {
 		"QuickSurveys": [
