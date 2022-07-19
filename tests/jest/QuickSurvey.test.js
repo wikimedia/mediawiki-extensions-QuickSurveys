@@ -3,10 +3,8 @@
 let QuickSurvey;
 const VueTestUtils = require( '@vue/test-utils' );
 const wvui = require( '@wikimedia/wvui' ).default;
-const QuickSurveyLogger = require( '../../resources/ext.quicksurveys.lib/vue/QuickSurveyLogger.js' );
 
 const open = window.open,
-	logResponse = QuickSurveyLogger.logResponse,
 	alert = window.alert;
 
 describe( 'QuickSurvey', () => {
@@ -19,12 +17,10 @@ describe( 'QuickSurvey', () => {
 			logEvent: jest.fn()
 		};
 		window.alert = jest.fn();
-		QuickSurveyLogger.logResponse = jest.fn();
 	} );
 
 	afterEach( () => {
 		window.open = open;
-		QuickSurveyLogger.logResponse = logResponse;
 		window.alert = alert;
 	} );
 
@@ -212,6 +208,7 @@ describe( 'QuickSurvey', () => {
 	describe( 'SingleAnswerSurvey', () => {
 		const additionalInfo = 'addtional info instead of privacy policy';
 		const privacyPolicy = 'privacy policy instead of additional info';
+		const logEventMock = jest.fn();
 		const SINGLE_ANSWER_SURVEY = {
 			propsData: {
 				layout: 'single-answer',
@@ -230,6 +227,9 @@ describe( 'QuickSurvey', () => {
 				isMobileLayout: false,
 				surveySessionToken: 'ss',
 				pageviewToken: 'pv'
+			},
+			listeners: {
+				logEvent: logEventMock
 			}
 		};
 
@@ -273,19 +273,30 @@ describe( 'QuickSurvey', () => {
 				input.setValue( 'FREETEXT' );
 
 				// nothing submitted at this point.
-				expect( QuickSurveyLogger.logResponse.mock.calls.length ).toBe( 0 );
+				expect( logEventMock.mock.calls.length ).toBe( 0 );
 
 				// submit.
 				return buttons.at( 4 ).trigger( 'click' ).then( () => {
-					expect( QuickSurveyLogger.logResponse.mock.calls.length ).toBe( 1 );
+					expect( logEventMock.mock.calls.length ).toBe( 1 );
 					expect(
-						QuickSurveyLogger.logResponse
+						logEventMock
 					).toHaveBeenCalledWith(
-						'survey',
-						'FREETEXT',
-						'ss',
-						'pv',
-						true
+						'QuickSurveysResponses',
+						{
+							countryCode: 'Unknown',
+							isLoggedIn: true,
+							isTablet: true,
+							namespaceId: undefined,
+							pageId: undefined,
+							pageTitle: undefined,
+							pageviewToken: 'pv',
+							platform: 'web',
+							skin: undefined,
+							surveyCodeName: 'survey',
+							surveyResponseValue: 'FREETEXT',
+							surveySessionToken: 'ss',
+							userLanguage: undefined
+						}
 					);
 				} );
 			} );
@@ -310,6 +321,7 @@ describe( 'QuickSurvey', () => {
 	} );
 
 	describe( 'MultipleAnswerSurvey', () => {
+		const logEventMock = jest.fn();
 		const MULTI_ANSWER_SURVEY = {
 			propsData: {
 				layout: 'multiple-answer',
@@ -327,6 +339,9 @@ describe( 'QuickSurvey', () => {
 				isMobileLayout: false,
 				surveySessionToken: 'ss',
 				pageviewToken: 'pv'
+			},
+			listeners: {
+				logEvent: logEventMock
 			}
 		};
 
@@ -339,14 +354,14 @@ describe( 'QuickSurvey', () => {
 			// Attempting to click the submit button without any selections will cause an alert
 			return submitButton.trigger( 'click' ).then( () => {
 				expect( window.alert.mock.calls.length ).toBe( 1 );
-				expect( QuickSurveyLogger.logResponse.mock.calls.length ).toBe( 0 );
+				expect( logEventMock.mock.calls.length ).toBe( 0 );
 
 				// However after clicking one of the checkboxes it should be possible to submit
 				checkboxes.at( 0 ).setChecked( true );
 				expect( window.alert.mock.calls.length ).toBe( 1 );
 				// clicking submit leads to the response being logged.
 				return submitButton.trigger( 'click' ).then( () => {
-					expect( QuickSurveyLogger.logResponse.mock.calls.length ).toBe( 1 );
+					expect( logEventMock.mock.calls.length ).toBe( 1 );
 				} );
 			} );
 		} );

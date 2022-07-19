@@ -11,11 +11,13 @@ var Vue = require( 'vue' ),
  * @param {string} pageviewToken
  * @param {boolean} isMobileLayout
  * @param {string} htmlDirection
+ * @param {Function} logEvent event logging function
  * @return {jQuery.Deferred}
  */
 function render(
 	panel, survey, dismissSurvey, surveySessionToken, pageviewToken, isMobileLayout,
-	htmlDirection ) {
+	htmlDirection, logEvent
+) {
 	var deferred = $.Deferred();
 	var vm = new Vue( {
 		el: panel,
@@ -36,6 +38,7 @@ function render(
 
 			return createElement( QuickSurvey, {
 				on: {
+					logEvent: logEvent,
 					dismiss: dismissSurvey,
 					destroy: function () {
 						vm.$destroy();

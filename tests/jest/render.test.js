@@ -25,7 +25,9 @@ describe( 'QuickSurvey', () => {
 				externalLink: 'https://mylink'
 			},
 			() => {},
-			'ss', 'pp', false
+			'ss', 'pp', false,
+			'ltr',
+			mw.eventLog.logEvent
 		).then( ( node ) => {
 			expect(
 				node.innerHTML
@@ -44,7 +46,9 @@ describe( 'QuickSurvey', () => {
 				answers: []
 			},
 			() => {},
-			'ss', 'pp', false
+			'ss', 'pp', false,
+			'ltr',
+			mw.eventLog.logEvent
 		).then( ( node ) => {
 			expect(
 				node.innerHTML
@@ -63,7 +67,9 @@ describe( 'QuickSurvey', () => {
 				instanceTokenParameterName: '111'
 			},
 			() => {},
-			'ss', 'pp', false
+			'ss', 'pp', false,
+			'ltr',
+			mw.eventLog.logEvent
 		).then( ( node ) => {
 			expect(
 				node.innerHTML
@@ -81,7 +87,9 @@ describe( 'QuickSurvey', () => {
 				answers: [ 'yes', 'no' ]
 			},
 			() => {},
-			'ss', 'pp', false
+			'ss', 'pp', false,
+			'ltr',
+			mw.eventLog.logEvent
 		).then( ( node ) => {
 			expect(
 				node.innerHTML
@@ -105,7 +113,9 @@ describe( 'QuickSurvey', () => {
 				externalLink: 'https://mylink'
 			},
 			() => {},
-			'ss', 'pp', false
+			'ss', 'pp', false,
+			'ltr',
+			mw.eventLog.logEvent
 		).then( ( node ) => {
 			const buttons = Array.from( node.querySelectorAll( 'button' ) ).filter( ( b ) => b.textContent.includes( 'ext-quicksurveys-external-survey-no-button' ) );
 			expect(
