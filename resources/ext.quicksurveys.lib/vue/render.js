@@ -1,8 +1,8 @@
 /* eslint-disable jsdoc/no-undefined-types */
-var Vue = require( 'vue' ),
-	QuickSurvey = require( './QuickSurvey.vue' );
+var QuickSurvey = require( './QuickSurvey.vue' );
 
 /**
+ * @param {Vue} Vue library
  * @param {Element} panel to render into
  * eslint-disable-next-line jsdoc/no-undefined-types
  * @param {SurveyDefinition} survey
@@ -15,20 +15,20 @@ var Vue = require( 'vue' ),
  * @return {jQuery.Deferred}
  */
 function render(
+	Vue,
 	panel, survey, dismissSurvey, surveySessionToken, pageviewToken, isMobileLayout,
 	htmlDirection, logEvent
 ) {
 	var deferred = $.Deferred();
-	var vm = new Vue( {
-		el: panel,
+	var h = Vue.h;
+	var vm = Vue.createMwApp( {
 		mounted: function () {
 			deferred.resolve( this.$el );
 		},
 		/**
-		 * @param {Function} createElement
 		 * @return {Vue}
 		 */
-		render: function ( createElement ) {
+		render: function () {
 			// eslint-disable-next-line mediawiki/msg-doc
 			var externalLink = survey.link ? new mw.Uri( mw.message( survey.link ).parse() ) : '';
 
@@ -36,16 +36,13 @@ function render(
 				externalLink.query[ survey.instanceTokenParameterName ] = pageviewToken;
 			}
 
-			return createElement( QuickSurvey, {
-				on: {
+			return h( QuickSurvey,
+				{
 					logEvent: logEvent,
-					dismiss: dismissSurvey,
-					destroy: function () {
-						vm.$destroy();
-						vm.$el.remove();
-					}
-				},
-				props: {
+					onDismiss: dismissSurvey,
+					onDestroy: function () {
+						vm.unmount();
+					},
 					submitButtonLabel: mw.msg( 'ext-quicksurveys-internal-freeform-survey-submit-button' ),
 					noAnswerErrorMessage: mw.msg( 'ext-quicksurveys-internal-freeform-survey-no-answer-alert' ),
 					yesButtonLabel: mw.msg( 'ext-quicksurveys-external-survey-yes-button' ),
@@ -82,10 +79,13 @@ function render(
 					isMobileLayout: isMobileLayout,
 					direction: htmlDirection
 				}
-			} );
+			);
 		}
 	} );
-
+	// disable spinner.
+	panel.setAttribute( 'class', '' );
+	panel.innerHTML = '';
+	vm.mount( panel );
 	return deferred;
 }
 

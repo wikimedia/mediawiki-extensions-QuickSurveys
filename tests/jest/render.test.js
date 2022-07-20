@@ -1,12 +1,16 @@
 'use strict';
-
-const wvui = require( '@wikimedia/wvui' ).default;
+const Vue = require( 'vue' );
 
 describe( 'QuickSurvey', () => {
 	let vue;
+	const VueMock = {
+		h: Vue.h,
+		createMwApp: ( options ) => {
+			return Vue.createApp( options );
+		}
+	};
 
 	beforeEach( () => {
-		jest.mock( 'wvui', () => wvui );
 		vue = require( '../../resources/ext.quicksurveys.lib/vue/render.js' );
 		window.open = jest.fn();
 		mw.eventLog = {
@@ -16,6 +20,7 @@ describe( 'QuickSurvey', () => {
 
 	it( 'renders without answers if externalLink is defined', () => {
 		return vue.render(
+			VueMock,
 			document.createElement( 'div' ),
 			{
 				link: 'https://survey',
@@ -37,6 +42,7 @@ describe( 'QuickSurvey', () => {
 
 	it( 'renders with description', () => {
 		return vue.render(
+			VueMock,
 			document.createElement( 'div' ),
 			{
 				link: 'https://survey',
@@ -58,6 +64,7 @@ describe( 'QuickSurvey', () => {
 
 	it( 'renders without description', () => {
 		return vue.render(
+			VueMock,
 			document.createElement( 'div' ),
 			{
 				link: 'https://survey',
@@ -79,6 +86,7 @@ describe( 'QuickSurvey', () => {
 
 	it( 'renders with freeform text label', () => {
 		return vue.render(
+			VueMock,
 			document.createElement( 'div' ),
 			{
 				name: 'Hello world',
@@ -104,6 +112,7 @@ describe( 'QuickSurvey', () => {
 
 		const dismissSurvey = jest.fn( () => {} );
 		return vue.render(
+			VueMock,
 			el,
 			{
 				link: 'https://survey',

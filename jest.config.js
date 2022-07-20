@@ -6,9 +6,6 @@
 module.exports = {
 	// Automatically clear mock calls and instances between every test
 	clearMocks: true,
-	moduleNameMapper: {
-		wvui: '<rootDir>/node_modules/@wikimedia/wvui'
-	},
 
 	// Indicates whether the coverage information should be collected while executing the test
 	collectCoverage: true,
@@ -59,7 +56,9 @@ module.exports = {
 		'./jest.setup.js'
 	],
 
+	testEnvironment: 'jsdom',
+
 	transform: {
-		'.*\\.(vue)$': '<rootDir>/node_modules/vue-jest'
+		'.*\\.(vue)$': '<rootDir>/node_modules/@vue/vue3-jest'
 	}
 };

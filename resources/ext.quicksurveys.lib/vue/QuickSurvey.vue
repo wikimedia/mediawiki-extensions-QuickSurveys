@@ -9,11 +9,11 @@
 					<strong>{{ question }}</strong>
 				</template>
 				<div class="survey-close-button">
-					<wvui-button
+					<cdx-button
 						type="quiet"
 						@click="dismissAndDestroy">
-						<wvui-icon :icon="closeIcon"></wvui-icon>
-					</wvui-button>
+						<cdx-icon :icon="closeIcon"></cdx-icon>
+					</cdx-button>
 				</div>
 			</div>
 			<template v-if="!completed">
@@ -22,40 +22,41 @@
 				</p>
 				<div class="survey-button-container">
 					<template v-if="requiresSingularAnswer">
-						<wvui-button
+						<cdx-button
 							v-for="( btn, i ) in buttons"
 							:key="i"
 							:action="btn.action"
 							:type="btn.type"
+							class="survey-button"
 							@click="clickButton( btn.answer, btn.href )">
 							{{ btn.label }}
-						</wvui-button>
+						</cdx-button>
 					</template>
 					<template v-else>
 						<div
 							v-for="( btn, i ) in buttons"
 							:key="i">
-							<wvui-checkbox
+							<cdx-checkbox
 								v-model="checkedAnswers"
 								:input-value="btn.label">
 								{{ btn.label }}
-							</wvui-checkbox>
+							</cdx-checkbox>
 						</div>
 					</template>
 				</div>
 				<template v-if="mustBeSubmitted">
-					<wvui-input
+					<cdx-text-input
 						v-if="requiresSingularAnswer"
 						v-model="otherAnswer"
 						type="text"
 						:placeholder="freeformTextLabel"
-						@input="resetSelectedButton"></wvui-input>
-					<wvui-button
+						@input="resetSelectedButton"></cdx-text-input>
+					<cdx-button
 						type="normal"
 						action="progressive"
 						@click="submitAnswer">
 						{{ submitButtonLabel }}
-					</wvui-button>
+					</cdx-button>
 				</template>
 			</template>
 			<template v-if="completed && additionalInfo">
@@ -71,18 +72,20 @@
 </template>
 
 <script>
-var wvui = require( 'wvui' ),
+var codex = require( '@wikimedia/codex' ),
 	utils = require( './utils.js' ),
+	Vue = require( 'vue' ),
+	icons = require( './icons.json' ),
 	QuickSurveyLogger = require( './QuickSurveyLogger.js' );
 
 // @vue/component
-module.exports = {
+module.exports = exports = Vue.defineComponent( {
 	name: 'QuickSurvey',
 	components: {
-		WvuiCheckbox: wvui.WvuiCheckbox,
-		WvuiInput: wvui.WvuiInput,
-		WvuiButton: wvui.WvuiButton,
-		WvuiIcon: wvui.WvuiIcon
+		CdxButton: codex.CdxButton,
+		CdxCheckbox: codex.CdxCheckbox,
+		CdxIcon: codex.CdxIcon,
+		CdxTextInput: codex.CdxTextInput
 	},
 	props: {
 		shuffleAnswersDisplay: {
@@ -173,7 +176,7 @@ module.exports = {
 		},
 		closeIcon: {
 			type: String,
-			default: 'M4.34 2.93l12.73 12.73-1.41 1.41L2.93 4.35z M17.07 4.34L4.34 17.07l-1.41-1.41L15.66 2.93z'
+			default: icons.cdxIconClose
 		}
 	},
 	data: function () {
@@ -325,7 +328,7 @@ module.exports = {
 			this.$emit( 'destroy' );
 		}
 	}
-};
+} );
 </script>
 
 <style lang="less">
@@ -372,9 +375,9 @@ module.exports = {
 			margin: @spacing-inner 0 0;
 		}
 
-		> .wvui-button {
+		> .survey-button {
 			width: 100%;
-			/* Disable wvui's button max-width */
+			/* Disable Codex button max-width */
 			max-width: none;
 		}
 	}
@@ -392,17 +395,17 @@ module.exports = {
 			display: block;
 			float: right;
 
-			.wvui-button {
+			.cdx-button {
 				padding: 0;
 			}
 
-			.wvui-button,
-			.wvui-icon {
+			.cdx-button,
+			.cdx-icon {
 				min-width: @close-button-size;
 				min-height: @close-button-size;
 			}
 
-			.wvui-icon svg {
+			.cdx-icon svg {
 				@close-button-icon-size: 14px;
 				width: @close-button-icon-size;
 				height: @close-button-icon-size;
