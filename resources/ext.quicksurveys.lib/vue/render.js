@@ -38,7 +38,7 @@ function render(
 
 			return h( QuickSurvey,
 				{
-					logEvent: logEvent,
+					onLogEvent: logEvent,
 					onDismiss: dismissSurvey,
 					onDestroy: function () {
 						vm.unmount();

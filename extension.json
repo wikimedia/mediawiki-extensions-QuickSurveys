@@ -34,7 +34,6 @@
 				"mediawiki.experiments",
 				"mediawiki.user",
 				"mediawiki.Uri",
-				"ext.eventLogging",
 				"mediawiki.util",
 				"jquery.spinner"
 			],
