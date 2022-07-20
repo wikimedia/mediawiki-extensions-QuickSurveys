@@ -2,38 +2,15 @@ var utils = require( './utils.js' );
 
 module.exports = {
 	/**
-	 * @param {string} name
-	 * @param {string} surveySessionToken
-	 * @param {string} pageviewToken
-	 */
-	logInitialized: function ( name, surveySessionToken, pageviewToken ) {
-		var event = {
-			// eslint-disable-next-line compat/compat
-			beaconCapable: !!navigator.sendBeacon,
-			surveySessionToken: surveySessionToken,
-			pageviewToken: pageviewToken,
-			surveyCodeName: name,
-			eventName: 'eligible',
-			performanceNow: Math.round( mw.now() )
-		};
-
-		var userEditCountBucket = mw.config.get( 'wgUserEditCountBucket' );
-
-		if ( userEditCountBucket ) {
-			event.userEditCountBucket = userEditCountBucket;
-		}
-
-		mw.eventLog.logEvent( 'QuickSurveyInitiation', event );
-	},
-	/**
 	 *
 	 * @param {string} name
 	 * @param {string} answer
 	 * @param {string} surveySessionToken
 	 * @param {string} pageviewToken
 	 * @param {boolean} isTablet
+	 * @return {array} of data to be passed to logger
 	 */
-	logResponse: function ( name, answer, surveySessionToken, pageviewToken, isTablet ) {
+	logResponseData: function ( name, answer, surveySessionToken, pageviewToken, isTablet ) {
 		var
 			skin = mw.config.get( 'skin' ),
 			// FIXME: remove this when SkinMinervaBeta is renamed to 'minerva-beta'.
@@ -66,6 +43,6 @@ module.exports = {
 		if ( editCountBucket ) {
 			event.editCountBucket = editCountBucket;
 		}
-		mw.eventLog.logEvent( 'QuickSurveysResponses', event );
+		return event;
 	}
 };

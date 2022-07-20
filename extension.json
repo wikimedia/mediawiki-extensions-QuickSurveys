@@ -61,6 +61,7 @@
 			],
 			"packageFiles": [
 				"resources/ext.quicksurveys.lib/init.js",
+				"resources/ext.quicksurveys.lib/logEvent.js",
 				"resources/ext.quicksurveys.lib/lib.js",
 				{
 					"name": "resources/ext.quicksurveys.lib/surveyData.json",

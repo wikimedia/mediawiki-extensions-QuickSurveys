@@ -302,13 +302,14 @@ module.exports = {
 		 * @param {string} answer
 		 */
 		endSurvey: function ( answer ) {
-			QuickSurveyLogger.logResponse(
+			var data = QuickSurveyLogger.logResponseData(
 				this.name,
 				answer,
 				this.surveySessionToken,
 				this.pageviewToken,
 				!this.isMobileLayout
 			);
+			this.$emit( 'logEvent', 'QuickSurveysResponses', data );
 			if ( answer === 'ext-quicksurveys-external-survey-no-button' ) {
 				this.dismissAndDestroy();
 			} else {

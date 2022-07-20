@@ -1,3 +1,5 @@
+var logEvent = require( './logEvent.js' );
+
 /**
  *
  * @typedef {Object} Audience
@@ -67,7 +69,7 @@ function logSurveyImpression( surveySessionToken, pageviewToken, surveyName ) {
 		event.editCountBucket = editCountBucket;
 	}
 
-	mw.eventLog.logEvent( 'QuickSurveyInitiation', event );
+	logEvent( 'QuickSurveyInitiation', event );
 }
 
 /**
@@ -447,7 +449,8 @@ function insertSurvey( survey ) {
 				surveySessionToken,
 				pageviewToken,
 				isMobileLayout,
-				htmlDirection
+				htmlDirection,
+				logEvent
 			).then( function ( el ) {
 				// Use the Vue element instead of $panel
 				reportWhenSeen( el, surveySessionToken, pageviewToken, survey.name );
