@@ -3,15 +3,27 @@
 		"authors": [
 			"AshokChakra",
 			"Niharika29",
+			"Saurmandal",
 			"Sfic"
 		]
 	},
+	"quicksurveys-desc": "कॉन्फ़िगर किए गए सर्वेक्षण दिखाएँ",
+	"ext-quicksurveys-example-internal-survey-question": "क्या टेक्स्ट को और बड़ा होना चाहिए?",
+	"ext-quicksurveys-example-internal-survey-description": "यह आंतरिक सर्वेक्षण के उदाहरण का विवरण है",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "हाँ",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "पता नहीं",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "नहीं",
-	"ext-quicksurveys-example-external-survey-question": "हमें विकिपीडिया को बेहतर बनाने के लिए आपकी सहायता चाहिए।",
-	"ext-quicksurveys-survey-confirm-msg": "प्रतिक्रिया के लिए धन्यवाद! हम {{SITENAME}} को और भी बेहतर बनाने के लिए इसका उपयोग कर रहे हैं!",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "अन्य",
+	"ext-quicksurveys-example-external-survey-question": "{{SITENAME}} को बेहतर बनाने में हमें आपकी मदद चाहिए।",
+	"ext-quicksurveys-example-external-survey-description": "इस सर्वेक्षण में हिस्सा लेकर आप यह समझने में हमारी मदद करेंगे कि हम {{SITENAME}} को आपके लिए और ज़्यादा उपयोगी कैसे बना सकते हैं। धन्यवाद!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "सर्वेक्षण ExampleSurveyProvider द्वारा संचालित। [//example.org/privacy-policy गोपनीयता नीति]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "सभी प्रस्तुतियाँ गुमनाम हैं। [//example.org/privacy-policy गोपनीयता नीति] देखें।",
+	"ext-quicksurveys-survey-confirm-msg": "प्रतिक्रिया के लिए धन्यवाद! हम {{SITENAME}} को और भी बेहतर बनाने के लिए इसका उपयोग करेंगे!",
 	"ext-quicksurveys-survey-positive": "हाँ",
 	"ext-quicksurveys-survey-negative": "नहीं",
+	"ext-quicksurveys-survey-neutral": "पता नहीं",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "भेजें",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "कृपया एक उत्तर चुनें या फिर अपना उत्तर दर्ज करें।",
 	"ext-quicksurveys-external-survey-yes-button": "सर्वेक्षण देखें",
 	"ext-quicksurveys-external-survey-no-button": "नहीं, धन्यवाद"
 }
