@@ -4,15 +4,20 @@
 			"Arian Ar",
 			"Ladsgroup",
 			"MohammadtheEditor",
-			"Reza1615"
+			"Reza1615",
+			"Jeeputer"
 		]
 	},
+	"quicksurveys-desc": "نظرسنجی‌های پیکربندی‌شده را نمایش می‌دهد",
 	"ext-quicksurveys-example-internal-survey-question": "آیا متن باید بزرگتر باشد؟",
+	"ext-quicksurveys-example-internal-survey-description": "این توضیحی است برای نظرسنجی داخلی نمونه",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "بله",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "مطمئن نیستم",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "خیر",
 	"ext-quicksurveys-example-internal-survey-freeform-text-label": "سایر",
 	"ext-quicksurveys-example-external-survey-question": "ما به کمک شما در بهبود ویکی‌پدیا نیاز داریم.",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "این نظرسنجی توسط ExampleSurveyProvider ارائه شده است. [//example.org/privacy-policy سیاست محرمانگی] را ببینید",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "تمام ارسالی‌ها ناشناس هستند. [//example.org/privacy-policy سیاست محرمانگی] را ببینید.",
 	"ext-quicksurveys-survey-confirm-msg": "از بازخورد شما سپاسگزاریم! ما از آن برای بهبود {{SITENAME}} استفاده خواهیم کرد!",
 	"ext-quicksurveys-survey-positive": "بله",
 	"ext-quicksurveys-survey-negative": "خیر",
