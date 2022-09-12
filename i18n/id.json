@@ -5,5 +5,7 @@
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Ya",
-	"ext-quicksurveys-example-internal-survey-answer-negative": "Tidak"
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Tidak",
+	"ext-quicksurveys-external-survey-yes-button": "Isi survei",
+	"ext-quicksurveys-external-survey-no-button": "Tidak tertarik"
 }
