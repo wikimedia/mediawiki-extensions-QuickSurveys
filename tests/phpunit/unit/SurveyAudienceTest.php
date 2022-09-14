@@ -24,9 +24,9 @@ class SurveyAudienceTest extends \MediaWikiUnitTestCase {
 	public function testItShouldThrowWhenAudienceBadlyDefined( $definition, $why ) {
 		try {
 			new SurveyAudience( $definition );
-			$this->assertTrue( false, $why );
+			$this->fail( $why );
 		} catch ( ParameterTypeException $e ) {
-			$this->assertTrue( true, $why );
+			$this->addToAssertionCount( 1 );
 		}
 	}
 
