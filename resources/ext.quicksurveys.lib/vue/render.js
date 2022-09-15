@@ -83,7 +83,8 @@ function render(
 		}
 	} );
 	// disable spinner.
-	panel.setAttribute( 'class', '' );
+	panel.removeAttribute( 'class' );
+	panel.removeAttribute( 'title' );
 	panel.innerHTML = '';
 	vm.mount( panel );
 	return deferred;
