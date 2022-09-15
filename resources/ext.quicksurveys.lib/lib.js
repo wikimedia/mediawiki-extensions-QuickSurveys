@@ -474,7 +474,7 @@ function isEmbeddedElementMatched( embedElementId ) {
  */
 function showSurvey( forcedSurvey ) {
 	const embeddedSurveys = [];
-	const randomizedSurveys = [];
+	const availableSurveys = [];
 	const enabledSurveys = require( './surveyData.json' );
 
 	if ( forcedSurvey ) {
@@ -485,7 +485,7 @@ function showSurvey( forcedSurvey ) {
 			enabledSurveys
 		);
 		if ( enabledSurveyFromQueryString ) {
-			randomizedSurveys.push( enabledSurveyFromQueryString );
+			availableSurveys.push( enabledSurveyFromQueryString );
 		}
 	} else {
 		// Find which surveys are available to the user
@@ -507,7 +507,7 @@ function showSurvey( forcedSurvey ) {
 						embeddedSurveys.push( enabledSurvey );
 					}
 				} else {
-					randomizedSurveys.push( enabledSurvey );
+					availableSurveys.push( enabledSurvey );
 				}
 			}
 		} );
@@ -517,9 +517,9 @@ function showSurvey( forcedSurvey ) {
 		embeddedSurveys.forEach( function ( embeddedSurvey ) {
 			insertSurvey( embeddedSurvey );
 		} );
-	} else if ( randomizedSurveys.length ) {
+	} else if ( availableSurveys.length ) {
 		// Get a random available survey
-		const survey = randomizedSurveys[ Math.floor( Math.random() * randomizedSurveys.length ) ];
+		const survey = availableSurveys[ Math.floor( Math.random() * availableSurveys.length ) ];
 		insertSurvey( survey );
 	}
 }
