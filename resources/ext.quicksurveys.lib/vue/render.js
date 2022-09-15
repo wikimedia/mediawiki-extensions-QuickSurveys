@@ -1,5 +1,5 @@
 /* eslint-disable jsdoc/no-undefined-types */
-var QuickSurvey = require( './QuickSurvey.vue' );
+const QuickSurvey = require( './QuickSurvey.vue' );
 
 /**
  * @param {Vue} Vue library
@@ -19,9 +19,9 @@ function render(
 	panel, survey, dismissSurvey, surveySessionToken, pageviewToken, isMobileLayout,
 	htmlDirection, logEvent
 ) {
-	var deferred = $.Deferred();
-	var h = Vue.h;
-	var vm = Vue.createMwApp( {
+	const deferred = $.Deferred();
+	const h = Vue.h;
+	const vm = Vue.createMwApp( {
 		mounted: function () {
 			deferred.resolve( this.$el );
 		},
@@ -30,7 +30,7 @@ function render(
 		 */
 		render: function () {
 			// eslint-disable-next-line mediawiki/msg-doc
-			var externalLink = survey.link ? new mw.Uri( mw.message( survey.link ).parse() ) : '';
+			const externalLink = survey.link ? new mw.Uri( mw.message( survey.link ).parse() ) : '';
 
 			if ( externalLink && survey.instanceTokenParameterName ) {
 				externalLink.query[ survey.instanceTokenParameterName ] = pageviewToken;

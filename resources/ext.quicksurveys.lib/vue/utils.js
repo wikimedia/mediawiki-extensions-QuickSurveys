@@ -6,7 +6,7 @@
  * @param {Object} mixin Properties to incorporate into the target.
  */
 function extend( target, mixin ) {
-	var key;
+	let key;
 	for ( key in mixin ) {
 		target[ key ] = mixin[ key ];
 	}
@@ -37,7 +37,7 @@ function getCountryCode() {
  * @return {Array} shuffled answers
  */
 function shuffleAnswers( answers ) {
-	var counter = answers.length,
+	let counter = answers.length,
 		i, temp;
 
 	while ( counter > 0 ) {

@@ -1,4 +1,4 @@
-var QuickSurveyLib = require( './lib.js' );
+const QuickSurveyLib = require( './lib.js' );
 
 // TODO: Deprecate and remove once usages in other repos are updated.
 mw.extQuickSurveys = QuickSurveyLib;

@@ -69,6 +69,7 @@ class Hooks {
 			$moduleName = $survey->getResourceLoaderModuleName();
 			$module = [
 				$moduleName => [
+					'es6' => true,
 					'dependencies' => [ 'ext.quicksurveys.lib.vue' ],
 					'messages' => $survey->getMessages(),
 					'targets' => [ 'desktop', 'mobile' ],

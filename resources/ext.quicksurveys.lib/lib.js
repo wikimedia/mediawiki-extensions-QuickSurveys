@@ -1,4 +1,4 @@
-var logEvent = require( './logEvent.js' );
+const logEvent = require( './logEvent.js' );
 
 /**
  *
@@ -45,7 +45,7 @@ var logEvent = require( './logEvent.js' );
  * @property {number} [lon] of the user
  */
 
-var hasOwn = Object.hasOwnProperty;
+const hasOwn = Object.hasOwnProperty;
 
 /**
  * Log impression when a survey is seen by the user
@@ -55,7 +55,7 @@ var hasOwn = Object.hasOwnProperty;
  * @param {string} surveyName
  */
 function logSurveyImpression( surveySessionToken, pageviewToken, surveyName ) {
-	var event = {
+	const event = {
 		surveySessionToken: surveySessionToken,
 		pageviewToken: pageviewToken,
 		surveyCodeName: surveyName,
@@ -63,7 +63,7 @@ function logSurveyImpression( surveySessionToken, pageviewToken, surveyName ) {
 		performanceNow: Math.round( mw.now() )
 	};
 
-	var editCountBucket = mw.config.get( 'wgUserEditCountBucket' );
+	const editCountBucket = mw.config.get( 'wgUserEditCountBucket' );
 
 	if ( editCountBucket ) {
 		event.editCountBucket = editCountBucket;
@@ -82,16 +82,15 @@ function logSurveyImpression( surveySessionToken, pageviewToken, surveyName ) {
  * @return {jQuery.Promise}
  */
 function getSeenObserver( el ) {
-	var result = $.Deferred(),
-		observer;
+	const result = $.Deferred();
 
 	if ( 'IntersectionObserver' in window ) {
 		// Setup the area for observing.
 		// By default the root is the viewport which is what we want.
 		// See https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
-		observer = new IntersectionObserver(
+		const observer = new IntersectionObserver(
 			function ( entries ) {
-				var entry = entries && entries[ 0 ];
+				const entry = entries && entries[ 0 ];
 				if ( entry && entry.isIntersecting ) {
 					// If intersecting resolve the promise,
 					// and stop observing it to free up resources.
@@ -125,7 +124,7 @@ function getSeenObserver( el ) {
  * @param {boolean} isMobileLayout whether the screen is a mobile layout.
  */
 function insertPanel( $bodyContent, $panel, embedElementId, isMobileLayout ) {
-	var $place;
+	let $place;
 
 	if ( embedElementId ) {
 		$place = $bodyContent.find( '#' + embedElementId );
@@ -193,14 +192,12 @@ function insertPanel( $bodyContent, $panel, embedElementId, isMobileLayout ) {
  * @return {boolean} return true when user between given time range
  */
 function registrationDateNotInRange( user, registrationStart, registrationEnd ) {
-	var from, to;
-
 	if ( user.getRegistration() === false ) {
 		// we cannot detect user registration date, fail by default
 		return true;
 	}
-	from = registrationStart ? new Date( registrationStart + 'T00:00:00+00:00' ) : new Date( false );
-	to = registrationEnd ? new Date( registrationEnd + 'T23:59:59+0000' ) : new Date();
+	const from = registrationStart ? new Date( registrationStart + 'T00:00:00+00:00' ) : new Date( false );
+	const to = registrationEnd ? new Date( registrationEnd + 'T23:59:59+0000' ) : new Date();
 
 	return from > user.getRegistration() || user.getRegistration() > to;
 }
@@ -212,17 +209,17 @@ function registrationDateNotInRange( user, registrationStart, registrationEnd ) 
  * @return {boolean} true if user agent matches
  */
 function isUsingTargetBrowser( targetUserAgent ) {
-	var keywordToRegexMap = {
-			KaiOS: /KaiOS[/\s](\d+\.\d+)/i,
-			InternetExplorer: /MSIE (\d+\.\d+);/i,
-			Chrome: /Chrome[/\s](\d+\.\d+)/i,
-			Edge: /Edge\/\d+/i,
-			Firefox: /Firefox[/\s](\d+\.\d+)/i,
-			Opera: /OPR[/\s](\d+\.\d+)/i,
-			Safari: /Safari[/\s](\d+\.\d+)/i
-		},
-		uaMatch = 0,
-		targetChrome = targetUserAgent.indexOf( 'Chrome' ) > -1;
+	const keywordToRegexMap = {
+		KaiOS: /KaiOS[/\s](\d+\.\d+)/i,
+		InternetExplorer: /MSIE (\d+\.\d+);/i,
+		Chrome: /Chrome[/\s](\d+\.\d+)/i,
+		Edge: /Edge\/\d+/i,
+		Firefox: /Firefox[/\s](\d+\.\d+)/i,
+		Opera: /OPR[/\s](\d+\.\d+)/i,
+		Safari: /Safari[/\s](\d+\.\d+)/i
+	};
+	const targetChrome = targetUserAgent.indexOf( 'Chrome' ) > -1;
+	let uaMatch = 0;
 
 	// Check each target user agent against the user's user agent.
 	targetUserAgent.forEach( function ( ua ) {
@@ -251,7 +248,7 @@ function isUsingTargetBrowser( targetUserAgent ) {
  * @return {boolean}
  */
 function isInAudience( audience, user, editCount, geo, pageId ) {
-	var hasMinEditAudience = audience.minEdits !== undefined,
+	const hasMinEditAudience = audience.minEdits !== undefined,
 		hasMaxEditAudience = audience.maxEdits !== undefined,
 		hasCountries = audience.countries !== undefined,
 		hasPageIds = audience.pageIds !== undefined,
@@ -296,7 +293,7 @@ function isInAudience( audience, user, editCount, geo, pageId ) {
  * @return {Object|null} Survey object or null
  */
 function getSurveyFromQueryString( queryString, availableSurveys ) {
-	var i,
+	let i,
 		surveyType,
 		surveyName,
 		survey;
@@ -361,10 +358,10 @@ function getSurveyToken( survey ) {
  * @return {string} The bucket
  */
 function getBucketForSurvey( survey ) {
-	var control = 1 - survey.coverage,
-		a = survey.coverage,
-		storageId = getSurveyStorageKey( survey ),
-		token = getSurveyToken( survey );
+	const a = survey.coverage;
+	const control = 1 - survey.coverage;
+	const storageId = getSurveyStorageKey( survey );
+	let token = getSurveyToken( survey );
 
 	if ( !token ) {
 		// Generate a new token for each survey
@@ -389,7 +386,7 @@ function getBucketForSurvey( survey ) {
  * @return {boolean}
  */
 function surveyMatchesPlatform( survey, mode ) {
-	var platformKey = mode ? 'mobile' : 'desktop',
+	const platformKey = mode ? 'mobile' : 'desktop',
 		platformValue = mode || 'stable';
 
 	return hasOwn.call( survey.platforms, platformKey ) &&
@@ -406,7 +403,7 @@ function surveyMatchesPlatform( survey, mode ) {
  * @param {string} surveyName
  */
 function reportWhenSeen( el, surveySessionToken, pageviewToken, surveyName ) {
-	var done = function () {
+	const done = function () {
 		logSurveyImpression( surveySessionToken, pageviewToken, surveyName );
 	};
 	getSeenObserver( el ).then( done, done );
@@ -420,7 +417,7 @@ function reportWhenSeen( el, surveySessionToken, pageviewToken, surveyName ) {
  * @param {SurveyDefinition} survey
  */
 function insertSurvey( survey ) {
-	var $panel = $.createSpinner().addClass( 'ext-qs-loader-bar' ),
+	const $panel = $.createSpinner().addClass( 'ext-qs-loader-bar' ),
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$bodyContent = $( '#bodyContent' ),
 		surveySessionToken = mw.user.sessionId() + '-quicksurveys',
@@ -431,7 +428,7 @@ function insertSurvey( survey ) {
 		isMobileLayout = window.innerWidth <= 768;
 
 	insertPanel( $bodyContent, $panel, survey.embedElementId, isMobileLayout );
-	var htmlDirection = document.getElementById( 'firstHeading' ).getAttribute( 'dir' );
+	const htmlDirection = document.getElementById( 'firstHeading' ).getAttribute( 'dir' );
 
 	// survey.module contains i18n messages and code to render.
 	// We load this asynchronously to avoid loading this all on page load for
@@ -440,7 +437,7 @@ function insertSurvey( survey ) {
 	// users with certain edit counts, or certain browser.
 	// See SurveyAudience for more information.
 	mw.loader.using( [ survey.module ] ).then( function ( require ) {
-		var module = require( 'ext.quicksurveys.lib.vue' );
+		const module = require( 'ext.quicksurveys.lib.vue' );
 		if ( module ) {
 			module.render(
 				require( 'vue' ),
@@ -476,16 +473,14 @@ function isEmbeddedElementMatched( embedElementId ) {
  * @param {string} forcedSurvey Survey to force display of, if any
  */
 function showSurvey( forcedSurvey ) {
-	var embeddedSurveys = [],
-		randomizedSurveys = [],
-		enabledSurveys = require( './surveyData.json' ),
-		enabledSurveyFromQueryString,
-		survey;
+	const embeddedSurveys = [];
+	const randomizedSurveys = [];
+	const enabledSurveys = require( './surveyData.json' );
 
 	if ( forcedSurvey ) {
 		// Setting the quicksurvey param makes every enabled survey available
 		// Setting the param quicksurvey bypasses the bucketing AND audience
-		enabledSurveyFromQueryString = getSurveyFromQueryString(
+		const enabledSurveyFromQueryString = getSurveyFromQueryString(
 			forcedSurvey || '',
 			enabledSurveys
 		);
@@ -524,7 +519,7 @@ function showSurvey( forcedSurvey ) {
 		} );
 	} else if ( randomizedSurveys.length ) {
 		// Get a random available survey
-		survey = randomizedSurveys[ Math.floor( Math.random() * randomizedSurveys.length ) ];
+		const survey = randomizedSurveys[ Math.floor( Math.random() * randomizedSurveys.length ) ];
 		insertSurvey( survey );
 	}
 }

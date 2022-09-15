@@ -1,4 +1,4 @@
-var utils = require( './utils.js' );
+const utils = require( './utils.js' );
 
 module.exports = {
 	/**
@@ -8,15 +8,12 @@ module.exports = {
 	 * @param {string} surveySessionToken
 	 * @param {string} pageviewToken
 	 * @param {boolean} isTablet
-	 * @return {array} of data to be passed to logger
+	 * @return {Array} of data to be passed to logger
 	 */
 	logResponseData: function ( name, answer, surveySessionToken, pageviewToken, isTablet ) {
-		var
-			skin = mw.config.get( 'skin' ),
-			// FIXME: remove this when SkinMinervaBeta is renamed to 'minerva-beta'.
-			mobileMode = mw.config.get( 'wgMFMode' ),
-			event,
-			editCountBucket;
+		let skin = mw.config.get( 'skin' );
+		// FIXME: remove this when SkinMinervaBeta is renamed to 'minerva-beta'.
+		const mobileMode = mw.config.get( 'wgMFMode' );
 
 		// On mobile differentiate between minerva stable and beta
 		// by appending 'beta' to 'minerva'
@@ -24,7 +21,7 @@ module.exports = {
 			skin += mobileMode;
 		}
 
-		event = {
+		const event = {
 			namespaceId: mw.config.get( 'wgNamespaceNumber' ),
 			surveySessionToken: surveySessionToken,
 			pageviewToken: pageviewToken,
@@ -39,7 +36,7 @@ module.exports = {
 			isLoggedIn: !mw.user.isAnon(),
 			countryCode: utils.getCountryCode()
 		};
-		editCountBucket = mw.config.get( 'wgUserEditCountBucket' );
+		const editCountBucket = mw.config.get( 'wgUserEditCountBucket' );
 		if ( editCountBucket ) {
 			event.editCountBucket = editCountBucket;
 		}

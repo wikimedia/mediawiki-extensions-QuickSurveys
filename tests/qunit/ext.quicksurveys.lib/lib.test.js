@@ -1,4 +1,4 @@
-var qSurveys = require( 'ext.quicksurveys.lib' ).test;
+const qSurveys = require( 'ext.quicksurveys.lib' ).test;
 
 QUnit.module( 'ext.quicksurveys.lib', {
 	beforeEach: function () {
@@ -12,7 +12,7 @@ QUnit.module( 'ext.quicksurveys.lib', {
 } );
 
 QUnit.test( 'showSurvey: Placement (infobox)', function ( assert ) {
-	var minervaTemplate = mw.template.get( 'test.QuickSurveys', 'minerva-1.html' ),
+	const minervaTemplate = mw.template.get( 'test.QuickSurveys', 'minerva-1.html' ),
 		$locationVector = mw.template.get( 'test.QuickSurveys', 'vector-1.html' ).render(),
 		$locationMinerva = minervaTemplate.render(),
 		$locationMinervaTablet = minervaTemplate.render();
@@ -30,7 +30,7 @@ QUnit.test( 'showSurvey: Placement (infobox)', function ( assert ) {
 } );
 
 QUnit.test( 'showSurvey: Placement (image)', function ( assert ) {
-	var template = mw.template.get( 'test.QuickSurveys', 'minerva-2.html' ),
+	const template = mw.template.get( 'test.QuickSurveys', 'minerva-2.html' ),
 		$locationVector = mw.template.get( 'test.QuickSurveys', 'vector-2.html' ).render(),
 		$locationMinerva = template.render(),
 		$locationMinervaTablet = template.render();
@@ -48,7 +48,7 @@ QUnit.test( 'showSurvey: Placement (image)', function ( assert ) {
 } );
 
 QUnit.test( 'showSurvey: Placement (no headings)', function ( assert ) {
-	var template = mw.template.get( 'test.QuickSurveys', 'minerva-3.html' ),
+	const template = mw.template.get( 'test.QuickSurveys', 'minerva-3.html' ),
 		$locationVector = mw.template.get( 'test.QuickSurveys', 'vector-3.html' ).render(),
 		$locationMinerva = template.render(),
 		$locationMinervaTablet = template.render();
@@ -72,7 +72,7 @@ QUnit.test( 'showSurvey: Placement (no headings)', function ( assert ) {
 } );
 
 QUnit.test( 'surveyMatchesPlatform', function ( assert ) {
-	var testCases = [
+	const testCases = [
 		[
 			// desktop only
 			{
@@ -129,7 +129,7 @@ QUnit.test( 'surveyMatchesPlatform', function ( assert ) {
 } );
 
 QUnit.test( 'showSurvey: Placement (plain)', function ( assert ) {
-	var template = mw.template.get( 'test.QuickSurveys', 'minerva-4.html' ),
+	const template = mw.template.get( 'test.QuickSurveys', 'minerva-4.html' ),
 		$locationVector = mw.template.get( 'test.QuickSurveys', 'vector-4.html' ).render(),
 		$locationMinerva = template.render(),
 		$locationMinervaTablet = template.render();
@@ -147,7 +147,7 @@ QUnit.test( 'showSurvey: Placement (plain)', function ( assert ) {
 } );
 
 QUnit.test( 'showSurvey: Placement (embedded)', function ( assert ) {
-	var $location = mw.template.get( 'test.QuickSurveys', 'embedded-1.html' ).render(),
+	const $location = mw.template.get( 'test.QuickSurveys', 'embedded-1.html' ).render(),
 		embedElementId = 'embed-survey-location';
 
 	qSurveys.insertPanel( $location, this.getPanel(), embedElementId );
@@ -157,7 +157,7 @@ QUnit.test( 'showSurvey: Placement (embedded)', function ( assert ) {
 } );
 
 QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds)', function ( assert ) {
-	var audienceAnyUser = {},
+	const audienceAnyUser = {},
 		anonUser = {
 			isAnon: function () { return true; },
 			getRegistration: function () { return false; }

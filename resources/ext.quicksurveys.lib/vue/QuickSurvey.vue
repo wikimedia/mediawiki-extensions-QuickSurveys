@@ -72,7 +72,7 @@
 </template>
 
 <script>
-var codex = require( '@wikimedia/codex' ),
+const codex = require( '@wikimedia/codex' ),
 	utils = require( './utils.js' ),
 	Vue = require( 'vue' ),
 	icons = require( './icons.json' ),
@@ -215,7 +215,7 @@ module.exports = exports = Vue.defineComponent( {
 		 * @return {Array} of props for rendering buttons
 		 */
 		buttons: function () {
-			var answers = this.externalLink ? this.externalSurveyButtons() : this.answers,
+			const answers = this.externalLink ? this.externalSurveyButtons() : this.answers,
 				// Per Vue.js docs safe for this to be computed:
 				// "a computed property will only re-evaluate
 				// when some of its reactive dependencies have changed."
@@ -227,7 +227,7 @@ module.exports = exports = Vue.defineComponent( {
 			this.markAnswersShuffled();
 
 			return answersComputed.map( function ( answer ) {
-				var isSelected = answer.key === this.selectedAnswer;
+				const isSelected = answer.key === this.selectedAnswer;
 				return {
 					label: answer.label,
 					type: isSelected ? 'primary' : 'normal',
@@ -290,7 +290,7 @@ module.exports = exports = Vue.defineComponent( {
 		 * Explicitly submits the currently selected answer.
 		 */
 		submitAnswer: function () {
-			var answer = ( this.checkedAnswers.join( ',' ) ||
+			const answer = ( this.checkedAnswers.join( ',' ) ||
 				this.otherAnswer || this.selectedAnswer || '' ).trim();
 			if ( answer ) {
 				this.endSurvey( answer );
@@ -305,7 +305,7 @@ module.exports = exports = Vue.defineComponent( {
 		 * @param {string} answer
 		 */
 		endSurvey: function ( answer ) {
-			var data = QuickSurveyLogger.logResponseData(
+			const data = QuickSurveyLogger.logResponseData(
 				this.name,
 				answer,
 				this.surveySessionToken,
