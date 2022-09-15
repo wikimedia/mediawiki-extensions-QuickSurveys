@@ -470,7 +470,7 @@ function isEmbeddedElementMatched( embedElementId ) {
 /**
  * Choose and display a survey
  *
- * @param {string} forcedSurvey Survey to force display of, if any
+ * @param {string|null} forcedSurvey Survey to force display of, if any
  */
 function showSurvey( forcedSurvey ) {
 	const embeddedSurveys = [];
@@ -478,10 +478,11 @@ function showSurvey( forcedSurvey ) {
 	const enabledSurveys = require( './surveyData.json' );
 
 	if ( forcedSurvey ) {
-		// Setting the quicksurvey param makes every enabled survey available
-		// Setting the param quicksurvey bypasses the bucketing AND audience
+		// Code path for when …?quicksurvey=… is used in the URL. Notes:
+		// - This bypasses all bucket and audience checks.
+		// - Only enabled surveys can be accessed like this.
 		const enabledSurveyFromQueryString = getSurveyFromQueryString(
-			forcedSurvey || '',
+			forcedSurvey,
 			enabledSurveys
 		);
 		if ( enabledSurveyFromQueryString ) {
