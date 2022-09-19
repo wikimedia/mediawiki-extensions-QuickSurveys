@@ -368,6 +368,13 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 		$this->assertEquals( $expected, $actual );
 	}
 
+	public function testItShouldThrowIfThereIsNoName() {
+		$factory = new SurveyFactory(
+			$this->expectsErrorLog( 'Bad survey configuration: The survey name does not have a value' )
+		);
+		$this->assertSame( [], $factory->parseSurveyConfig( [ [] ] ) );
+	}
+
 	public function testItShouldThrowIfTheSurveyNameIsNotUnique() {
 		$factory = new SurveyFactory(
 			$this->expectsErrorLog( 'Bad survey configuration: The survey name "test" is not unique' )
@@ -382,7 +389,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'description' => 'A survey for (potential) developers of the QuickSurveys extension.'
 			],
 			[
-				'name' => 'test',
+				'name' => ' test ',
 				'type' => 'external',
 				'question' => 'Do you like writing unit tests?',
 				'enabled' => true,
@@ -390,7 +397,32 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			],
 		];
 
-		$factory->parseSurveyConfig( $specs );
+		$this->assertSame( [], $factory->parseSurveyConfig( $specs ) );
+	}
+
+	public function testParseSurveyConfigSucceeds() {
+		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
+		$specs = [
+			[
+				'name' => 'a',
+				'type' => 'internal',
+				'question' => '',
+				'enabled' => true,
+				'coverage' => 1,
+				'platforms' => [],
+				'answers' => [],
+			],
+			[
+				'name' => 'b',
+				'type' => 'internal',
+				'question' => '',
+				'enabled' => true,
+				'coverage' => 1,
+				'platforms' => [],
+				'answers' => [],
+			],
+		];
+		$this->assertCount( 2, $factory->parseSurveyConfig( $specs ) );
 	}
 
 	public function testItShouldThrowIfTheTypeIsNotRecognized() {
@@ -399,7 +431,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'Bad survey configuration: The "test" survey isn\'t marked as internal or ' .
 				'external.' )
 		);
-		$factory->newSurvey(
+		$survey = $factory->newSurvey(
 			[
 				'name' => 'test',
 				'type' => 'ixternal',
@@ -407,6 +439,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 			]
 		);
+		$this->assertNull( $survey );
 	}
 
 	public function testItShouldMarkTheSurveyAsDisabledByDefault() {
@@ -442,7 +475,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			$this->expectsErrorLog(
 				'Bad survey configuration: The "test" survey doesn\'t have a coverage.' )
 		);
-		$factory->newSurvey(
+		$survey = $factory->newSurvey(
 			[
 				'name' => 'test',
 				'type' => 'internal',
@@ -451,6 +484,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 			]
 		);
+		$this->assertNull( $survey );
 	}
 
 	public function testItShouldUseDefaultLayout() {
@@ -482,7 +516,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'Bad survey configuration: The "test" internal survey layout is not one of ' .
 				'"single-answer" or "multiple-answer".' )
 		);
-		$factory->newSurvey(
+		$survey = $factory->newSurvey(
 			[
 				'name' => 'test',
 				'type' => 'internal',
@@ -500,6 +534,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 			]
 		);
+		$this->assertNull( $survey );
 	}
 
 	/**
