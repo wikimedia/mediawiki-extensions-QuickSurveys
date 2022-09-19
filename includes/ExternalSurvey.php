@@ -22,7 +22,6 @@ class ExternalSurvey extends Survey {
 	 * @param string $name
 	 * @param string $question
 	 * @param string $description
-	 * @param bool $isEnabled
 	 * @param float $coverage
 	 * @param array[] $platforms
 	 * @param string $privacyPolicy
@@ -36,7 +35,6 @@ class ExternalSurvey extends Survey {
 		$name,
 		$question,
 		$description,
-		$isEnabled,
 		$coverage,
 		array $platforms,
 		$privacyPolicy,
@@ -50,7 +48,6 @@ class ExternalSurvey extends Survey {
 			$name,
 			$question,
 			$description,
-			$isEnabled,
 			$coverage,
 			$platforms,
 			$privacyPolicy,

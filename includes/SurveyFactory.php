@@ -37,9 +37,10 @@ class SurveyFactory {
 	public function parseSurveyConfig( array $specs ): array {
 		$surveys = [];
 		foreach ( $specs as $spec ) {
-			if ( $this->validateUniqueName( $spec, $specs ) ) {
+			$enabled = $spec['enabled'] ?? false;
+			if ( $this->validateUniqueName( $spec, $specs ) && $enabled ) {
 				$survey = $this->newSurvey( $spec );
-				if ( $survey && $survey->isEnabled() ) {
+				if ( $survey ) {
 					$surveys[] = $survey;
 				}
 			}
@@ -212,7 +213,6 @@ class SurveyFactory {
 			$name,
 			$spec['question'],
 			$spec['description'] ?? null,
-			$spec['enabled'] ?? false,
 			$spec['coverage'],
 			$spec['platforms'],
 			$spec['privacyPolicy'],
@@ -251,7 +251,6 @@ class SurveyFactory {
 			$name,
 			$spec['question'],
 			$spec['description'] ?? null,
-			$spec['enabled'] ?? false,
 			$spec['coverage'],
 			$spec['platforms'],
 			$spec['privacyPolicy'] ?? null,

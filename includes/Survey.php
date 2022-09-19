@@ -34,11 +34,6 @@ abstract class Survey {
 	private $description;
 
 	/**
-	 * @var bool Whether the survey is enabled
-	 */
-	private $isEnabled;
-
-	/**
 	 * @var float The percentage of users that will see the survey expressed as a fraction
 	 */
 	private $coverage;
@@ -76,7 +71,6 @@ abstract class Survey {
 	 * @param string $name
 	 * @param string $question
 	 * @param string|null $description
-	 * @param bool $isEnabled
 	 * @param float $coverage
 	 * @param array[] $platforms
 	 * @param string|null $privacyPolicy
@@ -88,7 +82,6 @@ abstract class Survey {
 		$name,
 		$question,
 		$description,
-		$isEnabled,
 		$coverage,
 		array $platforms,
 		$privacyPolicy,
@@ -99,7 +92,6 @@ abstract class Survey {
 		$this->name = $name;
 		$this->question = $question;
 		$this->description = $description;
-		$this->isEnabled = $isEnabled;
 		$this->coverage = $coverage;
 		$this->platforms = $platforms;
 		$this->privacyPolicy = $privacyPolicy;
@@ -172,12 +164,4 @@ abstract class Survey {
 		];
 	}
 
-	/**
-	 * Gets whether the survey is enabled
-	 *
-	 * @return bool
-	 */
-	public function isEnabled(): bool {
-		return $this->isEnabled;
-	}
 }

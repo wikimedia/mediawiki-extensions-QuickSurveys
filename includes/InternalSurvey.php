@@ -33,7 +33,6 @@ class InternalSurvey extends Survey {
 	 * @param string $name
 	 * @param string $question
 	 * @param string|null $description
-	 * @param bool $isEnabled
 	 * @param float $coverage
 	 * @param array[] $platforms
 	 * @param string|null $privacyPolicy
@@ -50,7 +49,6 @@ class InternalSurvey extends Survey {
 		$name,
 		$question,
 		$description,
-		$isEnabled,
 		$coverage,
 		array $platforms,
 		$privacyPolicy,
@@ -67,7 +65,6 @@ class InternalSurvey extends Survey {
 			$name,
 			$question,
 			$description,
-			$isEnabled,
 			$coverage,
 			$platforms,
 			$privacyPolicy,

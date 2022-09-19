@@ -17,7 +17,6 @@ class InternalSurveyTest extends \MediaWikiUnitTestCase {
 			'name',
 			'question',
 			'description',
-			true,
 			0.5,
 			[ 'desktop' ],
 			'privacyPolicy',
@@ -53,7 +52,6 @@ class InternalSurveyTest extends \MediaWikiUnitTestCase {
 			'embedElementId' => 'embedElementId',
 			'layout' => 'layout',
 		], $survey->toArray() );
-		$this->assertTrue( $survey->isEnabled() );
 	}
 
 }

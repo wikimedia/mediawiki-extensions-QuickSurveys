@@ -132,7 +132,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			'test',
 			'Do you like writing unit tests?',
 			'A survey for (potential) developers of the QuickSurveys extension.',
-			true,
 			1,
 			[
 				'desktop' => [
@@ -206,7 +205,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			'test',
 			'Do you like writing unit tests?',
 			'A survey for (potential) developers of the QuickSurveys extension.',
-			true,
 			1,
 			[
 				'desktop' => [
@@ -263,7 +261,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			'test',
 			'Do you like writing unit tests?',
 			'A survey for (potential) developers of the QuickSurveys extension.',
-			true,
 			1,
 			[
 				'desktop' => [
@@ -385,23 +382,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			]
 		);
 		$this->assertNull( $survey );
-	}
-
-	public function testItShouldMarkTheSurveyAsDisabledByDefault() {
-		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
-		$survey = $factory->newSurvey(
-			[
-				'name' => 'test',
-				'type' => 'internal',
-				'layout' => 'single-answer',
-				'question' => 'Do you like writing unit tests?',
-				'coverage' => 1,
-				'platforms' => [],
-				'answers' => [],
-			]
-		);
-
-		$this->assertFalse( $survey->isEnabled() );
 	}
 
 	public function testItShouldThrowWhenThereIsNoCoverage() {

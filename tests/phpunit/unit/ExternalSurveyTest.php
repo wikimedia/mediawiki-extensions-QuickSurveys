@@ -17,7 +17,6 @@ class ExternalSurveyTest extends \MediaWikiUnitTestCase {
 			'name',
 			'question',
 			'description',
-			true,
 			0.5,
 			[ 'desktop' ],
 			'privacyPolicy',
@@ -47,7 +46,6 @@ class ExternalSurveyTest extends \MediaWikiUnitTestCase {
 			'link' => 'link',
 			'instanceTokenParameterName' => 'instanceTokenParameterName',
 		], $survey->toArray() );
-		$this->assertTrue( $survey->isEnabled() );
 	}
 
 }
