@@ -57,10 +57,10 @@ class SurveyFactory {
 	 * checks QuickSurveys name for duplications
 	 *
 	 * @param array $spec
-	 * @param array $specs
+	 * @param array[] $specs
 	 * @return bool
 	 */
-	private function validateUniqueName( $spec, $specs ) {
+	private function validateUniqueName( array $spec, array $specs ): bool {
 		if ( !isset( $spec[ 'name' ] ) ) {
 			$this->logger->error( "Bad survey configuration: The survey name does not have a value",
 						[ 'exception' => "Bad survey configuration: The survey name does not have a value" ] );
@@ -213,7 +213,7 @@ class SurveyFactory {
 	 * @throws InvalidArgumentException
 	 * @return ExternalSurvey
 	 */
-	private function factoryExternal( $spec ): ExternalSurvey {
+	private function factoryExternal( array $spec ): ExternalSurvey {
 		$name = $spec['name'];
 
 		if ( !isset( $spec['link'] ) ) {
@@ -247,7 +247,7 @@ class SurveyFactory {
 	 * @throws InvalidArgumentException
 	 * @return InternalSurvey
 	 */
-	private function factoryInternal( $spec ): InternalSurvey {
+	private function factoryInternal( array $spec ): InternalSurvey {
 		$name = $spec['name'];
 
 		if ( !isset( $spec['answers'] ) ) {

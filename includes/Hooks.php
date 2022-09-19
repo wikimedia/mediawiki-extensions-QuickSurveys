@@ -22,7 +22,7 @@ class Hooks {
 	 *
 	 * @param RL\Context $context
 	 * @param Config $conf
-	 * @return array
+	 * @return array[]
 	 */
 	public static function getSurveyConfig( RL\Context $context, Config $conf ) {
 		$surveys = MediaWikiServices::getInstance()->getService( 'QuickSurveys.EnabledSurveys' );

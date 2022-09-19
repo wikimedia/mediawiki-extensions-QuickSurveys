@@ -19,13 +19,12 @@ class ExternalSurvey extends Survey {
 	private $instanceTokenParameterName;
 
 	/**
-	 * ExternalSurvey constructor.
 	 * @param string $name
 	 * @param string $question
 	 * @param string $description
 	 * @param bool $isEnabled
 	 * @param float $coverage
-	 * @param array $platforms
+	 * @param array[] $platforms
 	 * @param string $privacyPolicy
 	 * @param string $additionalInfo
 	 * @param string $confirmMsg
@@ -65,7 +64,7 @@ class ExternalSurvey extends Survey {
 	}
 
 	/**
-	 * @return array
+	 * @return string[]
 	 */
 	public function getMessages(): array {
 		return array_merge( parent::getMessages(), [ $this->link ] );
