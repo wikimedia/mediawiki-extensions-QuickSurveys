@@ -405,7 +405,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'answers' => [],
 			],
 			[
-				'name' => 'b',
+				'name' => 'aa',
 				'type' => 'internal',
 				'question' => '',
 				'enabled' => true,

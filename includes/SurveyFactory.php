@@ -77,7 +77,7 @@ class SurveyFactory {
 		// make sure there are enabled surveys, then check
 		if ( !empty( $enabledNameArray ) ) {
 			// verify that $currentName is in the $enabledNameArray only 0 or 1 time
-			$matches = preg_grep( '/' . $currentName . '/i', $enabledNameArray );
+			$matches = preg_grep( '/^' . $currentName . '$/i', $enabledNameArray );
 			// get the count
 			$numberDuplicates = ( !is_array( $matches ) && $matches === false ) ? 0 : count( $matches );
 			// if there is more than one copy of the item, it is a duplicate, enter log message
