@@ -6,7 +6,7 @@ use QuickSurveys\SurveyAudience;
 use Wikimedia\Assert\ParameterTypeException;
 
 /**
- * @covers \QuickSurveys\SurveyFactory
+ * @covers \QuickSurveys\SurveyAudience
  */
 class SurveyAudienceTest extends \MediaWikiUnitTestCase {
 	/**
