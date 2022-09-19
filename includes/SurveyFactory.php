@@ -35,32 +35,26 @@ class SurveyFactory {
 	 * @return Survey[] List of valid and enabled surveys
 	 */
 	public function parseSurveyConfig( array $specs ): array {
-		$surveysOrInvalid = [];
-
+		$surveys = [];
 		foreach ( $specs as $spec ) {
 			if ( $this->validateUniqueName( $spec, $specs ) ) {
-				$surveysOrInvalid[] = $this->newSurvey( $spec );
+				$survey = $this->newSurvey( $spec );
+				if ( $survey && $survey->isEnabled() ) {
+					$surveys[] = $survey;
+				}
 			}
 		}
-		$enabledSurveys = array_filter(
-			$surveysOrInvalid,
-			static function ( ?Survey $survey ): bool {
-				return $survey && $survey->isEnabled();
-			}
-		);
-
-		// @phan-suppress-next-line PhanTypeMismatchReturn array_filter removes null entries
-		return array_values( $enabledSurveys );
+		return $surveys;
 	}
 
 	/**
 	 * checks QuickSurveys name for duplications
 	 *
 	 * @param array $spec
-	 * @param array $specs
+	 * @param array[] $specs
 	 * @return bool
 	 */
-	private function validateUniqueName( $spec, $specs ) {
+	private function validateUniqueName( array $spec, array $specs ): bool {
 		if ( !isset( $spec[ 'name' ] ) ) {
 			$this->logger->error( "Bad survey configuration: The survey name does not have a value",
 						[ 'exception' => "Bad survey configuration: The survey name does not have a value" ] );
