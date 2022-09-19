@@ -73,7 +73,7 @@ class SurveyFactory {
 
 		// get array of current enabled quicksurveys name
 		foreach ( $specs as $specArray ) {
-			$enabled = array_key_exists( 'enabled', $specArray ) && $specArray[ 'enabled' ];
+			$enabled = $specArray['enabled'] ?? false;
 			$surveyName = array_key_exists( 'name', $specArray ) ? strtoupper( trim( $specArray[ 'name' ] ) ) : null;
 			if ( $enabled && $surveyName !== null ) {
 				$enabledNameArray[] = $surveyName;
@@ -123,10 +123,6 @@ class SurveyFactory {
 	public function newSurvey( array $spec ): ?Survey {
 		try {
 			$this->validateSpec( $spec );
-
-			if ( !isset( $spec['enabled'] ) ) {
-				$spec['enabled'] = false;
-			}
 
 			$survey = $spec['type'] === 'internal'
 				? $this->factoryInternal( $spec )
@@ -234,7 +230,7 @@ class SurveyFactory {
 			$name,
 			$spec['question'],
 			$spec['description'] ?? null,
-			$spec['enabled'],
+			$spec['enabled'] ?? false,
 			$spec['coverage'],
 			$spec['platforms'],
 			$spec['privacyPolicy'],
@@ -273,7 +269,7 @@ class SurveyFactory {
 			$name,
 			$spec['question'],
 			$spec['description'] ?? null,
-			$spec['enabled'],
+			$spec['enabled'] ?? false,
 			$spec['coverage'],
 			$spec['platforms'],
 			$spec['privacyPolicy'] ?? null,
