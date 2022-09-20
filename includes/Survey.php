@@ -72,6 +72,18 @@ abstract class Survey {
 	 */
 	private $privacyPolicy;
 
+	/**
+	 * @param string $name
+	 * @param string $question
+	 * @param string|null $description
+	 * @param bool $isEnabled
+	 * @param float $coverage
+	 * @param array[] $platforms
+	 * @param string|null $privacyPolicy
+	 * @param string|null $additionalInfo
+	 * @param string|null $confirmMsg
+	 * @param SurveyAudience $audience
+	 */
 	public function __construct(
 		$name,
 		$question,
@@ -105,6 +117,9 @@ abstract class Survey {
 		return 'ext.quicksurveys.survey.' . str_replace( ' ', '.', $this->name );
 	}
 
+	/**
+	 * @return SurveyAudience
+	 */
 	public function getAudience(): SurveyAudience {
 		return $this->audience;
 	}

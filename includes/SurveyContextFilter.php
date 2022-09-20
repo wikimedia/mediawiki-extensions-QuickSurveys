@@ -18,10 +18,19 @@ class SurveyContextFilter {
 	 */
 	private $surveys;
 
+	/**
+	 * @param Survey[] $surveys
+	 */
 	public function __construct( array $surveys ) {
 		$this->surveys = $surveys;
 	}
 
+	/**
+	 * @param Title|null $title
+	 * @param string $action
+	 *
+	 * @return bool
+	 */
 	public function isAnySurveyAvailable( ?Title $title, string $action ): bool {
 		if ( !$this->surveys ) {
 			return false;
@@ -42,6 +51,11 @@ class SurveyContextFilter {
 		return $title->exists();
 	}
 
+	/**
+	 * @param int $pageId
+	 *
+	 * @return bool
+	 */
 	private function isKnownPageId( int $pageId ): bool {
 		foreach ( $this->surveys as $survey ) {
 			$audience = $survey->getAudience()->toArray();

@@ -29,6 +29,23 @@ class InternalSurvey extends Survey {
 	 */
 	private $layout;
 
+	/**
+	 * @param string $name
+	 * @param string $question
+	 * @param string|null $description
+	 * @param bool $isEnabled
+	 * @param float $coverage
+	 * @param array[] $platforms
+	 * @param string|null $privacyPolicy
+	 * @param string|null $additionalInfo
+	 * @param string|null $confirmMsg
+	 * @param SurveyAudience $audience
+	 * @param string[] $answers
+	 * @param bool $shuffleAnswersDisplay
+	 * @param string|null $freeformTextLabel
+	 * @param string|null $embedElementId
+	 * @param string $layout
+	 */
 	public function __construct(
 		$name,
 		$question,
@@ -66,6 +83,7 @@ class InternalSurvey extends Survey {
 		$this->layout = $layout;
 	}
 
+	/** @inheritDoc */
 	public function getMessages(): array {
 		$messages = array_merge( parent::getMessages(), $this->answers );
 
