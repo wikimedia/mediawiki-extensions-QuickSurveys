@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Metalhead64",
-			"TMg"
+			"TMg",
+			"ThePiscin"
 		]
 	},
 	"quicksurveys-desc": "Ermöglicht die Anzeige konfigurierter Umfragen",
@@ -23,5 +24,5 @@
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "Absenden",
 	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Bitte wähle eine Antwort oder trage eine eigene ein.",
 	"ext-quicksurveys-external-survey-yes-button": "Umfrage besuchen",
-	"ext-quicksurveys-external-survey-no-button": "Nein danke"
+	"ext-quicksurveys-external-survey-no-button": "Nein, danke"
 }
