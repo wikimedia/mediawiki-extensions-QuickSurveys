@@ -16,6 +16,8 @@ use MediaWiki\ResourceLoader as RL;
  * See T213459#4871107 for the original design of this approach.
  */
 class InitModule extends RL\FileModule {
+
+	/** @inheritDoc */
 	public function __construct(
 		array $options = [],
 		string $localBasePath = null,
@@ -31,6 +33,7 @@ class InitModule extends RL\FileModule {
 		parent::__construct( $options, $localBasePath, $remoteBasePath );
 	}
 
+	/** @inheritDoc */
 	public function getDependencies( RL\Context $context = null ) {
 		$result = parent::getDependencies( $context );
 
@@ -46,6 +49,7 @@ class InitModule extends RL\FileModule {
 		return count( $enabledSurveys ) > 0;
 	}
 
+	/** @inheritDoc */
 	public function getTargets() {
 		return [ 'desktop', 'mobile' ];
 	}

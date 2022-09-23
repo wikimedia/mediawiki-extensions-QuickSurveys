@@ -12,9 +12,6 @@ use Title;
  * @covers \QuickSurveys\SurveyContextFilter
  */
 class SurveyContextFilterTest extends \MediaWikiIntegrationTestCase {
-	private $existingPage;
-	private $existingTalkPage;
-	private $nonexistingPage;
 
 	public function setUp(): void {
 		parent::setUp();
