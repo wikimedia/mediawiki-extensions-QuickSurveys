@@ -8,7 +8,6 @@
 
 namespace QuickSurveys;
 
-use Action;
 use Config;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\ResourceLoader as RL;
@@ -41,9 +40,8 @@ class Hooks {
 	 * @param OutputPage $out
 	 */
 	public static function onBeforePageDisplay( OutputPage $out ) {
-		$context = $out->getContext();
-		$title = $context->getTitle();
-		$action = Action::getActionName( $context );
+		$title = $out->getTitle();
+		$action = $out->getActionName();
 		$surveys = MediaWikiServices::getInstance()->getService( 'QuickSurveys.EnabledSurveys' );
 
 		if ( ( new SurveyContextFilter( $surveys ) )->isAnySurveyAvailable( $title, $action ) ) {

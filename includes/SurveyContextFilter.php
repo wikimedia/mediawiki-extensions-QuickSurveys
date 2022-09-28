@@ -9,7 +9,7 @@ use Title;
  */
 class SurveyContextFilter {
 	/**
-	 * The internal name of the view action (see \ViewAction) as returned by Action::getActionName.
+	 * The internal name of the view action (see \ViewAction) as returned by ActionFactory::getActionName.
 	 */
 	private const VIEW_ACTION_NAME = 'view';
 
