@@ -536,10 +536,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 		$logger
 			->expects( $this->atLeastOnce() )
 			->method( 'error' )
-			->with(
-				$this->equalTo( $message ),
-				$this->anything()
-			);
+			->with( $message );
 		return $logger;
 	}
 }
