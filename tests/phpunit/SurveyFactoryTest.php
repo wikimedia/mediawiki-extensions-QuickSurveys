@@ -35,7 +35,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			[
 				'name' => 'test',
 				'question' => 'Do you like writing unit tests?',
-				'description' => 'A survey for (potential) developers on the QuickSurveys project.',
 			]
 		);
 	}
@@ -50,7 +49,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'name' => 'test',
 				'type' => 'external',
 				'question' => 'Do you like writing unit tests?',
-				'description' => 'A survey for (potential) developers on the QuickSurveys project.',
 				'coverage' => 1,
 			]
 		);
@@ -66,7 +64,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'name' => 'test',
 				'type' => 'external',
 				'question' => 'Do you like writing unit tests?',
-				'description' => 'A survey for (potential) developers on the QuickSurveys project.',
 				'coverage' => 1,
 				'platforms' => [
 					'desktop' => [
@@ -92,7 +89,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'name' => 'test',
 				'type' => 'external',
 				'question' => 'Do you like writing unit tests?',
-				'description' => 'A survey for (potential) developers on the QuickSurveys project.',
 				'coverage' => 1,
 				'platforms' => [
 					'desktop' => [
@@ -119,7 +115,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'type' => 'external',
 				'question' => 'Do you feel safe?',
 				'enabled' => true,
-				'description' => 'A survey for TST ',
 				'coverage' => 1,
 				'platforms' => [
 					'desktop' => [
@@ -238,7 +233,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'type' => 'internal',
 				'layout' => 'single-answer',
 				'question' => 'Do you like writing unit tests?',
-				'description' => 'A survey for (potential) developers on the QuickSurveys project.',
 				'coverage' => 1,
 				'platforms' => [
 					'desktop' => [
@@ -379,14 +373,12 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'type' => 'external',
 				'question' => 'Do you like writing unit tests?',
 				'enabled' => true,
-				'description' => 'A survey for (potential) developers of the QuickSurveys extension.'
 			],
 			[
 				'name' => 'test',
 				'type' => 'external',
 				'question' => 'Do you like writing unit tests?',
 				'enabled' => true,
-				'description' => 'A survey for (potential) developers of the QuickSurveys extension.'
 			],
 		];
 
@@ -404,7 +396,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'name' => 'test',
 				'type' => 'ixternal',
 				'question' => 'Do you like writing unit tests?',
-				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 			]
 		);
 	}
@@ -417,7 +408,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'type' => 'internal',
 				'layout' => 'single-answer',
 				'question' => 'Do you like writing unit tests?',
-				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 				'coverage' => 1,
 				'platforms' => [
 					'desktop' => [
@@ -448,7 +438,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'type' => 'internal',
 				'layout' => 'single-answer',
 				'question' => 'Do you like writing unit tests?',
-				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 			]
 		);
 	}
@@ -469,7 +458,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'answers' => [
 					'ext-quicksurveys-test-internal-survey-positive',
 				],
-				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 			]
 		);
 
@@ -497,7 +485,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'answers' => [
 					'ext-quicksurveys-test-internal-survey-positive',
 				],
-				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 			]
 		);
 	}
@@ -515,7 +502,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'type' => 'internal',
 				'layout' => 'single-answer',
 				'question' => 'Do you like writing unit tests?',
-				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 				'coverage' => 1,
 				'platforms' => $platforms,
 			]
