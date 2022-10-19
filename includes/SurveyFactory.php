@@ -35,6 +35,12 @@ class SurveyFactory {
 	 * @return Survey[] List of valid and enabled surveys
 	 */
 	public function parseSurveyConfig( array $specs ): array {
+		if ( !$this->arrayIsList( $specs ) ) {
+			$this->logger->error( 'Bad surveys configuration: The surveys configuration is not a list.' );
+
+			return [];
+		}
+
 		$surveys = [];
 		foreach ( $specs as $spec ) {
 			$enabled = $spec['enabled'] ?? false;
@@ -46,6 +52,23 @@ class SurveyFactory {
 			}
 		}
 		return $surveys;
+	}
+
+	/**
+	 * Gets whether the array is a list, i.e. an integer-indexed array with indices starting at 0.
+	 *
+	 * As written, this method trades performance for elegance. This method should not be called on
+	 * large arrays.
+	 *
+	 * TODO: Replace this with array_is_list when MediaWiki supports PHP >= 8.1
+	 *
+	 * @param array $array
+	 * @return bool
+	 */
+	private function arrayIsList( array $array ): bool {
+		$array = array_keys( $array );
+
+		return $array === array_keys( $array );
 	}
 
 	/**

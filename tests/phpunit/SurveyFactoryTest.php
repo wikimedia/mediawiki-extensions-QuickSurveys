@@ -478,6 +478,21 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 		];
 	}
 
+	public function testItShouldLogWhenSurveyConfigurationIsNotAList() {
+		$factory = new SurveyFactory(
+			$this->expectsErrorLog(
+				'Bad surveys configuration: The surveys configuration is not a list.'
+			)
+		);
+
+		$this->assertSame(
+			[],
+			$factory->parseSurveyConfig( [
+				'name' => 'test',
+			] )
+		);
+	}
+
 	private function expectsErrorLog( string $message ): LoggerInterface {
 		$logger = $this->createMock( LoggerInterface::class );
 		$logger
