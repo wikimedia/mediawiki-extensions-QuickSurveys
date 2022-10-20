@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"quicksurveys-desc": "Monstra le inquestas configurate",
+	"ext-quicksurveys-example-internal-survey-question": "Debe le texto esser plus grande?",
+	"ext-quicksurveys-example-internal-survey-description": "Isto es le description del inquesta interne de exemplo",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Si",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Non secur",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "No",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Altere",
+	"ext-quicksurveys-example-external-survey-question": "Nos ha besonio de tu adjuta pro meliorar {{SITENAME}}.",
+	"ext-quicksurveys-example-external-survey-description": "Respondente a iste inquesta, tu nos adjutara a compender como render {{SITENAME}} melior e plus utile pro te. Gratias!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Inquesta fornite per ExemploDeFornitorDeInquestas. Vide le [//example.org/privacy-policy politica de confidentialitate]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Tote le invios es anonyme. Vide le See the [//example.org/privacy-policy politica de confidentialitate].",
+	"ext-quicksurveys-survey-confirm-msg": "Gratias pro le responsa! Nos lo usara pro render {{SITENAME}} ancora melior!",
+	"ext-quicksurveys-survey-positive": "Si",
+	"ext-quicksurveys-survey-negative": "No",
+	"ext-quicksurveys-survey-neutral": "Non secur",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Submitter",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Per favor selige un responsa o scribe le tue.",
+	"ext-quicksurveys-external-survey-yes-button": "Visitar inquesta",
+	"ext-quicksurveys-external-survey-no-button": "No, gratias"
+}
