@@ -65,15 +65,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'type' => 'external',
 				'question' => 'Do you like writing unit tests?',
 				'coverage' => 1,
-				'platforms' => [
-					'desktop' => [
-						'stable'
-					],
-					'mobile' => [
-						'stable',
-						'beta',
-					],
-				],
+				'platforms' => [],
 			]
 		);
 	}
@@ -90,15 +82,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'type' => 'external',
 				'question' => 'Do you like writing unit tests?',
 				'coverage' => 1,
-				'platforms' => [
-					'desktop' => [
-						'stable'
-					],
-					'mobile' => [
-						'stable',
-						'beta',
-					],
-				],
+				'platforms' => [],
 				'link' => 'ext-quicksurveys-example-external-survey-link',
 			]
 		);
@@ -116,17 +100,8 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'question' => 'Do you feel safe?',
 				'enabled' => true,
 				'coverage' => 1,
-				'platforms' => [
-					'desktop' => [
-						'stable'
-					],
-					'mobile' => [
-						'stable',
-						'beta',
-					],
-				],
+				'platforms' => [],
 				'link' => 'ext-quicksurveys-test-external-survey-no-http-link"',
-				'privacyPolicy' => 'ext-quicksurveys-test-external-survey-privacy-policy',
 			]
 		);
 	}
@@ -143,14 +118,8 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'question' => 'Do you like writing unit tests?',
 				'enabled' => true,
 				'coverage' => 1,
-				'platforms' => [
-					'desktop' => [
-						'stable',
-					],
-				],
-				'answers' => [
-					'ext-quicksurveys-test-internal-survey-positive',
-				],
+				'platforms' => [],
+				'answers' => [],
 				null,
 				null,
 				'audience' => [
@@ -234,15 +203,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'layout' => 'single-answer',
 				'question' => 'Do you like writing unit tests?',
 				'coverage' => 1,
-				'platforms' => [
-					'desktop' => [
-						'stable',
-					],
-					'mobile' => [
-						'stable',
-						'beta',
-					],
-				],
+				'platforms' => [],
 			]
 		);
 	}
@@ -442,18 +403,8 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'layout' => 'single-answer',
 				'question' => 'Do you like writing unit tests?',
 				'coverage' => 1,
-				'platforms' => [
-					'desktop' => [
-						'stable',
-					],
-					'mobile' => [
-						'stable',
-						'beta',
-					],
-				],
-				'answers' => [
-					'ext-quicksurveys-test-internal-survey-positive',
-				],
+				'platforms' => [],
+				'answers' => [],
 			]
 		);
 
@@ -483,15 +434,9 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'name' => 'test',
 				'type' => 'internal',
 				'coverage' => 0.5,
-				'platforms' => [
-					'desktop' => [
-						'stable',
-					],
-				],
+				'platforms' => [],
 				'question' => 'Do you like writing unit tests?',
-				'answers' => [
-					'ext-quicksurveys-test-internal-survey-positive',
-				],
+				'answers' => [],
 			]
 		);
 
@@ -510,15 +455,9 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'type' => 'internal',
 				'layout' => 'garbage',
 				'coverage' => 0.5,
-				'platforms' => [
-					'desktop' => [
-						'stable',
-					],
-				],
+				'platforms' => [],
 				'question' => 'Do you like writing unit tests?',
-				'answers' => [
-					'ext-quicksurveys-test-internal-survey-positive',
-				],
+				'answers' => [],
 			]
 		);
 		$this->assertNull( $survey );
