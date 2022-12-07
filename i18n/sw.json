@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"DDesouza"
+			"DDesouza",
+			"Jadnapac"
 		]
 	},
-	"ext-quicksurveys-external-survey-yes-button": "Ndiyo",
-	"ext-quicksurveys-external-survey-no-button": "Hapana"
+	"ext-quicksurveys-external-survey-yes-button": "Tembelea utafiti",
+	"ext-quicksurveys-external-survey-no-button": "Hapana Asante"
 }
