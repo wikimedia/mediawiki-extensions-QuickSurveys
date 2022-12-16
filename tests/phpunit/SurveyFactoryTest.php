@@ -120,8 +120,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'coverage' => 1,
 				'platforms' => [],
 				'answers' => [],
-				null,
-				null,
 				'audience' => [
 					'minEdits' => 'foobar',
 				],
@@ -174,17 +172,12 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 						'beta',
 					],
 				],
-				null,
-				null,
 				'audience' => [
 					'minEdits' => 100,
 					'userAgent' => [ 'KaiOS' ]
 				],
 				'link' => 'ext-quicksurveys-example-external-survey-link',
 				'privacyPolicy' => 'ext-quicksurveys-test-external-survey-privacy-policy',
-				null,
-				null,
-				new SurveyAudience( [] )
 			]
 		);
 
