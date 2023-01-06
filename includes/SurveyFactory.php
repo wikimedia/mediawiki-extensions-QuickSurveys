@@ -60,39 +60,27 @@ class SurveyFactory {
 						[ 'exception' => "Bad survey configuration: The survey name does not have a value" ] );
 			return false;
 		}
-		$retBool = false;
-		$name = trim( $spec[ 'name' ] );
-		$currentName = strtoupper( $name );
-		$enabledNameArray = [];
-
-		// get array of current enabled quicksurveys name
-		foreach ( $specs as $specArray ) {
-			$enabled = $specArray['enabled'] ?? false;
-			$surveyName = array_key_exists( 'name', $specArray ) ? strtoupper( trim( $specArray[ 'name' ] ) ) : null;
-			if ( $enabled && $surveyName !== null ) {
-				$enabledNameArray[] = $surveyName;
-			}
+		if ( count( $specs ) < 2 ) {
+			return true;
 		}
 
-		// make sure there are enabled surveys, then check
-		if ( !empty( $enabledNameArray ) ) {
-			// verify that $currentName is in the $enabledNameArray only 0 or 1 time
-			$matches = preg_grep( '/^' . $currentName . '$/i', $enabledNameArray );
-			// get the count
-			$numberDuplicates = ( !is_array( $matches ) && $matches === false ) ? 0 : count( $matches );
+		$name = trim( $spec[ 'name' ] );
+		$numberDuplicates = 0;
+
+		foreach ( $specs as $specArray ) {
 			// if there is more than one copy of the item, it is a duplicate, enter log message
-			if ( $numberDuplicates <= 1 ) {
-				$retBool = true;
-			} else {
+			if ( ( $specArray['enabled'] ?? false ) &&
+				strcasecmp( trim( $specArray['name'] ?? '' ), $name ) === 0 &&
+				$numberDuplicates++
+			) {
 				// write out to logger
 				$this->logger->error( "Bad survey configuration: The survey name \"{$name}\" is not unique",
 									[ 'exception' => "The \"{$name}\" survey name is not unique" ] );
+				return false;
 			}
-		} else {
-			$retBool = true;
 		}
 
-		return $retBool;
+		return true;
 	}
 
 	/**
