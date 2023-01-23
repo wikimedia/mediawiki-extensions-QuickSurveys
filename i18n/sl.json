@@ -4,10 +4,21 @@
 			"Eleassar"
 		]
 	},
+	"quicksurveys-desc": "Prikaže konfigurirane ankete",
+	"ext-quicksurveys-example-internal-survey-question": "Naj bo besedilo večje?",
+	"ext-quicksurveys-example-internal-survey-description": "To je opis zgleda interne ankete.",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Da",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Nisem prepričan_a",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Ne",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Drugo",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Anketo je zagotovil ExampleSurveyProvider. Glejte [//example.org/privacy-policy pravilnik o zasebnosti].",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Vse oddane anekete so anonimne. Glejte pravilnik o zasebnosti [//example.org/privacy-policy].",
+	"ext-quicksurveys-survey-confirm-msg": "Hvala za povratno informacijo! Uporabili jo bomo, da projekt {{SITENAME}} naredimo še boljši!",
 	"ext-quicksurveys-survey-positive": "Da",
 	"ext-quicksurveys-survey-negative": "Ne",
+	"ext-quicksurveys-survey-neutral": "Nisem prepričan_a",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Pošlji",
 	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Prosimo, izberite enega od odgovorov ali vpišite lastnega.",
+	"ext-quicksurveys-external-survey-yes-button": "Obišči anketo",
 	"ext-quicksurveys-external-survey-no-button": "Ne, hvala"
 }
