@@ -18,7 +18,7 @@
 	"ext-quicksurveys-example-external-survey-description": "En répondant à cette enquête, vous nous aiderez à comprendre comment améliorer Wikipédia et le rendre plus utile pour vous. Merci !",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Enquête fournie par ExampleSurveyProvider. Voyez la [//example.org/privacy-policy politique de confidentialité]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Tous les envois sont anonymes. Voyez la [//example.org/privacy-policy politique de confidentialité].",
-	"ext-quicksurveys-survey-confirm-msg": "Merci pour ce retour ! Nous l’utiliserons pour rendre {{SITENAME}} encore meilleur !",
+	"ext-quicksurveys-survey-confirm-msg": "Merci pour ce retour ! Nous l’utiliserons pour rendre {{SITENAME}} encore meilleur !",
 	"ext-quicksurveys-survey-positive": "Oui",
 	"ext-quicksurveys-survey-negative": "Non",
 	"ext-quicksurveys-survey-neutral": "Pas certain",
