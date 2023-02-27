@@ -48,9 +48,4 @@ class InitModule extends RL\FileModule {
 		$enabledSurveys = MediaWikiServices::getInstance()->getService( 'QuickSurveys.EnabledSurveys' );
 		return count( $enabledSurveys ) > 0;
 	}
-
-	/** @inheritDoc */
-	public function getTargets() {
-		return [ 'desktop', 'mobile' ];
-	}
 }

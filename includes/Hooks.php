@@ -70,7 +70,6 @@ class Hooks {
 					'es6' => true,
 					'dependencies' => [ 'ext.quicksurveys.lib.vue' ],
 					'messages' => $survey->getMessages(),
-					'targets' => [ 'desktop', 'mobile' ],
 				],
 			];
 

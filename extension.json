@@ -12,7 +12,7 @@
 	"license-name": "MIT",
 	"type": "other",
 	"requires": {
-		"MediaWiki": ">= 1.39.0"
+		"MediaWiki": ">= 1.40.0"
 	},
 	"MessagesDirs": {
 		"QuickSurveys": [
@@ -37,10 +37,6 @@
 				"mediawiki.Uri",
 				"mediawiki.util",
 				"jquery.spinner"
-			],
-			"targets": [
-				"mobile",
-				"desktop"
 			],
 			"messages": [
 				"ext-quicksurveys-survey-privacy-policy-default-text",
@@ -71,10 +67,6 @@
 			"dependencies": [
 				"@wikimedia/codex",
 				"ext.quicksurveys.lib"
-			],
-			"targets": [
-				"mobile",
-				"desktop"
 			],
 			"packageFiles": [
 				"resources/ext.quicksurveys.lib/vue/render.js",
