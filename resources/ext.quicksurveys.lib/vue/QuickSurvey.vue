@@ -10,7 +10,7 @@
 				</template>
 				<div class="survey-close-button">
 					<cdx-button
-						type="quiet"
+						weight="quiet"
 						@click="dismissAndDestroy">
 						<cdx-icon :icon="closeIcon"></cdx-icon>
 					</cdx-button>
@@ -26,7 +26,7 @@
 							v-for="( btn, i ) in buttons"
 							:key="i"
 							:action="btn.action"
-							:type="btn.type"
+							:weight="btn.weight"
 							class="survey-button"
 							@click="clickButton( btn.answer, btn.href )">
 							{{ btn.label }}
@@ -52,7 +52,7 @@
 						:placeholder="freeformTextLabel"
 						@input="resetSelectedButton"></cdx-text-input>
 					<cdx-button
-						type="normal"
+						weight="normal"
 						action="progressive"
 						@click="submitAnswer">
 						{{ submitButtonLabel }}
@@ -230,7 +230,7 @@ module.exports = exports = Vue.defineComponent( {
 				const isSelected = answer.key === this.selectedAnswer;
 				return {
 					label: answer.label,
-					type: isSelected ? 'primary' : 'normal',
+					weight: isSelected ? 'primary' : 'normal',
 					href: answer.href,
 					action: answer.action || ( isSelected ? 'progressive' : 'default' ),
 					answer: answer.key
