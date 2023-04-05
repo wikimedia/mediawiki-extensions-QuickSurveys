@@ -1,10 +1,10 @@
-@import 'mediawiki.ui/variables';
+@import 'mediawiki.skin.variables.less';
 @import 'mediawiki.mixins';
 
 // Variables
 // =========
 
-@panelWidth: 300px;
+@width-panel: 300px;
 
 // Styles
 // ======
@@ -12,7 +12,7 @@
 .ext-quick-survey-panel,
 .ext-qs-loader-bar {
 	width: auto;
-	background-color: @colorGray14;
+	background-color: #eaecf0;
 }
 
 /* FIXME: Should be an ajax loader to give impression something is happening */
@@ -21,7 +21,7 @@
 	margin-left: 1.4em;
 	clear: right;
 	float: right;
-	background-color: @colorGray14;
+	background-color: #eaecf0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -42,7 +42,7 @@
 	.ext-qs-loader-bar,
 	.ext-quick-survey-panel {
 		margin-left: 1.4em;
-		width: @panelWidth;
+		width: @width-panel;
 		clear: right;
 		float: right;
 	}
