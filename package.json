@@ -17,7 +17,7 @@
 		"@wikimedia/codex": "0.9.1",
 		"@wikimedia/mw-node-qunit": "7.0.0",
 		"babel-core": "6.26.3",
-		"eslint-config-wikimedia": "0.24.0",
+		"eslint-config-wikimedia": "0.25.0",
 		"grunt-banana-checker": "0.10.0",
 		"jest": "27.4.7",
 		"stylelint-config-wikimedia": "0.14.0",
