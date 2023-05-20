@@ -30,7 +30,7 @@ class SurveyAudienceTest extends \MediaWikiUnitTestCase {
 		}
 	}
 
-	public function provideValidAudience() {
+	public static function provideValidAudience() {
 		return [
 			[
 				[],
@@ -84,7 +84,7 @@ class SurveyAudienceTest extends \MediaWikiUnitTestCase {
 		];
 	}
 
-	public function provideInvalidAudience() {
+	public static function provideInvalidAudience() {
 		return [
 			[
 				[

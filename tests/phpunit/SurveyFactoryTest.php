@@ -456,7 +456,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 		$this->assertNull( $survey );
 	}
 
-	public function provideInvalidPlatforms() {
+	public static function provideInvalidPlatforms() {
 		return [
 			[
 				[

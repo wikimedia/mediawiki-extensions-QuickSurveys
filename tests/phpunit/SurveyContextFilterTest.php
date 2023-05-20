@@ -48,7 +48,7 @@ class SurveyContextFilterTest extends \MediaWikiIntegrationTestCase {
 		$this->assertSame( $expected, $result );
 	}
 
-	public function contextProvider() {
+	public static function contextProvider() {
 		return [
 			'No title' =>
 				[ null, 'view', null, false ],
