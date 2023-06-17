@@ -22,6 +22,9 @@ function render(
 	const deferred = $.Deferred();
 	const h = Vue.h;
 	const vm = Vue.createMwApp( {
+		compatConfig: {
+			MODE: 3
+		},
 		mounted: function () {
 			deferred.resolve( this.$el );
 		},
