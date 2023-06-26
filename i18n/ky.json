@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bosogo"
+		]
+	},
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Ооба",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Жок",
+	"ext-quicksurveys-survey-positive": "Ооба",
+	"ext-quicksurveys-survey-negative": "Жок",
+	"ext-quicksurveys-external-survey-no-button": "Жок, рахмат"
+}
