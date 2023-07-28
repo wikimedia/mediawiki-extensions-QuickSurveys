@@ -501,4 +501,27 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			->with( $message );
 		return $logger;
 	}
+
+	public function testItShouldFactoryAnExternalSurveyWithAnswers(): void {
+		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
+		$survey = $factory->newSurvey(
+			[
+				'name' => 'test',
+				'type' => 'external',
+				'question' => 'Do you like writing unit tests?',
+				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+				'enabled' => false,
+				'coverage' => 1,
+				'platforms' => [],
+				'link' => 'ext-quicksurveys-example-external-survey-link',
+				'privacyPolicy' => 'ext-quicksurveys-test-external-survey-privacy-policy',
+				'yesMsg' => 'Visit survey',
+				'noMsg' => 'No thanks'
+			]
+		);
+		$array = $survey->toArray();
+
+		$this->assertSame( 'Visit survey', $array['yesMsg'] );
+		$this->assertSame( 'No thanks', $array['noMsg'] );
+	}
 }

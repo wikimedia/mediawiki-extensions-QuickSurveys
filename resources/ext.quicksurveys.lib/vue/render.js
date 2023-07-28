@@ -48,10 +48,16 @@ function render(
 					},
 					submitButtonLabel: mw.msg( 'ext-quicksurveys-internal-freeform-survey-submit-button' ),
 					noAnswerErrorMessage: mw.msg( 'ext-quicksurveys-internal-freeform-survey-no-answer-alert' ),
-					yesButtonLabel: mw.msg( 'ext-quicksurveys-external-survey-yes-button' ),
-					noButtonLabel: mw.msg( 'ext-quicksurveys-external-survey-no-button' ),
+
+					// * ext-quicksurveys-external-survey-yes-button
+					// * Message key supplied by survey author
+					yesButtonLabel: survey.yesMsg ? mw.msg( survey.yesMsg ) : '',
+
+					// * ext-quicksurveys-external-survey-no-button
+					// * Message key supplied by survey author
+					noButtonLabel: survey.noMsg ? mw.msg( survey.noMsg ) : '',
+
 					additionalInfo: survey.additionalInfo ?
-						// eslint-disable-next-line mediawiki/msg-doc
 						mw.message( survey.additionalInfo ).parse() : undefined,
 					// eslint-disable-next-line mediawiki/msg-doc
 					thankYouMessage: mw.msg( survey.confirmMsg || 'ext-quicksurveys-survey-confirm-msg' ),

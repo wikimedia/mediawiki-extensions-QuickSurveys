@@ -243,7 +243,9 @@ class SurveyFactory {
 			$spec['confirmMsg'] ?? null,
 			new SurveyAudience( $spec['audience'] ?? [] ),
 			$spec['link'],
-			$spec['instanceTokenParameterName'] ?? ''
+			$spec['instanceTokenParameterName'] ?? '',
+			$spec['yesMsg'] ?? null,
+			$spec['noMsg'] ?? null
 		);
 	}
 

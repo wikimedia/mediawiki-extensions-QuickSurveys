@@ -18,7 +18,7 @@ describe( 'QuickSurvey', () => {
 		};
 	} );
 
-	it( 'renders without answers if externalLink is defined', () => {
+	it( 'renders ExternalSurvey if externalLink is defined', () => {
 		return vue.render(
 			VueMock,
 			document.createElement( 'div' ),
@@ -27,7 +27,9 @@ describe( 'QuickSurvey', () => {
 				name: 'Hello world',
 				description: 'Description',
 				question: 'Question',
-				externalLink: 'https://mylink'
+				externalLink: 'https://mylink',
+				yesMsg: 'Visit survey',
+				noMsg: 'No thanks'
 			},
 			() => {},
 			'ss', 'pp', false,
@@ -36,7 +38,7 @@ describe( 'QuickSurvey', () => {
 		).then( ( node ) => {
 			expect(
 				node.innerHTML
-			).toContain( 'ext-quicksurveys-external-survey-yes-button' );
+			).toContain( 'Visit survey' );
 		} );
 	} );
 
@@ -119,14 +121,16 @@ describe( 'QuickSurvey', () => {
 				name: 'Hello world',
 				description: 'Description',
 				question: 'Question',
-				externalLink: 'https://mylink'
+				externalLink: 'https://mylink',
+				yesMsg: 'Visit survey',
+				noMsg: 'No thanks'
 			},
 			() => {},
 			'ss', 'pp', false,
 			'ltr',
 			mw.eventLog.logEvent
 		).then( ( node ) => {
-			const buttons = Array.from( node.querySelectorAll( 'button' ) ).filter( ( b ) => b.textContent.includes( 'ext-quicksurveys-external-survey-no-button' ) );
+			const buttons = Array.from( node.querySelectorAll( 'button' ) ).filter( ( b ) => b.textContent.includes( 'No thanks' ) );
 			expect(
 				buttons.length
 			).toBe( 1 );

@@ -19,6 +19,16 @@ class ExternalSurvey extends Survey {
 	private $instanceTokenParameterName;
 
 	/**
+	 * @var string
+	 */
+	private $yesMsg;
+
+	/**
+	 * @var string
+	 */
+	private $noMsg;
+
+	/**
 	 * @param string $name
 	 * @param string $question
 	 * @param string $description
@@ -30,6 +40,8 @@ class ExternalSurvey extends Survey {
 	 * @param SurveyAudience $audience
 	 * @param string $link
 	 * @param string $instanceTokenParameterName
+	 * @param ?string $yesMsg
+	 * @param ?string $noMsg
 	 */
 	public function __construct(
 		$name,
@@ -42,7 +54,9 @@ class ExternalSurvey extends Survey {
 		$confirmMsg,
 		SurveyAudience $audience,
 		$link,
-		$instanceTokenParameterName
+		$instanceTokenParameterName,
+		?string $yesMsg = null,
+		?string $noMsg = null
 	) {
 		parent::__construct(
 			$name,
@@ -58,13 +72,19 @@ class ExternalSurvey extends Survey {
 
 		$this->link = $link;
 		$this->instanceTokenParameterName = $instanceTokenParameterName;
+		$this->yesMsg = $yesMsg ?? 'ext-quicksurveys-external-survey-yes-button';
+		$this->noMsg = $noMsg ?? 'ext-quicksurveys-external-survey-no-button';
 	}
 
 	/**
 	 * @return string[]
 	 */
 	public function getMessages(): array {
-		return array_merge( parent::getMessages(), [ $this->link ] );
+		return array_merge( parent::getMessages(), [
+			$this->link,
+			$this->yesMsg,
+			$this->noMsg,
+		] );
 	}
 
 	public function toArray(): array {
@@ -72,6 +92,8 @@ class ExternalSurvey extends Survey {
 			'type' => 'external',
 			'link' => $this->link,
 			'instanceTokenParameterName' => $this->instanceTokenParameterName,
+			'yesMsg' => $this->yesMsg,
+			'noMsg' => $this->noMsg,
 		];
 	}
 }

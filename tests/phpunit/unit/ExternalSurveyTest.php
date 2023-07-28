@@ -24,13 +24,26 @@ class ExternalSurveyTest extends \MediaWikiUnitTestCase {
 			'confirmMsg',
 			$audience,
 			'link',
-			'instanceTokenParameterName'
+			'instanceTokenParameterName',
+			'yes',
+			'no',
 		);
 
 		$this->assertSame( 'ext.quicksurveys.survey.name', $survey->getResourceLoaderModuleName() );
 		$this->assertSame( $audience, $survey->getAudience() );
-		$this->assertSame( [ 'question', 'description', 'privacyPolicy', 'additionalInfo',
-			'confirmMsg', 'link' ], $survey->getMessages() );
+		$this->assertSame(
+			[
+				'question',
+				'description',
+				'privacyPolicy',
+				'additionalInfo',
+				'confirmMsg',
+				'link',
+				'yes',
+				'no',
+			],
+			$survey->getMessages()
+		);
 		$this->assertSame( [
 			'audience' => [],
 			'name' => 'name',
@@ -45,6 +58,8 @@ class ExternalSurveyTest extends \MediaWikiUnitTestCase {
 			'type' => 'external',
 			'link' => 'link',
 			'instanceTokenParameterName' => 'instanceTokenParameterName',
+			'yesMsg' => 'yes',
+			'noMsg' => 'no',
 		], $survey->toArray() );
 	}
 
