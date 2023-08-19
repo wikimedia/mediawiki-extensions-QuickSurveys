@@ -2,7 +2,7 @@
 
 namespace QuickSurveys;
 
-use Title;
+use MediaWiki\Title\Title;
 
 /**
  * Determine whether any surveys will be shown on the current pageview.

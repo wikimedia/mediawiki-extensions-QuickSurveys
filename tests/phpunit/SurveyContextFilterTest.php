@@ -2,10 +2,10 @@
 
 namespace Tests\QuickSurveys;
 
+use MediaWiki\Title\Title;
 use QuickSurveys\Survey;
 use QuickSurveys\SurveyAudience;
 use QuickSurveys\SurveyContextFilter;
-use Title;
 
 /**
  * @group Database
