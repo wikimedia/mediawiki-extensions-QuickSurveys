@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"quicksurveys-desc": "Rodo sukonfigūruotas apklausas",
+	"ext-quicksurveys-example-internal-survey-question": "Ar tekstas turėtų būti didesnis?",
+	"ext-quicksurveys-example-internal-survey-description": "Tai yra pavyzdinės vidinės apklausos aprašymas",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Taip",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Nežinau",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Ne",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Kita",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Apklausą pateikė ExampleSurveyProvider. Žr. [//example.org/privacy-policy privatumo politiką]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Visi atsakymai yra anoniminiai. Žr. [//example.org/privacy-policy privatumo politiką].",
+	"ext-quicksurveys-survey-confirm-msg": "Ačiū už nuomonę! Naudojame ją norėdami padaryti {{SITENAME}} dar geresnį!",
+	"ext-quicksurveys-survey-positive": "Taip",
+	"ext-quicksurveys-survey-negative": "Ne",
+	"ext-quicksurveys-survey-neutral": "Nežinau",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Pateikti",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Pasirinkite atsakymą arba įveskite savo.",
+	"ext-quicksurveys-external-survey-yes-button": "Apsilankykite apklausoje",
+	"ext-quicksurveys-external-survey-no-button": "Ne, ačiū"
+}
