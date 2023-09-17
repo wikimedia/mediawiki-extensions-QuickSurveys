@@ -9,12 +9,18 @@
 namespace QuickSurveys;
 
 use Config;
+use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\ResourceLoader as RL;
+use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use OutputPage;
+use Skin;
 
-class Hooks {
+class Hooks implements
+	BeforePageDisplayHook,
+	ResourceLoaderRegisterModulesHook
+{
 
 	/**
 	 * Get data about the enabled surveys to be exported to the ext.quicksurveys.lib module
@@ -38,8 +44,9 @@ class Hooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
 	 *
 	 * @param OutputPage $out
+	 * @param Skin $skin
 	 */
-	public static function onBeforePageDisplay( OutputPage $out ) {
+	public function onBeforePageDisplay( $out, $skin ): void {
 		$title = $out->getTitle();
 		$action = $out->getActionName();
 		$surveys = MediaWikiServices::getInstance()->getService( 'QuickSurveys.EnabledSurveys' );
@@ -60,7 +67,7 @@ class Hooks {
 	 *
 	 * @param ResourceLoader $resourceLoader
 	 */
-	public static function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ) {
+	public function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ): void {
 		$surveys = MediaWikiServices::getInstance()->getService( 'QuickSurveys.EnabledSurveys' );
 
 		foreach ( $surveys as $survey ) {

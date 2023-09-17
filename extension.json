@@ -122,12 +122,13 @@
 	},
 	"manifest_version": 2,
 	"Hooks": {
-		"BeforePageDisplay": [
-			"QuickSurveys\\Hooks::onBeforePageDisplay"
-		],
-		"ResourceLoaderRegisterModules": [
-			"QuickSurveys\\Hooks::onResourceLoaderRegisterModules"
-		]
+		"BeforePageDisplay": "main",
+		"ResourceLoaderRegisterModules": "main"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "QuickSurveys\\Hooks"
+		}
 	},
 	"config": {
 		"QuickSurveysConfig": {
