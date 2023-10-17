@@ -282,52 +282,19 @@ function isInAudience( audience, user, editCount, geo, pageId ) {
 }
 
 /**
- * Return a survey from the available surveys given the survey query string.
- * If the query string is 'true' return a random survey.
- * If the query string is either 'internal-survey-XXX' or 'external-survey-XXX' where
- * 'XXX' is the survey name, then return the survey with the name XXX.
- * Return null in the remaining cases.
- *
- * @param {string} queryString query string
- * @param {Array} availableSurveys array of survey objects
- * @return {Object|null} Survey object or null
+ * @param {string} queryString The survey's name or the string "true" to get a random survey
+ * @param {Object[]} availableSurveys
+ * @return {Object|undefined} Undefined if a survey with this name wasn't found
  */
 function getSurveyFromQueryString( queryString, availableSurveys ) {
-	let i,
-		surveyType,
-		surveyName,
-		survey;
-
-	// true returns a random survey
 	if ( queryString === 'true' ) {
-		i = Math.floor( Math.random() * availableSurveys.length );
-		return availableSurveys[ i ];
+		return availableSurveys[ Math.floor( Math.random() * availableSurveys.length ) ];
 	}
 
-	// TODO: Deprecate these prefixes.
-	if ( queryString.indexOf( 'internal-survey-' ) === 0 ) {
-		surveyType = 'internal';
-	} else if ( queryString.indexOf( 'external-survey-' ) === 0 ) {
-		surveyType = 'external';
-	}
-	if ( surveyType ) {
-		surveyName = queryString.split( '-' ).slice( 2 ).join( '-' );
-	} else {
-		surveyName = queryString;
-	}
-
-	for ( i = 0; i < availableSurveys.length; i++ ) {
-		survey = availableSurveys[ i ];
-		if (
-			survey.name === surveyName &&
-			( !surveyType || survey.type === surveyType )
-		) {
-			return survey;
-		}
-	}
-
-	// unhandled queryString value, or no match found
-	return null;
+	// Backwards-compatibility: Drop now unused filter by survey type. Unnecessary because internal
+	// and an external surveys with the same name can't exist anyway.
+	queryString = queryString.replace( /^(in|ex)ternal-survey-/, '' );
+	return availableSurveys.find( ( survey ) => survey.name === queryString );
 }
 
 /**
@@ -526,13 +493,14 @@ function showSurvey( forcedSurvey ) {
 }
 
 module.exports = {
-	showSurvey: showSurvey
+	showSurvey
 };
 
 if ( window.QUnit ) {
 	module.exports.test = {
-		insertPanel: insertPanel,
-		isInAudience: isInAudience,
-		surveyMatchesPlatform: surveyMatchesPlatform
+		getSurveyFromQueryString,
+		insertPanel,
+		isInAudience,
+		surveyMatchesPlatform
 	};
 }

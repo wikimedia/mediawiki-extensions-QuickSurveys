@@ -11,6 +11,24 @@ QUnit.module( 'ext.quicksurveys.lib', {
 	}
 } );
 
+QUnit.test( 'getSurveyFromQueryString', function ( assert ) {
+	[
+		[ 'true', [], undefined ],
+		[ 'foo', [], undefined ],
+		[ 'true', [ { name: 'foo' } ], { name: 'foo' } ],
+		[ 'foo', [ { name: 'foo' } ], { name: 'foo' } ],
+		[ 'foo', [ { name: 'bar' }, { name: 'foo' } ], { name: 'foo' } ],
+		[ 'foo', [ { name: 'foo', type: 'internal' } ], { name: 'foo', type: 'internal' } ],
+		[ 'external-survey-foo', [ { name: 'foo', type: 'internal' } ], { name: 'foo', type: 'internal' } ],
+		[ 'internal-survey-foo', [ { name: 'foo', type: 'internal' } ], { name: 'foo', type: 'internal' } ]
+	].forEach( ( [ queryString, availableSurveys, expectedResult ] ) =>
+		assert.deepEqual(
+			qSurveys.getSurveyFromQueryString( queryString, availableSurveys ),
+			expectedResult
+		)
+	);
+} );
+
 QUnit.test( 'showSurvey: Placement (infobox)', function ( assert ) {
 	const minervaTemplate = mw.template.get( 'test.QuickSurveys', 'minerva-1.html' ),
 		$locationVector = mw.template.get( 'test.QuickSurveys', 'vector-1.html' ).render(),
