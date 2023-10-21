@@ -126,19 +126,19 @@ abstract class Survey {
 			$this->question,
 		];
 
-		if ( !empty( $this->description ) ) {
+		if ( $this->description !== null ) {
 			$messages[] = $this->description;
 		}
 
-		if ( !empty( $this->privacyPolicy ) ) {
+		if ( $this->privacyPolicy !== null ) {
 			$messages[] = $this->privacyPolicy;
 		}
 
-		if ( !empty( $this->additionalInfo ) ) {
+		if ( $this->additionalInfo !== null ) {
 			$messages[] = $this->additionalInfo;
 		}
 
-		if ( !empty( $this->confirmMsg ) ) {
+		if ( $this->confirmMsg !== null ) {
 			$messages[] = $this->confirmMsg;
 		}
 		return $messages;
