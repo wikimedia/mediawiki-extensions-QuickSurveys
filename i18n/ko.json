@@ -1,7 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ykhwong"
+			"Ykhwong",
+			"TAndic (WMF)",
+			"밝은소년"
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-answer-positive": "예",
@@ -14,5 +16,6 @@
 	"ext-quicksurveys-survey-neutral": "확실치 않음",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "제출",
 	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "답변을 선택하거나 직접 입력해 주십시오.",
+	"ext-quicksurveys-external-survey-yes-button": "설문 참여하기",
 	"ext-quicksurveys-external-survey-no-button": "괜찮습니다"
 }

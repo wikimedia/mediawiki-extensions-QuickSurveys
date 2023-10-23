@@ -4,7 +4,8 @@
 			"LZia (WMF)",
 			"Sujiniku",
 			"Bonfire12",
-			"DDesouza"
+			"DDesouza",
+			"TAndic (WMF)"
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-description": "これは、内部調査の例の説明です",
@@ -13,6 +14,6 @@
 	"ext-quicksurveys-survey-confirm-msg": "ありがとうございました！",
 	"ext-quicksurveys-survey-positive": "はい",
 	"ext-quicksurveys-survey-negative": "いいえ",
-	"ext-quicksurveys-external-survey-yes-button": "アンケート",
-	"ext-quicksurveys-external-survey-no-button": "不要です"
+	"ext-quicksurveys-external-survey-yes-button": "アンケートサイトを開く",
+	"ext-quicksurveys-external-survey-no-button": "辞退します"
 }
