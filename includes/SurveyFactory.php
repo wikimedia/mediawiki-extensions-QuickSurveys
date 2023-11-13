@@ -35,34 +35,76 @@ class SurveyFactory {
 	 * @return Survey[] List of valid and enabled surveys
 	 */
 	public function parseSurveyConfig( array $specs ): array {
-		if ( !array_is_list( $specs ) ) {
+		if ( !$this->arrayIsList( $specs ) ) {
 			$this->logger->error( 'Bad surveys configuration: The surveys configuration is not a list.' );
 
 			return [];
 		}
 
-		$normalizedNames = array_map( static function ( array $spec ) {
-			return strtolower( trim( $spec['name'] ?? '' ) );
-		}, $specs );
-		$duplicates = array_count_values( $normalizedNames );
-
 		$surveys = [];
 		foreach ( $specs as $spec ) {
 			$enabled = $spec['enabled'] ?? false;
-			$survey = $this->newSurvey( $spec );
-			if ( !$survey || !$enabled ) {
-				continue;
+			if ( $this->validateUniqueName( $spec, $specs ) && $enabled ) {
+				$survey = $this->newSurvey( $spec );
+				if ( $survey ) {
+					$surveys[] = $survey;
+				}
 			}
-
-			$name = strtolower( trim( $spec['name'] ) );
-			if ( $duplicates[$name] > 1 ) {
-				$this->logger->error( "Bad survey configuration: The survey name \"$name\" is not unique" );
-				continue;
-			}
-
-			$surveys[] = $survey;
 		}
 		return $surveys;
+	}
+
+	/**
+	 * Gets whether the array is a list, i.e. an integer-indexed array with indices starting at 0.
+	 *
+	 * As written, this method trades performance for elegance. This method should not be called on
+	 * large arrays.
+	 *
+	 * TODO: Replace this with array_is_list when MediaWiki supports PHP >= 8.1
+	 *
+	 * @param array $array
+	 * @return bool
+	 */
+	private function arrayIsList( array $array ): bool {
+		$array = array_keys( $array );
+
+		return $array === array_keys( $array );
+	}
+
+	/**
+	 * checks QuickSurveys name for duplications
+	 *
+	 * @param array $spec
+	 * @param array[] $specs
+	 * @return bool
+	 */
+	private function validateUniqueName( array $spec, array $specs ): bool {
+		if ( !isset( $spec[ 'name' ] ) ) {
+			$this->logger->error( "Bad survey configuration: The survey name does not have a value",
+						[ 'exception' => "Bad survey configuration: The survey name does not have a value" ] );
+			return false;
+		}
+		if ( count( $specs ) < 2 ) {
+			return true;
+		}
+
+		$name = trim( $spec[ 'name' ] );
+		$numberDuplicates = 0;
+
+		foreach ( $specs as $specArray ) {
+			// if there is more than one copy of the item, it is a duplicate, enter log message
+			if ( ( $specArray['enabled'] ?? false ) &&
+				strcasecmp( trim( $specArray['name'] ?? '' ), $name ) === 0 &&
+				$numberDuplicates++
+			) {
+				// write out to logger
+				$this->logger->error( "Bad survey configuration: The survey name \"{$name}\" is not unique",
+									[ 'exception' => "The \"{$name}\" survey name is not unique" ] );
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	/**
@@ -87,9 +129,12 @@ class SurveyFactory {
 	public function newSurvey( array $spec ): ?Survey {
 		try {
 			$this->validateSpec( $spec );
-			return $spec['type'] === 'internal'
+
+			$survey = $spec['type'] === 'internal'
 				? $this->factoryInternal( $spec )
 				: $this->factoryExternal( $spec );
+
+			return $survey;
 		} catch ( InvalidArgumentException $ex ) {
 			$this->logger->error( "Bad survey configuration: " . $ex->getMessage(), [ 'exception' => $ex ] );
 			return null;
@@ -101,10 +146,7 @@ class SurveyFactory {
 	 * @throws InvalidArgumentException
 	 */
 	private function validateSpec( array $spec ) {
-		$name = trim( $spec['name'] ?? '' );
-		if ( $name === '' ) {
-			throw new InvalidArgumentException( 'The survey name does not have a value' );
-		}
+		$name = $spec['name'];
 
 		if ( !isset( $spec['question'] ) ) {
 			throw new InvalidArgumentException( "The \"{$name}\" survey doesn't have a question." );
