@@ -325,17 +325,19 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			$this->expectsErrorLog( 'Bad survey configuration: The survey name "test" is not unique' )
 		);
 
-		$spec = [
-			'type' => 'internal',
-			'question' => 'Do you like writing unit tests?',
-			'enabled' => true,
-			'coverage' => 1,
-			'platforms' => [],
-			'answers' => [],
-		];
 		$specs = [
-			[ 'name' => 'test' ] + $spec,
-			[ 'name' => ' test ' ] + $spec,
+			[
+				'name' => 'test',
+				'type' => 'external',
+				'question' => 'Do you like writing unit tests?',
+				'enabled' => true,
+			],
+			[
+				'name' => ' test ',
+				'type' => 'external',
+				'question' => 'Do you like writing unit tests?',
+				'enabled' => true,
+			],
 		];
 
 		$this->assertSame( [], $factory->parseSurveyConfig( $specs ) );
@@ -343,17 +345,25 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 
 	public function testParseSurveyConfigSucceeds() {
 		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
-		$spec = [
-			'type' => 'internal',
-			'question' => '',
-			'enabled' => true,
-			'coverage' => 1,
-			'platforms' => [],
-			'answers' => [],
-		];
 		$specs = [
-			[ 'name' => 'a' ] + $spec,
-			[ 'name' => 'aa' ] + $spec,
+			[
+				'name' => 'a',
+				'type' => 'internal',
+				'question' => '',
+				'enabled' => true,
+				'coverage' => 1,
+				'platforms' => [],
+				'answers' => [],
+			],
+			[
+				'name' => 'aa',
+				'type' => 'internal',
+				'question' => '',
+				'enabled' => true,
+				'coverage' => 1,
+				'platforms' => [],
+				'answers' => [],
+			],
 		];
 		$this->assertCount( 2, $factory->parseSurveyConfig( $specs ) );
 	}
