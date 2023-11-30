@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"DDesouza",
 			"Hamilton Abreu",
 			"Macofe"
 		]
@@ -22,6 +23,6 @@
 	"ext-quicksurveys-survey-neutral": "Não sei",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "Enviar",
 	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Selecione uma resposta ou introduza uma resposta sua, por favor.",
-	"ext-quicksurveys-external-survey-yes-button": "Visitar inquérito",
+	"ext-quicksurveys-external-survey-yes-button": "Visitar pesquisa",
 	"ext-quicksurveys-external-survey-no-button": "Não, obrigado"
 }
