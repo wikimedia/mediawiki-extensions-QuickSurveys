@@ -3,6 +3,7 @@
 		"authors": [
 			"TAndic (WMF)",
 			"Ykhwong",
+			"렌즈",
 			"밝은소년"
 		]
 	},
@@ -11,6 +12,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-negative": "아니오",
 	"ext-quicksurveys-example-internal-survey-freeform-text-label": "기타",
 	"ext-quicksurveys-example-external-survey-question": "{{SITENAME}} 개선에 여러분의 도움이 필요합니다.",
+	"ext-quicksurveys-survey-confirm-msg": "의견을 보내 주셔서 감사합니다! 우리는 이를 {{SITENAME}} 개선에 사용할 것입니다!",
 	"ext-quicksurveys-survey-positive": "예",
 	"ext-quicksurveys-survey-negative": "아니오",
 	"ext-quicksurveys-survey-neutral": "확실치 않음",
