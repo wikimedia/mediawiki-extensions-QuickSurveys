@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Config\Config;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use QuickSurveys\SurveyFactory;

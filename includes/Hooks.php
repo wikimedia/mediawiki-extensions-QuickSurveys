@@ -8,13 +8,13 @@
 
 namespace QuickSurveys;
 
-use Config;
+use MediaWiki\Config\Config;
 use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\ResourceLoader as RL;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
-use OutputPage;
 use Skin;
 
 class Hooks implements
