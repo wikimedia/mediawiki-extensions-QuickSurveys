@@ -28,7 +28,6 @@
 	},
 	"ResourceModules": {
 		"ext.quicksurveys.lib": {
-			"es6": true,
 			"dependencies": [
 				"mediawiki.cookie",
 				"mediawiki.storage",
@@ -63,7 +62,6 @@
 			]
 		},
 		"ext.quicksurveys.lib.vue": {
-			"es6": true,
 			"dependencies": [
 				"@wikimedia/codex",
 				"ext.quicksurveys.lib"
@@ -83,12 +81,10 @@
 			]
 		},
 		"ext.quicksurveys.init": {
-			"es6": true,
 			"class": "QuickSurveys\\ResourceLoader\\InitModule"
 		}
 	},
 	"QUnitTestModule": {
-		"es6": true,
 		"localBasePath": "tests/qunit",
 		"remoteExtPath": "QuickSurveys/tests/qunit",
 		"templates": {
