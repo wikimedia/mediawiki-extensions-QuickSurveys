@@ -20,7 +20,6 @@ class InitModuleTest extends \MediaWikiIntegrationTestCase {
 		$module = new InitModule( [], __DIR__ . '/../..' );
 
 		$this->assertSame( [ 'ext.quicksurveys.lib' ], $module->getDependencies() );
-		$this->assertSame( [ 'desktop', 'mobile' ], $module->getTargets() );
 	}
 
 }
