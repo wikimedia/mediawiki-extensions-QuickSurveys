@@ -70,7 +70,7 @@
 				"resources/ext.quicksurveys.lib/vue/render.js",
 				{
 					"name": "resources/ext.quicksurveys.lib/vue/icons.json",
-					"callback": "ResourceLoaderCodexModule::getIcons",
+					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
 					"callbackParam": [
 						"cdxIconClose"
 					]
