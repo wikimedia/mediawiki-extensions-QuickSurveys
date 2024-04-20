@@ -1,7 +1,6 @@
 const logEvent = require( './logEvent.js' );
 
 /**
- *
  * @typedef {Object} Audience
  * @property {string[]} [countries] that the survey should be targeted at
  * @property {number} [minEdits] a minimum number of edits the user must have
@@ -36,7 +35,6 @@ const logEvent = require( './logEvent.js' );
  */
 
 /**
- *
  * @typedef {Object} Geo
  * @property {string} country code of the user
  * @property {string} [region] code of the user

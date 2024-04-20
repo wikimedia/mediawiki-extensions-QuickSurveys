@@ -2,7 +2,6 @@ const utils = require( './utils.js' );
 
 module.exports = {
 	/**
-	 *
 	 * @param {string} name
 	 * @param {string} answer
 	 * @param {string} surveySessionToken

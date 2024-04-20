@@ -59,29 +59,23 @@ function render(
 
 					additionalInfo: survey.additionalInfo ?
 						mw.message( survey.additionalInfo ).parse() : undefined,
-					// eslint-disable-next-line mediawiki/msg-doc
 					thankYouMessage: mw.msg( survey.confirmMsg || 'ext-quicksurveys-survey-confirm-msg' ),
-					// eslint-disable-next-line mediawiki/msg-doc
 					footer: mw.message(
 						survey.privacyPolicy || 'ext-quicksurveys-survey-privacy-policy-default-text'
 					).parse(),
 					shuffleAnswersDisplay: survey.shuffleAnswersDisplay,
 					freeformTextLabel: survey.freeformTextLabel ?
-						// eslint-disable-next-line mediawiki/msg-doc
 						mw.msg( survey.freeformTextLabel ) : undefined,
 					layout: survey.layout,
-					// eslint-disable-next-line mediawiki/msg-doc
 					question: mw.msg( survey.question ),
 					answers: ( survey.answers || [] ).map( function ( key ) {
 						return {
 							key: key,
-							// eslint-disable-next-line mediawiki/msg-doc
 							label: mw.msg( key )
 						};
 					} ),
 					name: survey.name,
 					externalLink: externalLink.toString(),
-					// eslint-disable-next-line mediawiki/msg-doc
 					description: survey.description ? mw.msg( survey.description ) : '',
 					surveySessionToken: surveySessionToken,
 					pageviewToken: pageviewToken,

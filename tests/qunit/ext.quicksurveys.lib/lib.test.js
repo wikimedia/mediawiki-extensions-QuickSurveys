@@ -177,14 +177,22 @@ QUnit.test( 'showSurvey: Placement (embedded)', function ( assert ) {
 QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds)', function ( assert ) {
 	const audienceAnyUser = {},
 		anonUser = {
-			isAnon: function () { return true; },
-			getRegistration: function () { return false; }
+			isAnon: function () {
+				return true;
+			},
+			getRegistration: function () {
+				return false;
+			}
 		},
 		userRegisteredOn20170105 = {
-			getRegistration: function () { return new Date( '2017-01-05T20:20:00+01:00' ); }
+			getRegistration: function () {
+				return new Date( '2017-01-05T20:20:00+01:00' );
+			}
 		},
 		loggedInUser = {
-			isAnon: function () { return false; }
+			isAnon: function () {
+				return false;
+			}
 		},
 		editCount = {
 			anon: null,
