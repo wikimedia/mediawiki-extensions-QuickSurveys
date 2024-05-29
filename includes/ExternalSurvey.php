@@ -9,67 +9,65 @@ class ExternalSurvey extends Survey {
 	private $isInsecure = null;
 
 	/**
-	 * @var string The key of the message containing the URL of the external survey.
-	 * @deprecated
+	 * @var string|null The key of the message containing the URL of the external survey.
+	 * @deprecated this field has been moved to SurveyQuestion
 	 */
 	private $link;
 
 	/**
-	 * @var string The name of the URL parameter filled with the instance token appended to $link.
-	 * @deprecated
+	 * @var string|null The name of the URL parameter filled with the instance token appended to $link.
+	 * @deprecated this field has been moved to SurveyQuestion
 	 */
 	private $instanceTokenParameterName;
 
 	/**
-	 * @var string
-	 * @deprecated
+	 * @var string|null
+	 * @deprecated this field has been moved to SurveyQuestion
 	 */
 	private $yesMsg;
 
 	/**
-	 * @var string
-	 * @deprecated
+	 * @var string|null
+	 * @deprecated this field has been moved to SurveyQuestion
 	 */
 	private $noMsg;
 
 	/**
 	 * @param string $name
-	 * @param string $question
-	 * @param string $description
 	 * @param float $coverage
 	 * @param array[] $platforms
-	 * @param string $privacyPolicy
-	 * @param string $additionalInfo
-	 * @param string $confirmMsg
+	 * @param string|null $privacyPolicy
+	 * @param string|null $additionalInfo
+	 * @param string|null $confirmMsg
 	 * @param SurveyAudience $audience
-	 * @param SurveyQuestion[] $questions
-	 * @param string $link
-	 * @param string $instanceTokenParameterName
-	 * @param ?string $yesMsg
-	 * @param ?string $noMsg
+	 * @param string|SurveyQuestion[] $questions
+	 * @param string|null $question
+	 * @param string|null $description
 	 * @param string|null $confirmDescription
+	 * @param string|null $link
+	 * @param string|null $instanceTokenParameterName
+	 * @param string|null $yesMsg
+	 * @param string|null $noMsg
 	 */
 	public function __construct(
 		$name,
-		$question,
-		$description,
 		$coverage,
 		array $platforms,
 		$privacyPolicy,
 		$additionalInfo,
 		$confirmMsg,
 		SurveyAudience $audience,
-		array $questions,
-		$link,
-		$instanceTokenParameterName,
+		$questions,
+		?string $question = null,
+		?string $description = null,
+		?string $confirmDescription = null,
+		?string $link = null,
+		?string $instanceTokenParameterName = null,
 		?string $yesMsg = null,
-		?string $noMsg = null,
-		string $confirmDescription = null
+		?string $noMsg = null
 	) {
 		parent::__construct(
 			$name,
-			$question,
-			$description,
 			$coverage,
 			$platforms,
 			$privacyPolicy,
@@ -77,29 +75,49 @@ class ExternalSurvey extends Survey {
 			$confirmMsg,
 			$audience,
 			$questions,
+			$question,
+			$description,
 			$confirmDescription
 		);
 
+		if ( $link ) {
+			wfDeprecated( 'QuickSurveys survey with link parameter', '1.43' );
+		}
+		if ( $instanceTokenParameterName ) {
+			wfDeprecated( 'QuickSurveys survey with instanceTokenParameterName parameter', '1.43' );
+		}
+		if ( $yesMsg ) {
+			wfDeprecated( 'QuickSurveys survey with yesMsg parameter', '1.43' );
+		}
+		if ( $noMsg ) {
+			wfDeprecated( 'QuickSurveys survey with noMsg parameter', '1.43' );
+		}
+
 		$this->link = $link;
 		$this->instanceTokenParameterName = $instanceTokenParameterName;
-		$this->yesMsg = $yesMsg ?? 'ext-quicksurveys-external-survey-yes-button';
-		$this->noMsg = $noMsg ?? 'ext-quicksurveys-external-survey-no-button';
+		$this->yesMsg = $yesMsg;
+		$this->noMsg = $noMsg;
 	}
 
 	/**
 	 * @return string[]
 	 */
 	public function getMessages(): array {
-		$messages = array_merge( parent::getMessages(), [
-			$this->yesMsg,
-			$this->noMsg,
-		] );
+		$messages = [];
 
 		if ( $this->link !== null ) {
 			$messages[] = $this->link;
 		}
 
-		return $messages;
+		if ( $this->yesMsg !== null ) {
+			$messages[] = $this->yesMsg;
+		}
+
+		if ( $this->noMsg !== null ) {
+			$messages[] = $this->noMsg;
+		}
+
+		return array_merge( parent::getMessages(), $messages );
 	}
 
 	public function toArray(): array {

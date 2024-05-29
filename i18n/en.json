@@ -11,6 +11,8 @@
 	"prefs-quicksurveyext": "QuickSurvey extension",
 	"ext-quicksurveys-pref-displayquicksurveys-label": "Display QuickSurveys",
 	"ext-quicksurveys-pref-displayquicksurveys-help": "This feature will display [https://www.mediawiki.org/wiki/Extension:QuickSurveys short optional surveys] by the Wikimedia Foundation, which are not connected to your account.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Show all surveys",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Hide all surveys",
 	"quicksurveys-desc": "Displays configured surveys",
 	"ext-quicksurveys-example-internal-survey-question": "Should the text be bigger?",
 	"ext-quicksurveys-example-internal-survey-description": "This is the description of the example internal survey",

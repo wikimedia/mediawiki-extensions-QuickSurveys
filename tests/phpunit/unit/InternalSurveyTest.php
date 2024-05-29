@@ -29,8 +29,6 @@ class InternalSurveyTest extends \MediaWikiUnitTestCase {
 		], 'internal' );
 		$survey = new InternalSurvey(
 			'name',
-			'question',
-			'description',
 			0.5,
 			[ 'desktop' ],
 			'privacyPolicy',
@@ -38,36 +36,36 @@ class InternalSurveyTest extends \MediaWikiUnitTestCase {
 			'confirmMsg',
 			$audience,
 			[ $question ],
-			[ 'answer1' ],
-			false,
-			'freeformTextLabel',
+			null,
+			null,
+			'confirmDescription',
+			null,
+			null,
+			null,
 			'embedElementId',
-			'layout',
-			'confirmDescription'
+			null
 		);
 
 		$this->assertSame( 'ext.quicksurveys.survey.name', $survey->getResourceLoaderModuleName() );
 		$this->assertSame( $audience, $survey->getAudience() );
-		$this->assertSame( [
-			'question',
-			'description',
-			'privacyPolicy',
-			'additionalInfo',
-			'confirmMsg',
-			'confirmDescription',
-			// question, description, answer1, and freeformTextLabel should repeat again
-			// because of keys in questions and in survey, just for testing
-			'question',
-			'description',
-			'answer1',
-			'freeformTextLabel',
-			'answer1',
-			'freeformTextLabel' ], $survey->getMessages() );
+		$this->assertSame(
+			[
+				'privacyPolicy',
+				'additionalInfo',
+				'confirmMsg',
+				'confirmDescription',
+				'question',
+				'description',
+				'answer1',
+				'freeformTextLabel',
+			],
+			$survey->getMessages()
+		);
 		$this->assertSame( [
 			'audience' => [],
 			'name' => 'name',
-			'question' => 'question',
-			'description' => 'description',
+			'question' => null,
+			'description' => null,
 			'module' => 'ext.quicksurveys.survey.name',
 			'coverage' => 0.5,
 			'platforms' => [ 'desktop' ],
@@ -91,11 +89,11 @@ class InternalSurveyTest extends \MediaWikiUnitTestCase {
 			],
 			'confirmDescription' => 'confirmDescription',
 			'type' => 'internal',
-			'answers' => [ 'answer1' ],
-			'shuffleAnswersDisplay' => false,
-			'freeformTextLabel' => 'freeformTextLabel',
+			'answers' => null,
+			'shuffleAnswersDisplay' => null,
+			'freeformTextLabel' => null,
 			'embedElementId' => 'embedElementId',
-			'layout' => 'layout',
+			'layout' => null
 		], $survey->toArray() );
 	}
 

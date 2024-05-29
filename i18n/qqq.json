@@ -14,6 +14,8 @@
 	"prefs-quicksurveyext": "The extension name for the preference section in user profile.",
 	"ext-quicksurveys-pref-displayquicksurveys-label": "Label text for the toggle preference to display quick surveys.",
 	"ext-quicksurveys-pref-displayquicksurveys-help": "Help text for the toggle preference to display quick surveys.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Select form field option text for showing all surveys.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Select form field option text for hiding all surveys.",
 	"quicksurveys-desc": "{{desc|name=QuickSurveys|url=https://www.mediawiki.org/wiki/Extension:QuickSurveys}}",
 	"ext-quicksurveys-example-internal-survey-question": "The question for the example internal survey",
 	"ext-quicksurveys-example-internal-survey-description": "Description of the example internal survey",

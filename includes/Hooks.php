@@ -129,10 +129,14 @@ class Hooks implements
 	 */
 	public static function onGetPreferences( User $user, array &$prefs ): void {
 		$prefs['displayquicksurveys'] = [
-			'type' => 'toggle',
+			'type' => 'select',
 			'section' => 'personal/quicksurveyext',
 			'label-message' => 'ext-quicksurveys-pref-displayquicksurveys-label',
 			'help-message' => 'ext-quicksurveys-pref-displayquicksurveys-help',
+			'options' => [
+				(string)wfMessage( 'ext-quicksurveys-pref-displayquicksurveys-option-enabled' ) => 1,
+				(string)wfMessage( 'ext-quicksurveys-pref-displayquicksurveys-option-disabled' ) => 0,
+			],
 		];
 	}
 

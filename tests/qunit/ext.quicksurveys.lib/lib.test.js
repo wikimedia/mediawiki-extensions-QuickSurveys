@@ -445,11 +445,11 @@ QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds, firstEdit, la
 } );
 
 QUnit.test( 'isQuickSurveysPrefEnabled', function ( assert ) {
-	mw.user.options.set( 'displayquicksurveys', false );
+	mw.user.options.set( 'displayquicksurveys', 0 );
 	assert.false( qSurveys.isQuickSurveysPrefEnabled(),
 		'QuickSurvey preference is disabled (displayquicksurveys)' );
 
-	mw.user.options.set( 'displayquicksurveys', true );
+	mw.user.options.set( 'displayquicksurveys', 1 );
 	assert.true( qSurveys.isQuickSurveysPrefEnabled(),
 		'QuickSurvey preference is enabled (displayquicksurveys)' );
 } );

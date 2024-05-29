@@ -10,7 +10,7 @@ abstract class Survey {
 
 	/**
 	 * @var string|null The question that the survey is posing to the user
-	 * @deprecated
+	 * @deprecated use questions array instead
 	 */
 	private $question;
 
@@ -31,7 +31,7 @@ abstract class Survey {
 
 	/**
 	 * @var string|null A user-friendly description of, or introduction to, the question
-	 * @deprecated
+	 * @deprecated this field has been moved to SurveyQuestion
 	 */
 	private $description;
 
@@ -70,7 +70,7 @@ abstract class Survey {
 	private $privacyPolicy;
 
 	/**
-	 * @var SurveyQuestion[]|null The questions that the survey is posing to the user
+	 * @var SurveyQuestion[] The questions that the survey is posing to the user
 	 */
 	private $questions;
 
@@ -81,30 +81,37 @@ abstract class Survey {
 
 	/**
 	 * @param string $name
-	 * @param string $question
-	 * @param string|null $description
 	 * @param float $coverage
 	 * @param array[] $platforms
 	 * @param string|null $privacyPolicy
 	 * @param string|null $additionalInfo
 	 * @param string|null $confirmMsg
 	 * @param SurveyAudience $audience
-	 * @param SurveyQuestion[] $questions
+	 * @param string|SurveyQuestion[] $questions
+	 * @param string|null $question
+	 * @param string|null $description
 	 * @param string|null $confirmDescription
 	 */
 	public function __construct(
 		$name,
-		$question,
-		$description,
 		$coverage,
 		array $platforms,
 		$privacyPolicy,
 		$additionalInfo,
 		$confirmMsg,
 		SurveyAudience $audience,
-		array $questions,
-		string $confirmDescription = null
+		$questions,
+		?string $question = null,
+		?string $description = null,
+		?string $confirmDescription = null
 	) {
+		if ( $question ) {
+			wfDeprecated( 'QuickSurveys survey with question parameter', '1.43' );
+		}
+		if ( $description ) {
+			wfDeprecated( 'QuickSurveys survey with description parameter', '1.43' );
+		}
+
 		$this->name = $name;
 		$this->question = $question;
 		$this->description = $description;
@@ -114,7 +121,7 @@ abstract class Survey {
 		$this->additionalInfo = $additionalInfo;
 		$this->confirmMsg = $confirmMsg;
 		$this->audience = $audience;
-		$this->questions = $questions;
+		$this->questions = is_array( $questions ) ? $questions : [ strval( $questions ) ];
 		$this->confirmDescription = $confirmDescription;
 	}
 

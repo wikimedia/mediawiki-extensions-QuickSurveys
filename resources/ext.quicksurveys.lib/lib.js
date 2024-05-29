@@ -20,8 +20,43 @@ const logEvent = require( './logEvent.js' );
  */
 
 /**
+ * @typedef Answer
+ * @property {string} label
+ * @property {string|null|undefined} freeformTextLabel
+ */
+
+/**
+ * @typedef QuestionDependency
+ * @property {string} question
+ * @property {string[]|null|undefined} answerIsOneOf
+ */
+
+/**
+ * @typedef InternalQuestion
+ * @property {string} name
+ * @property {string} layout
+ * @property {string} question
+ * @property {string|null|undefined} description
+ * @property {boolean|null|undefined} shuffleAnswersDisplay
+ * @property {Answer[]} answers
+ * @property {QuestionDependency[]|null|undefined} dependsOn
+ */
+
+/**
+ * @typedef ExternalQuestion
+ * @property {string} name
+ * @property {string} question
+ * @property {string|null|undefined} description
+ * @property {string} link
+ * @property {string|null|undefined} instanceTokenParameterName
+ * @property {string|null|undefined} yesMsg
+ * @property {string|null|undefined} noMsg
+ */
+
+/**
  * @typedef SurveyDefinition
  * @property {Audience} audience
+ * @property {(InternalQuestion|ExternalQuestion)[]} questions
  * @property {number} coverage
  * @property {boolean} isInsecure
  * @property {string} module
@@ -471,7 +506,7 @@ function isEmbeddedElementMatched( embedElementId ) {
  * @return {boolean}
  */
 function isQuickSurveysPrefEnabled() {
-	return mw.user.options.get( 'displayquicksurveys' ) === true;
+	return mw.user.options.get( 'displayquicksurveys' ) === 1;
 }
 
 /**

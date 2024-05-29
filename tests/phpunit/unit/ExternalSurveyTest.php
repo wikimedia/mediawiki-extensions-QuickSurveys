@@ -25,8 +25,6 @@ class ExternalSurveyTest extends \MediaWikiUnitTestCase {
 		], 'external' );
 		$survey = new ExternalSurvey(
 			'name',
-			'question',
-			'description',
 			0.5,
 			[ 'desktop' ],
 			'privacyPolicy',
@@ -34,41 +32,36 @@ class ExternalSurveyTest extends \MediaWikiUnitTestCase {
 			'confirmMsg',
 			$audience,
 			[ $question ],
-			'link',
-			'instanceTokenParameterName',
-			'yes',
-			'no',
-			'confirmDescription'
+			null,
+			null,
+			'confirmDescription',
+			null,
+			null,
+			null,
+			null
 		);
 
 		$this->assertSame( 'ext.quicksurveys.survey.name', $survey->getResourceLoaderModuleName() );
 		$this->assertSame( $audience, $survey->getAudience() );
 		$this->assertSame(
 			[
-				'question',
-				'description',
 				'privacyPolicy',
 				'additionalInfo',
 				'confirmMsg',
 				'confirmDescription',
-				// question, description, link, yes, and no should repeat again
-				// because of keys in questions and in survey, just for testing
 				'question',
 				'description',
 				'link',
 				'yes',
 				'no',
-				'yes',
-				'no',
-				'link',
 			],
 			$survey->getMessages()
 		);
 		$this->assertSame( [
 			'audience' => [],
 			'name' => 'name',
-			'question' => 'question',
-			'description' => 'description',
+			'question' => null,
+			'description' => null,
 			'module' => 'ext.quicksurveys.survey.name',
 			'coverage' => 0.5,
 			'platforms' => [ 'desktop' ],
@@ -88,10 +81,10 @@ class ExternalSurveyTest extends \MediaWikiUnitTestCase {
 			],
 			'confirmDescription' => 'confirmDescription',
 			'type' => 'external',
-			'link' => 'link',
-			'instanceTokenParameterName' => 'instanceTokenParameterName',
-			'yesMsg' => 'yes',
-			'noMsg' => 'no',
+			'link' => null,
+			'instanceTokenParameterName' => null,
+			'yesMsg' => null,
+			'noMsg' => null,
 		], $survey->toArray() );
 	}
 

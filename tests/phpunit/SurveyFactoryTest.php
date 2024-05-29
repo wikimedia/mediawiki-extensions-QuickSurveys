@@ -16,8 +16,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 	private const INTERNAL_SURVEY = [
 		'name' => 'test',
 		'type' => 'internal',
-		'layout' => 'single-answer',
-		'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 		'privacyPolicy' => 'ext-quicksurveys-test-internal-survey-privacy-policy',
 		'enabled' => true,
 		'coverage' => 1,
@@ -35,8 +33,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 	private const EXTERNAL_SURVEY = [
 		'name' => 'test',
 		'type' => 'external',
-		'layout' => 'single-answer',
-		'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
 		'privacyPolicy' => 'ext-quicksurveys-test-external-survey-privacy-policy',
 		'enabled' => true,
 		'coverage' => 1,
@@ -172,8 +168,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 	public function testItShouldFactoryAnExternalSurvey() {
 		$expected = new ExternalSurvey(
 			'test',
-			'Do you like writing unit tests?',
-			'A survey for (potential) developers of the QuickSurveys extension.',
 			1,
 			[
 				'desktop' => [
@@ -200,8 +194,13 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 					'instanceTokenParameterName' => '',
 				], 'external' ),
 			],
-			'ext-quicksurveys-example-external-survey-link',
-			''
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
 		);
 
 		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
@@ -209,8 +208,15 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			[
 				'name' => 'test',
 				'type' => 'external',
-				'question' => 'Do you like writing unit tests?',
-				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+				'questions' => [
+					[
+						'name' => 'question-1',
+						'question' => 'Do you like writing unit tests?',
+						'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+						'link' => 'ext-quicksurveys-example-external-survey-link',
+						'instanceTokenParameterName' => '',
+					],
+				],
 				'enabled' => true,
 				'coverage' => 1,
 				'platforms' => [
@@ -226,7 +232,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 					'minEdits' => 100,
 					'userAgent' => [ 'KaiOS' ]
 				],
-				'link' => 'ext-quicksurveys-example-external-survey-link',
 				'privacyPolicy' => 'ext-quicksurveys-test-external-survey-privacy-policy',
 			]
 		);
@@ -254,8 +259,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 	public function testItShouldFactoryAnInternalSurvey() {
 		$expected = new InternalSurvey(
 			'test',
-			'Do you like writing unit tests?',
-			'A survey for (potential) developers of the QuickSurveys extension.',
 			1,
 			[
 				'desktop' => [
@@ -282,13 +285,14 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 					],
 				], 'internal' ),
 			],
-			[
-				'ext-quicksurveys-test-internal-survey-positive',
-			],
-			true,
 			null,
 			null,
-			'single-answer'
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
 		);
 
 		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
@@ -296,9 +300,18 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			[
 				'name' => 'test',
 				'type' => 'internal',
-				'layout' => 'single-answer',
-				'question' => 'Do you like writing unit tests?',
-				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+				'questions' => [
+					[
+						'name' => 'question-1',
+						'layout' => 'single-answer',
+						'question' => 'Do you like writing unit tests?',
+						'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+						'shuffleAnswersDisplay' => true,
+						'answers' => [
+							[ 'label' => 'ext-quicksurveys-test-internal-survey-positive' ],
+						],
+					],
+				],
 				'enabled' => true,
 				'coverage' => 1,
 				'platforms' => [
@@ -310,9 +323,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 						'beta',
 					],
 				],
-				'answers' => [
-					'ext-quicksurveys-test-internal-survey-positive',
-				],
 			]
 		);
 
@@ -322,8 +332,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 	public function testItShouldFactoryAnInternalSurveyWithShuffleAnswersDisplayDisabled() {
 		$expected = new InternalSurvey(
 			'test',
-			'Do you like writing unit tests?',
-			'A survey for (potential) developers of the QuickSurveys extension.',
 			1,
 			[
 				'desktop' => [
@@ -350,13 +358,14 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 					],
 				], 'internal' ),
 			],
-			[
-				'ext-quicksurveys-test-internal-survey-positive',
-			],
-			false,
 			null,
 			null,
-			'single-answer'
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
 		);
 
 		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
@@ -364,9 +373,18 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			[
 				'name' => 'test',
 				'type' => 'internal',
-				'layout' => 'single-answer',
-				'question' => 'Do you like writing unit tests?',
-				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+				'questions' => [
+					[
+						'name' => 'question-1',
+						'layout' => 'single-answer',
+						'question' => 'Do you like writing unit tests?',
+						'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+						'answers' => [
+							[ 'label' => 'ext-quicksurveys-test-internal-survey-positive' ],
+						],
+						'shuffleAnswersDisplay' => false,
+					],
+				],
 				'enabled' => true,
 				'coverage' => 1,
 				'platforms' => [
@@ -378,10 +396,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 						'beta',
 					],
 				],
-				'answers' => [
-					'ext-quicksurveys-test-internal-survey-positive',
-				],
-				'shuffleAnswersDisplay' => false,
 			]
 		);
 
@@ -424,22 +438,36 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			[
 				'name' => 'a',
 				'type' => 'internal',
-				'layout' => 'single-answer',
-				'question' => 'Do you like writing unit tests?',
+				'questions' => [
+					[
+						'name' => 'question-1',
+						'layout' => 'single-answer',
+						'question' => 'Do you like writing unit tests?',
+						'answers' => [
+							[ 'label' => 'ext-quicksurveys-test-internal-survey-positive' ]
+						],
+					],
+				],
 				'enabled' => true,
 				'coverage' => 1,
 				'platforms' => [],
-				'answers' => [ 'ext-quicksurveys-test-internal-survey-positive' ],
 			],
 			[
 				'name' => 'aa',
 				'type' => 'internal',
-				'layout' => 'single-answer',
-				'question' => 'Do you like writing unit tests?',
+				'questions' => [
+					[
+						'name' => 'question-1',
+						'layout' => 'single-answer',
+						'question' => 'Do you like writing unit tests?',
+						'answers' => [
+							[ 'label' => 'ext-quicksurveys-test-internal-survey-positive' ]
+						],
+					],
+				],
 				'enabled' => true,
 				'coverage' => 1,
 				'platforms' => [],
-				'answers' => [ 'ext-quicksurveys-test-internal-survey-positive' ],
 			],
 		];
 		$this->assertCount( 2, $factory->parseSurveyConfig( $specs ) );
@@ -569,21 +597,26 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			[
 				'name' => 'test',
 				'type' => 'external',
-				'question' => 'Do you like writing unit tests?',
-				'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+				'questions' => [
+					[
+						'name' => 'question-1',
+						'question' => 'Do you like writing unit tests?',
+						'description' => 'A survey for (potential) developers of the QuickSurveys extension.',
+						'link' => 'ext-quicksurveys-example-external-survey-link',
+						'yesMsg' => 'Visit survey',
+						'noMsg' => 'No thanks',
+					],
+				],
 				'enabled' => false,
 				'coverage' => 1,
 				'platforms' => [],
-				'link' => 'ext-quicksurveys-example-external-survey-link',
 				'privacyPolicy' => 'ext-quicksurveys-test-external-survey-privacy-policy',
-				'yesMsg' => 'Visit survey',
-				'noMsg' => 'No thanks'
 			]
 		);
 		$array = $survey->toArray();
 
-		$this->assertSame( 'Visit survey', $array['yesMsg'] );
-		$this->assertSame( 'No thanks', $array['noMsg'] );
+		$this->assertSame( 'Visit survey', $array['questions'][0]['yesMsg'] );
+		$this->assertSame( 'No thanks', $array['questions'][0]['noMsg'] );
 	}
 
 	public function testItShouldThrowWhenThereAreNoQuestions(): void {

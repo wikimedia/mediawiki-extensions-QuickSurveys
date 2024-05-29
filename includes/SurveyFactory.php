@@ -169,13 +169,25 @@ class SurveyFactory {
 			throw new InvalidArgumentException( "The \"{$name}\" survey doesn't have any platforms." );
 		}
 
-		if ( $spec['type'] === 'external' && isset( $spec['link'] ) ) {
-			$link = $spec['link'];
-			$url = wfMessage( $link )->inContentLanguage()->plain();
-			$bit = parse_url( $url, PHP_URL_SCHEME );
+		if ( $spec['type'] === 'external' ) {
+			$link = null;
+			if ( isset( $spec['link'] ) ) {
+				$link = $spec['link'];
+			} elseif (
+				isset( $spec['questions'] ) &&
+				isset( $spec['questions'][0] ) &&
+				isset( $spec['questions'][0]['link'] )
+			) {
+				$link = $spec['questions'][0]['link'];
+			}
 
-			if ( $bit !== 'https' ) {
-				throw new InvalidArgumentException( "The \"{$name}\" external survey must have a secure url." );
+			if ( isset( $link ) ) {
+				$url = wfMessage( $link )->inContentLanguage()->plain();
+				$bit = parse_url( $url, PHP_URL_SCHEME );
+
+				if ( $bit !== 'https' ) {
+					throw new InvalidArgumentException( "The \"{$name}\" external survey must have a secure url." );
+				}
 			}
 		}
 
@@ -371,7 +383,7 @@ class SurveyFactory {
 		$privacyPolicy = $spec['privacyPolicy'] ?? null;
 		$yesMsg = $spec['yesMsg'] ?? null;
 		$noMsg = $spec['noMsg'] ?? null;
-		$instanceTokenParameterName = $spec['instanceTokenParameterName'] ?? '';
+		$instanceTokenParameterName = $spec['instanceTokenParameterName'] ?? null;
 
 		if ( !$link && !$questions ) {
 			throw new InvalidArgumentException(
@@ -400,16 +412,15 @@ class SurveyFactory {
 				'question' => $question,
 				'description' => $description,
 				'link' => $link,
-				'yesMsg' => $yesMsg,
-				'noMsg' => $noMsg,
+				// Set defaults for yes and no messages for compatibility.
+				'yesMsg' => $yesMsg ?? 'ext-quicksurveys-external-survey-yes-button',
+				'noMsg' => $noMsg ?? 'ext-quicksurveys-external-survey-no-button',
 				'instanceTokenParameterName' => $instanceTokenParameterName,
 			], 'external' );
 		}
 
 		$survey = new ExternalSurvey(
 			$name,
-			$question,
-			$description,
 			$spec['coverage'],
 			$spec['platforms'],
 			$spec['privacyPolicy'],
@@ -417,11 +428,13 @@ class SurveyFactory {
 			$spec['confirmMsg'] ?? null,
 			new SurveyAudience( $spec['audience'] ?? [] ),
 			$surveyQuestions,
+			$question,
+			$description,
+			$spec['confirmDescription'] ?? null,
 			$link,
 			$instanceTokenParameterName,
 			$yesMsg,
-			$noMsg,
-			$spec['confirmDescription'] ?? null
+			$noMsg
 		);
 		$this->validateExternalSurveyQuestions( $survey->toArray() );
 
@@ -439,10 +452,10 @@ class SurveyFactory {
 
 		// Deprecated fields.
 		$question = $spec['question'] ?? null;
-		$answers = $spec['answers'] ?? [];
+		$answers = $spec['answers'] ?? null;
 		$description = $spec['description'] ?? null;
 		$layout = $spec['layout'] ?? null;
-		$shuffleAnswersDisplay = $spec['shuffleAnswersDisplay'] ?? true;
+		$shuffleAnswersDisplay = $spec['shuffleAnswersDisplay'] ?? null;
 		$freeformTextLabel = $spec['freeformTextLabel'] ?? null;
 
 		if ( !$questions && !$answers ) {
@@ -485,8 +498,6 @@ class SurveyFactory {
 
 		$survey = new InternalSurvey(
 			$name,
-			$question,
-			$description,
 			$spec['coverage'],
 			$spec['platforms'],
 			$spec['privacyPolicy'] ?? null,
@@ -494,12 +505,14 @@ class SurveyFactory {
 			$spec['confirmMsg'] ?? null,
 			new SurveyAudience( $spec['audience'] ?? [] ),
 			$surveyQuestions,
+			$question,
+			$description,
+			$spec['confirmDescription'] ?? null,
 			$answers,
 			$shuffleAnswersDisplay,
 			$freeformTextLabel,
 			$spec['embedElementId'] ?? null,
-			$layout,
-			$spec['confirmDescription'] ?? null
+			$layout
 		);
 		$this->validateInternalSurveyQuestions( $survey->toArray() );
 
