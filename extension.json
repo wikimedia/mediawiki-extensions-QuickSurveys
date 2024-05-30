@@ -39,11 +39,13 @@
 			],
 			"messages": [
 				"ext-quicksurveys-survey-privacy-policy-default-text",
+				"ext-quicksurveys-survey-change-preferences-disclaimer",
 				"ext-quicksurveys-survey-confirm-msg",
 				"ext-quicksurveys-survey-positive",
 				"ext-quicksurveys-survey-negative",
 				"ext-quicksurveys-survey-neutral",
 				"ext-quicksurveys-internal-freeform-survey-submit-button",
+				"ext-quicksurveys-internal-freeform-survey-back-button",
 				"ext-quicksurveys-internal-freeform-survey-no-answer-alert",
 				"ext-quicksurveys-external-survey-yes-button",
 				"ext-quicksurveys-external-survey-no-button"
@@ -75,6 +77,7 @@
 						"cdxIconClose"
 					]
 				},
+				"resources/ext.quicksurveys.lib/vue/components/AnswerRadioOption.vue",
 				"resources/ext.quicksurveys.lib/vue/utils.js",
 				"resources/ext.quicksurveys.lib/vue/QuickSurveyLogger.js",
 				"resources/ext.quicksurveys.lib/vue/QuickSurvey.vue"
@@ -108,7 +111,7 @@
 	"attributes": {
 		"EventLogging": {
 			"Schemas": {
-				"QuickSurveysResponses": "/analytics/legacy/quicksurveysresponses/1.0.0",
+				"QuickSurveysResponses": "/analytics/legacy/quicksurveysresponses/1.1.0",
 				"QuickSurveyInitiation": "/analytics/legacy/quicksurveyinitiation/1.1.0"
 			}
 		}
@@ -119,7 +122,8 @@
 	"manifest_version": 2,
 	"Hooks": {
 		"BeforePageDisplay": "main",
-		"ResourceLoaderRegisterModules": "main"
+		"ResourceLoaderRegisterModules": "main",
+		"GetPreferences": "QuickSurveys\\Hooks::onGetPreferences"
 	},
 	"HookHandlers": {
 		"main": {
@@ -169,6 +173,7 @@
 					"link": "ext-quicksurveys-example-external-survey-link",
 					"instanceTokenParameterName": "parameterName",
 					"privacyPolicy": "ext-quicksurveys-example-external-survey-privacy-policy",
+					"surveyPreferencesDisclaimer": "ext-quicksurveys-survey-change-preferences-disclaimer",
 					"enabled": false,
 					"coverage": 0.5,
 					"platforms": {
@@ -183,6 +188,9 @@
 				}
 			]
 		}
+	},
+	"DefaultUserOptions": {
+		"displayquicksurveys": true
 	},
 	"ServiceWiringFiles": [
 		"includes/ServiceWiring.php"

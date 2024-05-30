@@ -81,6 +81,16 @@ class SurveyAudienceTest extends \MediaWikiUnitTestCase {
 				],
 				'filter to match a couple of pages'
 			],
+			[
+				[ 'firstEdit' => [ 'from' => '2024-01-01' ] ],
+				[ 'firstEdit' => [ 'from' => '2024-01-01' ] ],
+				'filter to match users that first made edits on or after a certain date'
+			],
+			[
+				[ 'lastEdit' => [ 'to' => '2024-01-01' ] ],
+				[ 'lastEdit' => [ 'to' => '2024-01-01' ] ],
+				'filter to match users that last made edits on or before a certain date'
+			],
 		];
 	}
 

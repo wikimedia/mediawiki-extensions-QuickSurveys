@@ -13,23 +13,23 @@ const logEvent = require( './logEvent.js' );
  * date, user had to join on or after this date. Date is in format YYYY-MM-DD
  * @property {string} [registrationEnd] if the survey is targeted by registration
  * date, user had to join on or before this date. Date is in format YYYY-MM-DD
+ * @property {number[]} [pageIds]
+ * @property {string[]} [userAgent]
+ * @property {DateRange} [firstEdit]
+ * @property {DateRange} [lastEdit]
  */
 
 /**
  * @typedef SurveyDefinition
  * @property {Audience} audience
  * @property {number} coverage
- * @property {string} description
- * @property {string} [instanceTokenParameterName]
  * @property {boolean} isInsecure
- * @property {string} link
  * @property {string} module
  * @property {string} name
  * @property {Object} platforms
  * @property {string} privacyPolicy
  * @property {string|null} additionalInfo
  * @property {string|null} thankYouMessage
- * @property {string} question
  * @property {string} type
  * @property {string|null} embedElementId Embedding location DOM element ID.
  */
@@ -41,6 +41,12 @@ const logEvent = require( './logEvent.js' );
  * @property {string} [city] of the user
  * @property {number} [lat] of the user
  * @property {number} [lon] of the user
+ */
+
+/**
+ * @typedef {Object} DateRange
+ * @property {?string} [from]
+ * @property {?string} [to]
  */
 
 const hasOwn = Object.hasOwnProperty;
@@ -181,6 +187,23 @@ function insertPanel( $bodyContent, $panel, embedElementId, isMobileLayout ) {
 }
 
 /**
+ * Helper method that checks if a date is in a given range. The from and to
+ * parameters are inclusive, and when set to null, extend to infinity.
+ *
+ * @param {string} date the date to range check
+ * @param {?string} from start date (inclusive)
+ * @param {?string} to end date (inclusive)
+ * @return {boolean} return true when the provided date is in the specified range
+ */
+function dateInRange( date, from, to ) {
+	const parsedDate = new Date( date + 'T00:00:00+00:00' );
+	const parsedFrom = from ? new Date( from + 'T00:00:00+00:00' ) : new Date( false );
+	const parsedTo = to ? new Date( to + 'T23:59:59+0000' ) : new Date();
+
+	return parsedDate >= parsedFrom && parsedDate <= parsedTo;
+}
+
+/**
  * Helper method to verify that user registered in given time frame
  * Note: this check is inclusive
  *
@@ -243,9 +266,11 @@ function isUsingTargetBrowser( targetUserAgent ) {
  * @param {number|null} editCount of user (null if user is anon)
  * @param {Geo} [geo] geographical information of user (undefined if not known)
  * @param {number} pageId ID of the current page
+ * @param {string} firstEdit date of the first edit the user made (YYYY-MM-DD)
+ * @param {string} lastEdit date of the last edit the user made (YYYY-MM-DD)
  * @return {boolean}
  */
-function isInAudience( audience, user, editCount, geo, pageId ) {
+function isInAudience( audience, user, editCount, geo, pageId, firstEdit, lastEdit ) {
 	const hasMinEditAudience = audience.minEdits !== undefined,
 		hasMaxEditAudience = audience.maxEdits !== undefined,
 		hasCountries = audience.countries !== undefined,
@@ -254,10 +279,19 @@ function isInAudience( audience, user, editCount, geo, pageId ) {
 
 	if ( hasPageIds && audience.pageIds.indexOf( pageId ) === -1 ) {
 		return false;
-	}
-	if ( ( audience.registrationStart || audience.registrationEnd ) &&
+	} else if ( ( audience.registrationStart || audience.registrationEnd ) &&
 		registrationDateNotInRange( user, audience.registrationStart,
 			audience.registrationEnd ) ) {
+		return false;
+	} else if (
+		audience.firstEdit &&
+		( !firstEdit || !dateInRange( firstEdit, audience.firstEdit.from, audience.firstEdit.to ) )
+	) {
+		return false;
+	} else if (
+		audience.lastEdit &&
+		( !lastEdit || !dateInRange( lastEdit, audience.lastEdit.from, audience.lastEdit.to ) )
+	) {
 		return false;
 	} else if ( audience.anons !== undefined && audience.anons !== user.isAnon() ) {
 		return false;
@@ -272,8 +306,7 @@ function isInAudience( audience, user, editCount, geo, pageId ) {
 	geo = geo || { country: '??' };
 	if ( hasCountries && audience.countries.indexOf( geo.country ) === -1 ) {
 		return false;
-	}
-	if ( hasTarget && !isUsingTargetBrowser( audience.userAgent ) ) {
+	} else if ( hasTarget && !isUsingTargetBrowser( audience.userAgent ) ) {
 		return false;
 	}
 	return true;
@@ -433,11 +466,24 @@ function isEmbeddedElementMatched( embedElementId ) {
 }
 
 /**
+ * Check if user preference has `displayquicksurveys` enabled.
+ *
+ * @return {boolean}
+ */
+function isQuickSurveysPrefEnabled() {
+	return mw.user.options.get( 'displayquicksurveys' ) === true;
+}
+
+/**
  * Choose and display a survey
  *
  * @param {string|null} forcedSurvey Survey to force display of, if any
  */
 function showSurvey( forcedSurvey ) {
+	if ( !isQuickSurveysPrefEnabled() ) {
+		return;
+	}
+
 	const embeddedSurveys = [];
 	const availableSurveys = [];
 	const enabledSurveys = require( './surveyData.json' );
@@ -464,7 +510,9 @@ function showSurvey( forcedSurvey ) {
 					mw.user,
 					mw.config.get( 'wgUserEditCount' ),
 					window.Geo,
-					mw.config.get( 'wgArticleId' )
+					mw.config.get( 'wgArticleId' ),
+					mw.config.get( 'wgQSUserFirstEditDate' ),
+					mw.config.get( 'wgQSUserLastEditDate' )
 				) &&
 				surveyMatchesPlatform( enabledSurvey, mw.config.get( 'wgMFMode' ) )
 			) {
@@ -499,6 +547,7 @@ if ( window.QUnit ) {
 		getSurveyFromQueryString,
 		insertPanel,
 		isInAudience,
-		surveyMatchesPlatform
+		surveyMatchesPlatform,
+		isQuickSurveysPrefEnabled
 	};
 }

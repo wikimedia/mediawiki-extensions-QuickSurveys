@@ -53,8 +53,132 @@ function shuffleAnswers( answers ) {
 	return answers;
 }
 
+/**
+ * Processes the questions array before sending it to the Vue component.
+ * - Translate messages (questions, answer options, placeholders, etc.)
+ * - Shuffle answers
+ * - Add keys to questions and answers (to mount event response)
+ *
+ * @param {Array} questions
+ * @param {string} [pageViewToken]
+ * @return {Array} questions translated
+ */
+function processSurveyQuestions( questions, pageViewToken ) {
+	if ( !questions || !questions.length ) {
+		return [];
+	}
+
+	return questions.map( function ( question ) {
+		const externalLink = question.link ? new mw.Uri(
+			// eslint-disable-next-line mediawiki/msg-doc
+			mw.message( question.link ).parse()
+		) : '';
+
+		if ( externalLink && question.instanceTokenParameterName ) {
+			externalLink.query[ question.instanceTokenParameterName ] = pageViewToken;
+		}
+
+		const answers = ( question.answers || [] ).map( function ( answer ) {
+			return {
+				key: answer.label,
+				// eslint-disable-next-line mediawiki/msg-doc
+				label: mw.msg( answer.label ),
+				freeformTextLabel: answer.freeformTextLabel ?
+					// eslint-disable-next-line mediawiki/msg-doc
+					mw.msg( answer.freeformTextLabel ) :
+					undefined
+			};
+		} );
+
+		return {
+			name: question.name,
+			layout: question.layout,
+			dependsOn: question.dependsOn,
+			questionKey: question.question,
+			question: mw.msg( question.question ),
+			answers: question.shuffleAnswersDisplay ? shuffleAnswers( answers ) : answers,
+			externalLink: externalLink.toString(),
+			yesMsg: question.yesMsg ? mw.msg( question.yesMsg ) : '',
+			noMsg: question.noMsg ? mw.msg( question.noMsg ) : '',
+			description: question.description ? mw.msg( question.description ) : ''
+		};
+	} );
+}
+
+/**
+ * Returns the index for the next question considering the dependency engine, or
+ * `null` if there is not next question.
+ *
+ * @param {number} currentIndex the index of the question currently being
+ * presented to the user.
+ * @param {{
+ *  questionKey: string,
+ *  name: string,
+ *  dependsOn: {
+ *   question: string,
+ *   answerIsOneOf: string[]
+ *  }[]
+ * }[]} questions a list of all of the questions in the survey currently being
+ * displayed.
+ * @param {Object<string, Object<string, string>>} answers an object
+ * containing a mapping of all previously answered questions and answers. This
+ * is used to determine if question dependencies are satisfied.
+ * @return {number}
+ */
+function getNextQuestionIndex( currentIndex, questions, answers ) {
+	let indexToEvaluate = currentIndex + 1;
+	if ( questions.length <= indexToEvaluate ) {
+		return null;
+	}
+
+	let currentQuestion = questions[ indexToEvaluate ];
+	if ( !currentQuestion.dependsOn || !currentQuestion.dependsOn.length ) {
+		return indexToEvaluate;
+	}
+
+	let currentQuestionIsAccepted = false;
+	while (
+		!currentQuestionIsAccepted &&
+		questions.length > indexToEvaluate &&
+		currentQuestion
+	) {
+		const conditions = currentQuestion.dependsOn || [];
+
+		// Question is accepted when all conditions in `dependsOn` are accepted
+		currentQuestionIsAccepted = conditions.every( function ( condition ) {
+			// Condition is accepted when one answer from the list matches with
+			// one of the expected answers.
+			const conditionIsAccepted = questions.some( function ( question ) {
+				const isSameQuestion = question.name === condition.question;
+
+				const answerIsInCondition = condition.answerIsOneOf.some(
+					function ( oneOfAnswer ) {
+						const answersForQuestion = Object.keys(
+							answers[ question.questionKey ] || {}
+						);
+						return answersForQuestion.indexOf( oneOfAnswer ) !== -1;
+					}
+				);
+
+				return isSameQuestion && answerIsInCondition;
+			} );
+
+			return conditionIsAccepted;
+		} );
+
+		if ( !currentQuestionIsAccepted ) {
+			indexToEvaluate = indexToEvaluate + 1;
+			currentQuestion = questions[ indexToEvaluate ] || null;
+		}
+	}
+
+	return questions.length <= indexToEvaluate ? null : indexToEvaluate;
+}
+
 module.exports = {
 	shuffleAnswers: shuffleAnswers,
 	extend: extend,
-	getCountryCode: getCountryCode
+	getCountryCode: getCountryCode,
+	processSurveyQuestions: processSurveyQuestions,
+	getNextQuestionIndex: getNextQuestionIndex
 };

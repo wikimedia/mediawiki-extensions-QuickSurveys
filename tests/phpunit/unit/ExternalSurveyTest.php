@@ -4,6 +4,7 @@ namespace Tests\QuickSurveys;
 
 use QuickSurveys\ExternalSurvey;
 use QuickSurveys\SurveyAudience;
+use QuickSurveys\SurveyQuestion;
 
 /**
  * @covers \QuickSurveys\ExternalSurvey
@@ -13,6 +14,15 @@ class ExternalSurveyTest extends \MediaWikiUnitTestCase {
 
 	public function testBasicFunctionality() {
 		$audience = new SurveyAudience( [] );
+		$question = new SurveyQuestion( [
+			'name' => 'question-1',
+			'question' => 'question',
+			'description' => 'description',
+			'link' => 'link',
+			'instanceTokenParameterName' => 'instanceTokenParameterName',
+			'yesMsg' => 'yes',
+			'noMsg' => 'no',
+		], 'external' );
 		$survey = new ExternalSurvey(
 			'name',
 			'question',
@@ -23,10 +33,12 @@ class ExternalSurveyTest extends \MediaWikiUnitTestCase {
 			'additionalInfo',
 			'confirmMsg',
 			$audience,
+			[ $question ],
 			'link',
 			'instanceTokenParameterName',
 			'yes',
 			'no',
+			'confirmDescription'
 		);
 
 		$this->assertSame( 'ext.quicksurveys.survey.name', $survey->getResourceLoaderModuleName() );
@@ -38,9 +50,17 @@ class ExternalSurveyTest extends \MediaWikiUnitTestCase {
 				'privacyPolicy',
 				'additionalInfo',
 				'confirmMsg',
+				'confirmDescription',
+				// question, description, link, yes, and no should repeat again
+				// because of keys in questions and in survey, just for testing
+				'question',
+				'description',
 				'link',
 				'yes',
 				'no',
+				'yes',
+				'no',
+				'link',
 			],
 			$survey->getMessages()
 		);
@@ -55,6 +75,18 @@ class ExternalSurveyTest extends \MediaWikiUnitTestCase {
 			'privacyPolicy' => 'privacyPolicy',
 			'additionalInfo' => 'additionalInfo',
 			'confirmMsg' => 'confirmMsg',
+			'questions' => [
+				[
+					'name' => 'question-1',
+					'question' => 'question',
+					'description' => 'description',
+					'link' => 'link',
+					'instanceTokenParameterName' => 'instanceTokenParameterName',
+					'yesMsg' => 'yes',
+					'noMsg' => 'no',
+				],
+			],
+			'confirmDescription' => 'confirmDescription',
 			'type' => 'external',
 			'link' => 'link',
 			'instanceTokenParameterName' => 'instanceTokenParameterName',

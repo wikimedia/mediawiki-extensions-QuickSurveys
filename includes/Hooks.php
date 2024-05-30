@@ -15,6 +15,8 @@ use MediaWiki\Output\OutputPage;
 use MediaWiki\ResourceLoader as RL;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
+use MediaWiki\Session\SessionManager;
+use MediaWiki\User\User;
 use Skin;
 
 class Hooks implements
@@ -50,8 +52,42 @@ class Hooks implements
 		$title = $out->getTitle();
 		$action = $out->getActionName();
 		$surveys = MediaWikiServices::getInstance()->getService( 'QuickSurveys.EnabledSurveys' );
+		$contextFilter = new SurveyContextFilter( $surveys );
 
-		if ( ( new SurveyContextFilter( $surveys ) )->isAnySurveyAvailable( $title, $action ) ) {
+		if ( $contextFilter->isAnySurveyAvailable( $title, $action ) ) {
+			$needsFirstEdit = $contextFilter->isAudienceKeySet( 'firstEdit' );
+			$needsLastEdit = $contextFilter->isAudienceKeySet( 'lastEdit' );
+
+			// Only pass the user's first and last edit dates if a couple of
+			// conditions are met.
+			//
+			// First, there must be an available survey that requires one of
+			// these. Secondly, we should only query for them if the user has
+			// any edits in the first place. Fetching the total count is much
+			// faster than finding the timestamps of specific edits.
+			if ( $needsFirstEdit || $needsLastEdit ) {
+				$userEditTracker = MediaWikiServices::getInstance()->getUserEditTracker();
+				$user = SessionManager::getGlobalSession()->getUser();
+
+				if ( $userEditTracker->getUserEditCount( $user ) > 0 ) {
+					if ( $needsFirstEdit ) {
+						$firstEditTimestamp = $userEditTracker->getFirstEditTimestamp( $user );
+						$out->addJsConfigVars( [
+							'wgQSUserFirstEditDate' =>
+								$firstEditTimestamp ? $this->formatDate( $firstEditTimestamp ) : null,
+						] );
+					}
+
+					if ( $needsLastEdit ) {
+						$lastEditTimestamp = $userEditTracker->getLatestEditTimestamp( $user );
+						$out->addJsConfigVars( [
+							'wgQSUserLastEditDate' =>
+								$lastEditTimestamp ? $this->formatDate( $lastEditTimestamp ) : null,
+						] );
+					}
+				}
+			}
+
 			// TODO: It's annoying that we parse survey config a second time, inside this indirected
 			//  call.  Ideally we could construct the ResourceLoader data module right here.
 			$out->addModules( 'ext.quicksurveys.init' );
@@ -81,5 +117,35 @@ class Hooks implements
 
 			$resourceLoader->register( $module );
 		}
+	}
+
+	/**
+	 * Adds a default-enabled preference to gate the feature
+	 *
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetPreferences
+	 *
+	 * @param User $user
+	 * @param array &$prefs
+	 */
+	public static function onGetPreferences( User $user, array &$prefs ): void {
+		$prefs['displayquicksurveys'] = [
+			'type' => 'toggle',
+			'section' => 'personal/quicksurveyext',
+			'label-message' => 'ext-quicksurveys-pref-displayquicksurveys-label',
+			'help-message' => 'ext-quicksurveys-pref-displayquicksurveys-help',
+		];
+	}
+
+	/**
+	 * Convert a string timestamp with format (YYYYMMDDHHSS) to (YY-MM-DD)
+	 *
+	 * @param string $timestamp
+	 */
+	private function formatDate( string $timestamp ): string {
+		$year = substr( $timestamp, 0, 4 );
+		$month = substr( $timestamp, 4, 2 );
+		$day = substr( $timestamp, 6, 2 );
+
+		return "{$year}-{$month}-{$day}";
 	}
 }

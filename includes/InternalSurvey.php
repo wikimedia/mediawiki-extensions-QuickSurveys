@@ -4,18 +4,20 @@ namespace QuickSurveys;
 
 class InternalSurvey extends Survey {
 	/**
-	 * @var string[] The set of i18n message keys of the internal survey
-	 *  answers.
+	 * @var string[] The set of i18n message keys of the internal survey answers.
+	 * @deprecated
 	 */
 	private $answers;
 
 	/**
 	 * @var bool
+	 * @deprecated
 	 */
 	private $shuffleAnswersDisplay;
 
 	/**
 	 * @var string|null
+	 * @deprecated
 	 */
 	private $freeformTextLabel;
 
@@ -26,12 +28,13 @@ class InternalSurvey extends Survey {
 
 	/**
 	 * @var string
+	 * @deprecated
 	 */
 	private $layout;
 
 	/**
 	 * @param string $name
-	 * @param string $question
+	 * @param string|null $question
 	 * @param string|null $description
 	 * @param float $coverage
 	 * @param array[] $platforms
@@ -39,11 +42,13 @@ class InternalSurvey extends Survey {
 	 * @param string|null $additionalInfo
 	 * @param string|null $confirmMsg
 	 * @param SurveyAudience $audience
+	 * @param SurveyQuestion[] $questions
 	 * @param string[] $answers
 	 * @param bool $shuffleAnswersDisplay
 	 * @param string|null $freeformTextLabel
 	 * @param string|null $embedElementId
 	 * @param string $layout
+	 * @param string|null $confirmDescription
 	 */
 	public function __construct(
 		$name,
@@ -55,11 +60,13 @@ class InternalSurvey extends Survey {
 		$additionalInfo,
 		$confirmMsg,
 		SurveyAudience $audience,
+		array $questions,
 		array $answers,
 		$shuffleAnswersDisplay,
 		$freeformTextLabel,
 		$embedElementId,
-		$layout
+		$layout,
+		string $confirmDescription = null
 	) {
 		parent::__construct(
 			$name,
@@ -70,7 +77,9 @@ class InternalSurvey extends Survey {
 			$privacyPolicy,
 			$additionalInfo,
 			$confirmMsg,
-			$audience
+			$audience,
+			$questions,
+			$confirmDescription
 		);
 
 		$this->answers = $answers;

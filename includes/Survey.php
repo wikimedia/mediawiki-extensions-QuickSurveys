@@ -9,7 +9,8 @@ abstract class Survey {
 	private $name;
 
 	/**
-	 * @var string The question that the survey is posing to the user
+	 * @var string|null The question that the survey is posing to the user
+	 * @deprecated
 	 */
 	private $question;
 
@@ -30,6 +31,7 @@ abstract class Survey {
 
 	/**
 	 * @var string|null A user-friendly description of, or introduction to, the question
+	 * @deprecated
 	 */
 	private $description;
 
@@ -68,6 +70,16 @@ abstract class Survey {
 	private $privacyPolicy;
 
 	/**
+	 * @var SurveyQuestion[]|null The questions that the survey is posing to the user
+	 */
+	private $questions;
+
+	/**
+	 * @var string|null
+	 */
+	private $confirmDescription;
+
+	/**
 	 * @param string $name
 	 * @param string $question
 	 * @param string|null $description
@@ -77,6 +89,8 @@ abstract class Survey {
 	 * @param string|null $additionalInfo
 	 * @param string|null $confirmMsg
 	 * @param SurveyAudience $audience
+	 * @param SurveyQuestion[] $questions
+	 * @param string|null $confirmDescription
 	 */
 	public function __construct(
 		$name,
@@ -87,7 +101,9 @@ abstract class Survey {
 		$privacyPolicy,
 		$additionalInfo,
 		$confirmMsg,
-		SurveyAudience $audience
+		SurveyAudience $audience,
+		array $questions,
+		string $confirmDescription = null
 	) {
 		$this->name = $name;
 		$this->question = $question;
@@ -98,6 +114,8 @@ abstract class Survey {
 		$this->additionalInfo = $additionalInfo;
 		$this->confirmMsg = $confirmMsg;
 		$this->audience = $audience;
+		$this->questions = $questions;
+		$this->confirmDescription = $confirmDescription;
 	}
 
 	/**
@@ -122,9 +140,11 @@ abstract class Survey {
 	 * @return string[]
 	 */
 	public function getMessages(): array {
-		$messages = [
-			$this->question,
-		];
+		$messages = [];
+
+		if ( $this->question !== null ) {
+			$messages[] = $this->question;
+		}
 
 		if ( $this->description !== null ) {
 			$messages[] = $this->description;
@@ -140,6 +160,16 @@ abstract class Survey {
 
 		if ( $this->confirmMsg !== null ) {
 			$messages[] = $this->confirmMsg;
+		}
+
+		if ( $this->confirmDescription !== null ) {
+			$messages[] = $this->confirmDescription;
+		}
+
+		if ( $this->questions !== null ) {
+			foreach ( $this->questions as $questionItem ) {
+				$messages = array_merge( $messages, $questionItem->getMessages() );
+			}
 		}
 		return $messages;
 	}
@@ -161,6 +191,11 @@ abstract class Survey {
 			'privacyPolicy' => $this->privacyPolicy,
 			'additionalInfo' => $this->additionalInfo,
 			'confirmMsg' => $this->confirmMsg,
+			'questions' => array_map(
+				fn ( $question ) => $question->toArray(),
+				$this->questions
+			),
+			'confirmDescription' => $this->confirmDescription
 		];
 	}
 

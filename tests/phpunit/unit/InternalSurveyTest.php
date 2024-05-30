@@ -4,6 +4,7 @@ namespace Tests\QuickSurveys;
 
 use QuickSurveys\InternalSurvey;
 use QuickSurveys\SurveyAudience;
+use QuickSurveys\SurveyQuestion;
 
 /**
  * @covers \QuickSurveys\InternalSurvey
@@ -13,6 +14,19 @@ class InternalSurveyTest extends \MediaWikiUnitTestCase {
 
 	public function testBasicFunctionality() {
 		$audience = new SurveyAudience( [] );
+		$question = new SurveyQuestion( [
+			'name' => 'question-1',
+			'layout' => 'layout',
+			'question' => 'question',
+			'description' => 'description',
+			'shuffleAnswersDisplay' => false,
+			'answers' => [
+				[
+					'label' => 'answer1',
+					'freeformTextLabel' => 'freeformTextLabel',
+				],
+			],
+		], 'internal' );
 		$survey = new InternalSurvey(
 			'name',
 			'question',
@@ -23,17 +37,32 @@ class InternalSurveyTest extends \MediaWikiUnitTestCase {
 			'additionalInfo',
 			'confirmMsg',
 			$audience,
+			[ $question ],
 			[ 'answer1' ],
-			'shuffleAnswersDisplay',
+			false,
 			'freeformTextLabel',
 			'embedElementId',
-			'layout'
+			'layout',
+			'confirmDescription'
 		);
 
 		$this->assertSame( 'ext.quicksurveys.survey.name', $survey->getResourceLoaderModuleName() );
 		$this->assertSame( $audience, $survey->getAudience() );
-		$this->assertSame( [ 'question', 'description', 'privacyPolicy', 'additionalInfo',
-			'confirmMsg', 'answer1', 'freeformTextLabel' ], $survey->getMessages() );
+		$this->assertSame( [
+			'question',
+			'description',
+			'privacyPolicy',
+			'additionalInfo',
+			'confirmMsg',
+			'confirmDescription',
+			// question, description, answer1, and freeformTextLabel should repeat again
+			// because of keys in questions and in survey, just for testing
+			'question',
+			'description',
+			'answer1',
+			'freeformTextLabel',
+			'answer1',
+			'freeformTextLabel' ], $survey->getMessages() );
 		$this->assertSame( [
 			'audience' => [],
 			'name' => 'name',
@@ -45,9 +74,25 @@ class InternalSurveyTest extends \MediaWikiUnitTestCase {
 			'privacyPolicy' => 'privacyPolicy',
 			'additionalInfo' => 'additionalInfo',
 			'confirmMsg' => 'confirmMsg',
+			'questions' => [
+				[
+					'name' => 'question-1',
+					'layout' => 'layout',
+					'question' => 'question',
+					'description' => 'description',
+					'shuffleAnswersDisplay' => false,
+					'answers' => [
+						[
+							'label' => 'answer1',
+							'freeformTextLabel' => 'freeformTextLabel',
+						],
+					],
+				],
+			],
+			'confirmDescription' => 'confirmDescription',
 			'type' => 'internal',
 			'answers' => [ 'answer1' ],
-			'shuffleAnswersDisplay' => 'shuffleAnswersDisplay',
+			'shuffleAnswersDisplay' => false,
 			'freeformTextLabel' => 'freeformTextLabel',
 			'embedElementId' => 'embedElementId',
 			'layout' => 'layout',

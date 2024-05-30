@@ -174,7 +174,7 @@ QUnit.test( 'showSurvey: Placement (embedded)', function ( assert ) {
 		'Check embedded survey is inserted in correct place' );
 } );
 
-QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds)', function ( assert ) {
+QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds, firstEdit, lastEdit)', function ( assert ) {
 	const audienceAnyUser = {},
 		anonUser = {
 			isAnon: function () {
@@ -184,9 +184,24 @@ QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds)', function ( 
 				return false;
 			}
 		},
+		userRegisteredOn20170103 = {
+			getRegistration: function () {
+				return new Date( '2017-01-03T20:20:00+01:00' );
+			}
+		},
+		userRegisteredOn20170104 = {
+			getRegistration: function () {
+				return new Date( '2017-01-04T20:20:00+01:00' );
+			}
+		},
 		userRegisteredOn20170105 = {
 			getRegistration: function () {
 				return new Date( '2017-01-05T20:20:00+01:00' );
+			}
+		},
+		userRegisteredOn20170106 = {
+			getRegistration: function () {
+				return new Date( '2017-01-06T20:20:00+01:00' );
 			}
 		},
 		loggedInUser = {
@@ -231,9 +246,20 @@ QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds)', function ( 
 		audienceRegistrationEnd20170106 = { registrationEnd: '2017-01-06' },
 		audienceRegisteredInJan2017 = { registrationStart: '2017-01-01', registrationEnd: '2017-01-31' },
 		audienceRegisteredInFeb2017 = { registrationStart: '2017-02-01', registrationEnd: '2017-01-28' },
+		audienceFirstEditAfter20170104 = { firstEdit: { from: '2017-01-04', to: null } },
+		audienceFirstEditAfter20170105 = { firstEdit: { from: '2017-01-05', to: null } },
+		audienceFirstEditAfter20170106 = { firstEdit: { from: '2017-01-06', to: null } },
+		audienceFirstEditRange20170104To20170106 = { firstEdit: { from: '2017-01-04', to: '2017-01-06' } },
+		audienceFirstEditRange20170105To20170106 = { firstEdit: { from: '2017-01-05', to: '2017-01-06' } },
+		audienceFirstEditRange20170104To20170105 = { firstEdit: { from: '2017-01-04', to: '2017-01-05' } },
+		audienceLastEditBefore20170104 = { lastEdit: { from: null, to: '2017-01-04' } },
+		audienceLastEditBefore20170105 = { lastEdit: { from: null, to: '2017-01-05' } },
+		audienceLastEditAfter20170105 = { lastEdit: { from: '2017-01-05', to: null } },
+		audienceLastEditRange20170104To20170106 = { lastEdit: { from: '2017-01-04', to: '2017-01-06' } },
+		audienceLastEditRange20170105To20170106 = { lastEdit: { from: '2017-01-05', to: '2017-01-06' } },
+		audienceLastEditRange20170104To20170105 = { lastEdit: { from: '2017-01-04', to: '2017-01-05' } },
 		audiencePages = { pageIds: [ 123, 456 ] },
 		audienceChrome = { userAgent: [ 'Chrome' ] };
-
 	[
 		// User registration targeting
 		[ audienceRegistrationStart20170104, anonUser, editCount.noneditor, undefined, false,
@@ -266,6 +292,51 @@ QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds)', function ( 
 		[ audienceRegisteredInFeb2017, userRegisteredOn20170105, editCount.noneditor,
 			undefined, false,
 			'hide survey for user registered on 2017-01-05 if registration constraints are set to Feb 2017' ],
+		// User first and last edit range checking
+		[ audienceFirstEditAfter20170104, userRegisteredOn20170104, editCount.newbie, undefined, undefined, '2017-01-04', '2017-01-04', true,
+			'show survey for user that made their first edit on 2017-01-04' ],
+		[ audienceFirstEditAfter20170104, userRegisteredOn20170104, editCount.newbie, undefined, undefined, '2017-01-05', '2017-01-05', true,
+			'show survey for user that made their first edit (5th) after 2017-01-04' ],
+		[ audienceFirstEditAfter20170104, userRegisteredOn20170104, editCount.newbie, undefined, undefined, '2017-01-06', '2017-01-06', true,
+			'show survey for user that made their first edit (6th) after 2017-01-04' ],
+		[ audienceFirstEditAfter20170104, userRegisteredOn20170103, editCount.newbie, undefined, undefined, '2017-01-03', '2017-01-03', false,
+			'hide survey for user that made their first edit before 2017-01-04' ],
+		[ audienceFirstEditAfter20170105, userRegisteredOn20170104, editCount.newbie, undefined, undefined, '2017-01-04', '2017-01-04', false,
+			'hide survey for user that made their first edit before 2017-01-05' ],
+		[ audienceFirstEditAfter20170106, userRegisteredOn20170104, editCount.newbie, undefined, undefined, '2017-01-05', '2017-01-05', false,
+			'hide survey for user that made their first edit before 2017-01-06' ],
+		[ audienceLastEditAfter20170105, userRegisteredOn20170104, editCount.newbie, undefined, undefined, '2017-01-04', '2017-01-05', true,
+			'show survey for user that made their last edit on 2017-01-05' ],
+		[ audienceLastEditAfter20170105, userRegisteredOn20170104, editCount.newbie, undefined, undefined, '2017-01-04', '2017-01-06', true,
+			'show survey for user that made their last edit after 2017-01-05' ],
+		[ audienceLastEditBefore20170104, userRegisteredOn20170104, editCount.newbie, undefined, undefined, '2017-01-04', '2017-01-05', false,
+			'hide survey for user that made their last edit on 2017-01-05' ],
+		[ audienceLastEditBefore20170105, userRegisteredOn20170104, editCount.newbie, undefined, undefined, '2017-01-04', '2017-01-06', false,
+			'hide survey for user that made their last edit after 2017-01-05' ],
+		[ audienceFirstEditRange20170104To20170106, userRegisteredOn20170104, editCount.newbie, undefined, undefined, '2017-01-04', '2017-01-04', true,
+			'show survey for user that made their first edit (4th) between 2017-01-04 and 2017-01-06' ],
+		[ audienceFirstEditRange20170104To20170106, userRegisteredOn20170105, editCount.newbie, undefined, undefined, '2017-01-05', '2017-01-05', true,
+			'show survey for user that made their first edit (5th) between 2017-01-04 and 2017-01-06' ],
+		[ audienceFirstEditRange20170104To20170106, userRegisteredOn20170106, editCount.newbie, undefined, undefined, '2017-01-06', '2017-01-06', true,
+			'show survey for user that made their first edit (6th) between 2017-01-04 and 2017-01-06' ],
+		[ audienceFirstEditRange20170105To20170106, userRegisteredOn20170104, editCount.newbie, undefined, undefined, '2017-01-04', '2017-01-04', false,
+			'hide survey for user that made their first edit (4th) not between 2017-01-05 and 2017-01-06' ],
+		[ audienceFirstEditRange20170104To20170105, userRegisteredOn20170106, editCount.newbie, undefined, undefined, '2017-01-06', '2017-01-06', false,
+			'hide survey for user that made their first edit (6th) not between 2017-01-04 and 2017-01-05' ],
+		[ audienceLastEditRange20170104To20170106, userRegisteredOn20170104, editCount.newbie, undefined, undefined, '2017-01-04', '2017-01-04', true,
+			'show survey for user that made their last edit (4th) between 2017-01-04 and 2017-01-06' ],
+		[ audienceLastEditRange20170104To20170106, userRegisteredOn20170104, editCount.newbie, undefined, undefined, '2017-01-04', '2017-01-05', true,
+			'show survey for user that made their last edit (5th) between 2017-01-04 and 2017-01-06' ],
+		[ audienceLastEditRange20170104To20170106, userRegisteredOn20170104, editCount.newbie, undefined, undefined, '2017-01-04', '2017-01-06', true,
+			'show survey for user that made their last edit (6th) between 2017-01-04 and 2017-01-06' ],
+		[ audienceLastEditRange20170105To20170106, userRegisteredOn20170104, editCount.newbie, undefined, undefined, '2017-01-04', '2017-01-04', false,
+			'hide survey for user that made their last edit (4th) not between 2017-01-05 and 2017-01-06' ],
+		[ audienceLastEditRange20170104To20170105, userRegisteredOn20170104, editCount.newbie, undefined, undefined, '2017-01-04', '2017-01-06', false,
+			'hide survey for user that made their last edit (6th) not between 2017-01-04 and 2017-01-05' ],
+		[ audienceLastEditRange20170104To20170105, userRegisteredOn20170104, editCount.newbie, undefined, undefined, undefined, undefined, false,
+			'hide survey for registered user that has zero edits in total (2017-01-04 and 2017-01-05)' ],
+		[ audienceLastEditRange20170104To20170105, anonUser, editCount.newbie, undefined, undefined, undefined, undefined, false,
+			'hide survey for anonymous user that has zero edits in total (2017-01-04 and 2017-01-05)' ],
 		// Country targeting
 		[ audienceSpain, loggedInUser, editCount.noneditor, undefined, false,
 			'If Geo is undefined, we do not know the country so do not show the survey'
@@ -371,4 +442,14 @@ QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds)', function ( 
 			test[ test.length - 1 ]
 		);
 	} );
+} );
+
+QUnit.test( 'isQuickSurveysPrefEnabled', function ( assert ) {
+	mw.user.options.set( 'displayquicksurveys', false );
+	assert.false( qSurveys.isQuickSurveysPrefEnabled(),
+		'QuickSurvey preference is disabled (displayquicksurveys)' );
+
+	mw.user.options.set( 'displayquicksurveys', true );
+	assert.true( qSurveys.isQuickSurveysPrefEnabled(),
+		'QuickSurvey preference is enabled (displayquicksurveys)' );
 } );

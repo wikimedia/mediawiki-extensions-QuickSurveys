@@ -10,21 +10,25 @@ class ExternalSurvey extends Survey {
 
 	/**
 	 * @var string The key of the message containing the URL of the external survey.
+	 * @deprecated
 	 */
 	private $link;
 
 	/**
 	 * @var string The name of the URL parameter filled with the instance token appended to $link.
+	 * @deprecated
 	 */
 	private $instanceTokenParameterName;
 
 	/**
 	 * @var string
+	 * @deprecated
 	 */
 	private $yesMsg;
 
 	/**
 	 * @var string
+	 * @deprecated
 	 */
 	private $noMsg;
 
@@ -38,10 +42,12 @@ class ExternalSurvey extends Survey {
 	 * @param string $additionalInfo
 	 * @param string $confirmMsg
 	 * @param SurveyAudience $audience
+	 * @param SurveyQuestion[] $questions
 	 * @param string $link
 	 * @param string $instanceTokenParameterName
 	 * @param ?string $yesMsg
 	 * @param ?string $noMsg
+	 * @param string|null $confirmDescription
 	 */
 	public function __construct(
 		$name,
@@ -53,10 +59,12 @@ class ExternalSurvey extends Survey {
 		$additionalInfo,
 		$confirmMsg,
 		SurveyAudience $audience,
+		array $questions,
 		$link,
 		$instanceTokenParameterName,
 		?string $yesMsg = null,
-		?string $noMsg = null
+		?string $noMsg = null,
+		string $confirmDescription = null
 	) {
 		parent::__construct(
 			$name,
@@ -67,7 +75,9 @@ class ExternalSurvey extends Survey {
 			$privacyPolicy,
 			$additionalInfo,
 			$confirmMsg,
-			$audience
+			$audience,
+			$questions,
+			$confirmDescription
 		);
 
 		$this->link = $link;
@@ -80,11 +90,16 @@ class ExternalSurvey extends Survey {
 	 * @return string[]
 	 */
 	public function getMessages(): array {
-		return array_merge( parent::getMessages(), [
-			$this->link,
+		$messages = array_merge( parent::getMessages(), [
 			$this->yesMsg,
 			$this->noMsg,
 		] );
+
+		if ( $this->link !== null ) {
+			$messages[] = $this->link;
+		}
+
+		return $messages;
 	}
 
 	public function toArray(): array {

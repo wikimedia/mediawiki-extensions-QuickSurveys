@@ -11,6 +11,9 @@
 			"Umherirrender"
 		]
 	},
+	"prefs-quicksurveyext": "The extension name for the preference section in user profile.",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Label text for the toggle preference to display quick surveys.",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Help text for the toggle preference to display quick surveys.",
 	"quicksurveys-desc": "{{desc|name=QuickSurveys|url=https://www.mediawiki.org/wiki/Extension:QuickSurveys}}",
 	"ext-quicksurveys-example-internal-survey-question": "The question for the example internal survey",
 	"ext-quicksurveys-example-internal-survey-description": "Description of the example internal survey",
@@ -23,11 +26,13 @@
 	"ext-quicksurveys-example-external-survey-privacy-policy": "The privacy policy of the example external survey",
 	"ext-quicksurveys-example-external-survey-link": "{{notranslate}}\nLink to the example external survey.",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Default disclaimer about submitting surveys.",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "Text with a link to [Special:Preferences#mw-prefsection-personal-quicksurveyext] to show in the survey footer.",
 	"ext-quicksurveys-survey-confirm-msg": "Confirmation message thanking user for their input.",
 	"ext-quicksurveys-survey-positive": "Default button label for user replying in affirmative.\n{{Identical|Yes}}",
 	"ext-quicksurveys-survey-negative": "Default button label for user replying neutrally.\n{{Identical|No}}",
 	"ext-quicksurveys-survey-neutral": "Default button label for user replying negatively.",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "label for the submit button for internal surveys",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "label for the back button for internal surveys",
 	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "alert message when the user tries to submit the form without providing an answer",
 	"ext-quicksurveys-external-survey-yes-button": "label of the link to the survey",
 	"ext-quicksurveys-external-survey-no-button": "decline button label\n{{Identical|No thanks}}",

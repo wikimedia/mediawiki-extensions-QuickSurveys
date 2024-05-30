@@ -52,6 +52,22 @@ class SurveyContextFilter {
 	}
 
 	/**
+	 * Checks if a specific audience key is set for any surveys.
+	 *
+	 * @param string $key
+	 * @return bool
+	 */
+	public function isAudienceKeySet( string $key ): bool {
+		foreach ( $this->surveys as $survey ) {
+			$audience = $survey->getAudience()->toArray();
+			if ( isset( $audience[$key] ) ) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
 	 * @param int $pageId
 	 *
 	 * @return bool
