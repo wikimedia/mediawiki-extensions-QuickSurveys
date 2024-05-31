@@ -14,13 +14,13 @@
 		"@babel/preset-env": "7.16.11",
 		"@vue/test-utils": "2.0.0-rc.17",
 		"@vue/vue3-jest": "27.0.0-alpha.4",
-		"@wikimedia/codex": "1.6.0",
+		"@wikimedia/codex": "1.6.1",
 		"@wikimedia/mw-node-qunit": "7.2.0",
 		"babel-core": "6.26.3",
 		"eslint-config-wikimedia": "0.27.0",
 		"grunt-banana-checker": "0.13.0",
 		"jest": "27.4.7",
 		"stylelint-config-wikimedia": "0.16.1",
-		"vue": "3.3.9"
+		"vue": "3.4.27"
 	}
 }
