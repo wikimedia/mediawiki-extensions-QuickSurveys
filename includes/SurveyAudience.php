@@ -2,14 +2,22 @@
 
 namespace QuickSurveys;
 
-use Wikimedia\Assert\Assert;
 use Wikimedia\Assert\ParameterTypeException;
 
-class SurveyAudience {
+class SurveyAudience extends Schema {
+
 	/**
-	 * a list of accepted keys and their required types
+	 * A list of keys that need to be defined in a date range.
 	 */
-	private const VALID_KEYS = [
+	private const VALID_DATE_RANGE_KEYS = [
+		'from' => 'string',
+		'to' => 'string',
+	];
+
+	/**
+	 * A list of accepted audience keys and their required types.
+	 */
+	private const VALID_AUDIENCE_KEYS = [
 		'minEdits' => 'integer',
 		'maxEdits' => 'integer',
 		'countries' => 'array',
@@ -18,37 +26,18 @@ class SurveyAudience {
 		'registrationEnd' => 'string',
 		'pageIds' => 'array',
 		'userAgent' => 'array',
+		'firstEdit' => [ self::ARRAY, self::VALID_DATE_RANGE_KEYS ],
+		'lastEdit' => [ self::ARRAY, self::VALID_DATE_RANGE_KEYS ],
 	];
 
 	/**
-	 * an internal description of the audience with validated data.
-	 * @var array
-	 */
-	private $audience;
-
-	/**
+	 * Validate a survey audience definition.
+	 *
 	 * @param array $audienceDefinition defining the audience with keys
 	 * 	that match the available keys defined in VALID_KEYS
 	 * @throws ParameterTypeException when a key has the wrong type
 	 */
 	public function __construct( array $audienceDefinition ) {
-		$audienceData = [];
-		foreach ( self::VALID_KEYS as $name => $type ) {
-			if ( array_key_exists( $name, $audienceDefinition ) ) {
-				Assert::parameterType( $type, $audienceDefinition[ $name ], $name );
-				// data is in the correct form so add.
-				$audienceData[$name] = $audienceDefinition[$name];
-			}
-		}
-		$this->audience = $audienceData;
-	}
-
-	/**
-	 * Returns the JSON-encodable, minimal representation of the survey audience
-	 *
-	 * @return array
-	 */
-	public function toArray(): array {
-		return $this->audience;
+		parent::__construct( $audienceDefinition, self::VALID_AUDIENCE_KEYS );
 	}
 }

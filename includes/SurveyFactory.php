@@ -148,7 +148,7 @@ class SurveyFactory {
 	private function validateSpec( array $spec ) {
 		$name = $spec['name'];
 
-		if ( !isset( $spec['question'] ) ) {
+		if ( !isset( $spec['question'] ) && ( !isset( $spec['questions'] ) || !$spec['questions'] ) ) {
 			throw new InvalidArgumentException( "The \"{$name}\" survey doesn't have a question." );
 		}
 
@@ -169,13 +169,25 @@ class SurveyFactory {
 			throw new InvalidArgumentException( "The \"{$name}\" survey doesn't have any platforms." );
 		}
 
-		if ( $spec['type'] === 'external' && isset( $spec['link'] ) ) {
-			$link = $spec['link'];
-			$url = wfMessage( $link )->inContentLanguage()->plain();
-			$bit = parse_url( $url, PHP_URL_SCHEME );
+		if ( $spec['type'] === 'external' ) {
+			$link = null;
+			if ( isset( $spec['link'] ) ) {
+				$link = $spec['link'];
+			} elseif (
+				isset( $spec['questions'] ) &&
+				isset( $spec['questions'][0] ) &&
+				isset( $spec['questions'][0]['link'] )
+			) {
+				$link = $spec['questions'][0]['link'];
+			}
 
-			if ( $bit !== 'https' ) {
-				throw new InvalidArgumentException( "The \"{$name}\" external survey must have a secure url." );
+			if ( isset( $link ) ) {
+				$url = wfMessage( $link )->inContentLanguage()->plain();
+				$bit = parse_url( $url, PHP_URL_SCHEME );
+
+				if ( $bit !== 'https' ) {
+					throw new InvalidArgumentException( "The \"{$name}\" external survey must have a secure url." );
+				}
 			}
 		}
 
@@ -217,36 +229,216 @@ class SurveyFactory {
 	/**
 	 * @param array $spec
 	 * @throws InvalidArgumentException
+	 */
+	private function validateExternalSurveyQuestions( array $spec ) {
+		$surveyName = $spec['name'];
+		$questions = $spec['questions'] ?? [];
+
+		if ( count( $questions ) !== 1 ) {
+			throw new InvalidArgumentException(
+				"The \"{$surveyName}\" external survey should only have one question."
+			);
+		}
+
+		$question = $questions[0];
+
+		$name = $question['name'] ?? null;
+		if ( !$name ) {
+			throw new InvalidArgumentException(
+				"The \"{$surveyName}\" external survey doesn't have a question name."
+			);
+		}
+
+		$questionText = $question['question'] ?? null;
+		if ( !$questionText ) {
+			throw new InvalidArgumentException(
+				"The \"{$surveyName}\" external survey doesn't have a question."
+			);
+		}
+
+		$link = $question['link'] ?? null;
+		if ( !$link ) {
+			throw new InvalidArgumentException(
+				"The \"{$surveyName}\" external survey doesn't have a link."
+			);
+		}
+	}
+
+	/**
+	 * @param array $spec
+	 * @throws InvalidArgumentException
+	 */
+	private function validateInternalSurveyQuestions( array $spec ) {
+		$surveyName = $spec['name'];
+		$questions = $spec['questions'] ?? [];
+		$questionsByName = [];
+
+		foreach ( $questions as $key => $question ) {
+			$name = $question['name'] ?? null;
+			if ( !$name ) {
+				throw new InvalidArgumentException(
+					"Question at index \"{$key}\" in the \"{$surveyName}\" internal survey " .
+					"doesn't have a name."
+				);
+			}
+
+			if ( array_key_exists( $name, $questionsByName ) ) {
+				throw new InvalidArgumentException(
+					"Question at index \"{$key}\" in the \"{$surveyName}\" internal survey " .
+					"has a name that's used by a previous question."
+				);
+			}
+			$questionsByName[$name] = $question;
+
+			$layout = $question['layout'] ?? null;
+			if ( !$layout || !in_array( $layout, [ 'single-answer', 'multiple-answer' ] ) ) {
+				throw new InvalidArgumentException(
+					"Question at index \"{$key}\" in the \"{$surveyName}\" internal survey " .
+					"has a layout that's not one of \"single-answer\" or \"multiple-answer\"."
+				);
+			}
+
+			$surveyQuestion = $question['question'] ?? null;
+			if ( !$surveyQuestion ) {
+				throw new InvalidArgumentException(
+					"Question at index \"{$key}\" in the \"{$surveyName}\" internal survey " .
+					"doesn't have a question."
+				);
+			}
+
+			$answers = $question['answers'] ?? [];
+			if ( !$answers ) {
+				throw new InvalidArgumentException(
+					"Question at index \"{$key}\" in the \"{$surveyName}\" internal survey " .
+					"has no answers."
+				);
+			}
+			foreach ( $answers as $answer ) {
+				$label = $answer['label'] ?? null;
+				if ( !isset( $label ) ) {
+					throw new InvalidArgumentException(
+						"Question at index \"{$key}\" in the \"{$surveyName}\" internal survey " .
+						"has an answer with no label."
+					);
+				}
+			}
+
+			$dependsOn = $question['dependsOn'] ?? [];
+			if ( $dependsOn ) {
+				foreach ( $dependsOn as $dependency ) {
+					$dependencyName = $dependency['question'] ?? null;
+					$answerIsOneOf = $dependency['answerIsOneOf'] ?? [];
+
+					if ( !$dependencyName ) {
+						throw new InvalidArgumentException(
+							"Question at index \"{$key}\" in the \"{$surveyName}\" internal survey " .
+							"has a dependency that is not referencing any question."
+						);
+					}
+
+					if ( !array_key_exists( $dependencyName, $questionsByName ) ) {
+						throw new InvalidArgumentException(
+							"Question at index \"{$key}\" in the \"{$surveyName}\" internal survey " .
+							"depends on a question that does not exist prior to itself."
+						);
+					} elseif ( $dependencyName === $name ) {
+						throw new InvalidArgumentException(
+							"Question at index \"{$key}\" in the \"{$surveyName}\" internal survey " .
+							"is referencing itself as a question it depends on."
+						);
+					}
+
+					$referencedQuestion = $questionsByName[$dependencyName];
+					$referencedAnswers = array_map(
+						fn ( array $answer ): string => $answer['label'],
+						$referencedQuestion['answers']
+					);
+
+					foreach ( $answerIsOneOf as $answer ) {
+						if ( !in_array( $answer, $referencedAnswers ) ) {
+							throw new InvalidArgumentException(
+								"Question at index \"{$key}\" in the \"{$surveyName}\" internal survey " .
+								"depends on an answer that doesn't exist on the referenced question."
+							);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * @param array $spec
+	 * @throws InvalidArgumentException
 	 * @return ExternalSurvey
 	 */
 	private function factoryExternal( array $spec ): ExternalSurvey {
 		$name = $spec['name'];
+		$questions = $spec['questions'] ?? [];
 
-		if ( !isset( $spec['link'] ) ) {
-			throw new InvalidArgumentException( "The \"{$name}\" external survey doesn't have a link." );
+		// Deprecated fields.
+		$question = $spec['question'] ?? null;
+		$description = $spec['description'] ?? null;
+		$link = $spec['link'] ?? null;
+		$privacyPolicy = $spec['privacyPolicy'] ?? null;
+		$yesMsg = $spec['yesMsg'] ?? null;
+		$noMsg = $spec['noMsg'] ?? null;
+		$instanceTokenParameterName = $spec['instanceTokenParameterName'] ?? null;
+
+		if ( !$link && !$questions ) {
+			throw new InvalidArgumentException(
+				"The \"{$name}\" external survey doesn't have a link."
+			);
 		}
 
-		if ( !isset( $spec['privacyPolicy'] ) ) {
+		if ( !$privacyPolicy ) {
 			throw new InvalidArgumentException(
 				"The \"{$name}\" external survey doesn't have a privacy policy."
 			);
 		}
 
-		return new ExternalSurvey(
+		$surveyQuestions = [];
+		if ( $questions ) {
+			foreach ( $questions as $surveyQuestion ) {
+				$surveyQuestions[] = new SurveyQuestion( $surveyQuestion, 'external' );
+			}
+		}
+
+		// Backwards compatibility: Map the deprecated field values to newer
+		// 'questions' array if they're defined and 'questions' is!
+		if ( !$surveyQuestions && $question ) {
+			$surveyQuestions[] = new SurveyQuestion( [
+				'name' => 'question-1',
+				'question' => $question,
+				'description' => $description,
+				'link' => $link,
+				// Set defaults for yes and no messages for compatibility.
+				'yesMsg' => $yesMsg ?? 'ext-quicksurveys-external-survey-yes-button',
+				'noMsg' => $noMsg ?? 'ext-quicksurveys-external-survey-no-button',
+				'instanceTokenParameterName' => $instanceTokenParameterName,
+			], 'external' );
+		}
+
+		$survey = new ExternalSurvey(
 			$name,
-			$spec['question'],
-			$spec['description'] ?? null,
 			$spec['coverage'],
 			$spec['platforms'],
 			$spec['privacyPolicy'],
 			$spec['additionalInfo'] ?? null,
 			$spec['confirmMsg'] ?? null,
 			new SurveyAudience( $spec['audience'] ?? [] ),
-			$spec['link'],
-			$spec['instanceTokenParameterName'] ?? '',
-			$spec['yesMsg'] ?? null,
-			$spec['noMsg'] ?? null
+			$surveyQuestions,
+			$question,
+			$description,
+			$spec['confirmDescription'] ?? null,
+			$link,
+			$instanceTokenParameterName,
+			$yesMsg,
+			$noMsg
 		);
+		$this->validateExternalSurveyQuestions( $survey->toArray() );
+
+		return $survey;
 	}
 
 	/**
@@ -256,37 +448,74 @@ class SurveyFactory {
 	 */
 	private function factoryInternal( array $spec ): InternalSurvey {
 		$name = $spec['name'];
+		$questions = $spec['questions'] ?? [];
 
-		if ( !isset( $spec['answers'] ) ) {
+		// Deprecated fields.
+		$question = $spec['question'] ?? null;
+		$answers = $spec['answers'] ?? null;
+		$description = $spec['description'] ?? null;
+		$layout = $spec['layout'] ?? null;
+		$shuffleAnswersDisplay = $spec['shuffleAnswersDisplay'] ?? null;
+		$freeformTextLabel = $spec['freeformTextLabel'] ?? null;
+
+		if ( !$questions && !$answers ) {
 			throw new InvalidArgumentException(
 				"The \"{$name}\" internal survey doesn't have any answers."
 			);
 		}
 
-		// TODO: Remove default value after a deprecation period.  See T255130.
-		$layout = $spec['layout'] ?? 'single-answer';
-		if ( !in_array( $layout, [ 'single-answer', 'multiple-answer' ] ) ) {
-			throw new InvalidArgumentException(
-				"The \"{$name}\" internal survey layout is not one of \"single-answer\" or " .
-				"\"multiple-answer\"."
-			);
+		$surveyQuestions = [];
+		if ( $questions ) {
+			foreach ( $questions as $surveyQuestion ) {
+				$surveyQuestions[] = new SurveyQuestion( $surveyQuestion, 'internal' );
+			}
+		} else {
+			// Only make the deprecated top-level layout field required if the
+			// corresponding deprecated question field is in use.
+			if ( !in_array( $layout, [ 'single-answer', 'multiple-answer' ] ) ) {
+				throw new InvalidArgumentException(
+					"The \"{$name}\" internal survey layout is not one of \"single-answer\" or " .
+					"\"multiple-answer\"."
+				);
+			}
 		}
 
-		return new InternalSurvey(
+		// Backwards compatibility: Map the deprecated field values to newer
+		// 'questions' array if they're defined and 'questions' is empty.
+		if ( !$surveyQuestions && $question && $answers ) {
+			$surveyQuestions[] = new SurveyQuestion( [
+				'name' => 'question-1',
+				'layout' => $layout,
+				'question' => $question,
+				'description' => $description,
+				'shuffleAnswersDisplay' => $shuffleAnswersDisplay,
+				'answers' => array_map( fn ( string $answer ): array => [
+					'label' => $answer,
+					'freeformTextLabel' => $freeformTextLabel,
+				], $answers ),
+			], 'internal' );
+		}
+
+		$survey = new InternalSurvey(
 			$name,
-			$spec['question'],
-			$spec['description'] ?? null,
 			$spec['coverage'],
 			$spec['platforms'],
 			$spec['privacyPolicy'] ?? null,
 			$spec['additionalInfo'] ?? null,
 			$spec['confirmMsg'] ?? null,
 			new SurveyAudience( $spec['audience'] ?? [] ),
-			$spec['answers'],
-			$spec['shuffleAnswersDisplay'] ?? true,
-			$spec['freeformTextLabel'] ?? null,
+			$surveyQuestions,
+			$question,
+			$description,
+			$spec['confirmDescription'] ?? null,
+			$answers,
+			$shuffleAnswersDisplay,
+			$freeformTextLabel,
 			$spec['embedElementId'] ?? null,
 			$layout
 		);
+		$this->validateInternalSurveyQuestions( $survey->toArray() );
+
+		return $survey;
 	}
 }

@@ -23,13 +23,17 @@ describe( 'QuickSurvey', () => {
 			VueMock,
 			document.createElement( 'div' ),
 			{
-				link: 'https://survey',
 				name: 'Hello world',
-				description: 'Description',
-				question: 'Question',
-				externalLink: 'https://mylink',
-				yesMsg: 'Visit survey',
-				noMsg: 'No thanks'
+				questions: [
+					{
+						name: 'Question',
+						description: 'Description',
+						question: 'Question',
+						link: 'https://mylink',
+						yesMsg: 'Visit survey',
+						noMsg: 'No thanks'
+					}
+				]
 			},
 			() => {},
 			'ss', 'pp', false,
@@ -47,11 +51,15 @@ describe( 'QuickSurvey', () => {
 			VueMock,
 			document.createElement( 'div' ),
 			{
-				link: 'https://survey',
 				name: 'Hello world',
-				description: 'Description',
-				question: 'Question',
-				answers: []
+				questions: [
+					{
+						name: 'Question',
+						description: 'Description',
+						question: 'Question',
+						answers: []
+					}
+				]
 			},
 			() => {},
 			'ss', 'pp', false,
@@ -69,11 +77,14 @@ describe( 'QuickSurvey', () => {
 			VueMock,
 			document.createElement( 'div' ),
 			{
-				link: 'https://survey',
 				name: 'Hello world',
-				question: 'Question',
-				answers: [],
-				instanceTokenParameterName: '111'
+				questions: [
+					{
+						name: 'Question',
+						question: 'Question',
+						answers: []
+					}
+				]
 			},
 			() => {},
 			'ss', 'pp', false,
@@ -123,7 +134,18 @@ describe( 'QuickSurvey', () => {
 				question: 'Question',
 				externalLink: 'https://mylink',
 				yesMsg: 'Visit survey',
-				noMsg: 'No thanks'
+				noMsg: 'No thanks',
+				questions: [
+					{
+						name: 'Question',
+						link: 'https://survey',
+						description: 'Description',
+						question: 'Question',
+						externalLink: 'https://mylink',
+						yesMsg: 'Visit survey',
+						noMsg: 'No thanks'
+					}
+				]
 			},
 			() => {},
 			'ss', 'pp', false,
