@@ -414,19 +414,14 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			$this->expectsErrorLog( 'Bad survey configuration: The survey name "test" is not unique' )
 		);
 
+		$spec = [
+			'type' => 'external',
+			'question' => 'Do you like writing unit tests?',
+			'enabled' => true,
+		];
 		$specs = [
-			[
-				'name' => 'test',
-				'type' => 'external',
-				'question' => 'Do you like writing unit tests?',
-				'enabled' => true,
-			],
-			[
-				'name' => ' test ',
-				'type' => 'external',
-				'question' => 'Do you like writing unit tests?',
-				'enabled' => true,
-			],
+			[ 'name' => 'test' ] + $spec,
+			[ 'name' => ' test ' ] + $spec,
 		];
 
 		$this->assertSame( [], $factory->parseSurveyConfig( $specs ) );
@@ -434,41 +429,25 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 
 	public function testParseSurveyConfigSucceeds() {
 		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
+		$spec = [
+			'type' => 'internal',
+			'questions' => [
+				[
+					'name' => 'question-1',
+					'layout' => 'single-answer',
+					'question' => 'Do you like writing unit tests?',
+					'answers' => [
+						[ 'label' => 'ext-quicksurveys-test-internal-survey-positive' ]
+					],
+				],
+			],
+			'enabled' => true,
+			'coverage' => 1,
+			'platforms' => [],
+		];
 		$specs = [
-			[
-				'name' => 'a',
-				'type' => 'internal',
-				'questions' => [
-					[
-						'name' => 'question-1',
-						'layout' => 'single-answer',
-						'question' => 'Do you like writing unit tests?',
-						'answers' => [
-							[ 'label' => 'ext-quicksurveys-test-internal-survey-positive' ]
-						],
-					],
-				],
-				'enabled' => true,
-				'coverage' => 1,
-				'platforms' => [],
-			],
-			[
-				'name' => 'aa',
-				'type' => 'internal',
-				'questions' => [
-					[
-						'name' => 'question-1',
-						'layout' => 'single-answer',
-						'question' => 'Do you like writing unit tests?',
-						'answers' => [
-							[ 'label' => 'ext-quicksurveys-test-internal-survey-positive' ]
-						],
-					],
-				],
-				'enabled' => true,
-				'coverage' => 1,
-				'platforms' => [],
-			],
+			[ 'name' => 'a' ] + $spec,
+			[ 'name' => 'aa' ] + $spec,
 		];
 		$this->assertCount( 2, $factory->parseSurveyConfig( $specs ) );
 	}
