@@ -5,9 +5,7 @@ describe( 'QuickSurvey', () => {
 	let vue;
 	const VueMock = {
 		h: Vue.h,
-		createMwApp: ( options ) => {
-			return Vue.createApp( options );
-		}
+		createMwApp: ( options ) => Vue.createApp( options )
 	};
 
 	beforeEach( () => {
@@ -18,105 +16,97 @@ describe( 'QuickSurvey', () => {
 		};
 	} );
 
-	it( 'renders ExternalSurvey if externalLink is defined', () => {
-		return vue.render(
-			VueMock,
-			document.createElement( 'div' ),
-			{
-				name: 'Hello world',
-				questions: [
-					{
-						name: 'Question',
-						description: 'Description',
-						question: 'Question',
-						link: 'https://mylink',
-						yesMsg: 'Visit survey',
-						noMsg: 'No thanks'
-					}
-				]
-			},
-			() => {},
-			'ss', 'pp', false,
-			'ltr',
-			mw.eventLog.logEvent
-		).then( ( node ) => {
-			expect(
-				node.innerHTML
-			).toContain( 'Visit survey' );
-		} );
-	} );
+	it( 'renders ExternalSurvey if externalLink is defined', () => vue.render(
+		VueMock,
+		document.createElement( 'div' ),
+		{
+			name: 'Hello world',
+			questions: [
+				{
+					name: 'Question',
+					description: 'Description',
+					question: 'Question',
+					link: 'https://mylink',
+					yesMsg: 'Visit survey',
+					noMsg: 'No thanks'
+				}
+			]
+		},
+		() => {},
+		'ss', 'pp', false,
+		'ltr',
+		mw.eventLog.logEvent
+	).then( ( node ) => {
+		expect(
+			node.innerHTML
+		).toContain( 'Visit survey' );
+	} ) );
 
-	it( 'renders with description', () => {
-		return vue.render(
-			VueMock,
-			document.createElement( 'div' ),
-			{
-				name: 'Hello world',
-				questions: [
-					{
-						name: 'Question',
-						description: 'Description',
-						question: 'Question',
-						answers: []
-					}
-				]
-			},
-			() => {},
-			'ss', 'pp', false,
-			'ltr',
-			mw.eventLog.logEvent
-		).then( ( node ) => {
-			expect(
-				node.innerHTML
-			).toContain( 'Description' );
-		} );
-	} );
+	it( 'renders with description', () => vue.render(
+		VueMock,
+		document.createElement( 'div' ),
+		{
+			name: 'Hello world',
+			questions: [
+				{
+					name: 'Question',
+					description: 'Description',
+					question: 'Question',
+					answers: []
+				}
+			]
+		},
+		() => {},
+		'ss', 'pp', false,
+		'ltr',
+		mw.eventLog.logEvent
+	).then( ( node ) => {
+		expect(
+			node.innerHTML
+		).toContain( 'Description' );
+	} ) );
 
-	it( 'renders without description', () => {
-		return vue.render(
-			VueMock,
-			document.createElement( 'div' ),
-			{
-				name: 'Hello world',
-				questions: [
-					{
-						name: 'Question',
-						question: 'Question',
-						answers: []
-					}
-				]
-			},
-			() => {},
-			'ss', 'pp', false,
-			'ltr',
-			mw.eventLog.logEvent
-		).then( ( node ) => {
-			expect(
-				node.innerHTML
-			).not.toContain( 'Description' );
-		} );
-	} );
+	it( 'renders without description', () => vue.render(
+		VueMock,
+		document.createElement( 'div' ),
+		{
+			name: 'Hello world',
+			questions: [
+				{
+					name: 'Question',
+					question: 'Question',
+					answers: []
+				}
+			]
+		},
+		() => {},
+		'ss', 'pp', false,
+		'ltr',
+		mw.eventLog.logEvent
+	).then( ( node ) => {
+		expect(
+			node.innerHTML
+		).not.toContain( 'Description' );
+	} ) );
 
-	it( 'renders with freeform text label', () => {
-		return vue.render(
-			VueMock,
-			document.createElement( 'div' ),
-			{
-				name: 'Hello world',
-				question: 'Question',
-				freeformTextLabel: 'Type some text',
-				answers: [ 'yes', 'no' ]
-			},
-			() => {},
-			'ss', 'pp', false,
-			'ltr',
-			mw.eventLog.logEvent
-		).then( ( node ) => {
-			expect(
-				node.innerHTML
-			).not.toContain( '&lt;Type some text&gt;' );
-		} );
-	} );
+	it( 'renders with freeform text label', () => vue.render(
+		VueMock,
+		document.createElement( 'div' ),
+		{
+			name: 'Hello world',
+			question: 'Question',
+			freeformTextLabel: 'Type some text',
+			answers: [ 'yes', 'no' ]
+		},
+		() => {},
+		'ss', 'pp', false,
+		'ltr',
+		mw.eventLog.logEvent
+	).then( ( node ) => {
+		expect(
+			node.innerHTML
+		).not.toContain( '&lt;Type some text&gt;' );
+	} ) );
 
 	it( 'calls dismissSurvey when no-thanks is clicked in an external survey', () => {
 		const container = document.createElement( 'div' );
@@ -161,10 +151,9 @@ describe( 'QuickSurvey', () => {
 			noThanks.click();
 
 			// Wait for next frame for the event to bubble up
-			requestAnimationFrame( () =>
-				expect(
-					dismissSurvey.mock.calls.length
-				).toBe( 1 ) );
+			requestAnimationFrame( () => expect(
+				dismissSurvey.mock.calls.length
+			).toBe( 1 ) );
 		} );
 	} );
 } );

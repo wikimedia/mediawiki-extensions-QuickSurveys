@@ -68,7 +68,7 @@ function processSurveyQuestions( questions, pageViewToken ) {
 		return [];
 	}
 
-	return questions.map( function ( question ) {
+	return questions.map( ( question ) => {
 		const externalLink = question.link ? new mw.Uri(
 			// eslint-disable-next-line mediawiki/msg-doc
 			mw.message( question.link ).parse()
@@ -78,17 +78,15 @@ function processSurveyQuestions( questions, pageViewToken ) {
 			externalLink.query[ question.instanceTokenParameterName ] = pageViewToken;
 		}
 
-		const answers = ( question.answers || [] ).map( function ( answer ) {
-			return {
-				key: answer.label,
-				// eslint-disable-next-line mediawiki/msg-doc
-				label: mw.msg( answer.label ),
-				freeformTextLabel: answer.freeformTextLabel ?
-					// eslint-disable-next-line mediawiki/msg-doc
-					mw.msg( answer.freeformTextLabel ) :
-					undefined
-			};
-		} );
+		const answers = ( question.answers || [] ).map( ( answer ) => ( {
+			key: answer.label,
+			// eslint-disable-next-line mediawiki/msg-doc
+			label: mw.msg( answer.label ),
+			freeformTextLabel: answer.freeformTextLabel ?
+			// eslint-disable-next-line mediawiki/msg-doc
+				mw.msg( answer.freeformTextLabel ) :
+				undefined
+		} ) );
 
 		return {
 			name: question.name,
@@ -145,14 +143,14 @@ function getNextQuestionIndex( currentIndex, questions, answers ) {
 		const conditions = currentQuestion.dependsOn || [];
 
 		// Question is accepted when all conditions in `dependsOn` are accepted
-		currentQuestionIsAccepted = conditions.every( function ( condition ) {
+		currentQuestionIsAccepted = conditions.every( ( condition ) => {
 			// Condition is accepted when one answer from the list matches with
 			// one of the expected answers.
-			const conditionIsAccepted = questions.some( function ( question ) {
+			const conditionIsAccepted = questions.some( ( question ) => {
 				const isSameQuestion = question.name === condition.question;
 
 				const answerIsInCondition = condition.answerIsOneOf.some(
-					function ( oneOfAnswer ) {
+					( oneOfAnswer ) => {
 						const answersForQuestion = Object.keys(
 							answers[ question.questionKey ] || {}
 						);

@@ -11,7 +11,7 @@ QUnit.module( 'ext.quicksurveys.lib', {
 	}
 } );
 
-QUnit.test( 'getSurveyFromQueryString', function ( assert ) {
+QUnit.test( 'getSurveyFromQueryString', ( assert ) => {
 	[
 		[ 'true', [], undefined ],
 		[ 'foo', [], undefined ],
@@ -21,11 +21,10 @@ QUnit.test( 'getSurveyFromQueryString', function ( assert ) {
 		[ 'foo', [ { name: 'foo', type: 'internal' } ], { name: 'foo', type: 'internal' } ],
 		[ 'external-survey-foo', [ { name: 'foo', type: 'internal' } ], { name: 'foo', type: 'internal' } ],
 		[ 'internal-survey-foo', [ { name: 'foo', type: 'internal' } ], { name: 'foo', type: 'internal' } ]
-	].forEach( ( [ queryString, availableSurveys, expectedResult ] ) =>
-		assert.deepEqual(
-			qSurveys.getSurveyFromQueryString( queryString, availableSurveys ),
-			expectedResult
-		)
+	].forEach( ( [ queryString, availableSurveys, expectedResult ] ) => assert.deepEqual(
+		qSurveys.getSurveyFromQueryString( queryString, availableSurveys ),
+		expectedResult
+	)
 	);
 } );
 
@@ -89,7 +88,7 @@ QUnit.test( 'showSurvey: Placement (no headings)', function ( assert ) {
 		'Check it is inserted in correct place on tablet (after first paragraph)' );
 } );
 
-QUnit.test( 'surveyMatchesPlatform', function ( assert ) {
+QUnit.test( 'surveyMatchesPlatform', ( assert ) => {
 	const testCases = [
 		[
 			// desktop only
@@ -137,7 +136,7 @@ QUnit.test( 'surveyMatchesPlatform', function ( assert ) {
 			false, false, true
 		]
 	];
-	testCases.forEach( function ( test ) {
+	testCases.forEach( ( test ) => {
 		assert.strictEqual(
 			qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, undefined ), test[ 1 ]
 		);
@@ -174,7 +173,7 @@ QUnit.test( 'showSurvey: Placement (embedded)', function ( assert ) {
 		'Check embedded survey is inserted in correct place' );
 } );
 
-QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds, firstEdit, lastEdit)', function ( assert ) {
+QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds, firstEdit, lastEdit)', ( assert ) => {
 	const audienceAnyUser = {},
 		anonUser = {
 			isAnon: function () {
@@ -435,7 +434,7 @@ QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds, firstEdit, la
 		[ audienceChrome, loggedInUser, editCount.noneditor, true,
 			'user agent: show survey when target user agent matches audience user agent'
 		]
-	].forEach( function ( test ) {
+	].forEach( ( test ) => {
 		assert.strictEqual(
 			qSurveys.isInAudience.apply( qSurveys, test.slice( 0, test.length - 2 ) ),
 			test[ test.length - 2 ],
@@ -444,7 +443,7 @@ QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds, firstEdit, la
 	} );
 } );
 
-QUnit.test( 'isQuickSurveysPrefEnabled', function ( assert ) {
+QUnit.test( 'isQuickSurveysPrefEnabled', ( assert ) => {
 	mw.user.options.set( 'displayquicksurveys', 0 );
 	assert.false( qSurveys.isQuickSurveysPrefEnabled(),
 		'QuickSurvey preference is disabled (displayquicksurveys)' );

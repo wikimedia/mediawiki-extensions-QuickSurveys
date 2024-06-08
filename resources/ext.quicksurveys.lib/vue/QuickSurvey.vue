@@ -351,9 +351,7 @@ module.exports = exports = Vue.defineComponent( {
 
 			// Have to check from the surveyAnswers because of possible condition routes
 			const previousQuestion = this.surveyAnswerHistory.pop();
-			this.currentQuestionIndex = this.questions.findIndex( function ( question ) {
-				return question.name === previousQuestion.questionName;
-			} );
+			this.currentQuestionIndex = this.questions.findIndex( ( question ) => question.name === previousQuestion.questionName );
 
 			this.checkedAnswers = Array.from( previousQuestion.checkedAnswers );
 			this.singleAnswer = Object.assign( {}, previousQuestion.singleAnswer );

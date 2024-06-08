@@ -128,7 +128,7 @@ function getSeenObserver( el ) {
 		// By default the root is the viewport which is what we want.
 		// See https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
 		const observer = new IntersectionObserver(
-			function ( entries ) {
+			( ( entries ) => {
 				const entry = entries && entries[ 0 ];
 				if ( entry && entry.isIntersecting ) {
 					// If intersecting resolve the promise,
@@ -136,7 +136,7 @@ function getSeenObserver( el ) {
 					observer.unobserve( el );
 					result.resolve();
 				}
-			},
+			} ),
 			{
 				threshold: 1
 			}
@@ -278,7 +278,7 @@ function isUsingTargetBrowser( targetUserAgent ) {
 	let uaMatch = 0;
 
 	// Check each target user agent against the user's user agent.
-	targetUserAgent.forEach( function ( ua ) {
+	targetUserAgent.forEach( ( ua ) => {
 		if ( Object.prototype.hasOwnProperty.call( keywordToRegexMap, ua ) &&
 			keywordToRegexMap[ ua ].test( navigator.userAgent )
 		) {
@@ -469,7 +469,7 @@ function insertSurvey( survey ) {
 	// For example, some surveys are targetted at
 	// users with certain edit counts, or certain browser.
 	// See SurveyAudience for more information.
-	mw.loader.using( [ survey.module ] ).then( function ( require ) {
+	mw.loader.using( [ survey.module ] ).then( ( require ) => {
 		const module = require( 'ext.quicksurveys.lib.vue' );
 		if ( module ) {
 			module.render(
@@ -482,7 +482,7 @@ function insertSurvey( survey ) {
 				isMobileLayout,
 				htmlDirection,
 				logEvent
-			).then( function ( el ) {
+			).then( ( el ) => {
 				// Use the Vue element instead of $panel
 				reportWhenSeen( el, surveySessionToken, pageviewToken, survey.name );
 			} );
@@ -536,7 +536,7 @@ function showSurvey( forcedSurvey ) {
 		}
 	} else {
 		// Find which surveys are available to the user
-		enabledSurveys.forEach( function ( enabledSurvey ) {
+		enabledSurveys.forEach( ( enabledSurvey ) => {
 			if (
 				getSurveyToken( enabledSurvey ) !== '~' &&
 				getBucketForSurvey( enabledSurvey ) === 'A' &&
@@ -563,7 +563,7 @@ function showSurvey( forcedSurvey ) {
 	}
 	if ( embeddedSurveys.length ) {
 		// Inject all of the embedded surveys.
-		embeddedSurveys.forEach( function ( embeddedSurvey ) {
+		embeddedSurveys.forEach( ( embeddedSurvey ) => {
 			insertSurvey( embeddedSurvey );
 		} );
 	} else if ( availableSurveys.length ) {

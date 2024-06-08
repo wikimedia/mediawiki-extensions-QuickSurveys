@@ -104,14 +104,10 @@ describe( 'utils', () => {
 					}
 				],
 				result = utils.processSurveyQuestions( questions ),
-				answersWithKeys = questions[ 0 ].answers.map( function ( answer ) {
-					return { key: answer.label, label: answer.label };
-				} );
+				answersWithKeys = questions[ 0 ].answers.map( ( answer ) => ( { key: answer.label, label: answer.label } ) );
 			expect( result[ 0 ].answers.length ).toBe( 10 );
 			for ( let idx = 0; idx < answersWithKeys.length; idx++ ) {
-				const answerInResult = result[ 0 ].answers.find( function ( answer ) {
-					return answer.key === answersWithKeys[ idx ].key;
-				} );
+				const answerInResult = result[ 0 ].answers.find( ( answer ) => answer.key === answersWithKeys[ idx ].key );
 				expect( answerInResult ).toBeTruthy();
 				expect( answerInResult.label ).toBe( answersWithKeys[ idx ].label );
 			}
