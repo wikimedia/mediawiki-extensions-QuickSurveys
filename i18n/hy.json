@@ -4,6 +4,9 @@
 			"Kareyac"
 		]
 	},
+	"prefs-quicksurveyext": "QuickSurvey ընդլայնում",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Ցուցադրել QuickSurveys-ը",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Այո",
-	"ext-quicksurveys-survey-positive": "Այո"
+	"ext-quicksurveys-survey-positive": "Այո",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Հետ"
 }

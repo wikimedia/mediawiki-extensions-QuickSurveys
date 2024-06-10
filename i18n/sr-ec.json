@@ -3,6 +3,7 @@
 		"authors": [
 			"BadDog",
 			"Kizule",
+			"Milicevic01",
 			"Zoranzoki21"
 		]
 	},
@@ -22,6 +23,7 @@
 	"ext-quicksurveys-survey-negative": "Не",
 	"ext-quicksurveys-survey-neutral": "Не знам",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "Пошаљи",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Назад",
 	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Изаберите одговор или га сами унесите.",
 	"ext-quicksurveys-external-survey-yes-button": "Посетите анкету",
 	"ext-quicksurveys-external-survey-no-button": "Не, хвала"

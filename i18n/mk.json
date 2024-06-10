@@ -4,6 +4,11 @@
 			"Bjankuloski06"
 		]
 	},
+	"prefs-quicksurveyext": "Додаток „Брзи анкети“",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Прикажувај Брзи анкети",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Оваа функција ќе прикаже [https://www.mediawiki.org/wiki/Extension:QuickSurveys кратки анкети] на Фондацијата Викимедија кои не се поврзани со вашата сметка.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Прикажи ги сите анкети",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Скриј ги сите анкети",
 	"quicksurveys-desc": "Прикажува прилагодени анкети",
 	"ext-quicksurveys-example-internal-survey-question": "Дали текстот треба да биде поголем?",
 	"ext-quicksurveys-example-internal-survey-description": "Ова е опис на примерот за внатрешна анкета.",
@@ -15,11 +20,13 @@
 	"ext-quicksurveys-example-external-survey-description": "Пополнувајќи ја анкетава, ни помагате да добиеме претстава за тоа како да направиме подобрувања на проектот {{SITENAME}} и како тој да стане покорисен за вас. Благодариме!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Анкетата ја овозможи ПримерАнкетар. Погледајте ја страницата за [//example.org/privacy-policy заштита на личните податоци].",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Учеството е анонимно. Погледајте ја страницата за [//example.org/privacy-policy заштита на личните податоци].",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "За да престане да се појавува „Кратки анкети“ [[Special:Preferences#mw-prefsection-personal-quicksurveyext|изменете ги нагодувањата]].",
 	"ext-quicksurveys-survey-confirm-msg": "Благодариме на одѕивот! Ќе го искористиме за да направиме уште повеќе подобрувања на {{SITENAME}}!",
 	"ext-quicksurveys-survey-positive": "Да",
 	"ext-quicksurveys-survey-negative": "Не",
 	"ext-quicksurveys-survey-neutral": "Не знам",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "Поднеси",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Назад",
 	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Одберете одговор или внесете свој.",
 	"ext-quicksurveys-external-survey-yes-button": "Посетете ја анкетата",
 	"ext-quicksurveys-external-survey-no-button": "Не, благодарам"

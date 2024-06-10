@@ -3,11 +3,17 @@
 		"authors": [
 			"Gomoko",
 			"Macofe",
+			"SleaY",
 			"Thibaut120094",
 			"Verdy p",
 			"Wladek92"
 		]
 	},
+	"prefs-quicksurveyext": "Extension QuickSurvey",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Afficher QuickSurveys",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Cette fonctionnalité affichera les [https://www.mediawiki.org/wiki/Extension:QuickSurveys courtes enquêtes facultatives] de la Wikimedia Foundation, qui ne sont pas connectées à votre compte.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Afficher toutes les enquêtes",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Masquer toutes les enquêtes",
 	"quicksurveys-desc": "Affiche les enquêtes configurées",
 	"ext-quicksurveys-example-internal-survey-question": "Le texte devrait être plus gros ?",
 	"ext-quicksurveys-example-internal-survey-description": "Voici la description de l’exemple d’enquête interne",
@@ -19,11 +25,13 @@
 	"ext-quicksurveys-example-external-survey-description": "En répondant à cette enquête, vous nous aiderez à comprendre comment améliorer {{SITENAME}} et le rendre plus utile pour vous. Merci !",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Enquête fournie par ExampleSurveyProvider. Voir la [//example.org/privacy-policy politique de confidentialité].",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Toutes les soumisions sont anonymes. Voir la [//example.org/privacy-policy politique de confidentialité].",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "Pour empêcher QuickSurveys d'apparaître, [[Special:Preferences#mw-prefsection-personal-quicksurveyext|modifiez vos préférences]].",
 	"ext-quicksurveys-survey-confirm-msg": "Merci pour ce retour ! Nous l’utiliserons pour rendre {{SITENAME}} encore meilleur !",
 	"ext-quicksurveys-survey-positive": "Oui",
 	"ext-quicksurveys-survey-negative": "Non",
 	"ext-quicksurveys-survey-neutral": "Pas sûr(e)",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "Soumettre",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Retour",
 	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Veuillez sélectionner une réponse ou saisir la vôtre.",
 	"ext-quicksurveys-external-survey-yes-button": "Participer à l’enquête",
 	"ext-quicksurveys-external-survey-no-button": "Non merci"
