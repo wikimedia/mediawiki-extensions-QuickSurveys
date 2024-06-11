@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Abijeet Patro",
 			"AshokChakra",
 			"Niharika29",
 			"Saurmandal",
@@ -23,6 +24,7 @@
 	"ext-quicksurveys-survey-negative": "नहीं",
 	"ext-quicksurveys-survey-neutral": "पता नहीं",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "भेजें",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "पीछे",
 	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "कृपया एक उत्तर चुनें या फिर अपना उत्तर दर्ज करें।",
 	"ext-quicksurveys-external-survey-yes-button": "सर्वेक्षण देखें",
 	"ext-quicksurveys-external-survey-no-button": "नहीं, धन्यवाद"
