@@ -13,7 +13,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-negative": "לא",
 	"ext-quicksurveys-example-internal-survey-freeform-text-label": "אחר",
 	"ext-quicksurveys-example-external-survey-question": "אנו זקוקים לעזרתך כדי לשפר את {{SITENAME}}.",
-	"ext-quicksurveys-example-external-survey-description": "תשובתך לסקר הזה תעזור לנו להבין איך לשפר את {{SITENAME}} ולעשות אותך שימושית יותר בשבילך. תודה!",
+	"ext-quicksurveys-example-external-survey-description": "תשובתך לסקר הזה תעזור לנו לשפר את אתר {{SITENAME}} ולעשות אותו שימושי יותר בשבילך. תודה!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "הסקר מסופק על־ידי ספק סקרים לדוגמה. ר' [//example.org/privacy-policy מדיניות פרטיות]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "כל התשובות אלמוניות. ר' [//example.org/privacy-policy מדיניות פרטיות].",
 	"ext-quicksurveys-survey-confirm-msg": "תודה על המשוב! אנחנו משתמשים בו כדי לעשות את אתר {{SITENAME}} טוב עוד יותר!",
