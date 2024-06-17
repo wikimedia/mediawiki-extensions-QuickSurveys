@@ -6,6 +6,8 @@
 			"Volvox"
 		]
 	},
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "All Ëmfroe weisen",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "All Ëmfroe verstoppen",
 	"quicksurveys-desc": "Weist déi agestallt Ëmfroen",
 	"ext-quicksurveys-example-internal-survey-question": "Soll den Text méi grouss sinn?",
 	"ext-quicksurveys-example-internal-survey-description": "Dëst ass d'Beschreiwung vun der interner Beispill-Ëmfro",

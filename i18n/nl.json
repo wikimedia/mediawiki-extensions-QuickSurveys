@@ -25,6 +25,7 @@
 	"ext-quicksurveys-survey-negative": "Nee",
 	"ext-quicksurveys-survey-neutral": "Niet zeker",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "Verzenden",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Terug",
 	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Kies een antwoord of voer uw eigen antwoord in.",
 	"ext-quicksurveys-external-survey-yes-button": "Enquête bezoeken",
 	"ext-quicksurveys-external-survey-no-button": "Nee, bedankt"
