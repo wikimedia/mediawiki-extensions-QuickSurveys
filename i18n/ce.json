@@ -11,6 +11,8 @@
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Ца хаа",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "ХӀан-хӀа",
 	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Кхийерг",
+	"ext-quicksurveys-example-external-survey-question": "{{SITENAME}} тодан, тхуна шоьгара гӀо оьшу.",
+	"ext-quicksurveys-example-external-survey-description": "ХӀокху хаттарна жоп даларца, ахьа гӀо дийр ду тхуна хаа, муха дан деза {{SITENAME}} дика а, пайде а. Баркалла!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Хаттар делла ExampleSurveyProvider. Хьажа [//example.org/privacy-policy къайлаха политика]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Дерриге жоьпаш ду аноним. Хьажа [//example.org/privacy-policy къайлаха политика].",
 	"ext-quicksurveys-survey-confirm-msg": "Баркалла! И бахьнехь {{SITENAME}} кхин дика хира йу.",
