@@ -14,7 +14,7 @@
 		"@babel/preset-env": "7.16.11",
 		"@vue/test-utils": "2.0.0-rc.17",
 		"@vue/vue3-jest": "27.0.0-alpha.4",
-		"@wikimedia/codex": "1.8.0",
+		"@wikimedia/codex": "1.11.0",
 		"@wikimedia/mw-node-qunit": "7.2.0",
 		"babel-core": "6.26.3",
 		"eslint-config-wikimedia": "0.28.2",
