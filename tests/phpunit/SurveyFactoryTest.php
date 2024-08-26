@@ -3,6 +3,7 @@
 namespace Tests\QuickSurveys;
 
 use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 use QuickSurveys\ExternalSurvey;
 use QuickSurveys\InternalSurvey;
 use QuickSurveys\SurveyAudience;
@@ -203,7 +204,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			null
 		);
 
-		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
+		$factory = new SurveyFactory( new NullLogger() );
 		$actual = $factory->newSurvey(
 			[
 				'name' => 'test',
@@ -295,7 +296,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			null
 		);
 
-		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
+		$factory = new SurveyFactory( new NullLogger() );
 		$actual = $factory->newSurvey(
 			[
 				'name' => 'test',
@@ -368,7 +369,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			null
 		);
 
-		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
+		$factory = new SurveyFactory( new NullLogger() );
 		$actual = $factory->newSurvey(
 			[
 				'name' => 'test',
@@ -428,7 +429,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testParseSurveyConfigSucceeds() {
-		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
+		$factory = new SurveyFactory( new NullLogger() );
 		$spec = [
 			'type' => 'internal',
 			'questions' => [
@@ -571,7 +572,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testItShouldFactoryAnExternalSurveyWithAnswers(): void {
-		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
+		$factory = new SurveyFactory( new NullLogger() );
 		$survey = $factory->newSurvey(
 			[
 				'name' => 'test',
@@ -637,7 +638,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testItShouldUseDefaultLayoutForMultipleQuestions() {
-		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
+		$factory = new SurveyFactory( new NullLogger() );
 		$survey = $factory->newSurvey(
 			array_merge( self::INTERNAL_SURVEY, [
 				'questions' => [
@@ -721,7 +722,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testItShouldAllowAnswersWithALabelString() {
-		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
+		$factory = new SurveyFactory( new NullLogger() );
 		$survey = $factory->newSurvey(
 			array_merge( self::INTERNAL_SURVEY, [
 				'questions' => [
@@ -740,7 +741,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testItShouldAllowAnswersWithAFreeFormTextLabel() {
-		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
+		$factory = new SurveyFactory( new NullLogger() );
 		$survey = $factory->newSurvey(
 			array_merge( self::INTERNAL_SURVEY, [
 				'questions' => [
@@ -842,7 +843,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testItShouldAllowIfDependsOnQuestionThatExists() {
-		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
+		$factory = new SurveyFactory( new NullLogger() );
 		$survey = $factory->newSurvey(
 			array_merge( self::INTERNAL_SURVEY, [
 				'questions' => [
@@ -891,7 +892,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testItShouldAllowAQuestionWhenDependsOnIsEmpty() {
-		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
+		$factory = new SurveyFactory( new NullLogger() );
 		$survey = $factory->newSurvey(
 			array_merge( self::INTERNAL_SURVEY, [
 				'questions' => [
@@ -948,7 +949,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testItShouldAllowIfDependsOnAnswerThatExists() {
-		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
+		$factory = new SurveyFactory( new NullLogger() );
 		$survey = $factory->newSurvey(
 			array_merge( self::INTERNAL_SURVEY, [
 				'questions' => [
@@ -1112,7 +1113,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testItShouldFactoryExternalSurveyWithMultiQuestionSchema() {
-		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
+		$factory = new SurveyFactory( new NullLogger() );
 		$survey = $factory->newSurvey(
 			array_merge( self::EXTERNAL_SURVEY, [
 				'questions' => [
@@ -1236,7 +1237,7 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testItShouldNotRequireTopLevelLayoutIfMultipleQuestions() {
-		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
+		$factory = new SurveyFactory( new NullLogger() );
 		$survey = $factory->newSurvey(
 			array_merge( self::INTERNAL_SURVEY, [
 				'name' => 'internal multi question and answer example survey',
