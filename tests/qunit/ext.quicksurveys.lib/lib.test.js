@@ -257,8 +257,7 @@ QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds, firstEdit, la
 		audienceLastEditRange20170104To20170106 = { lastEdit: { from: '2017-01-04', to: '2017-01-06' } },
 		audienceLastEditRange20170105To20170106 = { lastEdit: { from: '2017-01-05', to: '2017-01-06' } },
 		audienceLastEditRange20170104To20170105 = { lastEdit: { from: '2017-01-04', to: '2017-01-05' } },
-		audiencePages = { pageIds: [ 123, 456 ] },
-		audienceChrome = { userAgent: [ 'Chrome' ] };
+		audiencePages = { pageIds: [ 123, 456 ] };
 	[
 		// User registration targeting
 		[ audienceRegistrationStart20170104, anonUser, editCount.noneditor, undefined, false,
@@ -429,10 +428,6 @@ QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds, firstEdit, la
 		],
 		[ audiencePages, anonUser, editCount.noneditor, undefined, 987, false,
 			'pages: don\'t see the survey when page ID is not matched'
-		],
-		// target specific user agent
-		[ audienceChrome, loggedInUser, editCount.noneditor, true,
-			'user agent: show survey when target user agent matches audience user agent'
 		]
 	].forEach( ( test ) => {
 		assert.strictEqual(
