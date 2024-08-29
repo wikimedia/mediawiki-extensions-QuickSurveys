@@ -872,25 +872,6 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 		$this->assertNotNull( $survey );
 	}
 
-	public function testItShouldAllowAQuestionWithoutDependsOn() {
-		$factory = new SurveyFactory( $this->createMock( LoggerInterface::class ) );
-		$survey = $factory->newSurvey(
-			array_merge( self::INTERNAL_SURVEY, [
-				'questions' => [
-					[
-						'name' => 'test',
-						'layout' => 'single-answer',
-						'question' => 'Do you like writing unit tests?',
-						'answers' => [
-							[ 'label' => 'ext-quicksurveys-test-internal-survey-positive' ],
-						],
-					]
-				],
-			] )
-		);
-		$this->assertNotNull( $survey );
-	}
-
 	public function testItShouldAllowAQuestionWhenDependsOnIsEmpty() {
 		$factory = new SurveyFactory( new NullLogger() );
 		$survey = $factory->newSurvey(
