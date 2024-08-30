@@ -4,6 +4,7 @@
 			"Diman Russkov",
 			"Dirruw'o",
 			"MuratTheTurkish",
+			"Novichev",
 			"Okras",
 			"Ole Yves",
 			"Stjn",
@@ -11,6 +12,11 @@
 			"Vcohen"
 		]
 	},
+	"prefs-quicksurveyext": "Расширение QuickSurvey",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Показывать Быстрые опросы",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Опция будет показывать [https://www.mediawiki.org/wiki/Extension:QuickSurveys краткие необязательные опросы] от Фонда Викимедиа, которые не связываются с вашим аккаунтом.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Показывать все опросы",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Скрывать все опросы",
 	"quicksurveys-desc": "Отображает настроенные опросы",
 	"ext-quicksurveys-example-internal-survey-question": "Должен ли текст быть крупнее?",
 	"ext-quicksurveys-example-internal-survey-description": "Это описание примера внутреннего опроса",
