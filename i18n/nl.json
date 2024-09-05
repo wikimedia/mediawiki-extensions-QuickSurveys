@@ -9,6 +9,11 @@
 			"SPQRobin"
 		]
 	},
+	"prefs-quicksurveyext": "QuickSurvey-uitbreiding",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "QuickSurveys weergeven",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Met deze functie worden [https://www.mediawiki.org/wiki/Extension:QuickSurveys korte, facultatieve enquêtes] van de Wikimedia Foundation weergegeven. Deze zijn niet aan uw account gekoppeld.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Alle enquêtes weergeven",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Alle enquêtes verbergen",
 	"quicksurveys-desc": "Toont geconfigureerde enquêtes",
 	"ext-quicksurveys-example-internal-survey-question": "Moet de tekst groter zijn?",
 	"ext-quicksurveys-example-internal-survey-description": "Dit is de beschrijving van de interne voorbeeldenquête",
@@ -20,6 +25,7 @@
 	"ext-quicksurveys-example-external-survey-description": "Door deze enquête in te vullen, helpt u ons begrijpen hoe we {{SITENAME}} beter en nuttiger voor u kunnen maken. Bedankt!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Enquête aangeboden door ExampleSurveyProvider. Zie het [//example.org/privacy-policy privacybeleid]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Alle inzendingen zijn anoniem. Zie het [//example.org/privacy-policy privacybeleid].",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "Om te voorkomen dat QuickSurveys worden weergegeven, [[Special:Preferences#mw-prefsection-personal-quicksurveyext|wijzigt u uw voorkeuren]].",
 	"ext-quicksurveys-survey-confirm-msg": "Bedankt voor de feedback! We gebruiken het om {{SITENAME}} nog beter te maken!",
 	"ext-quicksurveys-survey-positive": "Ja",
 	"ext-quicksurveys-survey-negative": "Nee",
