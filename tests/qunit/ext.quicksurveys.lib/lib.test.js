@@ -155,11 +155,11 @@ QUnit.test( 'showSurvey: Placement (plain)', function ( assert ) {
 	qSurveys.insertPanel( $locationMinerva, this.getPanel(), null, true );
 	qSurveys.insertPanel( $locationMinervaTablet, this.getPanel(), null );
 
-	assert.true( this.isPanelElement( $locationMinerva.find( '#firsth2' ).prev() ),
+	assert.true( this.isPanelElement( $locationMinerva.find( '.mw-heading2' ).prev() ),
 		'Check it is inserted in correct place on mobile (before first heading)' );
-	assert.true( this.isPanelElement( $locationVector.find( '#firsth2' ).prev() ),
+	assert.true( this.isPanelElement( $locationVector.find( '.mw-heading2' ).prev() ),
 		'Check it is inserted in correct place on vector (before first heading)' );
-	assert.true( this.isPanelElement( $locationMinervaTablet.find( '#firsth2' ).prev() ),
+	assert.true( this.isPanelElement( $locationMinervaTablet.find( '.mw-heading2' ).prev() ),
 		'Check it is inserted in correct place on tablet (before first heading)' );
 } );
 
