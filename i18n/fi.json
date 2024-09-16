@@ -2,18 +2,34 @@
 	"@metadata": {
 		"authors": [
 			"Nike",
-			"Pyscowicz"
+			"Pyscowicz",
+			"Samoasambia"
 		]
 	},
+	"prefs-quicksurveyext": "QuickSurvey-laajennus",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Näytä QuickSurveys-kyselyt",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Tämä ominaisuus näyttää Wikimedia-säätiön tekemiä [https://www.mediawiki.org/wiki/Extension:QuickSurveys lyhyitä vapaaehtoisia kyselyitä], joita ei ole yhdistetty tunnukseesi.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Näytä kaikki kyselyt",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Piilota kaikki kyselyt",
+	"quicksurveys-desc": "Näyttää määriteltyjä kyselyitä",
 	"ext-quicksurveys-example-internal-survey-question": "Pitäisikö tekstin olla suurempi?",
+	"ext-quicksurveys-example-internal-survey-description": "Tämä on sisäisen esimerkkikyselyn kuvaus",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Kyllä",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Epävarma",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Ei",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Muu",
 	"ext-quicksurveys-example-external-survey-question": "Tarvitsemme apuasi {{GRAMMAR:genetive|{{SITENAME}}}} parantamisessa.",
 	"ext-quicksurveys-example-external-survey-description": "Vastaamalla tähän kyselyyn, autat meitä ymmärtämään miten tehdä {{GRAMMAR:elative|{{SITENAME}}}} parempi ja enemmän hyödyllisempi sinulle. Kiitos!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Kyselyn tarjosi ExampleSurveyProvider. Katso [//example.org/privacy-policy tietosuojakäytäntö]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Kaikki vastaukset ovat anonyymejä. Katso [//example.org/privacy-policy tietosuojakäytäntö].",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "Lopettaaksesi QuickSurveys-kyselyjen näkymisen, [[Special\n:Preferences#mw-prefsection-personal-quicksurveyext|muuta asetuksiasi]].",
 	"ext-quicksurveys-survey-confirm-msg": "Kiitos palautteestasi! Käytämme sitä tehdäksemme {{GRAMMAR:elative|{{SITENAME}}}} entistä paremman!",
 	"ext-quicksurveys-survey-positive": "Kyllä",
 	"ext-quicksurveys-survey-negative": "Ei",
 	"ext-quicksurveys-survey-neutral": "Epävarma",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Lähetä",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Takaisin",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Valitse vastaus tai kirjoita omasi.",
+	"ext-quicksurveys-external-survey-yes-button": "Siirry kyselyyn",
 	"ext-quicksurveys-external-survey-no-button": "Ei kiitos"
 }
