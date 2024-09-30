@@ -22,7 +22,7 @@
 	"ext-quicksurveys-example-external-survey-description": "Vastaamalla tähän kyselyyn, autat meitä ymmärtämään miten tehdä {{GRAMMAR:elative|{{SITENAME}}}} parempi ja enemmän hyödyllisempi sinulle. Kiitos!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Kyselyn tarjosi ExampleSurveyProvider. Katso [//example.org/privacy-policy tietosuojakäytäntö]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Kaikki vastaukset ovat anonyymejä. Katso [//example.org/privacy-policy tietosuojakäytäntö].",
-	"ext-quicksurveys-survey-change-preferences-disclaimer": "Lopettaaksesi QuickSurveys-kyselyjen näkymisen, [[Special\n:Preferences#mw-prefsection-personal-quicksurveyext|muuta asetuksiasi]].",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "Lopettaaksesi QuickSurveys-kyselyjen näkymisen, [[Special:Preferences#mw-prefsection-personal-quicksurveyext|muuta asetuksiasi]].",
 	"ext-quicksurveys-survey-confirm-msg": "Kiitos palautteestasi! Käytämme sitä tehdäksemme {{GRAMMAR:elative|{{SITENAME}}}} entistä paremman!",
 	"ext-quicksurveys-survey-positive": "Kyllä",
 	"ext-quicksurveys-survey-negative": "Ei",
