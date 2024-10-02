@@ -7,7 +7,7 @@
 		]
 	},
 	"prefs-quicksurveyext": "QuickSurvey-laajennus",
-	"ext-quicksurveys-pref-displayquicksurveys-label": "Näytä QuickSurveys-kyselyt",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Näytä QuickSurvey-kyselyt",
 	"ext-quicksurveys-pref-displayquicksurveys-help": "Tämä ominaisuus näyttää Wikimedia-säätiön tekemiä [https://www.mediawiki.org/wiki/Extension:QuickSurveys lyhyitä vapaaehtoisia kyselyitä], joita ei ole yhdistetty tunnukseesi.",
 	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Näytä kaikki kyselyt",
 	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Piilota kaikki kyselyt",
