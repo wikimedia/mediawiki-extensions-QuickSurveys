@@ -35,7 +35,8 @@
 				"mediawiki.user",
 				"mediawiki.Uri",
 				"mediawiki.util",
-				"jquery.spinner"
+				"jquery.spinner",
+				"mediawiki.jqueryMsg"
 			],
 			"messages": [
 				"ext-quicksurveys-survey-privacy-policy-default-text",
