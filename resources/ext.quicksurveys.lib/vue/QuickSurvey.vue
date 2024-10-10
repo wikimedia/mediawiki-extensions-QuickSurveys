@@ -4,7 +4,8 @@
 			<div class="survey-header">
 				<template v-if="completed">
 					<div>
-						<strong>{{ thankYouMessage }}</strong>
+						<!-- eslint-disable vue/no-v-html -->
+						<strong v-html="thankYouMessage"></strong>
 						<!-- eslint-disable vue/no-v-html -->
 						<div
 							v-if="thankYouDescription"
