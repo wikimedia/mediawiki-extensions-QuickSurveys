@@ -47,7 +47,7 @@ function render(
 						// eslint-disable-next-line mediawiki/msg-doc
 						mw.message( survey.additionalInfo ).parse() : undefined,
 					// eslint-disable-next-line mediawiki/msg-doc
-					thankYouMessage: mw.msg( survey.confirmMsg || 'ext-quicksurveys-survey-confirm-msg' ),
+					thankYouMessage: mw.message( survey.confirmMsg || 'ext-quicksurveys-survey-confirm-msg' ).parse(),
 					thankYouDescription: survey.confirmDescription ?
 						// eslint-disable-next-line mediawiki/msg-doc
 						mw.message( survey.confirmDescription ).parse() : null,
