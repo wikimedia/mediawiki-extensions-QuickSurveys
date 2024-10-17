@@ -10,11 +10,13 @@
 	},
 	"ext-quicksurveys-example-internal-survey-description": "これは、内部調査の例の説明です",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "はい",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "わからない",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "いいえ",
 	"ext-quicksurveys-example-external-survey-question": "{{SITENAME}}の改善のために、あなたの助けが必要です。",
 	"ext-quicksurveys-survey-confirm-msg": "ありがとうございました！",
 	"ext-quicksurveys-survey-positive": "はい",
 	"ext-quicksurveys-survey-negative": "いいえ",
+	"ext-quicksurveys-survey-neutral": "わからない",
 	"ext-quicksurveys-external-survey-yes-button": "アンケートサイトを開く",
 	"ext-quicksurveys-external-survey-no-button": "辞退します"
 }
