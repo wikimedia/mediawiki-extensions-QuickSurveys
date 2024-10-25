@@ -10,6 +10,11 @@
 			"PoLuX124"
 		]
 	},
+	"prefs-quicksurveyext": "Extensión QuickSurvey",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Mostrar QuickSurveys",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Esta funcionalidad mostrará [https://www.mediawiki.org/wiki/Extension:QuickSurveys encuestas breves opcionales] de la Fundación Wikimedia que no están conectadas a tu cuenta.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Mostrar todas las encuestas",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Ocultar todas las encuestas",
 	"quicksurveys-desc": "Muestra las encuestas configuradas",
 	"ext-quicksurveys-example-internal-survey-question": "¿Debería ser más grande el texto?",
 	"ext-quicksurveys-example-internal-survey-description": "Esta es la descripción de un ejemplo de encuesta interna",
@@ -21,12 +26,14 @@
 	"ext-quicksurveys-example-external-survey-description": "Al responder esta encuesta nos ayudarás a entender cómo hacer {{SITENAME}} mejor y más útil para ti. ¡Gracias!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Encuesta proporcionada por ExampleSurveyProvider. Consulta la [//example.org/privacy-policy normativa de privacidad]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Todos los envíos son anónimos. Consulta la [//example.org/privacy-policy normativa de privacidad].",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "Para evitar que aparezca QuickSurveys, [[Special:Preferences#mw-prefsection-personal-quicksurveyext|cambia tus preferencias]].",
 	"ext-quicksurveys-survey-confirm-msg": "¡Gracias por tus respuestas! ¡Nos sirven para hacer {{SITENAME}} cada vez mejor!",
 	"ext-quicksurveys-survey-positive": "Sí",
 	"ext-quicksurveys-survey-negative": "No",
 	"ext-quicksurveys-survey-neutral": "No lo sé",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "Enviar",
-	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Seleccione una respuesta o introduzca la suya propia.",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Atrás",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Selecciona una respuesta o introduce la tuya propia.",
 	"ext-quicksurveys-external-survey-yes-button": "Visita la encuesta",
 	"ext-quicksurveys-external-survey-no-button": "No, gracias"
 }
