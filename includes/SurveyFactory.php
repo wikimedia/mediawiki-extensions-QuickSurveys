@@ -161,7 +161,7 @@ class SurveyFactory {
 				$link = $spec['questions'][0]['link'];
 			}
 
-			if ( isset( $link ) ) {
+			if ( $link !== null ) {
 				$url = wfMessage( $link )->inContentLanguage()->plain();
 				$bit = parse_url( $url, PHP_URL_SCHEME );
 
@@ -295,7 +295,7 @@ class SurveyFactory {
 			}
 			foreach ( $answers as $answer ) {
 				$label = $answer['label'] ?? null;
-				if ( !isset( $label ) ) {
+				if ( $label === null ) {
 					throw new InvalidArgumentException(
 						"Question at index \"{$key}\" in the \"{$surveyName}\" internal survey " .
 						"has an answer with no label."
