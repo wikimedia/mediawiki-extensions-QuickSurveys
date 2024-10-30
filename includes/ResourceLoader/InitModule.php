@@ -20,8 +20,8 @@ class InitModule extends RL\FileModule {
 	/** @inheritDoc */
 	public function __construct(
 		array $options = [],
-		string $localBasePath = null,
-		string $remoteBasePath = null
+		?string $localBasePath = null,
+		?string $remoteBasePath = null
 	) {
 		if ( $this->hasEnabledSurveys() ) {
 			$options = array_merge( $options, [
@@ -34,7 +34,7 @@ class InitModule extends RL\FileModule {
 	}
 
 	/** @inheritDoc */
-	public function getDependencies( RL\Context $context = null ) {
+	public function getDependencies( ?RL\Context $context = null ) {
 		$result = parent::getDependencies( $context );
 
 		if ( $this->hasEnabledSurveys() ) {
