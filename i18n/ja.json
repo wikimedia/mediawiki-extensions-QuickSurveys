@@ -5,7 +5,8 @@
 			"DDesouza",
 			"LZia (WMF)",
 			"Sujiniku",
-			"TAndic (WMF)"
+			"TAndic (WMF)",
+			"Chqaz"
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-description": "これは、内部調査の例の説明です",
@@ -17,6 +18,7 @@
 	"ext-quicksurveys-survey-positive": "はい",
 	"ext-quicksurveys-survey-negative": "いいえ",
 	"ext-quicksurveys-survey-neutral": "わからない",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "送信",
 	"ext-quicksurveys-external-survey-yes-button": "アンケートサイトを開く",
 	"ext-quicksurveys-external-survey-no-button": "辞退します"
 }
