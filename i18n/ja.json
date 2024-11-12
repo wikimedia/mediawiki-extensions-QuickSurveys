@@ -5,9 +5,15 @@
 			"DDesouza",
 			"LZia (WMF)",
 			"Sujiniku",
-			"TAndic (WMF)"
+			"TAndic (WMF)",
+			"Chqaz"
 		]
 	},
+	"prefs-quicksurveyext": "QuickSurvey拡張機能",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "クイックサーベイを表示するか",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "この機能はウィキメディア財団によるあなたのアカウントと紐付けられない[https://www.mediawiki.org/wiki/Extension:QuickSurveys 任意の短いアンケート]を表示します。",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "すべてのクイックサーベイを表示",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "すべてのクイックサーベイを非表示",
 	"ext-quicksurveys-example-internal-survey-description": "これは、内部調査の例の説明です",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "はい",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "わからない",
@@ -17,6 +23,8 @@
 	"ext-quicksurveys-survey-positive": "はい",
 	"ext-quicksurveys-survey-negative": "いいえ",
 	"ext-quicksurveys-survey-neutral": "わからない",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "送信",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "戻る",
 	"ext-quicksurveys-external-survey-yes-button": "アンケートサイトを開く",
 	"ext-quicksurveys-external-survey-no-button": "辞退します"
 }
