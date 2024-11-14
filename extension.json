@@ -141,6 +141,7 @@
 					"type": "internal",
 					"questions": [
 						{
+							"name": "Example internal survey",
 							"layout": "single-answer",
 							"question": "ext-quicksurveys-example-internal-survey-question",
 							"description": "ext-quicksurveys-example-internal-survey-description",
@@ -183,6 +184,7 @@
 					"type": "external",
 					"questions": [
 						{
+							"name": "Example external survey",
 							"question": "ext-quicksurveys-example-external-survey-question",
 							"description": "ext-quicksurveys-example-external-survey-description",
 							"link": "ext-quicksurveys-example-external-survey-link",
