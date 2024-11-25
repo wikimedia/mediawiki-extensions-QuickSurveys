@@ -103,9 +103,6 @@ const codex = require( '@wikimedia/codex' ),
 
 // @vue/component
 module.exports = exports = Vue.defineComponent( {
-	compatConfig: {
-		MODE: 3
-	},
 	name: 'QuickSurvey',
 	components: {
 		CdxButton: codex.CdxButton,
