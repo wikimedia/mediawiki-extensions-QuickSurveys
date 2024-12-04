@@ -7,6 +7,11 @@
 			"밝은소년"
 		]
 	},
+	"prefs-quicksurveyext": "QuickSurvey 확장 기능",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "QuickSurveys 표시",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "이 기능을 사용하면 귀하의 계정과 연결되지 않은 위키미디어 재단의 [https://www.mediawiki.org/wiki/Extension:QuickSurveys 짧은 선택 설문 조사]가 표시됩니다.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "모든 설문 조사 표시",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "모든 설문 조사 숨기기",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "예",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "확실치 않음",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "아니오",
