@@ -2,7 +2,7 @@
 	"root": true,
 	"extends": [
 		"../../resources/.eslintrc.json",
-		"wikimedia/qunit"
+		"wikimedia/mediawiki/qunit"
 	],
 	"rules": {
 		"no-jquery/no-parse-html-literal": "off",

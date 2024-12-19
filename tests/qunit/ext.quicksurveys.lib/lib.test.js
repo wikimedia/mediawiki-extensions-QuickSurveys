@@ -8,6 +8,7 @@ QUnit.module( 'ext.quicksurveys.lib', {
 		this.isPanelElement = function ( $el ) {
 			return $el.hasClass( 'test-panel' );
 		};
+		this.sandbox.stub( mw.config, 'get' ).returns( [ '*', 'admin', 'coolkids' ] );
 	}
 } );
 
@@ -171,6 +172,85 @@ QUnit.test( 'showSurvey: Placement (embedded)', function ( assert ) {
 
 	assert.true( this.isPanelElement( $location.find( '#secondh2' ).next().next() ),
 		'Check embedded survey is inserted in correct place' );
+} );
+
+QUnit.test( 'isInAudience (groups)', ( assert ) => {
+	assert.strictEqual(
+		qSurveys.isInAudience(
+			{
+				userInGroup: []
+			},
+			mw.user,
+			0,
+			window.Geo,
+			0,
+			new Date(),
+			new Date()
+		),
+		true,
+		'Surveys with empty array should work for everyone.'
+	);
+	assert.strictEqual(
+		qSurveys.isInAudience(
+			{
+				userInGroup: [ '*' ]
+			},
+			mw.user,
+			0,
+			window.Geo,
+			0,
+			new Date(),
+			new Date()
+		),
+		true,
+		'(As should *)'
+	);
+	assert.strictEqual(
+		qSurveys.isInAudience(
+			{
+				userInGroup: [ 'goths', 'coolkids' ]
+			},
+			mw.user,
+			0,
+			window.Geo,
+			0,
+			new Date(),
+			new Date()
+		),
+		true,
+		'Show survey if user is in one of the provided groups.'
+	);
+
+	assert.strictEqual(
+		qSurveys.isInAudience(
+			{
+				userInGroup: [ 'nerds' ]
+			},
+			mw.user,
+			0,
+			window.Geo,
+			0,
+			new Date(),
+			new Date()
+		),
+		false,
+		'Do not show survey if audience does not match user.'
+	);
+	assert.strictEqual(
+		qSurveys.isInAudience(
+			{
+				userInGroup: [ 'coolkids' ]
+			},
+			mw.user,
+			0,
+			window.Geo,
+			0,
+			new Date(),
+			new Date()
+		),
+		true,
+		'Recipient is a coolkid.'
+	);
 } );
 
 QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds, firstEdit, lastEdit)', ( assert ) => {

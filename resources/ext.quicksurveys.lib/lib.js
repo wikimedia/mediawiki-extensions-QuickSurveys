@@ -17,6 +17,7 @@ const logEvent = require( './logEvent.js' );
  * @property {string[]} [userAgent]
  * @property {DateRange} [firstEdit]
  * @property {DateRange} [lastEdit]
+ * @property {string[]} [userInGroup] list of any user groups to target
  */
 
 /**
@@ -343,6 +344,20 @@ function isInAudience( audience, user, editCount, geo, pageId, firstEdit, lastEd
 		return false;
 	} else if ( hasTarget && !isUsingTargetBrowser( audience.userAgent ) ) {
 		return false;
+	}
+	if ( audience.userInGroup ) {
+		const usersGroups = mw.config.get( 'wgUserGroups' );
+		let inAnyTargetedGroup = audience.userInGroup.length === 0;
+		for ( const group of audience.userInGroup ) {
+			if ( usersGroups.includes( group ) ) {
+				inAnyTargetedGroup = true;
+				break;
+			}
+		}
+		// If the user is not in any of the required groups, return false
+		if ( !inAnyTargetedGroup ) {
+			return false;
+		}
 	}
 	return true;
 }
