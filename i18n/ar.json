@@ -6,6 +6,11 @@
 			"عباد ديرانية"
 		]
 	},
+	"prefs-quicksurveyext": "ملحق QuickSurvey",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "عرض المسوحات السريعة",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "ستعرض هذه الميزة [https://www.mediawiki.org/wiki/Extension:QuickSurveys الاستطلاعات الاختيارية القصيرة] التي أجرتها مؤسسة ويكيميديا، والتي ليست مرتبطة بحسابك.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "إظهار كافة الاستطلاعات",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "إخفاء جميع الاستطلاعات",
 	"quicksurveys-desc": "يعرض استبيانات مكونة",
 	"ext-quicksurveys-example-internal-survey-question": "هل ينبغي أن يكون النص أكبر؟",
 	"ext-quicksurveys-example-internal-survey-description": "هذا وصف مثال الاستبيان الداخلي",
@@ -17,11 +22,13 @@
 	"ext-quicksurveys-example-external-survey-description": "من خلال الإجابة على هذا الاستطلاع ، ستساعدنا في فهم كيفية جعل {{SITENAME}} أفضل وأكثر إفادة لك. شكرًا لك!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "تم توفير الاستبيان بواسطة مثال موفر الاستبيان، راجع [//example.org/privacy-policy سياسة الخصوصية]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "ستكونُ جميع الإجابات سرية. اطَّلع على [//example.org/privacy-policy سياسة الخصوصية].",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "لإيقاف ظهور QuickSurveys، قم [[Special:Preferences#mw-prefsection-personal-quicksurveyext|تغيير تفضيلاتك]].",
 	"ext-quicksurveys-survey-confirm-msg": "شكراً لملاحظاتك! سنستفيدُ منها لجعل تجربتك على {{SITENAME}} أفضل!",
 	"ext-quicksurveys-survey-positive": "نعم",
 	"ext-quicksurveys-survey-negative": "لا",
 	"ext-quicksurveys-survey-neutral": "لستُ متأكداً",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "إرسال",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "رجوع",
 	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "يُرجَى تحديد إجابة أو إدخال الخاصة بك.",
 	"ext-quicksurveys-external-survey-yes-button": "عبّء الاستبيان",
 	"ext-quicksurveys-external-survey-no-button": "لا شكرا"
