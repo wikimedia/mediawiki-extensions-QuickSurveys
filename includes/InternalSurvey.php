@@ -40,7 +40,7 @@ class InternalSurvey extends Survey {
 	 * @param string|null $additionalInfo
 	 * @param string|null $confirmMsg
 	 * @param SurveyAudience $audience
-	 * @param string|SurveyQuestion[] $questions
+	 * @param SurveyQuestion[] $questions
 	 * @param string|null $question
 	 * @param string|null $description
 	 * @param string|null $confirmDescription
@@ -58,7 +58,7 @@ class InternalSurvey extends Survey {
 		$additionalInfo,
 		$confirmMsg,
 		SurveyAudience $audience,
-		$questions,
+		array $questions,
 		?string $question = null,
 		?string $description = null,
 		?string $confirmDescription = null,

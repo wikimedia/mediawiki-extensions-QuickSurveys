@@ -14,9 +14,8 @@ class Schema {
 
 	/**
 	 * An internal description of the data that matches a schema.
-	 * @var array
 	 */
-	private $data;
+	private array $data;
 
 	/**
 	 * Validate data against a provided type definition.

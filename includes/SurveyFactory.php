@@ -16,15 +16,10 @@ class SurveyFactory {
 		],
 	];
 
-	/**
-	 * @var LoggerInterface
-	 */
-	private $logger;
+	private LoggerInterface $logger;
 
 	/**
 	 * Inject services.
-	 *
-	 * @param LoggerInterface $logger
 	 */
 	public function __construct( LoggerInterface $logger ) {
 		$this->logger = $logger;
@@ -125,7 +120,7 @@ class SurveyFactory {
 	 * @param array $spec
 	 * @throws InvalidArgumentException
 	 */
-	private function validateSpec( array $spec ) {
+	private function validateSpec( array $spec ): void {
 		$name = $spec['name'];
 
 		if ( !isset( $spec['question'] ) && ( !isset( $spec['questions'] ) || !$spec['questions'] ) ) {
@@ -178,7 +173,7 @@ class SurveyFactory {
 	 * @param array $spec
 	 * @throws InvalidArgumentException
 	 */
-	private function validatePlatforms( array $spec ) {
+	private function validatePlatforms( array $spec ): void {
 		foreach ( self::VALID_PLATFORM_MODES as $platform => $validModes ) {
 			if ( !isset( $spec['platforms'][$platform] ) ) {
 				continue;
@@ -210,7 +205,7 @@ class SurveyFactory {
 	 * @param array $spec
 	 * @throws InvalidArgumentException
 	 */
-	private function validateExternalSurveyQuestions( array $spec ) {
+	private function validateExternalSurveyQuestions( array $spec ): void {
 		$surveyName = $spec['name'];
 		$questions = $spec['questions'] ?? [];
 
@@ -248,7 +243,7 @@ class SurveyFactory {
 	 * @param array $spec
 	 * @throws InvalidArgumentException
 	 */
-	private function validateInternalSurveyQuestions( array $spec ) {
+	private function validateInternalSurveyQuestions( array $spec ): void {
 		$surveyName = $spec['name'];
 		$questions = $spec['questions'] ?? [];
 		$questionsByName = [];

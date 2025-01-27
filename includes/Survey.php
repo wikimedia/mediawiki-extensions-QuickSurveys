@@ -25,9 +25,9 @@ abstract class Survey {
 	private $confirmMsg;
 
 	/**
-	 * @var SurveyAudience describes the audience who can participate in a survey
+	 * Describes the audience who can participate in a survey
 	 */
-	private $audience;
+	private SurveyAudience $audience;
 
 	/**
 	 * @var string|null A user-friendly description of, or introduction to, the question
@@ -62,7 +62,7 @@ abstract class Survey {
 	 *
 	 * @var array[] The platforms that the survey can be displayed on
 	 */
-	private $platforms;
+	private array $platforms;
 
 	/**
 	 * @var string|null The description of the privacy policy of the website that hosts the survey.
@@ -72,7 +72,7 @@ abstract class Survey {
 	/**
 	 * @var SurveyQuestion[] The questions that the survey is posing to the user
 	 */
-	private $questions;
+	private array $questions;
 
 	/**
 	 * @var string|null
@@ -87,7 +87,7 @@ abstract class Survey {
 	 * @param string|null $additionalInfo
 	 * @param string|null $confirmMsg
 	 * @param SurveyAudience $audience
-	 * @param string|SurveyQuestion[] $questions
+	 * @param SurveyQuestion[] $questions
 	 * @param string|null $question
 	 * @param string|null $description
 	 * @param string|null $confirmDescription
@@ -100,7 +100,7 @@ abstract class Survey {
 		$additionalInfo,
 		$confirmMsg,
 		SurveyAudience $audience,
-		$questions,
+		array $questions,
 		?string $question = null,
 		?string $description = null,
 		?string $confirmDescription = null
@@ -121,7 +121,7 @@ abstract class Survey {
 		$this->additionalInfo = $additionalInfo;
 		$this->confirmMsg = $confirmMsg;
 		$this->audience = $audience;
-		$this->questions = is_array( $questions ) ? $questions : [ strval( $questions ) ];
+		$this->questions = $questions;
 		$this->confirmDescription = $confirmDescription;
 	}
 
@@ -173,10 +173,8 @@ abstract class Survey {
 			$messages[] = $this->confirmDescription;
 		}
 
-		if ( $this->questions !== null ) {
-			foreach ( $this->questions as $questionItem ) {
-				$messages = array_merge( $messages, $questionItem->getMessages() );
-			}
+		foreach ( $this->questions as $questionItem ) {
+			$messages = array_merge( $messages, $questionItem->getMessages() );
 		}
 		return $messages;
 	}

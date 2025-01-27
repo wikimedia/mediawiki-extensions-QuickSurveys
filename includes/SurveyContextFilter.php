@@ -16,7 +16,7 @@ class SurveyContextFilter {
 	/**
 	 * @var Survey[]
 	 */
-	private $surveys;
+	private array $surveys;
 
 	/**
 	 * @param Survey[] $surveys
