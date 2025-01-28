@@ -127,16 +127,11 @@ abstract class Survey {
 
 	/**
 	 * Returns the name of the ResourceLoader module
-	 *
-	 * @return string
 	 */
 	public function getResourceLoaderModuleName(): string {
 		return 'ext.quicksurveys.survey.' . str_replace( ' ', '.', $this->name );
 	}
 
-	/**
-	 * @return SurveyAudience
-	 */
 	public function getAudience(): SurveyAudience {
 		return $this->audience;
 	}
@@ -181,8 +176,6 @@ abstract class Survey {
 
 	/**
 	 * Returns the JSON-encodable, minimal representation of the survey
-	 *
-	 * @return array
 	 */
 	public function toArray(): array {
 		return [

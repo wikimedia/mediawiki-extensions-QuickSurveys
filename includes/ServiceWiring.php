@@ -16,7 +16,6 @@ return [
 		},
 	'QuickSurveys.EnabledSurveys' =>
 		/**
-		 * @param MediaWikiServices $services
 		 * @return \QuickSurveys\Survey[] List of active surveys to be selected from on the client
 		 */
 		static function ( MediaWikiServices $services ): array {

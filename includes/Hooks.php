@@ -28,8 +28,6 @@ class Hooks implements
 	 * Get data about the enabled surveys to be exported to the ext.quicksurveys.lib module
 	 * via a virtual file.
 	 *
-	 * @param RL\Context $context
-	 * @param Config $conf
 	 * @return array[]
 	 */
 	public static function getSurveyConfig( RL\Context $context, Config $conf ) {
@@ -100,8 +98,6 @@ class Hooks implements
 	 * Registers needed modules for enabled surveys
 	 *
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderRegisterModules
-	 *
-	 * @param ResourceLoader $resourceLoader
 	 */
 	public function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ): void {
 		$surveys = MediaWikiServices::getInstance()->getService( 'QuickSurveys.EnabledSurveys' );
@@ -123,9 +119,6 @@ class Hooks implements
 	 * Adds a default-enabled preference to gate the feature
 	 *
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetPreferences
-	 *
-	 * @param User $user
-	 * @param array &$prefs
 	 */
 	public static function onGetPreferences( User $user, array &$prefs ): void {
 		$prefs['displayquicksurveys'] = [
@@ -142,8 +135,6 @@ class Hooks implements
 
 	/**
 	 * Convert a string timestamp with format (YYYYMMDDHHSS) to (YY-MM-DD)
-	 *
-	 * @param string $timestamp
 	 */
 	private function formatDate( string $timestamp ): string {
 		$year = substr( $timestamp, 0, 4 );

@@ -100,9 +100,6 @@ class SurveyFactory {
 	 *   <li>An external survey must have a privacy policy</li>
 	 *   <li>An internal survey must have a layout of either "single-answer" or "multiple-answer"</li>
 	 * </ul>
-	 *
-	 * @param array $spec
-	 * @return Survey|null
 	 */
 	public function newSurvey( array $spec ): ?Survey {
 		try {

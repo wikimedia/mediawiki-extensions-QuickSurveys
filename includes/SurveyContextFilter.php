@@ -25,12 +25,6 @@ class SurveyContextFilter {
 		$this->surveys = $surveys;
 	}
 
-	/**
-	 * @param Title|null $title
-	 * @param string $action
-	 *
-	 * @return bool
-	 */
 	public function isAnySurveyAvailable( ?Title $title, string $action ): bool {
 		if ( !$this->surveys ) {
 			return false;
@@ -55,9 +49,6 @@ class SurveyContextFilter {
 
 	/**
 	 * Checks if a specific audience key is set for any surveys.
-	 *
-	 * @param string $key
-	 * @return bool
 	 */
 	public function isAudienceKeySet( string $key ): bool {
 		foreach ( $this->surveys as $survey ) {
@@ -69,12 +60,6 @@ class SurveyContextFilter {
 		return false;
 	}
 
-	/**
-	 * @param int $pageId
-	 * @param int $namespace of page
-	 *
-	 * @return bool
-	 */
 	private function isSurveyAvailableForPage( int $pageId, int $namespace = 0 ): bool {
 		foreach ( $this->surveys as $survey ) {
 			$audience = $survey->getAudience()->toArray();

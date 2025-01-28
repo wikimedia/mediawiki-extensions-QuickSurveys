@@ -30,8 +30,6 @@ class Schema {
 
 	/**
 	 * Returns the JSON-encodable, minimal representation of the survey question.
-	 *
-	 * @return array
 	 */
 	public function toArray(): array {
 		return $this->data;
