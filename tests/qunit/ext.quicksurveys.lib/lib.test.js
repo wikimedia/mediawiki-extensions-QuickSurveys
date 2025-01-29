@@ -1,7 +1,7 @@
 const qSurveys = require( 'ext.quicksurveys.lib' ).test;
 
 QUnit.module( 'ext.quicksurveys.lib', {
-	beforeEach: function () {
+	beforeEach() {
 		this.getPanel = function () {
 			return $( '<div class="test-panel"></div>' );
 		};
@@ -176,35 +176,35 @@ QUnit.test( 'showSurvey: Placement (embedded)', function ( assert ) {
 QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds, firstEdit, lastEdit)', ( assert ) => {
 	const audienceAnyUser = {},
 		anonUser = {
-			isAnon: function () {
+			isAnon() {
 				return true;
 			},
-			getRegistration: function () {
+			getRegistration() {
 				return false;
 			}
 		},
 		userRegisteredOn20170103 = {
-			getRegistration: function () {
+			getRegistration() {
 				return new Date( '2017-01-03T20:20:00+01:00' );
 			}
 		},
 		userRegisteredOn20170104 = {
-			getRegistration: function () {
+			getRegistration() {
 				return new Date( '2017-01-04T20:20:00+01:00' );
 			}
 		},
 		userRegisteredOn20170105 = {
-			getRegistration: function () {
+			getRegistration() {
 				return new Date( '2017-01-05T20:20:00+01:00' );
 			}
 		},
 		userRegisteredOn20170106 = {
-			getRegistration: function () {
+			getRegistration() {
 				return new Date( '2017-01-06T20:20:00+01:00' );
 			}
 		},
 		loggedInUser = {
-			isAnon: function () {
+			isAnon() {
 				return false;
 			}
 		},

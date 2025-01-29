@@ -22,20 +22,20 @@ function render(
 	const deferred = $.Deferred();
 	const h = Vue.h;
 	const vm = Vue.createMwApp( {
-		mounted: function () {
+		mounted() {
 			deferred.resolve( this.$el );
 		},
 		/**
 		 * @return {Vue}
 		 */
-		render: function () {
+		render() {
 			const questions = utils.processSurveyQuestions( survey.questions, pageviewToken );
 
 			return h( QuickSurvey,
 				{
 					onLogEvent: logEvent,
 					onDismiss: dismissSurvey,
-					onDestroy: function () {
+					onDestroy() {
 						vm.unmount();
 					},
 					submitButtonLabel: mw.msg( 'ext-quicksurveys-internal-freeform-survey-submit-button' ),
@@ -53,12 +53,12 @@ function render(
 						survey.privacyPolicy || 'ext-quicksurveys-survey-privacy-policy-default-text'
 					).parse(),
 					name: survey.name,
-					surveySessionToken: surveySessionToken,
-					pageviewToken: pageviewToken,
-					isMobileLayout: isMobileLayout,
+					surveySessionToken,
+					pageviewToken,
+					isMobileLayout,
 					direction: htmlDirection,
 					backButtonLabel: mw.msg( 'ext-quicksurveys-internal-freeform-survey-back-button' ),
-					questions: questions,
+					questions,
 					surveyPreferencesDisclaimer: mw.message(
 						'ext-quicksurveys-survey-change-preferences-disclaimer'
 					).parse()
@@ -75,5 +75,7 @@ function render(
 }
 
 module.exports = {
-	render: render
+	QuickSurvey,
+	utils,
+	render
 };

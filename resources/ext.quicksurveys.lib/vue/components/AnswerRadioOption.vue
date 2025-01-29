@@ -47,13 +47,13 @@ module.exports = exports = {
 		},
 		modelValue: {
 			type: Object,
-			default: function () {
+			default() {
 				return { radio: null, text: null };
 			}
 		}
 	},
 	emits: [ 'update:freeTextValue', 'update:modelValue' ],
-	data: function () {
+	data() {
 		return {
 			radioValue: this.modelValue.radio,
 			freeTextValue: this.modelValue.text
@@ -63,13 +63,13 @@ module.exports = exports = {
 		/**
 		 * @return {boolean}
 		 */
-		shouldShowFreeTextInput: function () {
+		shouldShowFreeTextInput() {
 			return this.textInputPlaceholder &&
 				this.modelValue.radio === this.radioInputValue;
 		}
 	},
 	methods: {
-		updateRadio: function ( event ) {
+		updateRadio( event ) {
 			if ( event.target.checked ) {
 				this.$emit( 'update:modelValue', {
 					radio: event.target.value,
@@ -77,7 +77,7 @@ module.exports = exports = {
 				} );
 			}
 		},
-		updateText: function ( event ) {
+		updateText( event ) {
 			if ( this.modelValue.radio &&
 				this.modelValue.radio === this.radioInputValue ) {
 				this.$emit( 'update:modelValue', {

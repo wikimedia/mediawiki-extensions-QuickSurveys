@@ -174,9 +174,9 @@ function getNextQuestionIndex( currentIndex, questions, answers ) {
 }
 
 module.exports = {
-	shuffleAnswers: shuffleAnswers,
-	extend: extend,
-	getCountryCode: getCountryCode,
-	processSurveyQuestions: processSurveyQuestions,
-	getNextQuestionIndex: getNextQuestionIndex
+	shuffleAnswers,
+	extend,
+	getCountryCode,
+	processSurveyQuestions,
+	getNextQuestionIndex
 };

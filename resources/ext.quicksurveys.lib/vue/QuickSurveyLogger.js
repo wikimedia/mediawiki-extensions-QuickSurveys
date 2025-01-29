@@ -10,7 +10,7 @@ module.exports = {
 	 * @param {boolean} isTablet
 	 * @return {Array} of data to be passed to logger
 	 */
-	logResponseData: function (
+	logResponseData(
 		name,
 		question,
 		answers,
@@ -41,14 +41,14 @@ module.exports = {
 
 		const event = {
 			namespaceId: mw.config.get( 'wgNamespaceNumber' ),
-			surveySessionToken: surveySessionToken,
-			pageviewToken: pageviewToken,
+			surveySessionToken,
+			pageviewToken,
 			pageId: mw.config.get( 'wgArticleId' ),
 			pageTitle: mw.config.get( 'wgPageName' ),
 			surveyCodeName: name,
 			platform: 'web',
-			skin: skin,
-			isTablet: isTablet,
+			skin,
+			isTablet,
 			userLanguage: mw.config.get( 'wgContentLanguage' ),
 			isLoggedIn: !mw.user.isAnon(),
 			countryCode: utils.getCountryCode(),
@@ -58,7 +58,7 @@ module.exports = {
 				.join( ',' ),
 			surveyQuestionLabel: question,
 			surveyAnswers: Array.from( surveyAnswers ),
-			surveyResponseFreeText: surveyResponseFreeText
+			surveyResponseFreeText
 		};
 		const editCountBucket = mw.config.get( 'wgUserEditCountBucket' );
 		if ( editCountBucket ) {
