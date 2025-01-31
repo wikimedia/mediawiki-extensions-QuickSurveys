@@ -91,13 +91,13 @@ const hasOwn = Object.hasOwnProperty;
  *
  * @param {string} surveySessionToken
  * @param {string} pageviewToken
- * @param {string} surveyName
+ * @param {string} surveyCodeName
  */
-function logSurveyImpression( surveySessionToken, pageviewToken, surveyName ) {
+function logSurveyImpression( surveySessionToken, pageviewToken, surveyCodeName ) {
 	const event = {
-		surveySessionToken: surveySessionToken,
-		pageviewToken: pageviewToken,
-		surveyCodeName: surveyName,
+		surveySessionToken,
+		pageviewToken,
+		surveyCodeName,
 		eventName: 'impression',
 		performanceNow: Math.round( mw.now() )
 	};

@@ -3,6 +3,9 @@
 	"env": {
 		"commonjs": true
 	},
+	"rules": {
+		"object-shorthand": [ "error", "always" ]
+	},
 	"extends": [
 		"wikimedia/client",
 		"wikimedia/jquery",

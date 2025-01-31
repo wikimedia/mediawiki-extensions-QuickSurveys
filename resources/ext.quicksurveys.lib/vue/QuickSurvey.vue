@@ -94,7 +94,12 @@
 </template>
 
 <script>
-const codex = require( '@wikimedia/codex' ),
+const {
+		CdxButton,
+		CdxCheckbox,
+		CdxIcon,
+		CdxTextInput
+	} = require( '@wikimedia/codex' ),
 	Vue = require( 'vue' ),
 	icons = require( './icons.json' ),
 	utils = require( './utils.js' ),
@@ -105,16 +110,16 @@ const codex = require( '@wikimedia/codex' ),
 module.exports = exports = Vue.defineComponent( {
 	name: 'QuickSurvey',
 	components: {
-		CdxButton: codex.CdxButton,
-		CdxCheckbox: codex.CdxCheckbox,
-		CdxIcon: codex.CdxIcon,
-		CdxTextInput: codex.CdxTextInput,
-		AnswerRadioOption: AnswerRadioOption
+		CdxButton,
+		CdxCheckbox,
+		CdxIcon,
+		CdxTextInput,
+		AnswerRadioOption
 	},
 	props: {
 		noAnswerErrorMessage: {
 			type: String,
-			default: 'error'
+			default: mw.msg( 'ext-quicksurveys-internal-freeform-survey-no-answer-alert' )
 		},
 		isMobileLayout: {
 			type: Boolean
@@ -129,15 +134,15 @@ module.exports = exports = Vue.defineComponent( {
 		},
 		submitButtonLabel: {
 			type: String,
-			default: 'submit'
+			default: mw.msg( 'ext-quicksurveys-internal-freeform-survey-submit-button' )
 		},
 		backButtonLabel: {
 			type: String,
-			default: 'back'
+			default: mw.msg( 'ext-quicksurveys-internal-freeform-survey-back-button' )
 		},
 		direction: {
 			type: String,
-			default: 'auto'
+			default: document.documentElement.getAttribute( 'dir' ) || 'auto'
 		},
 		additionalInfo: {
 			type: String,
@@ -166,17 +171,17 @@ module.exports = exports = Vue.defineComponent( {
 		},
 		questions: {
 			type: Array,
-			default: function () {
-				return [];
-			}
+			default: () => []
 		},
 		surveyPreferencesDisclaimer: {
 			type: String,
-			default: ''
+			default: mw.message(
+				'ext-quicksurveys-survey-change-preferences-disclaimer'
+			).parse()
 		}
 	},
 	emits: [ 'destroy', 'dismiss', 'logEvent' ],
-	data: function () {
+	data() {
 		return {
 			// `currentQuestionIndex` tracks what question we're currently on.
 			currentQuestionIndex: 0,
@@ -206,32 +211,32 @@ module.exports = exports = Vue.defineComponent( {
 		/**
 		 * @return {Object}
 		 */
-		currentQuestion: function () {
+		currentQuestion() {
 			return this.questions[ this.currentQuestionIndex ] || {};
 		},
 		/**
 		 * @return {Object} Array of SurveyAnswer with key prop
 		 */
-		currentAnswerOptions: function () {
+		currentAnswerOptions() {
 			return this.currentQuestion.answers || [];
 		},
 		/**
 		 * @return {boolean}
 		 */
-		requiresSingularAnswer: function () {
+		requiresSingularAnswer() {
 			return this.currentQuestion.layout === 'single-answer';
 		},
 		/**
 		 * @return {boolean}
 		 */
-		questionHasExternalLink: function () {
+		questionHasExternalLink() {
 			return this.currentQuestion.externalLink &&
 				this.currentQuestion.externalLink.length > 0;
 		},
 		/**
 		 * @return {Array} of props for rendering buttons
 		 */
-		externalSurveyButtons: function () {
+		externalSurveyButtons() {
 			return [
 				{
 					label: this.currentQuestion.noMsg,
@@ -251,7 +256,7 @@ module.exports = exports = Vue.defineComponent( {
 		/**
 		 * @return {string} text that goes into the survey footer.
 		 */
-		footerText: function () {
+		footerText() {
 			let footerText;
 			if ( this.completed && this.additionalInfo ) {
 				footerText = this.additionalInfo;
@@ -271,7 +276,7 @@ module.exports = exports = Vue.defineComponent( {
 		 * @return {Object} a map with the key being the question label and the
 		 * value being the fill-in answer if the question has one.
 		 */
-		answers: function () {
+		answers() {
 			return this.getQuestionAnswerMapping(
 				this.checkedAnswers,
 				this.singleAnswer,
@@ -281,7 +286,7 @@ module.exports = exports = Vue.defineComponent( {
 		/**
 		 * @return {Array}
 		 */
-		rootClasses: function () {
+		rootClasses() {
 			return [
 				// default classes that all surveys should have
 				'ext-quick-survey-panel panel panel-inline visible',
@@ -298,7 +303,7 @@ module.exports = exports = Vue.defineComponent( {
 		 * @param {Object<string, string>} freeformTextAnswers
 		 * @return {Object<string, string>}
 		 */
-		getQuestionAnswerMapping: function ( checkedAnswers, singleAnswer, freeformTextAnswers ) {
+		getQuestionAnswerMapping( checkedAnswers, singleAnswer, freeformTextAnswers ) {
 			// Collect all of the checked question labels between the
 			// checkboxes and the radio buttons.
 			const combinedCheckedAnswers = new Set( [].concat(
@@ -320,7 +325,7 @@ module.exports = exports = Vue.defineComponent( {
 		/**
 		 * Resets the current answers (single & multi select + free text)
 		 */
-		clearCurrentAnswer: function () {
+		clearCurrentAnswer() {
 			this.checkedAnswers = [];
 			this.singleAnswer = { radio: null, text: '' };
 			this.freeformTextAnswers = {};
@@ -330,7 +335,7 @@ module.exports = exports = Vue.defineComponent( {
 		 *
 		 * @param {Object} freeformTextAnswers
 		 */
-		logAnswers: function () {
+		logAnswers() {
 			const data = QuickSurveyLogger.logResponseData(
 				this.name,
 				this.currentQuestion.questionKey,
@@ -344,7 +349,7 @@ module.exports = exports = Vue.defineComponent( {
 		/**
 		 * Returns to the previous question.
 		 */
-		backToPreviousQuestion: function () {
+		backToPreviousQuestion() {
 			this.clearCurrentAnswer();
 
 			// Have to check from the surveyAnswers because of possible condition routes
@@ -361,7 +366,7 @@ module.exports = exports = Vue.defineComponent( {
 		/**
 		 * Explicitly submits the currently selected answer.
 		 */
-		submitAnswer: function () {
+		submitAnswer() {
 			if ( Object.keys( this.answers ).length === 0 ) {
 				// eslint-disable-next-line no-alert
 				alert( this.noAnswerErrorMessage );
@@ -406,7 +411,7 @@ module.exports = exports = Vue.defineComponent( {
 		 * @param {string} answer
 		 * @param {string|null} href
 		 */
-		clickExternalSurveyButton: function ( answer, href ) {
+		clickExternalSurveyButton( answer, href ) {
 			if ( href ) {
 				window.open( href );
 			}
@@ -424,7 +429,7 @@ module.exports = exports = Vue.defineComponent( {
 		/**
 		 * Dismisses the current survey and removes it from the page
 		 */
-		dismissAndDestroy: function () {
+		dismissAndDestroy() {
 			this.$emit( 'dismiss' );
 			this.$emit( 'destroy' );
 		},
@@ -434,7 +439,7 @@ module.exports = exports = Vue.defineComponent( {
 		 * @param {Object} option
 		 * @return {boolean}
 		 */
-		shouldShowCheckboxTextInput: function ( option ) {
+		shouldShowCheckboxTextInput( option ) {
 			return option.freeformTextLabel &&
 				this.checkedAnswers.indexOf( option.key ) !== -1;
 		}
