@@ -189,8 +189,8 @@
 							"description": "ext-quicksurveys-example-external-survey-description",
 							"link": "ext-quicksurveys-example-external-survey-link",
 							"instanceTokenParameterName": "parameterName",
-							"yesMsg": "ext-quicksurveys-example-external-survey-yes",
-							"noMsg": "ext-quicksurveys-example-external-survey-no"
+							"yesMsg": "ext-quicksurveys-external-survey-yes-button",
+							"noMsg": "ext-quicksurveys-external-survey-no-button"
 						}
 					],
 					"privacyPolicy": "ext-quicksurveys-example-external-survey-privacy-policy",
