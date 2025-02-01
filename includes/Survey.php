@@ -197,7 +197,7 @@ abstract class Survey {
 			'additionalInfo' => $this->additionalInfo,
 			'confirmMsg' => $this->confirmMsg,
 			'questions' => array_map(
-				fn ( $question ) => $question->toArray(),
+				static fn ( $question ) => $question->toArray(),
 				$this->questions
 			),
 			'confirmDescription' => $this->confirmDescription

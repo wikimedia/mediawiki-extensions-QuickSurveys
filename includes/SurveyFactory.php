@@ -325,7 +325,7 @@ class SurveyFactory {
 
 					$referencedQuestion = $questionsByName[$dependencyName];
 					$referencedAnswers = array_map(
-						fn ( array $answer ): string => $answer['label'],
+						static fn ( array $answer ): string => $answer['label'],
 						$referencedQuestion['answers']
 					);
 
@@ -464,7 +464,7 @@ class SurveyFactory {
 				'question' => $question,
 				'description' => $description,
 				'shuffleAnswersDisplay' => $shuffleAnswersDisplay,
-				'answers' => array_map( fn ( string $answer ): array => [
+				'answers' => array_map( static fn ( string $answer ): array => [
 					'label' => $answer,
 					'freeformTextLabel' => $freeformTextLabel,
 				], $answers ),
