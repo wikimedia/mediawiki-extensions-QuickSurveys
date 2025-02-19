@@ -33,7 +33,6 @@
 				"mediawiki.storage",
 				"mediawiki.experiments",
 				"mediawiki.user",
-				"mediawiki.Uri",
 				"mediawiki.util",
 				"jquery.spinner",
 				"mediawiki.jqueryMsg"

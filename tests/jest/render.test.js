@@ -26,7 +26,7 @@ describe( 'QuickSurvey', () => {
 					name: 'Question',
 					description: 'Description',
 					question: 'Question',
-					link: 'https://mylink',
+					link: 'qunit-message-mylink',
 					yesMsg: 'Visit survey',
 					noMsg: 'No thanks'
 				}
@@ -118,7 +118,7 @@ describe( 'QuickSurvey', () => {
 			VueMock,
 			el,
 			{
-				link: 'https://survey',
+				link: 'qunit-message-survey-link',
 				name: 'Hello world',
 				description: 'Description',
 				question: 'Question',
@@ -128,7 +128,7 @@ describe( 'QuickSurvey', () => {
 				questions: [
 					{
 						name: 'Question',
-						link: 'https://survey',
+						link: 'qunit-message-survey-link',
 						description: 'Description',
 						question: 'Question',
 						externalLink: 'https://mylink',

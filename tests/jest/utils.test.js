@@ -47,14 +47,14 @@ describe( 'utils', () => {
 			const questions = [
 					{
 						name: 'Question',
-						link: 'https://host/',
+						link: 'qunit-message-link-special-page',
 						instanceTokenParameterName: 'aFakeTokenParam'
 					}
 				],
 				result = utils.processSurveyQuestions( questions, 'token' );
 
 			expect( result[ 0 ].externalLink ).toBe(
-				'https://host/?aFakeTokenParam=token'
+				'https://en.wikipedia.org/wiki/Special:QuickSurvey?aFakeTokenParam=token'
 			);
 		} );
 

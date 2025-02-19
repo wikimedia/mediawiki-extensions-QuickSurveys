@@ -19,6 +19,7 @@
 				<div class="survey-close-button">
 					<cdx-button
 						weight="quiet"
+						aria-hidden="true"
 						@click="dismissAndDestroy">
 						<cdx-icon :icon="closeIcon"></cdx-icon>
 					</cdx-button>
