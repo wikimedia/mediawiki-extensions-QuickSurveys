@@ -69,13 +69,18 @@ function processSurveyQuestions( questions, pageViewToken ) {
 	}
 
 	return questions.map( ( question ) => {
-		const externalLink = question.link ? new mw.Uri(
-			// eslint-disable-next-line mediawiki/msg-doc
-			mw.message( question.link ).parse()
-		) : '';
+		let externalLink;
+		try {
+			externalLink = question.link ? new URL(
+				// eslint-disable-next-line mediawiki/msg-doc
+				mw.message( question.link ).parse()
+			) : '';
+		} catch ( e ) {
+			// unable to parse.
+		}
 
 		if ( externalLink && question.instanceTokenParameterName ) {
-			externalLink.query[ question.instanceTokenParameterName ] = pageViewToken;
+			externalLink.searchParams.set( question.instanceTokenParameterName, pageViewToken );
 		}
 
 		const answers = ( question.answers || [] ).map( ( answer ) => ( {
