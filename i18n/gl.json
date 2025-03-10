@@ -2,23 +2,27 @@
 	"@metadata": {
 		"authors": [
 			"ArenaL5",
-			"Elisardojm"
+			"Elisardojm",
+			"Toliño"
 		]
 	},
 	"quicksurveys-desc": "Amosa as enquisas configuradas",
-	"ext-quicksurveys-example-internal-survey-question": "Debería ser máis grande o texto?",
+	"ext-quicksurveys-example-internal-survey-question": "O texto debería ser máis grande?",
 	"ext-quicksurveys-example-internal-survey-description": "Esta é a descrición do exemplo da enquisa interna",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Si",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Non o sei",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Non",
-	"ext-quicksurveys-example-external-survey-question": "Necesitamos a súa axuda para mellorar {{SITENAME}}.",
-	"ext-quicksurveys-example-external-survey-description": "Contestando esta enquisa axudaranos a ver como facer {{SITENAME}} mellor e máis útil para vostede. Grazas!",
-	"ext-quicksurveys-example-external-survey-privacy-policy": "Enquisa proporcionada por ExampleSurveyProvider. Vexa a [//example.org/privacy-policy política de privacidade]",
-	"ext-quicksurveys-survey-privacy-policy-default-text": "Todos os envíos son anónimos. Vexa a [//example.org/privacy-policy política de privacidade].",
-	"ext-quicksurveys-survey-confirm-msg": "Grazas polo comentario! Estamos a usalos para facer aínda mellor {{SITENAME}}!",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Outro",
+	"ext-quicksurveys-example-external-survey-question": "Necesitamos a túa axuda para mellorar {{SITENAME}}.",
+	"ext-quicksurveys-example-external-survey-description": "Ao contestares esta enquisa axudarasnos a ver como facer {{SITENAME}} mellor e máis útil para ti. Grazas!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Enquisa proporcionada por ExampleSurveyProvider. Consulta a [//example.org/privacy-policy política de privacidade]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Todos os envíos son anónimos. Consulta a [//example.org/privacy-policy política de privacidade].",
+	"ext-quicksurveys-survey-confirm-msg": "Grazas polo comentario! Utilizarémolo para facer que {{SITENAME}} sexa aínda mellor!",
 	"ext-quicksurveys-survey-positive": "Si",
 	"ext-quicksurveys-survey-negative": "Non",
 	"ext-quicksurveys-survey-neutral": "Non o sei",
-	"ext-quicksurveys-external-survey-yes-button": "Visitar enquisa",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Enviar",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Selecciona unha resposta ou introduce a túa.",
+	"ext-quicksurveys-external-survey-yes-button": "Visitar a enquisa",
 	"ext-quicksurveys-external-survey-no-button": "Non, grazas"
 }
