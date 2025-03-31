@@ -274,7 +274,7 @@ function isUsingTargetBrowser( targetUserAgent ) {
 		Opera: /OPR[/\s](\d+\.\d+)/i,
 		Safari: /Safari[/\s](\d+\.\d+)/i
 	};
-	const targetChrome = targetUserAgent.indexOf( 'Chrome' ) > -1;
+	const targetChrome = targetUserAgent.includes( 'Chrome' );
 	let uaMatch = 0;
 
 	// Check each target user agent against the user's user agent.
@@ -285,7 +285,7 @@ function isUsingTargetBrowser( targetUserAgent ) {
 			++uaMatch;
 			// User agent string for Chrome includes Safari, so the simple regex fails to prevent
 			// showing a given survey to Chrome when Safari is targeted but Chrome is not.
-			if ( ua === 'Safari' && !targetChrome && navigator.userAgent.indexOf( 'Chrome' ) > -1 ) {
+			if ( ua === 'Safari' && !targetChrome && navigator.userAgent.includes( 'Chrome' ) ) {
 				--uaMatch;
 			}
 		}
@@ -312,7 +312,7 @@ function isInAudience( audience, user, editCount, geo, pageId, firstEdit, lastEd
 		hasPageIds = audience.pageIds !== undefined,
 		hasTarget = audience.userAgent !== undefined && audience.userAgent.length > 0;
 
-	if ( hasPageIds && audience.pageIds.indexOf( pageId ) === -1 ) {
+	if ( hasPageIds && !audience.pageIds.includes( pageId ) ) {
 		return false;
 	} else if ( ( audience.registrationStart || audience.registrationEnd ) &&
 		registrationDateNotInRange( user, audience.registrationStart,
@@ -339,7 +339,7 @@ function isInAudience( audience, user, editCount, geo, pageId, firstEdit, lastEd
 		return false;
 	}
 	geo = geo || { country: '??' };
-	if ( hasCountries && audience.countries.indexOf( geo.country ) === -1 ) {
+	if ( hasCountries && !audience.countries.includes( geo.country ) ) {
 		return false;
 	} else if ( hasTarget && !isUsingTargetBrowser( audience.userAgent ) ) {
 		return false;
@@ -423,7 +423,7 @@ function surveyMatchesPlatform( survey, mode ) {
 		platformValue = mode || 'stable';
 
 	return hasOwn.call( survey.platforms, platformKey ) &&
-		survey.platforms[ platformKey ].indexOf( platformValue ) !== -1;
+		survey.platforms[ platformKey ].includes( platformValue );
 }
 
 /**

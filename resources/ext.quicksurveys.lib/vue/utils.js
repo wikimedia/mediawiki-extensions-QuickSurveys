@@ -159,7 +159,7 @@ function getNextQuestionIndex( currentIndex, questions, answers ) {
 						const answersForQuestion = Object.keys(
 							answers[ question.questionKey ] || {}
 						);
-						return answersForQuestion.indexOf( oneOfAnswer ) !== -1;
+						return answersForQuestion.includes( oneOfAnswer );
 					}
 				);
 

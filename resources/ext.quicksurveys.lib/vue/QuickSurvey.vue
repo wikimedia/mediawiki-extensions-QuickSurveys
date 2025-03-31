@@ -442,7 +442,7 @@ module.exports = exports = Vue.defineComponent( {
 		 */
 		shouldShowCheckboxTextInput( option ) {
 			return option.freeformTextLabel &&
-				this.checkedAnswers.indexOf( option.key ) !== -1;
+				this.checkedAnswers.includes( option.key );
 		}
 	}
 } );
