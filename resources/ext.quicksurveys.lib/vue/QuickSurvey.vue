@@ -291,7 +291,12 @@ module.exports = exports = Vue.defineComponent( {
 			return [
 				// default classes that all surveys should have
 				'ext-quick-survey-panel panel panel-inline visible',
-				'ext-quick-survey-' + this.currentQuestion.layout
+				'ext-quick-survey-' + this.currentQuestion.layout,
+				/*
+				TODO: Temporary workaround prevents QuickSurvey from scaling with text size T391890.
+				Remove the workaround after font modes is fully integrated in Vector.
+				*/
+				'vector-feature-custom-font-size-clientpref--excluded'
 			];
 		}
 	},
@@ -467,6 +472,12 @@ module.exports = exports = Vue.defineComponent( {
 	em.
 	*/
 	@header-align-displacement: 1em * (@close-button-size - (14px * @line-height)) / 14px;
+	/*
+	Explicitly set the font-size and line-height.
+	Otherwise, `vector-body` font-size rules apply.
+	*/
+	font-size: @font-size-medium;
+	line-height: @line-height-medium;
 
 	.survey-content {
 		padding: (@spacing - @close-button-displacement) @spacing;
