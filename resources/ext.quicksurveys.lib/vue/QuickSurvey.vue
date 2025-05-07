@@ -294,9 +294,10 @@ module.exports = exports = Vue.defineComponent( {
 				'ext-quick-survey-' + this.currentQuestion.layout,
 				/*
 				TODO: Temporary workaround prevents QuickSurvey from scaling with text size T391890.
-				Remove the workaround after font modes is fully integrated in Vector.
+				Remove the workaround after font modes is fully integrated in Vector as this class
+				is currently marked as unstable and temporary.
 				*/
-				'vector-feature-custom-font-size-clientpref--excluded'
+				'no-font-mode-scale'
 			];
 		}
 	},
