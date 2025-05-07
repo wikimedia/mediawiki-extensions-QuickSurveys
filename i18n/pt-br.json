@@ -6,6 +6,11 @@
 			"Felipe L. Ewald"
 		]
 	},
+	"prefs-quicksurveyext": "Extensão QuickSurvey",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Exibir QuickSurveys",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Esse recurso exibirá [https://www.mediawiki.org/wiki/Extension:QuickSurveys pesquisas curtas opcionais] da Wikimedia Foundation, que não estão conectadas à sua conta.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Mostrar todas as pesquisas",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Ocultar todas as pesquisas",
 	"quicksurveys-desc": "Exibe pesquisas configuradas",
 	"ext-quicksurveys-example-internal-survey-question": "O texto deve ser maior?",
 	"ext-quicksurveys-example-internal-survey-description": "Esta é a descrição do exemplo de pesquisa interna",
@@ -17,11 +22,13 @@
 	"ext-quicksurveys-example-external-survey-description": "Ao responder a esta pesquisa, você irá nos ajudar a entender como tornar a {{SITENAME}} melhor e mais útil para você. Obrigado!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Pesquisa provida por ExampleSurveyProvider. Veja em [//example.org/privacy-policy politica de privacidade]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Todas as submissões são anônimas. Consulte na [//example.org/privacy-policy política de privacidade].",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "Para impedir a exibição do QuickSurveys, [[Special:Preferences#mw-prefsection-personal-quicksurveyext|altere suas preferências]].",
 	"ext-quicksurveys-survey-confirm-msg": "Obrigado pelo feedback! Vamos usá-lo para tornar {{SITENAME}} ainda melhor!",
 	"ext-quicksurveys-survey-positive": "Sim",
 	"ext-quicksurveys-survey-negative": "Não",
 	"ext-quicksurveys-survey-neutral": "Talvez",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "Enviar",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Voltar",
 	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Por favor, selecione uma resposta ou digite a sua.",
 	"ext-quicksurveys-external-survey-yes-button": "Visitar pesquisa",
 	"ext-quicksurveys-external-survey-no-button": "Não obrigado"
