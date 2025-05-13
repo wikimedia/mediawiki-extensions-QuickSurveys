@@ -1,23 +1,34 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tgr"
+			"Tgr",
+			"Dj"
 		]
 	},
+	"prefs-quicksurveyext": "QuickSurvey bővítmény",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "QuickSurveys megjelenítése",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Ez a funkció a Wikimédia Alapítvány által közzétett [https://www.mediawiki.org/wiki/Extension:QuickSurveys rövid, nem kötelező kérdőíveket] jelenít meg, amelyek nem kapcsolódnak a felhasználói fiókodhoz.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Összes kérdőív megjelenítése",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Összes kérdőív elrejtése",
 	"quicksurveys-desc": "Megjeleníti a beállított kérdőíveket",
 	"ext-quicksurveys-example-internal-survey-question": "Nagyobb legyen a szöveg?",
 	"ext-quicksurveys-example-internal-survey-description": "Ez a példa belső felmérés leírása",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Igen",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Nem tudom biztosan",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Nem",
-	"ext-quicksurveys-example-external-survey-question": "Szükségünk van a segítségedre a Wikipédia fejlesztéséhez.",
-	"ext-quicksurveys-example-external-survey-description": "A kérdőív megválaszolásával segítesz nekünk megérteni, hogyan tehetjük jobbá és hasznosabbá a számodra a Wikipédiát. Köszönjük!",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Egyéb",
+	"ext-quicksurveys-example-external-survey-question": "Szükségünk van a segítségedre a {{SITENAME}} fejlesztésében.",
+	"ext-quicksurveys-example-external-survey-description": "A kérdőív kitöltésével segítesz nekünk abban, hogy a {{SITENAME}} még hasznosabb és jobb legyen számodra. Köszönjük!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "A kérdőívet a PéldaKérdőívÜzemeltető üzemelteti. Lásd az [//example.org/privacy-policy adatvédelmi irányelveket]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Minden válasz anonim. Lásd az [//example.org/privacy-policy adatvédelmi irányelveinket].",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "A QuickSurveys megjelenésének letiltásához [[Special:Preferences#mw-prefsection-personal-quicksurveyext|módosítsd a beállításaidat]].",
 	"ext-quicksurveys-survey-confirm-msg": "Köszönjük a visszajelzést! Segít nekünk a {{SITENAME}} jobbá tételében.",
 	"ext-quicksurveys-survey-positive": "Igen",
 	"ext-quicksurveys-survey-negative": "Nem",
 	"ext-quicksurveys-survey-neutral": "Nem tudom biztosan",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Küldés",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Vissza",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Kérjük, válassz egy választ, vagy add meg a sajátod!",
 	"ext-quicksurveys-external-survey-yes-button": "Kérdőív megnyitása",
 	"ext-quicksurveys-external-survey-no-button": "Inkább nem"
 }
