@@ -18,16 +18,7 @@ module.exports = {
 		pageviewToken,
 		isTablet
 	) {
-		let skin = mw.config.get( 'skin' );
-		// FIXME: remove this when SkinMinervaBeta is renamed to 'minerva-beta'.
-		const mobileMode = mw.config.get( 'wgMFMode' );
-
-		// On mobile differentiate between minerva stable and beta
-		// by appending 'beta' to 'minerva'
-		if ( skin === 'minerva' && mobileMode === 'beta' ) {
-			skin += mobileMode;
-		}
-
+		const skin = mw.config.get( 'skin' );
 		const surveyAnswers = Object.keys( answers );
 
 		// Filter out freeform text answers that are blank.

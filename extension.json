@@ -167,8 +167,7 @@
 							"stable"
 						],
 						"mobile": [
-							"stable",
-							"beta"
+							"stable"
 						]
 					},
 					"audience": {
@@ -196,15 +195,9 @@
 					"surveyPreferencesDisclaimer": "ext-quicksurveys-survey-change-preferences-disclaimer",
 					"enabled": false,
 					"coverage": 0.5,
-					"platforms": {
-						"desktop": [
-							"stable"
-						],
-						"mobile": [
-							"stable",
-							"beta"
-						]
-					}
+					"platforms": [
+						"desktop", "mobile"
+					]
 				}
 			]
 		}

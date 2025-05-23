@@ -49,14 +49,9 @@ abstract class Survey {
 	 *
 	 * <code><pre>
 	 * <?php
-	 * $platform = array(
-	 *   'desktop' => array(
-	 *   	'stable',
-	 *   ),
-	 *   'mobile' => array(
-	 *   	'stable',
-	 *   	'beta',
-	 *   ),
+	 * $platform = [
+	 *   'desktop',
+	 *   'mobile'
 	 * );
 	 * </pre></code>
 	 *

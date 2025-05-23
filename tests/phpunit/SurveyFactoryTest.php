@@ -21,13 +21,8 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 		'enabled' => true,
 		'coverage' => 1,
 		'platforms' => [
-			'desktop' => [
-				'stable',
-			],
-			'mobile' => [
-				'stable',
-				'beta',
-			],
+			'desktop',
+			'mobile'
 		],
 	];
 
@@ -38,13 +33,8 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 		'enabled' => true,
 		'coverage' => 1,
 		'platforms' => [
-			'desktop' => [
-				'stable',
-			],
-			'mobile' => [
-				'stable',
-				'beta',
-			],
+			'desktop',
+			'mobile'
 		],
 	];
 
@@ -171,13 +161,8 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			'test',
 			1,
 			[
-				'desktop' => [
-					'stable'
-				],
-				'mobile' => [
-					'stable',
-					'beta',
-				],
+				'desktop',
+				'mobile'
 			],
 			'ext-quicksurveys-test-external-survey-privacy-policy',
 			null,
@@ -221,13 +206,8 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'enabled' => true,
 				'coverage' => 1,
 				'platforms' => [
-					'desktop' => [
-						'stable'
-					],
-					'mobile' => [
-						'stable',
-						'beta',
-					],
+					'desktop',
+					'mobile'
 				],
 				'audience' => [
 					'minEdits' => 100,
@@ -262,13 +242,8 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			'test',
 			1,
 			[
-				'desktop' => [
-					'stable',
-				],
-				'mobile' => [
-					'stable',
-					'beta',
-				],
+				'desktop',
+				'mobile'
 			],
 			null,
 			null,
@@ -316,13 +291,8 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'enabled' => true,
 				'coverage' => 1,
 				'platforms' => [
-					'desktop' => [
-						'stable',
-					],
-					'mobile' => [
-						'stable',
-						'beta',
-					],
+					'desktop',
+					'mobile'
 				],
 			]
 		);
@@ -335,13 +305,8 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 			'test',
 			1,
 			[
-				'desktop' => [
-					'stable',
-				],
-				'mobile' => [
-					'stable',
-					'beta',
-				],
+				'desktop',
+				'mobile'
 			],
 			null,
 			null,
@@ -389,13 +354,8 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				'enabled' => true,
 				'coverage' => 1,
 				'platforms' => [
-					'desktop' => [
-						'stable',
-					],
-					'mobile' => [
-						'stable',
-						'beta',
-					],
+					'desktop',
+					'mobile'
 				],
 			]
 		);
@@ -538,11 +498,11 @@ class SurveyFactoryTest extends \MediaWikiIntegrationTestCase {
 				[
 					'mobile' => [
 						'stable',
-						'alpha',
+						'beta',
 					],
 				],
 				'The "test" survey has specified an invalid platform. ' .
-				'Please specify one or more of the following for the "mobile" platform: stable, beta.',
+				'Please specify one or more of the following for the "mobile" platform: stable.',
 			],
 		];
 	}

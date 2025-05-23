@@ -91,27 +91,62 @@ QUnit.test( 'showSurvey: Placement (no headings)', function ( assert ) {
 
 QUnit.test( 'surveyMatchesPlatform', ( assert ) => {
 	const testCases = [
+		//
+		// flat array cases
+		//
+		[
+			[ 'desktop', 'mobile' ],
+			true,
+			true
+		],
+		[
+			[ 'mobile' ],
+			false,
+			true
+		],
+		[
+			[ 'desktop' ],
+			true,
+			false
+		],
+		[
+			[],
+			false,
+			false
+		],
+		//
+		// backwards compatibility cases
+		//
 		[
 			// desktop only
 			{
 				desktop: [ 'stable', 'beta' ],
 				mobile: []
 			},
-			true, false, false
+			// result for undefined (desktop site)
+			true,
+			// result for stable mobile mode
+			false
 		],
 		// desktop only
 		[
 			{
 				desktop: [ 'stable', 'beta' ]
 			},
-			true, false, false
+			// result for undefined (desktop site)
+			true,
+			// result for stable mobile mode
+			false
 		],
 		// mobile only
 		[
 			{
 				mobile: [ 'stable', 'beta' ]
 			},
-			false, true, true
+			// result for undefined (desktop site)
+			false,
+			// result for stable mobile mode
+			true
 		],
 		// mobile only
 		[
@@ -119,7 +154,10 @@ QUnit.test( 'surveyMatchesPlatform', ( assert ) => {
 				desktop: [],
 				mobile: [ 'stable', 'beta' ]
 			},
-			false, true, true
+			// result for undefined (desktop site)
+			false,
+			// result for stable mobile mode
+			true
 		],
 		// mobile beta only
 		[
@@ -127,22 +165,34 @@ QUnit.test( 'surveyMatchesPlatform', ( assert ) => {
 				desktop: [],
 				mobile: [ 'beta' ]
 			},
-			false, false, true
+			// result for undefined (desktop site)
+			false,
+			// result for stable mobile mode
+			false
 		],
 		// mobile beta only
 		[
+			// platforms value in configuration
 			{
 				mobile: [ 'beta' ]
 			},
-			false, false, true
+			// result for undefined (desktop site)
+			false,
+			// result for stable mobile mode
+			false
 		]
 	];
-	testCases.forEach( ( test ) => {
+	testCases.forEach( ( test, i ) => {
 		assert.strictEqual(
-			qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, undefined ), test[ 1 ]
+			qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, undefined ),
+			test[ 1 ],
+			`test case ${ i }: check desktop site result`
 		);
-		assert.strictEqual( qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, 'stable' ), test[ 2 ] );
-		assert.strictEqual( qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, 'beta' ), test[ 3 ] );
+		assert.strictEqual(
+			qSurveys.surveyMatchesPlatform( { platforms: test[ 0 ] }, 'stable' ),
+			test[ 2 ],
+			`test case ${ i }: check mobile site result`
+		);
 	} );
 } );
 

@@ -12,7 +12,6 @@ class SurveyFactory {
 		],
 		'mobile' => [
 			'stable',
-			'beta',
 		],
 	];
 

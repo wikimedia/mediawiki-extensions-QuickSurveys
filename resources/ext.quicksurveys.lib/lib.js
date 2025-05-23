@@ -85,8 +85,6 @@ const logEvent = require( './logEvent.js' );
  * @property {?string} [to]
  */
 
-const hasOwn = Object.hasOwnProperty;
-
 /**
  * Log impression when a survey is seen by the user
  *
@@ -434,11 +432,17 @@ function getBucketForSurvey( survey ) {
  * @return {boolean}
  */
 function surveyMatchesPlatform( survey, mode ) {
-	const platformKey = mode ? 'mobile' : 'desktop',
-		platformValue = mode || 'stable';
+	const platformKey = mode ? 'mobile' : 'desktop';
+	const newConfiguration = Array.isArray( survey.platforms );
 
-	return hasOwn.call( survey.platforms, platformKey ) &&
-		survey.platforms[ platformKey ].includes( platformValue );
+	if ( !newConfiguration ) {
+		mw.log.warn( 'QuickSurvey: `platforms` field should be array, not object' );
+	}
+
+	const platforms = survey.platforms;
+	return newConfiguration ?
+		platforms.includes( platformKey ) :
+		( platforms[ platformKey ] || [] ).includes( 'stable' );
 }
 
 /**
