@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Metalhead64",
+			"Schniggendiller",
 			"TMg",
 			"ThePiscin"
 		]
 	},
 	"prefs-quicksurveyext": "QuickSurvey-Erweiterung",
 	"ext-quicksurveys-pref-displayquicksurveys-label": "QuickSurveys anzeigen",
-	"ext-quicksurveys-pref-displayquicksurveys-help": "Diese Funktion zeigt [https://www.mediawiki.org/wiki/Extension:QuickSurveys kurze optionale Umfragen] der Wikimedia Foundation an, die nicht mit {{#FORMAL:Versuche|deinem|Ihrem}} Konto verknüpft sind.",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Diese Funktion zeigt [https://www.mediawiki.org/wiki/Extension:QuickSurveys kurze optionale Umfragen] der Wikimedia Foundation an, die nicht mit {{#FORMAL:deinem|Ihrem}} Konto verknüpft sind.",
 	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Alle Umfragen anzeigen",
 	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Alle Umfragen ausblenden",
 	"quicksurveys-desc": "Ermöglicht die Anzeige konfigurierter Umfragen",
