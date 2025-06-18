@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Inkowik",
 			"Metalhead64",
 			"Schniggendiller",
 			"TMg",
@@ -23,7 +24,7 @@
 	"ext-quicksurveys-example-external-survey-description": "Durch das Beantworten dieser Umfrage hilfst du uns zu verstehen, wie man {{SITENAME}} besser und nützlicher für dich macht. Vielen Dank!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Umfrage zur Verfügung gestellt durch BeispielUmfrageAnbieter. Siehe die [//example.org/privacy-policy Datenschutzrichtlinie].",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Alle Einreichungen sind anonym. Siehe die [//example.org/privacy-policy Datenschutzrichtlinie].",
-	"ext-quicksurveys-survey-change-preferences-disclaimer": "Um die Anzeige von QuickSurveys zu verhindern, [[Special:Preferences#mw-prefsection-personal-quicksurveyext|{{#FORMAL:Versuche|ändere deine|ändern Sie Ihre}} Einstellungen]].",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "Um die Anzeige von QuickSurveys zu verhindern, [[Special:Preferences#mw-prefsection-personal-quicksurveyext|{{#FORMAL:ändere deine|ändern Sie Ihre}} Einstellungen]].",
 	"ext-quicksurveys-survey-confirm-msg": "Danke für deine Rückmeldung! Wir verwenden sie, um {{SITENAME}} noch besser zu machen!",
 	"ext-quicksurveys-survey-positive": "Ja",
 	"ext-quicksurveys-survey-negative": "Nein",
