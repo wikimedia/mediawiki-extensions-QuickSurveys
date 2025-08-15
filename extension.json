@@ -20,7 +20,7 @@
 		]
 	},
 	"ConfigRegistry": {
-		"quicksurveys": "GlobalVarConfig::newInstance"
+		"quicksurveys": "MediaWiki\\Config\\GlobalVarConfig::newInstance"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
