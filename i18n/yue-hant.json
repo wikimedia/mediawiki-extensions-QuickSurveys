@@ -5,5 +5,10 @@
 		]
 	},
 	"ext-quicksurveys-example-internal-survey-answer-positive": "係",
-	"ext-quicksurveys-survey-positive": "係"
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "唔肯定",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "唔係",
+	"ext-quicksurveys-survey-positive": "係",
+	"ext-quicksurveys-survey-negative": "唔係",
+	"ext-quicksurveys-survey-neutral": "唔肯定",
+	"ext-quicksurveys-external-survey-no-button": "唔使，多謝"
 }
