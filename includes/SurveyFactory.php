@@ -406,7 +406,8 @@ class SurveyFactory {
 			$link,
 			$instanceTokenParameterName,
 			$yesMsg,
-			$noMsg
+			$noMsg,
+			$spec['embedElementId'] ?? null
 		);
 		$this->validateExternalSurveyQuestions( $survey->toArray() );
 

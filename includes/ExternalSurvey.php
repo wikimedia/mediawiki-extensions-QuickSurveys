@@ -33,6 +33,11 @@ class ExternalSurvey extends Survey {
 	private $noMsg;
 
 	/**
+	 * @var string|null
+	 */
+	private $embedElementId;
+
+	/**
 	 * @param string $name
 	 * @param float $coverage
 	 * @param array[] $platforms
@@ -48,6 +53,7 @@ class ExternalSurvey extends Survey {
 	 * @param string|null $instanceTokenParameterName
 	 * @param string|null $yesMsg
 	 * @param string|null $noMsg
+	 * @param string|null $embedElementId
 	 */
 	public function __construct(
 		$name,
@@ -64,7 +70,8 @@ class ExternalSurvey extends Survey {
 		?string $link = null,
 		?string $instanceTokenParameterName = null,
 		?string $yesMsg = null,
-		?string $noMsg = null
+		?string $noMsg = null,
+		?string $embedElementId = null
 	) {
 		parent::__construct(
 			$name,
@@ -97,6 +104,7 @@ class ExternalSurvey extends Survey {
 		$this->instanceTokenParameterName = $instanceTokenParameterName;
 		$this->yesMsg = $yesMsg;
 		$this->noMsg = $noMsg;
+		$this->embedElementId = $embedElementId;
 	}
 
 	/**
@@ -127,6 +135,7 @@ class ExternalSurvey extends Survey {
 			'instanceTokenParameterName' => $this->instanceTokenParameterName,
 			'yesMsg' => $this->yesMsg,
 			'noMsg' => $this->noMsg,
+			'embedElementId' => $this->embedElementId,
 		];
 	}
 }

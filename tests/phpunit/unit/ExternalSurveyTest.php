@@ -38,6 +38,7 @@ class ExternalSurveyTest extends \MediaWikiUnitTestCase {
 			null,
 			null,
 			null,
+			null,
 			null
 		);
 
@@ -85,6 +86,7 @@ class ExternalSurveyTest extends \MediaWikiUnitTestCase {
 			'instanceTokenParameterName' => null,
 			'yesMsg' => null,
 			'noMsg' => null,
+			'embedElementId' => null,
 		], $survey->toArray() );
 	}
 
