@@ -21,7 +21,7 @@
 	"ext-quicksurveys-example-external-survey-description": "Ved å svare på denne undersøkelsen hjelper du oss å forstå hvordan vi kan gjøre {{SITENAME}} bedre og nyttigere for deg. Tusen takk!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "Undersøkelsen holdes av ExampleSurveyProvider. Se [//example.org/privacy-policy personvernspolicy]",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Alle innsendte svar er anonyme. Se [//example.org/privacy-policy personvernspolicy].",
-	"ext-quicksurveys-survey-change-preferences-disclaimer": "[[Special:Preferences#mw-prefsection-personal-quicksurveytext|Endre innstillingene dine]] for å hindre visning av QuickSurveys.",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "[[Special:Preferences#mw-prefsection-personal-quicksurveyext|Endre innstillingene dine]] for å hindre visning av QuickSurveys.",
 	"ext-quicksurveys-survey-confirm-msg": "Takk for tilbakemeldingen! Vi bruker den til å gjøre {{SITENAME}} enda bedre!",
 	"ext-quicksurveys-survey-positive": "Ja",
 	"ext-quicksurveys-survey-negative": "Nei",
