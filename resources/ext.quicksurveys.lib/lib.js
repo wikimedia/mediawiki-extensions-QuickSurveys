@@ -471,6 +471,14 @@ function insertSurvey( survey ) {
 		surveySessionToken = mw.user.sessionId() + '-quicksurveys',
 		dismissSurvey = function () {
 			mw.storage.set( getSurveyStorageKey( survey ), '~' );
+			/**
+			 * Fires when a portlet is successfully created.
+			 *
+			 * @event ~'ext.quicksurveys.dismiss'
+			 * @memberof Hooks
+			 * @param {string} survey name of survey
+			 */
+			mw.hook( 'ext.quicksurveys.dismiss' ).fire( survey );
 		},
 		pageviewToken = mw.user.getPageviewToken(),
 		isMobileLayout = window.innerWidth <= 768;
@@ -527,9 +535,16 @@ function isQuickSurveysPrefEnabled() {
 /**
  * Choose and display a survey
  *
- * @param {string|null} forcedSurvey Survey to force display of, if any
+ * @param {string|null} surveyName Survey to force display of, if any. If value is
+ *  `true` then the survey name will be attempted to be extracted from the query string.
+ *   If surveyName is given then this disables platform checks and it is up to the developer
+ *   to run these checks themselves.
+ * @param {string} [embedElementId] optional ID of element in which to insert survey
  */
-function showSurvey( forcedSurvey ) {
+function showSurvey( surveyName, embedElementId ) {
+	if ( embedElementId && !surveyName ) {
+		throw new Error( 'When using showSurvey with embedElementId, surveyName must be defined.' );
+	}
 	if ( !isQuickSurveysPrefEnabled() ) {
 		return;
 	}
@@ -537,6 +552,7 @@ function showSurvey( forcedSurvey ) {
 	const embeddedSurveys = [];
 	const availableSurveys = [];
 	const enabledSurveys = require( './surveyData.json' );
+	const forcedSurvey = surveyName === 'true';
 
 	if ( forcedSurvey ) {
 		// Code path for when …?quicksurvey=… is used in the URL. Notes:
@@ -566,8 +582,10 @@ function showSurvey( forcedSurvey ) {
 				) &&
 				surveyMatchesPlatform( enabledSurvey, mw.config.get( 'wgMFMode' ) )
 			) {
-				if ( enabledSurvey.embedElementId ) {
-					if ( isEmbeddedElementMatched( enabledSurvey.embedElementId ) ) {
+				const targetId = embedElementId || enabledSurvey.embedElementId;
+				if ( targetId ) {
+					if ( isEmbeddedElementMatched( targetId ) ) {
+						enabledSurvey.embedElementId = targetId;
 						embeddedSurveys.push( enabledSurvey );
 					}
 				} else {
@@ -589,6 +607,9 @@ function showSurvey( forcedSurvey ) {
 }
 
 module.exports = {
+	/**
+	 * @stable for use
+	 */
 	showSurvey
 };
 
