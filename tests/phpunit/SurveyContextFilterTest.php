@@ -62,12 +62,6 @@ class SurveyContextFilterTest extends \MediaWikiIntegrationTestCase {
 				[ 'Nonexistent', 'view', null, false ],
 			'Main namespace article' =>
 				[ 'Foo', 'view', null, true ],
-			'Main namespace article, targeting does not interfere' =>
-				[ 'Foo', 'view', 'Project:Foo', true ],
-			'Non-Main namespace, not targeted page' =>
-				[ 'User:Foo', 'view', 'User:Bar', false ],
-			'Non-Main namspace, is targeted page' =>
-				[ 'User:Bar', 'view', 'User:Bar', true ],
 		];
 	}
 

@@ -25,6 +25,7 @@ class SurveyAudience extends Schema {
 		'registrationStart' => 'string',
 		'registrationEnd' => 'string',
 		'pageIds' => 'array',
+		'namespaces' => 'array',
 		'userAgent' => 'array',
 		'firstEdit' => [ self::ARRAY, self::VALID_DATE_RANGE_KEYS ],
 		'lastEdit' => [ self::ARRAY, self::VALID_DATE_RANGE_KEYS ],

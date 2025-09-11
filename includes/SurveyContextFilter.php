@@ -40,15 +40,17 @@ class SurveyContextFilter {
 			return false;
 		}
 
-		// Typically disabled outside of the main namespace, as well as on the main page
-		if ( !$title->inNamespace( NS_MAIN ) || $title->isMainPage() ) {
-			// Allow surveys to target specific pages regardless of namespace.
-			if ( !$this->isKnownPageId( $title->getArticleID() ) ) {
-				return false;
-			}
+		// Do not allow surveys on main page.
+		if ( $title->isMainPage() ) {
+			return false;
 		}
 
-		return $title->exists();
+		// Check there is a survey available for this page.
+		if ( !$this->isSurveyAvailableForPage( $title->getArticleID(), $title->getNamespace() ) ) {
+			return false;
+		}
+
+		return $title->exists() || $title->isSpecialPage();
 	}
 
 	/**
@@ -69,13 +71,21 @@ class SurveyContextFilter {
 
 	/**
 	 * @param int $pageId
+	 * @param int $namespace of page
 	 *
 	 * @return bool
 	 */
-	private function isKnownPageId( int $pageId ): bool {
+	private function isSurveyAvailableForPage( int $pageId, int $namespace = 0 ): bool {
 		foreach ( $this->surveys as $survey ) {
 			$audience = $survey->getAudience()->toArray();
-			if ( in_array( $pageId, $audience['pageIds'] ?? [] ) ) {
+			$pageIds = $audience['pageIds'] ?? [];
+			$validNamespaces = $audience['namespaces'] ?? [ 0 ];
+			// If page IDs is defined check that the current page ID is in scope.
+			if ( count( $pageIds ) > 0 && in_array( $pageId, $pageIds ) ) {
+				return true;
+			}
+			// If no page IDs declared, is the survey valid for this namespace?
+			if ( count( $pageIds ) === 0 && in_array( $namespace, $validNamespaces ) ) {
 				return true;
 			}
 		}
