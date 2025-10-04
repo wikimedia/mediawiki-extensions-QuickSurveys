@@ -47,6 +47,13 @@ QUnit.test( 'showSurvey: Placement (infobox)', function ( assert ) {
 		'Check on mobile page it is inserted in correct place (before infobox)' );
 } );
 
+QUnit.test( 'showSurvey: Placement (disabled)', function ( assert ) {
+	const $location = mw.template.get( 'test.QuickSurveys', 'vector-4.html' ).render();
+	qSurveys.insertPanel( $location, this.getPanel(), null, false, false );
+	assert.strictEqual( $location.find( '.test-panel' ).length, 0,
+		'Check no panel is inserted when the default selector is disabled' );
+} );
+
 QUnit.test( 'showSurvey: Placement (image)', function ( assert ) {
 	const template = mw.template.get( 'test.QuickSurveys', 'minerva-2.html' ),
 		$locationVector = mw.template.get( 'test.QuickSurveys', 'vector-2.html' ).render(),

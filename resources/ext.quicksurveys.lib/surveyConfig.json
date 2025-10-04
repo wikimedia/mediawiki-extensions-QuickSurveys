@@ -1,0 +1,4 @@
+{
+	"@note": "Virtual JSON supporting testing. Do not edit directly.",
+	"QuickSurveysDefaultSelector": ".infobox,> div > div > .thumb,> div > .thumb,> .thumb,.mw-heading"
+}

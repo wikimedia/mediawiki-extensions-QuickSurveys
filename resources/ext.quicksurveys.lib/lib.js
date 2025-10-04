@@ -1,4 +1,5 @@
 const logEvent = require( './logEvent.js' );
+const config = require( './surveyConfig.json' );
 
 /**
  * @typedef {Object} Audience
@@ -155,20 +156,27 @@ function getSeenObserver( el ) {
  * before the first instance of a thumbnail,
  * before the first instance of a heading
  * or at the end of the article when no headings nor thumbnails exist.
+ * if config.QuickSurveysDefaultSelector is falsey no quick survey will be added to
+ * the page and embedElementId must be used.
  *
  * @param {jQuery.Object} $bodyContent to add the panel. If embedElementId is passed this will be ignored.
  * @param {jQuery.Object} $panel
  * @param {string|null} embedElementId Embedding location DOM element ID.
  * @param {boolean} isMobileLayout whether the screen is a mobile layout.
+ * @param {string|false} [defaultSelector] CSS selector for the default insertion point.
  */
-function insertPanel( $bodyContent, $panel, embedElementId, isMobileLayout ) {
+function insertPanel( $bodyContent, $panel, embedElementId, isMobileLayout, defaultSelector ) {
+	// For optional parameter fall back to config.QuickSurveysDefaultSelector
+	if ( defaultSelector === undefined ) {
+		defaultSelector = config.QuickSurveysDefaultSelector;
+	}
 	let $place;
 	let insertAfter = true;
 
 	if ( embedElementId ) {
 		$place = getEmbeddedElement( embedElementId );
 		insertAfter = false;
-	} else if ( isMobileLayout ) {
+	} else if ( isMobileLayout && defaultSelector ) {
 		// Find a paragraph in the first section to insert after
 		$place = $bodyContent.find( '> div > div' ).eq( 0 ).find( ' > p' ).eq( 0 );
 	}
@@ -179,27 +187,11 @@ function insertPanel( $bodyContent, $panel, embedElementId, isMobileLayout ) {
 		} else {
 			$place.append( $panel );
 		}
-	} else {
+	} else if ( defaultSelector ) {
 		$place = $bodyContent
 			.find(
-				[
-					'.infobox',
-
-					// Account for the Mobile Frontend section wrapper
-					// around .thumb.
-					'> div > div > .thumb',
-
-					'> div > .thumb',
-					'> .thumb',
-					'.mw-heading'
-				].join( ',' )
+				defaultSelector
 			)
-			.filter( ':not(' + [
-				// Minerva
-				'.toc-mobile h2',
-				// Vector
-				'.toc h2'
-			].join( ',' ) + ')' )
 			.eq( 0 );
 		if ( $place.length ) {
 			$panel.insertBefore( $place );
@@ -507,7 +499,7 @@ function insertSurvey( survey, includeSensitiveData ) {
 		pageviewToken = mw.user.getPageviewToken(),
 		isMobileLayout = !isTablet();
 
-	insertPanel( $bodyContent, $panel, survey.embedElementId, isMobileLayout );
+	insertPanel( $bodyContent, $panel, survey.embedElementId, isMobileLayout, config.QuickSurveysDefaultSelector );
 	const htmlDirection = document.getElementById( 'firstHeading' ).getAttribute( 'dir' );
 
 	// survey.module contains i18n messages and code to render.

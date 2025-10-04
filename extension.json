@@ -58,6 +58,12 @@
 				"resources/ext.quicksurveys.lib/logEvent.js",
 				"resources/ext.quicksurveys.lib/lib.js",
 				{
+					"name": "resources/ext.quicksurveys.lib/surveyConfig.json",
+					"config": [
+						"QuickSurveysDefaultSelector"
+					]
+				},
+				{
 					"name": "resources/ext.quicksurveys.lib/surveyData.json",
 					"callback": "QuickSurveys\\Hooks::getSurveyConfig"
 				}
@@ -131,6 +137,11 @@
 		}
 	},
 	"config": {
+		"QuickSurveysDefaultSelector": {
+			"description": "CSS selector for identifying default element on the page where survey can be displayed. If false surveys will not be rendered automatically on page.",
+			"public": true,
+			"value": ".infobox,> div > div > .thumb,> div > .thumb,> .thumb,.mw-heading"
+		},
 		"QuickSurveysConfig": {
 			"description": "Array of surveys eligible to be displayed on the wiki. Full documentation can be found in https://www.mediawiki.org/wiki/Extension:QuickSurveys#Configuration",
 			"public": true,
