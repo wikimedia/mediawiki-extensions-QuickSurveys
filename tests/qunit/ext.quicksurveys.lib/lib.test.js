@@ -168,7 +168,10 @@ QUnit.test( 'showSurvey: Placement (embedded)', function ( assert ) {
 	const $location = mw.template.get( 'test.QuickSurveys', 'embedded-1.html' ).render(),
 		embedElementId = 'embed-survey-location';
 
+	// Needs to be present in the DOM to work.
+	$location.appendTo( document.body );
 	qSurveys.insertPanel( $location, this.getPanel(), embedElementId );
+	$location.remove();
 
 	assert.true( this.isPanelElement( $location.find( '#secondh2' ).next().next() ),
 		'Check embedded survey is inserted in correct place' );

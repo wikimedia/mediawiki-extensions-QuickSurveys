@@ -158,7 +158,7 @@ function getSeenObserver( el ) {
  * before the first instance of a heading
  * or at the end of the article when no headings nor thumbnails exist.
  *
- * @param {jQuery.Object} $bodyContent to add the panel
+ * @param {jQuery.Object} $bodyContent to add the panel. If embedElementId is passed this will be ignored.
  * @param {jQuery.Object} $panel
  * @param {string|null} embedElementId Embedding location DOM element ID.
  * @param {boolean} isMobileLayout whether the screen is a mobile layout.
@@ -167,7 +167,7 @@ function insertPanel( $bodyContent, $panel, embedElementId, isMobileLayout ) {
 	let $place;
 
 	if ( embedElementId ) {
-		$place = $bodyContent.find( '#' + embedElementId );
+		$place = $( '#' + embedElementId );
 	} else if ( isMobileLayout ) {
 		// Find a paragraph in the first section to insert after
 		$place = $bodyContent.find( '> div > div' ).eq( 0 ).find( ' > p' ).eq( 0 );
@@ -539,35 +539,52 @@ function isQuickSurveysPrefEnabled() {
  *  `true` then the survey name will be attempted to be extracted from the query string.
  *   If surveyName is given then this disables platform checks and it is up to the developer
  *   to run these checks themselves.
- * @param {string} [embedElementId] optional ID of element in which to insert survey
+ * @param {string} [embedElementId] optional ID of element in which to insert survey, when not defined
+ *   the survey will be added to DOM based on survey definition and wiki default. You must defined surveyName
+ *   when using this parameter.
+ * @param {boolean} [forceDisplay] whether the survey should be displayed regardless of audience.
+ * @return {boolean} if the survey was successfully displayed. If `false` this indicates the user was not
+ *  in the audience or the sample for the survey OR the survey doesn't exist.
+ * @throws {Error} if invalid parameters
  */
-function showSurvey( surveyName, embedElementId ) {
+function showSurvey( surveyName, embedElementId, forceDisplay ) {
 	if ( embedElementId && !surveyName ) {
 		throw new Error( 'When using showSurvey with embedElementId, surveyName must be defined.' );
 	}
 	if ( !isQuickSurveysPrefEnabled() ) {
-		return;
+		return false;
 	}
 
 	const embeddedSurveys = [];
 	const availableSurveys = [];
 	const enabledSurveys = require( './surveyData.json' );
-	const forcedSurvey = surveyName === 'true';
 
-	if ( forcedSurvey ) {
+	if ( forceDisplay ) {
 		// Code path for when …?quicksurvey=… is used in the URL. Notes:
 		// - This bypasses all bucket and audience checks.
 		// - Only enabled surveys can be accessed like this.
 		const enabledSurveyFromQueryString = getSurveyFromQueryString(
-			forcedSurvey,
+			surveyName,
 			enabledSurveys
 		);
 		if ( enabledSurveyFromQueryString ) {
+			mw.log.warn( `Sampling and audience for survey ${ enabledSurveyFromQueryString.name } has been disabled.
+Do not run this in production setting.` );
+			if ( embedElementId ) {
+				enabledSurveyFromQueryString.embedElementId = embedElementId;
+			}
 			availableSurveys.push( enabledSurveyFromQueryString );
 		}
 	} else {
 		// Find which surveys are available to the user
-		enabledSurveys.forEach( ( enabledSurvey ) => {
+		enabledSurveys.forEach( ( survey ) => {
+			// If a survey was named, restrict enabled surveys to the one requested
+			// e.g. avoid showing all applicable surveys.
+			if ( surveyName && surveyName !== survey.name ) {
+				return;
+			}
+			// avoid overwriting default configuration
+			const enabledSurvey = Object.assign( {}, survey );
 			if (
 				getSurveyToken( enabledSurvey ) !== '~' &&
 				getBucketForSurvey( enabledSurvey ) === 'A' &&
@@ -604,6 +621,7 @@ function showSurvey( surveyName, embedElementId ) {
 		const survey = availableSurveys[ Math.floor( Math.random() * availableSurveys.length ) ];
 		insertSurvey( survey );
 	}
+	return !!( embeddedSurveys.length || availableSurveys.length );
 }
 
 module.exports = {
