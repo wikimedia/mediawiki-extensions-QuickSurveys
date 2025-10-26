@@ -89,108 +89,84 @@ QUnit.test( 'showSurvey: Placement (no headings)', function ( assert ) {
 		'Check it is inserted in correct place on tablet (after first paragraph)' );
 } );
 
-QUnit.test.each( 'surveyMatchesPlatform', [
-	//
-	// flat array cases
-	//
-	[
-		[ 'desktop', 'mobile' ],
-		true,
-		true
-	],
-	[
-		[ 'mobile' ],
-		false,
-		true
-	],
-	[
-		[ 'desktop' ],
-		true,
-		false
-	],
-	[
-		[],
-		false,
-		false
-	],
-	//
+QUnit.test.each( 'surveyMatchesPlatform', {
+	'flat array both': {
+		config: [ 'desktop', 'mobile' ],
+		desktop: true,
+		mobile: true
+	},
+	'flat array mobile': {
+		config: [ 'mobile' ],
+		desktop: false,
+		mobile: true
+	},
+	'flat array desktop': {
+		config: [ 'desktop' ],
+		desktop: true,
+		mobile: false
+	},
+	'flat array none': {
+		config: [],
+		desktop: false,
+		mobile: false
+	},
 	// backwards compatibility cases
-	//
-	[
-		// desktop only
-		{
+	'object desktop only': {
+		config: {
 			desktop: [ 'stable', 'beta' ],
 			mobile: []
 		},
-		// result for undefined (desktop site)
-		true,
-		// result for stable mobile mode
-		false
-	],
-	// desktop only
-	[
-		{
+		desktop: true,
+		mobile: false
+	},
+	'object desktop only, mobile undef': {
+		config: {
 			desktop: [ 'stable', 'beta' ]
 		},
-		// result for undefined (desktop site)
-		true,
-		// result for stable mobile mode
-		false
-	],
-	// mobile only
-	[
-		{
-			mobile: [ 'stable', 'beta' ]
-		},
-		// result for undefined (desktop site)
-		false,
-		// result for stable mobile mode
-		true
-	],
-	// mobile only
-	[
-		{
+		desktop: true,
+		mobile: false
+	},
+	'object mobile only': {
+		config: {
 			desktop: [],
 			mobile: [ 'stable', 'beta' ]
 		},
-		// result for undefined (desktop site)
-		false,
-		// result for stable mobile mode
-		true
-	],
-	// mobile beta only
-	[
-		{
+		desktop: false,
+		mobile: true
+	},
+	'object mobile only, desktop undef': {
+		config: {
+			mobile: [ 'stable', 'beta' ]
+		},
+		desktop: false,
+		mobile: true
+	},
+	'object mobile beta only': {
+		config: {
 			desktop: [],
 			mobile: [ 'beta' ]
 		},
-		// result for undefined (desktop site)
-		false,
-		// result for stable mobile mode
-		false
-	],
-	// mobile beta only
-	[
-		// platforms value in configuration
-		{
+		desktop: false,
+		mobile: false
+	},
+	'object mobile beta only, desktop undef': {
+		config: {
 			mobile: [ 'beta' ]
 		},
-		// result for undefined (desktop site)
-		false,
-		// result for stable mobile mode
-		false
-	]
-], ( assert, data ) => {
+		desktop: false,
+		mobile: false
+	}
+}, ( assert, { config, desktop, mobile } ) => {
 	sinon.stub( mw.log, 'warn' );
 
 	assert.strictEqual(
-		qSurveys.surveyMatchesPlatform( { platforms: data[ 0 ] }, undefined ),
-		data[ 1 ],
+		qSurveys.surveyMatchesPlatform( { platforms: config }, undefined ),
+		desktop,
 		'desktop result'
 	);
 	assert.strictEqual(
-		qSurveys.surveyMatchesPlatform( { platforms: data[ 0 ] }, 'stable' ),
-		data[ 2 ],
+		qSurveys.surveyMatchesPlatform( { platforms: config }, 'stable' ),
+		mobile,
 		'mobile result'
 	);
 } );
