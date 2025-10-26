@@ -427,22 +427,18 @@ function getBucketForSurvey( survey ) {
 /**
  * Check if the current platform matches one of the target platforms of a given survey.
  *
- * @param {Object} survey options
- * @param {string} [mode] the value of wgMFMode
+ * @param {Object} survey Options
+ * @param {string|undefined} mobileMode The value of wgMFMode
  * @return {boolean}
  */
-function surveyMatchesPlatform( survey, mode ) {
-	const platformKey = mode ? 'mobile' : 'desktop';
-	const newConfiguration = Array.isArray( survey.platforms );
-
-	if ( !newConfiguration ) {
-		mw.log.warn( 'QuickSurvey: `platforms` field should be array, not object' );
+function surveyMatchesPlatform( survey, mobileMode ) {
+	const platform = mobileMode ? 'mobile' : 'desktop';
+	if ( Array.isArray( survey.platforms ) ) {
+		return survey.platforms.includes( platform );
+	} else {
+		mw.log.warn( 'QuickSurvey: `platforms` as object is deprecated, use array instead' );
+		return ( survey.platforms[ platform ] || [] ).includes( 'stable' );
 	}
-
-	const platforms = survey.platforms;
-	return newConfiguration ?
-		platforms.includes( platformKey ) :
-		( platforms[ platformKey ] || [] ).includes( 'stable' );
 }
 
 /**
