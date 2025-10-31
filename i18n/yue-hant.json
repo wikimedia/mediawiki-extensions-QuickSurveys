@@ -1,9 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			"JeffreyKim",
 			"Yueman"
 		]
 	},
+	"prefs-quicksurveyext": "QuickSurvey擴充程式",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "顯示QuickSurveys",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "呢個功能會顯示維基媒體基金會嘅[https://www.mediawiki.org/wiki/Extension:QuickSurveys 簡短可選調查], 並未連結到你嘅帳戶。",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "顯示晒所有調查",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "收埋所有調查",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "係",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "唔肯定",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "唔係",
