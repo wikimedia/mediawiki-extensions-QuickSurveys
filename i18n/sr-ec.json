@@ -8,6 +8,8 @@
 			"Zoranzoki21"
 		]
 	},
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Прикажи све анкете",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Сакриј све анкете",
 	"quicksurveys-desc": "Приказује конфигурисане анкете",
 	"ext-quicksurveys-example-internal-survey-question": "Да ли би текст требало да буде већи?",
 	"ext-quicksurveys-example-internal-survey-description": "Ово је опис примера интерне анкете",
