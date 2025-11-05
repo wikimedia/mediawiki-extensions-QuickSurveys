@@ -162,14 +162,7 @@
 					],
 					"enabled": false,
 					"coverage": 0.5,
-					"platforms": {
-						"desktop": [
-							"stable"
-						],
-						"mobile": [
-							"stable"
-						]
-					},
+					"platforms": [ "desktop", "mobile" ],
 					"audience": {
 						"userAgent": [
 							"Chrome",
