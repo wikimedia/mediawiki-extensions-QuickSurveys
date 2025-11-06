@@ -163,16 +163,22 @@ function getSeenObserver( el ) {
  */
 function insertPanel( $bodyContent, $panel, embedElementId, isMobileLayout ) {
 	let $place;
+	let insertAfter = true;
 
 	if ( embedElementId ) {
 		$place = $( '#' + embedElementId );
+		insertAfter = false;
 	} else if ( isMobileLayout ) {
 		// Find a paragraph in the first section to insert after
 		$place = $bodyContent.find( '> div > div' ).eq( 0 ).find( ' > p' ).eq( 0 );
 	}
 
 	if ( $place && $place.length ) {
-		$panel.insertAfter( $place );
+		if ( insertAfter ) {
+			$panel.insertAfter( $place );
+		} else {
+			$place.append( $panel );
+		}
 	} else {
 		$place = $bodyContent
 			.find(
@@ -469,16 +475,18 @@ function insertSurvey( survey ) {
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$bodyContent = $( '#bodyContent' ),
 		surveySessionToken = mw.user.sessionId() + '-quicksurveys',
-		dismissSurvey = function () {
+		dismissSurvey = function ( answers ) {
 			mw.storage.set( getSurveyStorageKey( survey ), '~' );
 			/**
 			 * Fires when a portlet is successfully created.
 			 *
 			 * @event ~'ext.quicksurveys.dismiss'
 			 * @memberof Hooks
-			 * @param {string} survey name of survey
+			 * @param {Object} survey survey information
+			 * @param {Object|string} [answers] answers for survey. String if user navigated to the external survey.
+			 *  Undefined if the survey was exited without answering.
 			 */
-			mw.hook( 'ext.quicksurveys.dismiss' ).fire( survey );
+			mw.hook( 'ext.quicksurveys.dismiss' ).fire( survey, answers );
 		},
 		pageviewToken = mw.user.getPageviewToken(),
 		isMobileLayout = window.innerWidth <= 768;

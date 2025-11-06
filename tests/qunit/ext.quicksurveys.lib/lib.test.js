@@ -198,7 +198,7 @@ QUnit.test( 'showSurvey: Placement (embedded)', function ( assert ) {
 	qSurveys.insertPanel( $location, this.getPanel(), embedElementId );
 	$location.remove();
 
-	assert.true( this.isPanelElement( $location.find( '#secondh2' ).next().next() ),
+	assert.true( this.isPanelElement( $location.find( '#embed-survey-location' ).children() ),
 		'Check embedded survey is inserted in correct place' );
 } );
 

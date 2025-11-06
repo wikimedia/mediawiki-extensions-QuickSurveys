@@ -408,7 +408,7 @@ module.exports = exports = Vue.defineComponent( {
 			this.clearCurrentAnswer();
 
 			if ( nextQuestionIndex === null ) {
-				this.$emit( 'dismiss' );
+				this.$emit( 'dismiss', allPreviousAnswers );
 				this.completed = true;
 			} else {
 				this.currentQuestionIndex = nextQuestionIndex;
@@ -429,7 +429,7 @@ module.exports = exports = Vue.defineComponent( {
 			if ( answer === 'ext-quicksurveys-external-survey-no-button' ) {
 				this.dismissAndDestroy();
 			} else {
-				this.$emit( 'dismiss' );
+				this.$emit( 'dismiss', href );
 				this.completed = true;
 			}
 		},
