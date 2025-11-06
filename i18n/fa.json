@@ -8,6 +8,11 @@
 			"Reza1615"
 		]
 	},
+	"prefs-quicksurveyext": "افزونهٔ نظرسنجی سریع",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "نمایش نظرسنجی‌های سریع",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "این ویژگی [https://www.mediawiki.org/wiki/Extension:QuickSurveys نظرسنجی‌های اختیاری کوتاه] توسط بنیاد ویکی‌مدیا را که به حساب شما متصل نیستند، نمایش می‌دهد.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "نمایش تمام نظرسنجی‌ها",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "نهفتن تمام نظرسنجی‌ها",
 	"quicksurveys-desc": "نظرسنجی‌های پیکربندی‌شده را نمایش می‌دهد",
 	"ext-quicksurveys-example-internal-survey-question": "آیا متن باید بزرگتر باشد؟",
 	"ext-quicksurveys-example-internal-survey-description": "این توضیحی است برای نظرسنجی داخلی نمونه",
@@ -19,12 +24,14 @@
 	"ext-quicksurveys-example-external-survey-description": "با پاسخ به این نظرسنجی، به ما در درک چگونگی بهبود {{SITENAME}} و کارآمدتر کردن آن برای شما کمک خواهید کرد. از شما ممنونیم!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "این نظرسنجی توسط ExampleSurveyProvider ارائه شده است. [//example.org/privacy-policy سیاست محرمانگی] را ببینید",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "تمام ارسالی‌ها ناشناس هستند. [//example.org/privacy-policy سیاست محرمانگی] را ببینید.",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "برای جلوگیری از نمایش نظرسنجی‌های سریع، [[Special:Preferences#mw-prefsection-personal-quicksurveyext|ترجیحات خود را تغییر دهید]].",
 	"ext-quicksurveys-survey-confirm-msg": "از بازخورد شما سپاسگزاریم! ما از آن برای بهبود {{SITENAME}} استفاده خواهیم کرد!",
 	"ext-quicksurveys-survey-positive": "بله",
 	"ext-quicksurveys-survey-negative": "خیر",
 	"ext-quicksurveys-survey-neutral": "مطمئن نیستم",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "ارسال",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "بازگشت",
 	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "لطفا پاسخی را انتخاب کنید یا جواب مدنظر خود را وارد نمایید.",
-	"ext-quicksurveys-external-survey-yes-button": "دیدن پرسشنامه",
+	"ext-quicksurveys-external-survey-yes-button": "مشاهدهٔ نظرسنجی",
 	"ext-quicksurveys-external-survey-no-button": "نه ممنون"
 }

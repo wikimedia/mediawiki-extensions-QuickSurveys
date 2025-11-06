@@ -1,9 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kareyac"
+			"Kareyac",
+			"Pikne"
 		]
 	},
+	"prefs-quicksurveyext": "Kiirküsitluste tarkvaralisa",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Kiirküsitluste kuvamine",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Selle funktsiooniga kuvab Wikimedia Foundation [https://www.mediawiki.org/wiki/Extension:QuickSurveys lühikesi valikulisi küsitlusi], mis ei ole seotud sinu kontoga.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Näita kõiki küsitlusi",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Peida kõik küsitlused",
+	"quicksurveys-desc": "Kuvab häälestatud küsitlusi.",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Jah",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "Et kiirküsitlusi mitte näha, [[Special:Preferences#mw-prefsection-personal-quicksurveyext|muuda enda eelistusi]].",
 	"ext-quicksurveys-survey-positive": "Jah"
 }
