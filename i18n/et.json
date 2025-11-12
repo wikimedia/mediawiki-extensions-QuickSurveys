@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kareyac"
+			"Kareyac",
+			"Pikne"
 		]
 	},
+	"quicksurveys-desc": "Kuvab häälestatud küsitlusi.",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Jah",
 	"ext-quicksurveys-survey-positive": "Jah"
 }
