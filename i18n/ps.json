@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"prefs-quicksurveyext": "د چټکې‌اندغوښتنې شاتاړی",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "چټکې‌اندغوښتنې ښودل",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "دا ځانگړنه به د ويکي‌رسنۍ بنسټ له خوا [https://www.mediawiki.org/wiki/Extension:QuickSurveys لنډې اختياري اندغوښتنې] ښکاره کړي، کوم چې ستاسو د گڼون اړوند وي.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "ټولې اندغوښتنې ښودل",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "ټولې اندغوښتنې پټول",
+	"quicksurveys-desc": "ترتيب شوې اندغوښتنې ښکاره کول",
+	"ext-quicksurveys-example-internal-survey-question": "ايا ليک بايد لوی وي؟",
+	"ext-quicksurveys-example-internal-survey-description": "دا د دننه‌نۍ اندغوښتنې د بېلگې سپيناوی دی",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "هو",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "ډاډه نه يم",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "نه",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "نور",
+	"ext-quicksurveys-example-external-survey-question": "موږ د {{SITENAME}} ښه‌کولو کې ستاسو مرستې ته اړتيا لرو.",
+	"ext-quicksurveys-example-external-survey-description": "د دې اندغوښتنې په ځوابولو سره به تاسو له موږ سره د دې پوهېدلو کې مرسته وکړئ چې څنگه {{SITENAME}} ستاسو لپاره لا ښه او گټوره کړو. مننه!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "اندغوښتنه د ExampleSurveyProvider له خوا چمتو شوې. د [//example.org/privacy-policy پټنتيا تگلار] وگورئ",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "ټولې سپارښتنې بې نومه دي. د [//example.org/privacy-policy پټنتيا تگلار] وگورئ.",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "په ونگبڼه کې د چټکې اندغوښتنې د مخنيوي لپاره[[Special:Preferences#mw-prefsection-personal-quicksurveyext|خپل غوره‌توبونه بدل کړئ]].",
+	"ext-quicksurveys-survey-confirm-msg": "له اند ورکولو مو مننه! موږ دا د {{SITENAME}} لا ښه کولو لپاره کاروو!",
+	"ext-quicksurveys-survey-positive": "هو",
+	"ext-quicksurveys-survey-negative": "نه",
+	"ext-quicksurveys-survey-neutral": "ډاډه نه یم",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "سپارل",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "پرشاکېدل",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "مهرباني وکړئ يو ځواب غوره کړئ يا خپله ځواب ورکړئ.",
+	"ext-quicksurveys-external-survey-yes-button": "له اندغوښتنې ليدنه کول",
+	"ext-quicksurveys-external-survey-no-button": "نه مننه"
+}
