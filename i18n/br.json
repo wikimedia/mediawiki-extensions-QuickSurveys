@@ -1,0 +1,29 @@
+{
+	"@metadata": {
+		"authors": [
+			"Huñvreüs"
+		]
+	},
+	"prefs-quicksurveyext": "Astenn QuickSurvey",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Diskouez ar sontadegoù prim",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Diskouez an holl sontadegoù",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Kuzhat an holl sontadegoù",
+	"quicksurveys-desc": "Diskouez a ra sontadegoù kefluniet",
+	"ext-quicksurveys-example-internal-survey-question": "Ha brasoc'h e tlefe bezañ an destenn ?",
+	"ext-quicksurveys-example-internal-survey-description": "Setu deskrivadur ar skouer sontadeg diabarzh",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Ya",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "N'on ket sur",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Ket",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "All",
+	"ext-quicksurveys-example-external-survey-question": "Ezhomm hon eus eus ho skoazell evit gwellaat {{SITENAME}}.",
+	"ext-quicksurveys-example-external-survey-description": "Dre respont d'ar sontadeg-mañ e sikourot ac'hanomp da gompren penaos lakaat {{SITENAME}} da vezañ gwelloc'h ha talvoudusoc'h evidoc'h. Trugarez deoc'h!",
+	"ext-quicksurveys-survey-confirm-msg": "Trugarez eus ho respont ! Implijout a raimp anezhañ evit lakaat {{SITENAME}} da vezañ gwelloc'h c'hoazh !",
+	"ext-quicksurveys-survey-positive": "Ya",
+	"ext-quicksurveys-survey-negative": "Ket",
+	"ext-quicksurveys-survey-neutral": "N'on ket sur",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Kas",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Distreiñ",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Dibabit ur respont pe lakait ho hini mar plij.",
+	"ext-quicksurveys-external-survey-yes-button": "Mont d’ar sontadeg",
+	"ext-quicksurveys-external-survey-no-button": "Nann, trugarez"
+}
