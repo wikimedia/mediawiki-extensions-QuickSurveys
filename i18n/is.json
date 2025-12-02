@@ -5,10 +5,17 @@
 			"Sveinn í Felli"
 		]
 	},
+	"prefs-quicksurveyext": "QuickSurvey-viðbót",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Birta hraðkannanir",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Þessi aðgerð mun birta [https://www.mediawiki.org/wiki/Extension:QuickSurveys stuttar valfrjálsar kannanir] frá Wikimedia Foundation, sem ekki eru tengdar við aðganginn þinn.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Birta allar kannanir",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Fela allar kannanir",
+	"quicksurveys-desc": "Sýnir uppsettar kannanir",
 	"ext-quicksurveys-example-internal-survey-question": "Á að stækka textann?",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Já",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Ekki viss",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Nei",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Annað",
 	"ext-quicksurveys-example-external-survey-question": "Við þurfum þína hjálp til að betrumbæta {{SITENAME}}.",
 	"ext-quicksurveys-survey-positive": "Já",
 	"ext-quicksurveys-survey-negative": "Nei",

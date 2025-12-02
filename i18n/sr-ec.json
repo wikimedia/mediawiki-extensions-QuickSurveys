@@ -8,6 +8,7 @@
 			"Aca"
 		]
 	},
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Приказ брзих анкета",
 	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Прикажи све анкете",
 	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Сакриј све анкете",
 	"quicksurveys-desc": "Приказује конфигурисане анкете",
