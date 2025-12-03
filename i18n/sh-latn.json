@@ -6,7 +6,7 @@
 	},
 	"prefs-quicksurveyext": "Dodatak QuickSurvey",
 	"ext-quicksurveys-pref-displayquicksurveys-label": "Brze ankete",
-	"ext-quicksurveys-pref-displayquicksurveys-help": "Ova funkcija omogućava prikaz [https://www.mediawiki.org/wiki/Extension:QuickSurveys kratkih anketa] Fondacije Wikimedija. Podaci koji ostavite u anketi neće biti povezani s vašim računom.",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Ova funkcija omogućava prikaz [https://www.mediawiki.org/wiki/Extension:QuickSurveys brzih anketa] Fondacije Wikimedija. Podaci koji ostavite u anketi neće biti povezani s vašim računom.",
 	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "omogućeno",
 	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "onemogućeno"
 }
