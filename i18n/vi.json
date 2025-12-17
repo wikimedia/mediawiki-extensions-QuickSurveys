@@ -1,23 +1,34 @@
 {
 	"@metadata": {
 		"authors": [
-			"Minh Nguyen"
+			"Minh Nguyen",
+			"Nvdtn19"
 		]
 	},
-	"quicksurveys-desc": "Hiển thị các thăm dò ý kiến được cấu hình",
+	"prefs-quicksurveyext": "Phần mở rộng QuickSurvey",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Hiển thị QuickSurveys",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Tính năng này sẽ hiển thị [https://www.mediawiki.org/wiki/Extension:QuickSurveys các cuộc khảo sát tùy chọn ngắn] của Wikimedia Foundation, không liên kết với tài khoản của bạn.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Hiển thị tất cả khảo sát",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Ẩn tất cả khảo sát",
+	"quicksurveys-desc": "Hiển thị các cuộc khảo sát đã cấu hình",
 	"ext-quicksurveys-example-internal-survey-question": "Có nên tăng cỡ văn bản?",
-	"ext-quicksurveys-example-internal-survey-description": "Đây là lời miêu tả thăm dò ý kiến nội bộ mẫu",
+	"ext-quicksurveys-example-internal-survey-description": "Đây là mô tả của ví dụ khảo sát nội bộ",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Có",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Không chắc chắn",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Không",
-	"ext-quicksurveys-example-external-survey-question": "Chúng tôi cần sự giúp đỡ của bạn để cải thiện Wikipedia.",
-	"ext-quicksurveys-example-external-survey-description": "Bằng cách hưởng ứng thăm dò ý kiến này, bạn sẽ cho chúng tôi biết cách để làm Wikipedia tốt hơn và hữu ích hơn cho bạn. Xin cảm ơn!",
-	"ext-quicksurveys-example-external-survey-privacy-policy": "Cuộc thăm dò ý kiến cho ExampleSurveyProvider cung cấp. Xem [//example.org/privacy-policy chính sách về quyền riêng tư]",
-	"ext-quicksurveys-survey-privacy-policy-default-text": "Tất cả các thông tin được gửi vào được lưu giữ một cách vô danh. Xem [//example.org/privacy-policy chính sách về quyền riêng tư].",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Khác",
+	"ext-quicksurveys-example-external-survey-question": "Chúng tôi cần sự giúp đỡ của bạn để cải thiện {{SITENAME}}.",
+	"ext-quicksurveys-example-external-survey-description": "Khi trả lời khảo sát này, bạn sẽ giúp chúng tôi cải thiện {{SITENAME}}. Cảm ơn bạn!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Khảo sát do ExampleSurveyProvider cung cấp. Xem [//example.org/privacy-policy quy định về quyền riêng tư]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Tất cả các thông tin được gửi vào đều được ẩn danh. Xem [//example.org/privacy-policy quy định về quyền riêng tư].",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "Để ngăn QuickSurveys xuất hiện, hãy [[Special:Preferences#mw-prefsection-personal-quicksurveyext|thay đổi tùy chọn của bạn]].",
 	"ext-quicksurveys-survey-confirm-msg": "Cảm ơn bạn vì thông tin phản hồi! Chúng tôi sẽ sử dụng nó để cải thiện {{SITENAME}}!",
 	"ext-quicksurveys-survey-positive": "Có",
 	"ext-quicksurveys-survey-negative": "Không",
 	"ext-quicksurveys-survey-neutral": "Không chắc chắn",
-	"ext-quicksurveys-external-survey-yes-button": "Đi đến thăm dò ý kiến",
-	"ext-quicksurveys-external-survey-no-button": "Thôi"
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Gửi",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Quay lại",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Vui lòng chọn câu trả lời hoặc nhập câu trả lời của riêng bạn.",
+	"ext-quicksurveys-external-survey-yes-button": "Đi đến khảo sát",
+	"ext-quicksurveys-external-survey-no-button": "Không, cảm ơn"
 }

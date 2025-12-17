@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hakimi97"
+		]
+	},
+	"prefs-quicksurveyext": "Sambungan QuickSurvey",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Paparkan QuickSurveys",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Ciri ini akan memaparkan [https://www.mediawiki.org/wiki/Extension:QuickSurveys tinjauan pendek pilihan] oleh Yayasan Wikimedia, yang tidak disambungkan ke akaun anda.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Tunjukkan semua tinjauan",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Sembunyikan semua tinjauan",
+	"quicksurveys-desc": "Paparkan tinjauan yang telah dikonfigurasi",
+	"ext-quicksurveys-example-internal-survey-question": "Adakah teks itu perlu lebih besar?",
+	"ext-quicksurveys-example-internal-survey-description": "Ini merupakan huraian untuk contoh tinjauan dalaman",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Ya",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Tidak pasti",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Tidak",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Lain-lain",
+	"ext-quicksurveys-example-external-survey-question": "Kami perlukan bantuan anda untuk menambah baik {{SITENAME}}.",
+	"ext-quicksurveys-example-external-survey-description": "Dengan menjawab tinjauan ini, anda akan membantu kami memahami cara menjadikan {{SITENAME}} lebih baik dan lebih berguna untuk anda. Terima kasih!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Tinjauan yang disediakan oleh ExampleSurveyProvider. Sila lihat [//example.org/privacy-policy dasar privasi]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Semua penyerahan adalah bersifat awanama. Sila lihat [//example.org/privacy-policy dasar privasi].",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "Untuk menghentikan QuickSurveys daripada muncul, [[Special:Preferences#mw-prefsection-personal-quicksurveyext|ubahlah keutamaan anda]].",
+	"ext-quicksurveys-survey-confirm-msg": "Terima kasih atas maklum balas anda! Kami menggunakannya untuk menjadikan {{SITENAME}} lebih baik!",
+	"ext-quicksurveys-survey-positive": "Ya",
+	"ext-quicksurveys-survey-negative": "Tidak",
+	"ext-quicksurveys-survey-neutral": "Tidak pasti",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Hantar",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Kembali",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Sila pilih jawapan atau masukkan jawapan anda sendiri.",
+	"ext-quicksurveys-external-survey-yes-button": "Lawat tinjauan",
+	"ext-quicksurveys-external-survey-no-button": "Tak apalah"
+}
