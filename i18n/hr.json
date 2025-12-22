@@ -6,7 +6,23 @@
 			"MaGa"
 		]
 	},
+	"quicksurveys-desc": "Prikazuje konfigurirane ankete",
+	"ext-quicksurveys-example-internal-survey-question": "Treba li tekst biti veći?",
+	"ext-quicksurveys-example-internal-survey-description": "Ovo je opis primjera interne ankete",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Da",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Nisam siguran/sigurna",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Ne",
 	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Drugo",
-	"ext-quicksurveys-example-external-survey-question": "Potrebna nam je Vaša pomoć u poboljšanju projekta imena {{SITENAME}}.",
-	"ext-quicksurveys-internal-freeform-survey-submit-button": "Pošalji"
+	"ext-quicksurveys-example-external-survey-question": "Potrebna nam je Vaša pomoć u poboljšanju projekta {{SITENAME}}.",
+	"ext-quicksurveys-example-external-survey-description": "Sudjelovanjem u anketi pomoći ćete nam u poboljšanju projekta {{SITENAME}} i učiniti ga korisnijim. Hvala Vam!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Anketu je priredio ExampleSurveyProvider. Pogledajte [//example.org/privacy-policy pravila privatnosti]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Sudjelovanje je anonimno. Pogledajte [//example.org/privacy-policy pravila privatnosti].",
+	"ext-quicksurveys-survey-confirm-msg": "Hvala na povratnim informacijama! Koristimo ih kako bismo projekt {{SITENAME}} učinili još boljim!",
+	"ext-quicksurveys-survey-positive": "Da",
+	"ext-quicksurveys-survey-negative": "Ne",
+	"ext-quicksurveys-survey-neutral": "Nisam siguran/sigurna",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Pošalji",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Molimo označite odgovor ili unesite vlastiti.",
+	"ext-quicksurveys-external-survey-yes-button": "Posjetite anketu",
+	"ext-quicksurveys-external-survey-no-button": "Ne, hvala"
 }
