@@ -11,7 +11,7 @@
 	},
 	"prefs-quicksurveyext": "Rozszerzenie QuickSurvey",
 	"ext-quicksurveys-pref-displayquicksurveys-label": "Wyświetl ankiety QuickSurveys",
-	"ext-quicksurveys-pref-displayquicksurveys-help": "Ta funkcja wyświetla [https://www.mediawiki.org/wiki/Extension:QuickSurveys/pl krótkie ankiety] organizowane przez Fundację Wikimedia, które nie są powiązane z Twoim kontem.\n\n<small>Uwaga! Strona rozszerzenia jeszcze nie została w pełni przetłumaczona.</small>",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Ta funkcja wyświetla [https://www.mediawiki.org/wiki/Extension:QuickSurveys/pl krótkie ankiety] organizowane przez Fundację Wikimedia, które nie są wiązane z Twoim kontem.",
 	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Pokaż wszystkie ankiety",
 	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Ukryj wszystkie ankiety",
 	"quicksurveys-desc": "Wyświetla skonfigurowane ankiety",
