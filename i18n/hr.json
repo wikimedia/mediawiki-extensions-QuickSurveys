@@ -7,8 +7,8 @@
 		]
 	},
 	"prefs-quicksurveyext": "Proširenje za brze ankete (QuickSurvey)",
-	"ext-quicksurveys-pref-displayquicksurveys-label": "Prikazivanje brzih anketeta",
-	"ext-quicksurveys-pref-displayquicksurveys-help": "Ova će mogućnost prikazati [https://www.mediawiki.org/wiki/Extension:QuickSurveys kratke ankete] Zaklade Wikimedia, koje nisu povezane s Vašim računom.",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Prikazivanje brzih anketa",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Ova će mogućnost prikazati [https://www.mediawiki.org/wiki/Extension:QuickSurveys kratke ankete] Zaklade Wikimedia koje nisu povezane s Vašim računom.",
 	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Prikaži sve ankete",
 	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Sakrij sve ankete",
 	"quicksurveys-desc": "Prikazuje konfigurirane ankete",
