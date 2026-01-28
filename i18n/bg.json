@@ -4,8 +4,30 @@
 			"StanProg"
 		]
 	},
+	"prefs-quicksurveyext": "Разширение „Бърза анкета“",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Показване на Бързи анкети",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Тази възможност ще покаже [https://www.mediawiki.org/wiki/Extension:QuickSurveys кратки незадължителни анкети] от Фондация Уикимедия, които не са свързани с Вашата сметка.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Показване на всички анкети",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Скриване на всички анкети",
+	"quicksurveys-desc": "Показване на конфигурирани анкети",
+	"ext-quicksurveys-example-internal-survey-question": "Трябва ли текстът да е по-голям?",
+	"ext-quicksurveys-example-internal-survey-description": "Това е описанието на примерното вътрешно проучване",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Да",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Затруднявам се да отговоря",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Не",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Друго",
+	"ext-quicksurveys-example-external-survey-question": "Нуждаем се от вашата помощ за подобряване на {{SITENAME}}.",
+	"ext-quicksurveys-example-external-survey-description": "Отговаряйки анкетата, ни помагате да разберем как да направим подобрения по {{SITENAME}}. Благодарим Ви!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Проучването е предоставено от ExampleSurveyProvider. Прегледайте [//example.org/privacy-policy политиката за поверителност]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Всички изпратени данни са анонимни. Вижте [//example.org/privacy-policy политиката за поверителност].",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "За да спрете показването на бързите анкети, [[Special:Preferences#mw-prefsection-personal-quicksurveyext|променете предпочитанията си]].",
+	"ext-quicksurveys-survey-confirm-msg": "Благодарим за обратната връзка! Използваме я, за да подобрим {{SITENAME}}!",
 	"ext-quicksurveys-survey-positive": "Да",
-	"ext-quicksurveys-survey-negative": "Не"
+	"ext-quicksurveys-survey-negative": "Не",
+	"ext-quicksurveys-survey-neutral": "Затруднявам се да отговоря",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Изпращане",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Назад",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Моля, изберете отговор или въведете свой собствен.",
+	"ext-quicksurveys-external-survey-yes-button": "Посетете анкетата",
+	"ext-quicksurveys-external-survey-no-button": "Не, благодаря"
 }
