@@ -4,9 +4,14 @@
 			"Beta16",
 			"Macofe",
 			"Nemo bis",
-			"Statix64"
+			"Statix64",
+			"Pierpao"
 		]
 	},
+	"prefs-quicksurveyext": "Estensione QuickSurvey",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Mostra i sondaggi QuickSurvey",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Mostra tutti i sondaggi",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Nascondi tutti i sondaggi",
 	"ext-quicksurveys-example-internal-survey-question": "Il testo dovrebbe essere più grande?",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Sì",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Non sono sicuro",
