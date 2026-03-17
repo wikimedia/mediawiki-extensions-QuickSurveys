@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
-			"Mavrikant"
+			"Mavrikant",
+			"Leo"
 		]
 	},
 	"quicksurveys-desc": "Yapılandırılmış anketleri görüntüler",
@@ -16,6 +17,7 @@
 	"ext-quicksurveys-example-external-survey-description": "Bu anketi yanıtlayarak {{SITENAME}} sizin için nasıl daha iyi ve daha yararlı hale getirebileceğimizi anlamamıza yardımcı olacaksınız. Teşekkür ederiz!",
 	"ext-quicksurveys-example-external-survey-privacy-policy": "ÖrnekSurveyProvider tarafından sağlanan anket. [//example.org/privacy-policy Gizlilik politikasına] bakın",
 	"ext-quicksurveys-survey-privacy-policy-default-text": "Tüm başvurular isimsizdir. [//example.org/privacy-policy Gizlilik politikasına] bakın.",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "Hızlı Anketlerin görünmesini durdurmak için [[Special:Preferences#mw-prefsection-personal-quicksurveyext|tercihlerinizi değiştirin]].",
 	"ext-quicksurveys-survey-confirm-msg": "Geri dönüşünüz için teşekkür ederiz! {{SITENAME}} hizmetini daha da iyi hale getirmek için kullanıyoruz!",
 	"ext-quicksurveys-survey-positive": "Evet",
 	"ext-quicksurveys-survey-negative": "Hayır",
