@@ -463,6 +463,9 @@ function reportWhenSeen( el, surveySessionToken, pageviewToken, surveyName ) {
 	getSeenObserver( el ).then( done, done );
 }
 
+const makeSurveySessionToken = () => mw.user.sessionId() + '-quicksurveys';
+const isTablet = () => window.innerWidth > 768;
+
 /**
  * Inserts a survey into the page and logs a survey impression.
  * For older browsers, the survey impression will be logged, regardless
@@ -474,7 +477,7 @@ function insertSurvey( survey ) {
 	const $panel = $.createSpinner().addClass( 'ext-qs-loader-bar' ),
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$bodyContent = $( '#bodyContent' ),
-		surveySessionToken = mw.user.sessionId() + '-quicksurveys',
+		surveySessionToken = makeSurveySessionToken(),
 		dismissSurvey = function ( answers ) {
 			mw.storage.set( getSurveyStorageKey( survey ), '~' );
 			/**
@@ -489,7 +492,7 @@ function insertSurvey( survey ) {
 			mw.hook( 'ext.quicksurveys.dismiss' ).fire( survey, answers );
 		},
 		pageviewToken = mw.user.getPageviewToken(),
-		isMobileLayout = window.innerWidth <= 768;
+		isMobileLayout = !isTablet();
 
 	insertPanel( $bodyContent, $panel, survey.embedElementId, isMobileLayout );
 	const htmlDirection = document.getElementById( 'firstHeading' ).getAttribute( 'dir' );
@@ -558,9 +561,6 @@ function isQuickSurveysPrefEnabled() {
 function showSurvey( surveyName, embedElementId, forceDisplay ) {
 	if ( embedElementId && !surveyName ) {
 		throw new Error( 'When using showSurvey with embedElementId, surveyName must be defined.' );
-	}
-	if ( !isQuickSurveysPrefEnabled() ) {
-		return false;
 	}
 
 	const embeddedSurveys = [];
@@ -632,11 +632,36 @@ Do not run this in production setting.` );
 	return !!( embeddedSurveys.length || availableSurveys.length );
 }
 
+/**
+ * API for custom survey UIs to record answers.
+ *
+ * @param {string} name
+ * @param {string} question
+ * @param {Object} answers
+ */
+function logSurveyAnswer( name, question, answers ) {
+	mw.loader.using( 'ext.quicksurveys.lib.vue' ).then( ( req ) => {
+		const logger = req( 'ext.quicksurveys.lib.vue' ).QuickSurveyLogger;
+		const event = logger.logResponseData(
+			name,
+			question,
+			answers,
+			makeSurveySessionToken(),
+			mw.user.getPageviewToken(),
+			isTablet()
+		);
+		logEvent( 'QuickSurveysResponses', event );
+	} );
+}
 module.exports = {
 	/**
 	 * @stable for use
 	 */
-	showSurvey
+	showSurvey,
+	/**
+	 * @stable for use
+	 */
+	logSurveyAnswer
 };
 
 if ( window.QUnit ) {

@@ -1,5 +1,6 @@
 /* eslint-disable jsdoc/no-undefined-types */
 const QuickSurvey = require( './QuickSurvey.vue' ),
+	QuickSurveyLogger = require( './QuickSurveyLogger.js' ),
 	utils = require( './utils.js' );
 
 /**
@@ -75,6 +76,7 @@ function render(
 }
 
 module.exports = {
+	QuickSurveyLogger,
 	QuickSurvey,
 	utils,
 	render
