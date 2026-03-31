@@ -3,10 +3,11 @@
 		"authors": [
 			"Meno25",
 			"ديفيد",
-			"عباد ديرانية"
+			"عباد ديرانية",
+			"علاء"
 		]
 	},
-	"prefs-quicksurveyext": "ملحق QuickSurvey",
+	"prefs-quicksurveyext": "ملحق المسوحات السريعة",
 	"ext-quicksurveys-pref-displayquicksurveys-label": "عرض المسوحات السريعة",
 	"ext-quicksurveys-pref-displayquicksurveys-help": "ستعرض هذه الميزة [https://www.mediawiki.org/wiki/Extension:QuickSurveys الاستطلاعات الاختيارية القصيرة] التي أجرتها مؤسسة ويكيميديا، والتي ليست مرتبطة بحسابك.",
 	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "إظهار كافة الاستطلاعات",
