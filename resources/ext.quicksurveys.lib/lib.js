@@ -166,7 +166,7 @@ function insertPanel( $bodyContent, $panel, embedElementId, isMobileLayout ) {
 	let insertAfter = true;
 
 	if ( embedElementId ) {
-		$place = $( '#' + embedElementId );
+		$place = getEmbeddedElement( embedElementId );
 		insertAfter = false;
 	} else if ( isMobileLayout ) {
 		// Find a paragraph in the first section to insert after
@@ -224,6 +224,17 @@ function insertPanel( $bodyContent, $panel, embedElementId, isMobileLayout ) {
 			$panel.insertAfter( $place );
 		}
 	}
+}
+
+/**
+ * Get the embedded survey target element by DOM id.
+ *
+ * @param {string} embedElementId Element to match for survey injection
+ * @return {jQuery.Object}
+ */
+function getEmbeddedElement( embedElementId ) {
+	const element = document.getElementById( embedElementId );
+	return element ? $( element ) : $();
 }
 
 /**
@@ -531,7 +542,7 @@ function insertSurvey( survey ) {
  * @return {boolean}
  */
 function isEmbeddedElementMatched( embedElementId ) {
-	return $( '#' + embedElementId ).length > 0;
+	return getEmbeddedElement( embedElementId ).length > 0;
 }
 
 /**
