@@ -12,7 +12,7 @@
 	"license-name": "MIT",
 	"type": "other",
 	"requires": {
-		"MediaWiki": ">= 1.46"
+		"MediaWiki": ">= 1.47.0"
 	},
 	"MessagesDirs": {
 		"QuickSurveys": [
@@ -162,7 +162,10 @@
 					],
 					"enabled": false,
 					"coverage": 0.5,
-					"platforms": [ "desktop", "mobile" ],
+					"platforms": [
+						"desktop",
+						"mobile"
+					],
 					"audience": {
 						"userAgent": [
 							"Chrome",
@@ -189,7 +192,8 @@
 					"enabled": false,
 					"coverage": 0.5,
 					"platforms": [
-						"desktop", "mobile"
+						"desktop",
+						"mobile"
 					]
 				}
 			]
