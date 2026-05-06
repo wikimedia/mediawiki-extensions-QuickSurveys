@@ -45,14 +45,10 @@ function render(
 					submitButtonLabel: mw.msg( 'ext-quicksurveys-internal-freeform-survey-submit-button' ),
 					noAnswerErrorMessage: mw.msg( 'ext-quicksurveys-internal-freeform-survey-no-answer-alert' ),
 					additionalInfo: survey.additionalInfo ?
-						// eslint-disable-next-line mediawiki/msg-doc
 						mw.message( survey.additionalInfo ).parse() : undefined,
-					// eslint-disable-next-line mediawiki/msg-doc
 					thankYouMessage: mw.message( survey.confirmMsg || 'ext-quicksurveys-survey-confirm-msg' ).parse(),
 					thankYouDescription: survey.confirmDescription ?
-						// eslint-disable-next-line mediawiki/msg-doc
 						mw.message( survey.confirmDescription ).parse() : null,
-					// eslint-disable-next-line mediawiki/msg-doc
 					footer: mw.message(
 						survey.privacyPolicy || 'ext-quicksurveys-survey-privacy-policy-default-text'
 					).parse(),
