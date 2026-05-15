@@ -118,6 +118,9 @@ module.exports = exports = Vue.defineComponent( {
 		AnswerRadioOption
 	},
 	props: {
+		includeSensitiveData: {
+			type: Boolean
+		},
 		noAnswerErrorMessage: {
 			type: String,
 			default: mw.msg( 'ext-quicksurveys-internal-freeform-survey-no-answer-alert' )
@@ -349,7 +352,8 @@ module.exports = exports = Vue.defineComponent( {
 				this.answers,
 				this.surveySessionToken,
 				this.pageviewToken,
-				!this.isMobileLayout
+				!this.isMobileLayout,
+				this.includeSensitiveData
 			);
 			this.$emit( 'logEvent', 'QuickSurveysResponses', data );
 		},

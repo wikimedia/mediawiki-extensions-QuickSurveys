@@ -483,8 +483,10 @@ const isTablet = () => window.innerWidth > 768;
  * of whether it is seen.
  *
  * @param {SurveyDefinition} survey
+ * @param {boolean} [includeSensitiveData] whether the survey responses can include
+ *  sensitive data
  */
-function insertSurvey( survey ) {
+function insertSurvey( survey, includeSensitiveData ) {
 	const $panel = $.createSpinner().addClass( 'ext-qs-loader-bar' ),
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$bodyContent = $( '#bodyContent' ),
@@ -526,7 +528,8 @@ function insertSurvey( survey ) {
 				pageviewToken,
 				isMobileLayout,
 				htmlDirection,
-				logEvent
+				logEvent,
+				includeSensitiveData
 			).then( ( el ) => {
 				// Use the Vue element instead of $panel
 				reportWhenSeen( el, surveySessionToken, pageviewToken, survey.name );
@@ -565,11 +568,15 @@ function isQuickSurveysPrefEnabled() {
  *   the survey will be added to DOM based on survey definition and wiki default. You must defined surveyName
  *   when using this parameter.
  * @param {boolean} [forceDisplay] whether the survey should be displayed regardless of audience.
+ * @param {boolean} [includeSensitiveInformation] defaults to false. When enabled this will collect
+ *   information such as page. It is essential that this is only used where it is not possible for the
+ *   page to contain the username. For example, if you are running a QuickSurvey on a user's page, do not
+ *   enable this as the quick survey would no longer be anonymous.
  * @return {boolean} if the survey was successfully displayed. If `false` this indicates the user was not
  *  in the audience or the sample for the survey OR the survey doesn't exist.
  * @throws {Error} if invalid parameters
  */
-function showSurvey( surveyName, embedElementId, forceDisplay ) {
+function showSurvey( surveyName, embedElementId, forceDisplay, includeSensitiveData ) {
 	if ( embedElementId && !surveyName ) {
 		throw new Error( 'When using showSurvey with embedElementId, surveyName must be defined.' );
 	}
@@ -633,12 +640,12 @@ Do not run this in production setting.` );
 	if ( embeddedSurveys.length ) {
 		// Inject all of the embedded surveys.
 		embeddedSurveys.forEach( ( embeddedSurvey ) => {
-			insertSurvey( embeddedSurvey );
+			insertSurvey( embeddedSurvey, includeSensitiveData );
 		} );
 	} else if ( availableSurveys.length ) {
 		// Get a random available survey
 		const survey = availableSurveys[ Math.floor( Math.random() * availableSurveys.length ) ];
-		insertSurvey( survey );
+		insertSurvey( survey, includeSensitiveData );
 	}
 	return !!( embeddedSurveys.length || availableSurveys.length );
 }
@@ -649,8 +656,12 @@ Do not run this in production setting.` );
  * @param {string} name
  * @param {string} question
  * @param {Object} answers
+ * @param {boolean} [includeSensitiveInformation] defaults to false. When enabled this will collect
+ *   information such as page. It is essential that this is only used where it is not possible for the
+ *   page to contain the username. For example, if you are running a QuickSurvey on a user's page, do not
+ *   enable this as the quick survey would no longer be anonymous.
  */
-function logSurveyAnswer( name, question, answers ) {
+function logSurveyAnswer( name, question, answers, includeSensitiveInformation ) {
 	mw.loader.using( 'ext.quicksurveys.lib.vue' ).then( ( req ) => {
 		const logger = req( 'ext.quicksurveys.lib.vue' ).QuickSurveyLogger;
 		const event = logger.logResponseData(
@@ -659,7 +670,8 @@ function logSurveyAnswer( name, question, answers ) {
 			answers,
 			makeSurveySessionToken(),
 			mw.user.getPageviewToken(),
-			isTablet()
+			isTablet(),
+			includeSensitiveInformation
 		);
 		logEvent( 'QuickSurveysResponses', event );
 	} );
