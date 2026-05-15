@@ -5,5 +5,9 @@ require( 'ext.quicksurveys.lib' ).showSurvey(
 	// where to render survey
 	null,
 	// force display of surveys where query string was used
-	!!forcedSurvey
+	!!forcedSurvey,
+	// by default include sensitive data as surveys defined in config
+	// are assumed to be safe since they cannot be targeted in a way
+	// that leaks information about the user.
+	true
 );

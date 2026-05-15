@@ -13,12 +13,14 @@ const QuickSurvey = require( './QuickSurvey.vue' ),
  * @param {boolean} isMobileLayout
  * @param {string} htmlDirection
  * @param {Function} logEvent event logging function
+ * @param {boolean} includeSensitiveData whether to include sensitive
+ *  data in survey responses.
  * @return {jQuery.Deferred}
  */
 function render(
 	Vue,
 	panel, survey, dismissSurvey, surveySessionToken, pageviewToken, isMobileLayout,
-	htmlDirection, logEvent
+	htmlDirection, logEvent, includeSensitiveData
 ) {
 	const deferred = $.Deferred();
 	const h = Vue.h;
@@ -34,6 +36,7 @@ function render(
 
 			return h( QuickSurvey,
 				{
+					includeSensitiveData,
 					onLogEvent: logEvent,
 					onDismiss: dismissSurvey,
 					onDestroy() {

@@ -8,6 +8,8 @@ module.exports = {
 	 * @param {string} surveySessionToken
 	 * @param {string} pageviewToken
 	 * @param {boolean} isTablet
+	 * @param {boolean} [includeSensitiveInformation] whether to include information
+	 *   about the current article.
 	 * @return {Array} of data to be passed to logger
 	 */
 	logResponseData(
@@ -16,7 +18,8 @@ module.exports = {
 		answers,
 		surveySessionToken,
 		pageviewToken,
-		isTablet
+		isTablet,
+		includeSensitiveInformation
 	) {
 		const skin = mw.config.get( 'skin' );
 		const surveyAnswers = Object.keys( answers );
@@ -34,8 +37,6 @@ module.exports = {
 			namespaceId: mw.config.get( 'wgNamespaceNumber' ),
 			surveySessionToken,
 			pageviewToken,
-			pageId: mw.config.get( 'wgArticleId' ),
-			pageTitle: mw.config.get( 'wgPageName' ),
 			surveyCodeName: name,
 			platform: 'web',
 			skin,
@@ -54,6 +55,10 @@ module.exports = {
 		const editCountBucket = mw.config.get( 'wgUserEditCountBucket' );
 		if ( editCountBucket ) {
 			event.editCountBucket = editCountBucket;
+		}
+		if ( includeSensitiveInformation ) {
+			event.pageTitle = mw.config.get( 'wgPageName' );
+			event.pageId = mw.config.get( 'wgArticleId' );
 		}
 		return event;
 	}
