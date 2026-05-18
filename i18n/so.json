@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"prefs-quicksurveyext": "Kordhinta QuickSurvey",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Muuji QuickSurvey-yada",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Astaantani waxay soo bandhigi doontaa [https://www.mediawiki.org/wiki/Extension:QuickSurveys sahanno gaagaaban oo ikhtiyaari ah] oo ay bixiso Wikimedia Foundation, kuwaas oo aan ku xirnayn akoonkaaga.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Muuji dhammaan sahannada",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Qari dhammaan sahannada",
+	"quicksurveys-desc": "Waxay soo bandhigtaa sahannada la habeeyay",
+	"ext-quicksurveys-example-internal-survey-question": "Qoraalku ma weynaadaa?",
+	"ext-quicksurveys-example-internal-survey-description": "Kani waa sharaxaadda sahanka gudaha ee tusaalaha ah",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Haa",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Ma hubo",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Maya",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Kale",
+	"ext-quicksurveys-example-external-survey-question": "Waxaan u baahanahay caawimadaada si aan u horumarino {{SITENAME}}.",
+	"ext-quicksurveys-example-external-survey-description": "Markaad ka jawaabto sahankan waxaad naga caawin doontaa inaan fahanno sida aan uga dhigi karno {{SITENAME}} mid ka wanaagsan oo kuu anfac badan. Mahadsanid!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Sahan uu bixiyay ExampleSurveyProvider. Eeg [//example.org/privacy-policy siyaasadda asturnaanta]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Dhammaan soo gudbinta waa qarsoodi. Eeg [//example.org/privacy-policy siyaasadda asturnaanta].",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "Si aad uga joojiso QuickSurveys inay soo muuqdaan, [[Special:Preferences#mw-prefsection-personal-quicksurveyext|beddel dookhyadaada]].",
+	"ext-quicksurveys-survey-confirm-msg": "Waad ku mahadsan tahay jawaab celinta! Waxaan u adeegsanaynaa si aan {{SITENAME}} uga dhigno mid ka sii wanaagsan!",
+	"ext-quicksurveys-survey-positive": "Haa",
+	"ext-quicksurveys-survey-negative": "Maya",
+	"ext-quicksurveys-survey-neutral": "Ma hubo",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Gudbi",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Dib u noqo",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Fadlan dooro jawaab ama geli jawaabtaada.",
+	"ext-quicksurveys-external-survey-yes-button": "Booqo sahanka",
+	"ext-quicksurveys-external-survey-no-button": "Maya, mahadsanid"
+}
