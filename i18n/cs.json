@@ -1,9 +1,32 @@
 {
 	"@metadata": {
 		"authors": [
-			"TAndic (WMF)"
+			"TAndic (WMF)",
+			"Mormegil"
 		]
 	},
+	"prefs-quicksurveyext": "Rozšíření QuickSurvey",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Zobrazovat rychlé průzkumy",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Tato funkce bude zobrazovat [https://www.mediawiki.org/wiki/Extension:QuickSurveys krátké nepovinné průzkumy] od nadace Wikimedia, které nejsou spojeny s vaším účtem.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Zobrazit všechny průzkumy",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Skrýt všechny průzkumy",
+	"quicksurveys-desc": "Zobrazí nakonfigurované průzkumy",
+	"ext-quicksurveys-example-internal-survey-question": "Měl by text být větší?",
+	"ext-quicksurveys-example-internal-survey-description": "Toto je popis ukázkového interního průzkumu",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Ano",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Nejsem si jist(a)",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Ne",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Jiné",
+	"ext-quicksurveys-example-external-survey-question": "Potřebujeme vaši pomoc při vylepšování {{grammar:2sg|{{SITENAME}}}}.",
+	"ext-quicksurveys-example-external-survey-description": "Zodpovězením tohoto průzkumu nám pomůžete pochopit, jak pro vás učinit {{grammar: 2sg|{{SITENAME}}}} lepší a užitečnější. Děkujeme!",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "Pokud chcete, aby se rychlé průzkumy přestaly zobrazovat, [[Special:Preferences#mw-prefsection-personal-quicksurveyext|upravte si nastavení]].",
+	"ext-quicksurveys-survey-confirm-msg": "Děkujeme za zpětnou vazbu! Využijeme ji, abychom {{grammar:4sg|{{SITENAME}}}} učinili ještě lepší!",
+	"ext-quicksurveys-survey-positive": "Ano",
+	"ext-quicksurveys-survey-negative": "Ne",
+	"ext-quicksurveys-survey-neutral": "Nejsem si jist(a)",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Odeslat",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Zpět",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Vyberte prosím odpověď nebo zadejte svou vlastní.",
 	"ext-quicksurveys-external-survey-yes-button": "Navštívit průzkum",
 	"ext-quicksurveys-external-survey-no-button": "Ne, děkuji"
 }

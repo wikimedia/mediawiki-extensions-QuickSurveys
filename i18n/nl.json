@@ -6,7 +6,8 @@
 			"Mainframe98",
 			"McDutchie",
 			"Romaine",
-			"SPQRobin"
+			"SPQRobin",
+			"Siebrand"
 		]
 	},
 	"prefs-quicksurveyext": "QuickSurvey-uitbreiding",
@@ -14,7 +15,7 @@
 	"ext-quicksurveys-pref-displayquicksurveys-help": "Met deze functie worden [https://www.mediawiki.org/wiki/Extension:QuickSurveys korte, facultatieve enquêtes] van de Wikimedia Foundation weergegeven. Deze zijn niet aan uw account gekoppeld.",
 	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Alle enquêtes weergeven",
 	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Alle enquêtes verbergen",
-	"quicksurveys-desc": "Toont geconfigureerde enquêtes",
+	"quicksurveys-desc": "Geeft geconfigureerde vragenlijsten weer",
 	"ext-quicksurveys-example-internal-survey-question": "Moet de tekst groter zijn?",
 	"ext-quicksurveys-example-internal-survey-description": "Dit is de beschrijving van de interne voorbeeldenquête",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Ja",
