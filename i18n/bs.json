@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Srđan"
+		]
+	},
+	"prefs-quicksurveyext": "Proširenje za brze ankete",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Prikaži brze ankete",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Mogućnost prikazuje [https://www.mediawiki.org/wiki/Extension:QuickSurveys kratke, neobavezne ankete] Fondacije Wikimedia koje nisu povezane s Vašim računom.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Prikaži sve ankete",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Sakrij sve ankete",
+	"quicksurveys-desc": "Prikazuje konfigurirane ankete",
+	"ext-quicksurveys-example-internal-survey-question": "Treba li tekst biti veći?",
+	"ext-quicksurveys-example-internal-survey-description": "Ovo je primjer interne ankete",
+	"ext-quicksurveys-example-internal-survey-answer-positive": "Da",
+	"ext-quicksurveys-example-internal-survey-answer-neutral": "Ne znam",
+	"ext-quicksurveys-example-internal-survey-answer-negative": "Ne",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Drugo",
+	"ext-quicksurveys-survey-positive": "Da",
+	"ext-quicksurveys-survey-negative": "Ne",
+	"ext-quicksurveys-survey-neutral": "Ne znam",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Pošalji",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Nazad",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Izaberite odgovor ili ga sami unesite.",
+	"ext-quicksurveys-external-survey-yes-button": "Otvori anketu",
+	"ext-quicksurveys-external-survey-no-button": "Ne, hvala"
+}
