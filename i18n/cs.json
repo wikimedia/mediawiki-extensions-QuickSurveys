@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"TAndic (WMF)",
-			"Mormegil"
+			"Mormegil",
+			"Matěj Suchánek"
 		]
 	},
 	"prefs-quicksurveyext": "Rozšíření QuickSurvey",
@@ -18,7 +19,7 @@
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Ne",
 	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Jiné",
 	"ext-quicksurveys-example-external-survey-question": "Potřebujeme vaši pomoc při vylepšování {{grammar:2sg|{{SITENAME}}}}.",
-	"ext-quicksurveys-example-external-survey-description": "Zodpovězením tohoto průzkumu nám pomůžete pochopit, jak pro vás učinit {{grammar: 2sg|{{SITENAME}}}} lepší a užitečnější. Děkujeme!",
+	"ext-quicksurveys-example-external-survey-description": "Zodpovězením tohoto průzkumu nám pomůžete pochopit, jak pro vás učinit {{grammar:4sg|{{SITENAME}}}} lepší a užitečnější. Děkujeme!",
 	"ext-quicksurveys-survey-change-preferences-disclaimer": "Pokud chcete, aby se rychlé průzkumy přestaly zobrazovat, [[Special:Preferences#mw-prefsection-personal-quicksurveyext|upravte si nastavení]].",
 	"ext-quicksurveys-survey-confirm-msg": "Děkujeme za zpětnou vazbu! Využijeme ji, abychom {{grammar:4sg|{{SITENAME}}}} učinili ještě lepší!",
 	"ext-quicksurveys-survey-positive": "Ano",
