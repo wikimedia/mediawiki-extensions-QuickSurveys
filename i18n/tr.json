@@ -3,9 +3,12 @@
 		"authors": [
 			"BaRaN6161 TURK",
 			"Leo",
-			"Mavrikant"
+			"Mavrikant",
+			"Rapsar"
 		]
 	},
+	"prefs-quicksurveyext": "QuickSurvey eklentisi",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "QuickSurveys'i göster",
 	"quicksurveys-desc": "Yapılandırılmış anketleri görüntüler",
 	"ext-quicksurveys-example-internal-survey-question": "Metin daha büyük olmalı mı?",
 	"ext-quicksurveys-example-internal-survey-description": "Bu, örnek dahili anketin açıklamasıdır",
