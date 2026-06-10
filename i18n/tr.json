@@ -3,9 +3,13 @@
 		"authors": [
 			"BaRaN6161 TURK",
 			"Mavrikant",
-			"Leo"
+			"Leo",
+			"HakanIST",
+			"Rapsar"
 		]
 	},
+	"prefs-quicksurveyext": "QuickSurvey eklentisi",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "QuickSurveys'i göster",
 	"quicksurveys-desc": "Yapılandırılmış anketleri görüntüler",
 	"ext-quicksurveys-example-internal-survey-question": "Metin daha büyük olmalı mı?",
 	"ext-quicksurveys-example-internal-survey-description": "Bu, örnek dahili anketin açıklamasıdır",
@@ -23,6 +27,7 @@
 	"ext-quicksurveys-survey-negative": "Hayır",
 	"ext-quicksurveys-survey-neutral": "Emin değilim",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "Gönder",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Geri",
 	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Lütfen bir cevap seçin veya kendi cevabınızı girin.",
 	"ext-quicksurveys-external-survey-yes-button": "Anketi ziyaret et",
 	"ext-quicksurveys-external-survey-no-button": "Hayır teşekkürler"
