@@ -4,7 +4,8 @@
 			"BaRaN6161 TURK",
 			"Leo",
 			"Mavrikant",
-			"Rapsar"
+			"Rapsar",
+			"HakanIST"
 		]
 	},
 	"prefs-quicksurveyext": "QuickSurvey eklentisi",
@@ -26,6 +27,7 @@
 	"ext-quicksurveys-survey-negative": "Hayır",
 	"ext-quicksurveys-survey-neutral": "Emin değilim",
 	"ext-quicksurveys-internal-freeform-survey-submit-button": "Gönder",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Geri",
 	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Lütfen bir cevap seçin veya kendi cevabınızı girin.",
 	"ext-quicksurveys-external-survey-yes-button": "Anketi ziyaret et",
 	"ext-quicksurveys-external-survey-no-button": "Hayır teşekkürler"
