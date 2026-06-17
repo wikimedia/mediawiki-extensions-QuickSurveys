@@ -67,7 +67,7 @@ class SurveyContextFilterTest extends \MediaWikiIntegrationTestCase {
 
 	public function testIsAnySurveyAvailable_empty() {
 		$filter = new SurveyContextFilter( [] );
-		$result = $filter->isAnySurveyAvailable( Title::newFromText( 'Foo' ), 'view' );
+		$result = $filter->isAnySurveyAvailable( Title::makeTitle( NS_MAIN, 'Foo' ), 'view' );
 		$this->assertFalse( $result );
 	}
 }
