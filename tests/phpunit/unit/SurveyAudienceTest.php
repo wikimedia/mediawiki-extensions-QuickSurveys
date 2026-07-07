@@ -91,6 +91,11 @@ class SurveyAudienceTest extends \MediaWikiUnitTestCase {
 				[ 'lastEdit' => [ 'to' => '2024-01-01' ] ],
 				'filter to match users that last made edits on or before a certain date'
 			],
+			[
+				[ 'wprov' => [ 'diim1' ] ],
+				[ 'wprov' => [ 'diim1' ] ],
+				'filter to match readers who arrived with a wprov query parameter value'
+			],
 		];
 	}
 
@@ -134,6 +139,12 @@ class SurveyAudienceTest extends \MediaWikiUnitTestCase {
 					'registrationEnd' => 1553877136,
 				],
 				'registrationEnd must be date string in format YYYY-MM-DD'
+			],
+			[
+				[
+					'wprov' => 'diim1',
+				],
+				'wprov must be an array of values'
 			],
 		];
 	}

@@ -288,6 +288,39 @@ QUnit.test( 'isInAudience (groups)', ( assert ) => {
 	);
 } );
 
+QUnit.test( 'isInAudience (wprov)', ( assert ) => {
+	const user = {
+		isAnon() {
+			return true;
+		},
+		getRegistration() {
+			return false;
+		}
+	};
+	const audienceDiscord = { wprov: [ 'diim1' ] };
+
+	assert.strictEqual(
+		qSurveys.isInAudience( audienceDiscord, user, null, undefined, 0, undefined, undefined, 'diim1' ),
+		true,
+		'show survey when the reader arrived with a targeted wprov value'
+	);
+	assert.strictEqual(
+		qSurveys.isInAudience( audienceDiscord, user, null, undefined, 0, undefined, undefined, 'srpw1' ),
+		false,
+		'hide survey when the reader arrived with a non-targeted wprov value'
+	);
+	assert.strictEqual(
+		qSurveys.isInAudience( audienceDiscord, user, null, undefined, 0, undefined, undefined, null ),
+		false,
+		'hide survey when the reader arrived without a wprov value'
+	);
+	assert.strictEqual(
+		qSurveys.isInAudience( {}, user, null, undefined, 0, undefined, undefined, 'diim1' ),
+		true,
+		'wprov value has no effect when the audience does not target wprov'
+	);
+} );
+
 QUnit.test( 'isInAudience (user, minEdits, maxEdits, geo, pageIds, firstEdit, lastEdit)', ( assert ) => {
 	const audienceAnyUser = {},
 		anonUser = {

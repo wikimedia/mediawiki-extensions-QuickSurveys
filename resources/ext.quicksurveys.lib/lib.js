@@ -19,6 +19,9 @@ const config = require( './surveyConfig.json' );
  * @property {DateRange} [firstEdit]
  * @property {DateRange} [lastEdit]
  * @property {string[]} [userInGroup] list of any user groups to target
+ * @property {string[]} [wprov] list of wprov query parameter values to target;
+ *   the survey is limited to readers who arrived on the page with one of these
+ *   provenance values (see https://wikitech.wikimedia.org/wiki/Provenance)
  */
 
 /**
@@ -311,9 +314,11 @@ function isUsingTargetBrowser( targetUserAgent ) {
  * @param {number} pageId ID of the current page
  * @param {string} firstEdit date of the first edit the user made (YYYY-MM-DD)
  * @param {string} lastEdit date of the last edit the user made (YYYY-MM-DD)
+ * @param {string|null} [wprov] wprov query parameter value the reader arrived
+ *  on the page with, if any
  * @return {boolean}
  */
-function isInAudience( audience, user, editCount, geo, pageId, firstEdit, lastEdit ) {
+function isInAudience( audience, user, editCount, geo, pageId, firstEdit, lastEdit, wprov ) {
 	const hasMinEditAudience = audience.minEdits !== undefined,
 		hasMaxEditAudience = audience.maxEdits !== undefined,
 		hasCountries = audience.countries !== undefined,
@@ -321,6 +326,8 @@ function isInAudience( audience, user, editCount, geo, pageId, firstEdit, lastEd
 		hasTarget = audience.userAgent !== undefined && audience.userAgent.length > 0;
 
 	if ( hasPageIds && !audience.pageIds.includes( pageId ) ) {
+		return false;
+	} else if ( audience.wprov !== undefined && !audience.wprov.includes( wprov ) ) {
 		return false;
 	} else if ( ( audience.registrationStart || audience.registrationEnd ) &&
 		registrationDateNotInRange( user, audience.registrationStart,
@@ -613,7 +620,8 @@ Do not run this in production setting.` );
 					window.Geo,
 					mw.config.get( 'wgArticleId' ),
 					mw.config.get( 'wgQSUserFirstEditDate' ),
-					mw.config.get( 'wgQSUserLastEditDate' )
+					mw.config.get( 'wgQSUserLastEditDate' ),
+					require( 'mediawiki.page.ready' ).wprov
 				) &&
 				surveyMatchesPlatform( enabledSurvey, mw.config.get( 'wgMFMode' ) )
 			) {

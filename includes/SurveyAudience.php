@@ -30,6 +30,7 @@ class SurveyAudience extends Schema {
 		'firstEdit' => [ self::ARRAY, self::VALID_DATE_RANGE_KEYS ],
 		'lastEdit' => [ self::ARRAY, self::VALID_DATE_RANGE_KEYS ],
 		'userInGroup' => 'array',
+		'wprov' => 'array',
 	];
 
 	/**

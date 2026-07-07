@@ -29,6 +29,7 @@
 	"ResourceModules": {
 		"ext.quicksurveys.lib": {
 			"dependencies": [
+				"mediawiki.page.ready",
 				"mediawiki.cookie",
 				"mediawiki.storage",
 				"mediawiki.experiments",
