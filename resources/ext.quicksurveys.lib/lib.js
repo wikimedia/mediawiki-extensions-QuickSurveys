@@ -560,7 +560,7 @@ function isQuickSurveysPrefEnabled() {
  *   the survey will be added to DOM based on survey definition and wiki default. You must defined surveyName
  *   when using this parameter.
  * @param {boolean} [forceDisplay] whether the survey should be displayed regardless of audience.
- * @param {boolean} [includeSensitiveInformation] defaults to false. When enabled this will collect
+ * @param {boolean} [includeSensitiveData] defaults to false. When enabled this will collect
  *   information such as page. It is essential that this is only used where it is not possible for the
  *   page to contain the username. For example, if you are running a QuickSurvey on a user's page, do not
  *   enable this as the quick survey would no longer be anonymous.
