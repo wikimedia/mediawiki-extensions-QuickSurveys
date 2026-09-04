@@ -72,7 +72,6 @@ function processSurveyQuestions( questions, pageViewToken ) {
 		let externalLink;
 		try {
 			externalLink = question.link ? new URL(
-				// eslint-disable-next-line mediawiki/msg-doc
 				mw.message( question.link ).parse()
 			) : '';
 		} catch ( e ) {
@@ -85,10 +84,8 @@ function processSurveyQuestions( questions, pageViewToken ) {
 
 		const answers = ( question.answers || [] ).map( ( answer ) => ( {
 			key: answer.label,
-			// eslint-disable-next-line mediawiki/msg-doc
 			label: mw.msg( answer.label ),
 			freeformTextLabel: answer.freeformTextLabel ?
-			// eslint-disable-next-line mediawiki/msg-doc
 				mw.msg( answer.freeformTextLabel ) :
 				undefined
 		} ) );

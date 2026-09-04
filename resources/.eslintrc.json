@@ -4,7 +4,10 @@
 		"commonjs": true
 	},
 	"rules": {
-		"object-shorthand": [ "error", "always" ]
+		"object-shorthand": [
+			"error",
+			"always"
+		]
 	},
 	"extends": [
 		"wikimedia/client",
