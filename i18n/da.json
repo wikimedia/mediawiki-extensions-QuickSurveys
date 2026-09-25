@@ -2,17 +2,34 @@
 	"@metadata": {
 		"authors": [
 			"Kranix",
-			"Saederup92"
+			"Saederup92",
+			"Steenth"
 		]
 	},
+	"prefs-quicksurveyext": "QuickSurvey-udvidelsen",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Vis QuickSurveys",
+	"ext-quicksurveys-pref-displayquicksurveys-help": "Denne funktion viser [https://www.mediawiki.org/wiki/Extension:QuickSurveys korte valgfrie undersøgelser] fra Wikimedia Foundation, som ikke er knyttet til din konto.",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Vis alle undersøgelser",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Skjul alle undersøgelser",
+	"quicksurveys-desc": "Viser konfigurerede undersøgelser",
 	"ext-quicksurveys-example-internal-survey-question": "Burde teksten være større?",
+	"ext-quicksurveys-example-internal-survey-description": "Dette er beskrivelsen af den interne undersøgelse",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Ja",
 	"ext-quicksurveys-example-internal-survey-answer-neutral": "Ikke sikker",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Nej",
-	"ext-quicksurveys-example-external-survey-question": "Vi har brug for din hjælp til at forbedre Wikipedia.",
+	"ext-quicksurveys-example-internal-survey-freeform-text-label": "Andre",
+	"ext-quicksurveys-example-external-survey-question": "Vi har brug for din hjælp til at forbedre {{SITENAME}}.",
+	"ext-quicksurveys-example-external-survey-description": "Ved at besvare denne undersøgelse hjælper du os med at forstå, hvordan vi kan gøre {{SITENAME}} bedre og mere nyttig for dig. Tak!",
+	"ext-quicksurveys-example-external-survey-privacy-policy": "Undersøgelse leveret af ExampleSurveyProvider. Se [//example.org/privacy-policy privatlivspolitik]",
+	"ext-quicksurveys-survey-privacy-policy-default-text": "Alle indsendelser er anonyme. Se [//example.org/privacy-policy privatlivspolitikken].",
+	"ext-quicksurveys-survey-change-preferences-disclaimer": "For at forhindre visning af QuickSurveys skal du [[Special:Preferences#mw-prefsection-personal-quicksurveyext|ændre dine præferencer]].",
+	"ext-quicksurveys-survey-confirm-msg": "Tak for din feedback! Vi bruger den til at gøre {{SITENAME}} endnu bedre!",
 	"ext-quicksurveys-survey-positive": "Ja",
 	"ext-quicksurveys-survey-negative": "Nej",
 	"ext-quicksurveys-survey-neutral": "Ikke sikker",
+	"ext-quicksurveys-internal-freeform-survey-submit-button": "Indsend",
+	"ext-quicksurveys-internal-freeform-survey-back-button": "Tilbage",
+	"ext-quicksurveys-internal-freeform-survey-no-answer-alert": "Vælg venligst et svar, eller indtast dit eget.",
 	"ext-quicksurveys-external-survey-yes-button": "Besøg undersøgelsen",
 	"ext-quicksurveys-external-survey-no-button": "Nej tak"
 }
