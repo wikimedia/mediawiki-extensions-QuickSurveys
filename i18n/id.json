@@ -1,9 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"DDesouza"
+			"DDesouza",
+			"Hidayatsrf"
 		]
 	},
+	"prefs-quicksurveyext": "Ekstensi QuickSurvey",
+	"ext-quicksurveys-pref-displayquicksurveys-label": "Tampilkan QuickSurveys",
+	"ext-quicksurveys-pref-displayquicksurveys-option-enabled": "Tampilkan semua survei",
+	"ext-quicksurveys-pref-displayquicksurveys-option-disabled": "Sembunyikan semua survei",
 	"ext-quicksurveys-example-internal-survey-answer-positive": "Ya",
 	"ext-quicksurveys-example-internal-survey-answer-negative": "Tidak",
 	"ext-quicksurveys-external-survey-yes-button": "Isi survei",
