@@ -4,11 +4,6 @@ namespace QuickSurveys;
 
 class ExternalSurvey extends Survey {
 	/**
-	 * @var bool Whether the survey runs on HTTPS or not.
-	 */
-	private $isInsecure = null;
-
-	/**
 	 * @var string|null The key of the message containing the URL of the external survey.
 	 * @deprecated this field has been moved to SurveyQuestion
 	 */

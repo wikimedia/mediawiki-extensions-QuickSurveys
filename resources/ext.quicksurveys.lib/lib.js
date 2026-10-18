@@ -60,7 +60,6 @@ const config = require( './surveyConfig.json' );
  * @property {Audience} audience
  * @property {(InternalQuestion|ExternalQuestion)[]} questions
  * @property {number} coverage
- * @property {boolean} isInsecure
  * @property {string} module
  * @property {string} name
  * @property {Object} platforms
